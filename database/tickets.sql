@@ -15,13 +15,13 @@ CREATE TABLE TICKET (
     dateCreated DATETIME NOT NULL,
     priority INTEGER,
     isHistory INTEGER NOT NULL,
-    status VARCHAR REFERENCES TAG(name) NOT NULL,
+    status VARCHAR REFERENCES TAG(name) /*NOT NULL*/,
     faqitem INTEGER REFERENCES FAQITEM(id),
     department VARCHAR REFERENCES DEPARTMENT(name),
     aID INTEGER REFERENCES CLIENT(uid),
     uID INTEGER REFERENCES CLIENT(uid) NOT NULL,
     CHECK(isHistory >= 0),
-    CHECK(priority >= 0)
+    CHECK(priority >= 0),
 );
 
 CREATE TABLE FAQITEM (
