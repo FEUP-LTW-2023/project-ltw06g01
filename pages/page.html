@@ -2,19 +2,15 @@
 <html>
 <head>
 <title>Ticket System</title>
-  <script src="scr.js" defer></script>
+  <script src="scr.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
   <h1>Ticket System</h1>
-  <nav>
-    <ul>
-      <li><a href="index.php">Home</a></li>
-    </ul>
-  </nav>
 </header>
 <main>
+  <div class = "container">
     <section id="login">
         <h2>Login</h2>
         <form>
@@ -28,9 +24,8 @@
           </div>
           <button type="submit">Login</button>
         </form>
-        <button type="button" id="signup-button">Ainda não tens conta?</button>
       </section>
-      
+      <!--
       <section id="signup">
         <h2>Sign Up</h2>
         <form>
@@ -52,9 +47,10 @@
           </div>
           <button type="submit">Sign Up</button>
         </form>
-        <button type="button" id="login-button">Já tens conta?</button>
       </section>
-  <section>
+      --> 
+    </div>
+  <section id="sec1">
     <h2>Secção 1</h2>
     <nav class="buttons">
 
@@ -66,10 +62,13 @@
         <div class="button admin-button">Promover</div>
     </nav>
   </section>
-  <section>
+  
+  
+  <section id="sec2">
     <h2>Secção 2</h2>
     <p>Perguntas frequentes</p>
   </section>
+  
 </main>
 <footer>
   <p>Algum footer que queiramos</p>

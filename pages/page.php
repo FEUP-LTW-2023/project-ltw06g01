@@ -11,6 +11,7 @@
   <nav>
     <ul>
       <li><a href="index.php">Home</a></li>
+      <li><a href="index.php">Login/Sign up</a></li>
     </ul>
   </nav>
 </header>
@@ -28,7 +29,6 @@
         </div>
         <button type="submit">Login</button>
       </form>
-      <button type="button" id="signup-button">Ainda não tens conta?</button>
     </section>
     
     <section id="signup">
@@ -51,7 +51,6 @@
           <input type="password" id="confirm-password" name="confirm-password">
         </div>
         <button type="submit">Sign Up</button>
-        <button type="button" id="login-button">Já tens conta?</button>
       </form>
     </section>
   <section>
