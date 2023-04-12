@@ -15,7 +15,7 @@
 </header>
 <main>
     <form>
-        <input type="hidden" value=<?= $_GET['uid'] ?>>
+        <input type="hidden" name="uid" value=<?= $_GET['uid'] ?>>
         <input type="text" name="title" placeholder="Enter ticket title">
         <textarea name="fulltext" rows="8" cols="80">Please describe your issue here</textarea>
         <button formaction="open_ticket.php" formmethod="post" type="submit">Submit ticket</button>
