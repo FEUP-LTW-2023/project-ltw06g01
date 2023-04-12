@@ -38,32 +38,36 @@ window.onload = function() {
 // Selecionar os elementos de login e inscrição
 var loginSection = document.getElementById("login");
 var signupSection = document.getElementById("signup");
+console.log(signupSection);
+
+// Esconder a seção de inscrição inicialmente
+signupSection.style.display = "none";
 
 // Adicionar um evento de clique no botão "Ainda não tens conta?"
-var signupButton = document.querySelector("button[id='signup-button']");
+var signupButton = signupSection.querySelector("#login-button");
+console.log(signupButton);
 signupButton.addEventListener("click", function() {
   // Esconder a seção de login
   loginSection.style.display = "none";
   // Mostrar a seção de inscrição
-  signupSection.style.display = "block";
+  signupSection.style.display = "flex";
 });
 
 // Adicionar um evento de clique no botão "Já tens conta?"
-var loginButton = document.querySelector("button[type='login-button']");
+var loginButton = loginSection.querySelector("#signup-button");
 loginButton.addEventListener("click", function() {
   // Esconder a seção de inscrição
   signupSection.style.display = "none";
   // Mostrar a seção de login
-  loginSection.style.display = "block";
+  loginSection.style.display = "flex";
 });
-
-// Esconder a seção de inscrição inicialmente
-signupSection.style.display = "none";
 
 // Esconder a seção de inscrição quando a página é carregada
 window.onload = function() {
   showButtons(user.type);
   signupSection.style.display = "none";
+  loginSection.style.display = "flex";
+
 };
 
 

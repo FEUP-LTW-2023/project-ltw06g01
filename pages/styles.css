@@ -55,19 +55,17 @@
   }
   
 
-  .login {
+  #login {
     flex-basis: 50%;
     height: 50%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   
-  .signup {
+  #signup {
     flex-basis: 50%;
     height: 50%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
