@@ -77,3 +77,5 @@ CREATE TABLE FAQTAG (
     tag VARCHAR REFERENCES TAG(name),
     PRIMARY KEY (fID, tag)
 );
+
+INSERT INTO CLIENT VALUES(25, "onso", "adwad", "afonso.vo@gmail.com", 0);

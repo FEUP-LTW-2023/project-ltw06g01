@@ -35,8 +35,9 @@
     }
 
     function addTicket($db, $uid, $title, $text) {
+        echo var_dump(array($uid, $title, $text));
         $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, isHistory) VALUES (?, ?, ?, ?, 0)');
         $date = date('Y-m-d');
-        $stmt->execute(array($title, $text, $uid));
+        $stmt->execute(array($title, $text, $date, $uid));
     }
 ?>
