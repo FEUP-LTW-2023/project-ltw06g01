@@ -27,7 +27,7 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password">
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" formaction='/../actions/login.action.php' formmethod='post'>Login</button>
       </form>
     </section>
     

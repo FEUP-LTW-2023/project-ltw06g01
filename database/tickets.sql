@@ -41,9 +41,9 @@ CREATE TABLE MESSAGE (
 
 CREATE TABLE CLIENT (
     uid INTEGER PRIMARY KEY,
-    username VARCHAR NOT NULL,
+    username VARCHAR NOT NULL UNIQUE,
     passHash VARCHAR NOT NULL,
-    email VARCHAR NOT NULL,
+    email VARCHAR NOT NULL UNIQUE,
     permissionLevel INTEGER NOT NULL,
     CHECK(permissionLevel >= 0 AND permissionLevel < 3)
 );
