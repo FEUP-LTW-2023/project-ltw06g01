@@ -1,3 +1,7 @@
+<?php 
+  require_once(__DIR__ . '/../database/connection.php');
+  require_once(__DIR__ . '/../database/departments.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +21,9 @@
           <div>
             <label for="department">Departamento:</label>
             <select id="department" name="department">
-              <option value="suporte">Suporte</option>
-              <option value="vendas">Vendas</option>
-              <option value="financeiro">Financeiro</option>
+              <?php foreach (getDepartments(getDatabaseConnection()) as $department) { ?>
+                <option value=<?=$department['name']?>><?=$department['name']?></option>
+              <?php } ?>
             </select>
           </div>
           <div>
