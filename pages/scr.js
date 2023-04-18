@@ -28,23 +28,12 @@ function showButtons(userType) {
 
 // Exemplo de autenticação 
 var user = {
-  type: 'admin'
+  type: 'none'
 };
 
 window.onload = function() {
   showButtons(user.type);
 };
-/*
-//Para ao dar login enviar a box do login para cima:
-const loginForm = document.querySelector('.form-box-login');
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  loginForm.classList.add('hidden');
-  setTimeout(() => {
-    window.location.href = 'mainpage.html';
-  }, 500);
-});
-*/
 
 
 //Caso não tenha conta e queira dar signup ou vice versa, então fzemos animações com as boxs
@@ -53,6 +42,7 @@ const loginBox = document.querySelector('#login-box');
 const signupBox = document.querySelector('#signup-box');
 const loginButton = document.querySelector('#login-button');
 const signupButton = document.querySelector('#Register-button');
+
 
 // adicione o manipulador de eventos de clique aos botões
 loginButton.addEventListener('click', () => {
@@ -83,7 +73,17 @@ loginBox.style.display = 'none';
 signupBox.style.display = 'block';
 signupBox.style.animation = 'slideInRight 1s ease-in-out';
 }, 900)
-
 }
 });
+
+const loginForm = document.querySelector('.form-box-login');
+//Para ao dar login enviar a box do login para cima:
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  loginForm.classList.add('hidden');
+  setTimeout(() => {
+    window.location.href = 'mainpage.html';
+  }, 500);
+});
+
 

@@ -19,6 +19,7 @@ section{
     width: 300px;
     height: 340px;
     background: transparent;
+    
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
     backdrop-filter: blur(15px);
@@ -31,7 +32,6 @@ section{
 .form-box-login.hidden{
   transform: translateY(-300%);
 }
-
 
 h1{
   font-size: 5em;

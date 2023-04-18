@@ -7,8 +7,13 @@
 </head>
 <body>
     <h1>Ticket System</h1>
+    <section id="logout">
+      <div class ="logout-box">
+        <p>Logout</p>
+      </div>
+    </section>
     <section id="login">
-          <div class ="form-box" id="login-box" style="display: none;">
+          <div class ="form-box" id="login-box">
             <div class="form-value">
               <form action="">
                 <h2>Login</h2>
@@ -16,50 +21,55 @@
                   <ion-icon name="person-outline"></ion-icon>
                   <input type="text" required id="username" name="username">
                   <label for="username">Username:</label>
+                </div>
+                <div class="inputbox">
+                  <ion-icon name="lock-closed-outline"></ion-icon>
+                  <input type="password" required id="password" name="password">
+                  <label for="password">Password:</label>
+                </div>
+                <div class="forget">
+                  <a href="#">Forget Password</a>
+                </div>
+                <button type="submit" class="submit-login">Login</button>
+                <div classe="Register" id="Register-button">
+                  <p>Don't have a account?</p>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="inputbox">
-            <ion-icon name="lock-closed-outline"></ion-icon>
-            <input type="password" required id="password" name="password">
-            <label for="password">Password:</label>
-
-          </div>
-          <div class="forget">
-            <a href="#">Forget Password</a>
-          </div>
-          <button type="submit">Login</button>
-          <div classe="Register" id="Register-button">
-            <p>Don't have a account </p>
-          </div>
-      </section>
-      <section id="signup">
-        <div class ="form-box" id="signup-box" >
-          <div class="form-value">
-            <form action="">
-              <h2>Sign Up</h2>
-              <div class="inputbox">
-                <ion-icon name="person-outline"></ion-icon>
-                <input type="text" required id="username" name="username">
-                <label for="username">Username:</label>
-              </div>
-              <div class="inputbox">
-                <ion-icon name="mail-outline"></ion-icon>
-                <input type="text" required id="username" name="username">
-                <label for="email">Email:</label>
-              </div>
-              <div class="inputbox">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-                <input type="password" required id="password" name="password">
-                <label for="password">Password:</label>
-              </div>
-              <div class="inputbox">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-                <input type="password" required id="confirm-password" name="confirm-password">
-                <label for="confirm-password">Confirm Password:</label>
-              </div>
-              <button type="submit">Sign Up</button>
-              <div class="Enter" id="login-button">
-               <p>Already have an account? </p>
-              </div>
+    </section>
+    <section id="signup">
+      <div class ="form-box" id="signup-box" style="display: none;" >
+        <div class="form-value">
+          <form action="">
+            <h2>Sign Up</h2>
+            <div class="inputbox">
+              <ion-icon name="person-outline"></ion-icon>
+              <input type="text" required id="username" name="username">
+              <label for="username">Username:</label>
+            </div>
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="text" required id="username" name="username">
+              <label for="email">Email:</label>
+            </div>
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input type="password" required id="password" name="password">
+              <label for="password">Password:</label>
+            </div>
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input type="password" required id="confirm-password" name="confirm-password">
+              <label for="confirm-password">Confirm Password:</label>
+            </div>
+            <button type="submit" class="submit-login">Sign Up</button>
+            <div class="Enter" id="login-button">
+              <p>Already have an account? </p>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
     <section>
       <nav class="buttons">
@@ -73,7 +83,7 @@
           <div class="button admin-button">Promover</div>
       </nav>
     </section>
-    <section>
+    <section id="FAQs">
       <p>Perguntas frequentes</p>
     </section>
   <footer>
