@@ -8,7 +8,7 @@
 <body>
     <h1>Ticket System</h1>
     <section id="login">
-          <div class ="form-box">
+          <div class ="form-box" id="login-box" style="display: none;">
             <div class="form-value">
               <form action="">
                 <h2>Login</h2>
@@ -28,11 +28,11 @@
           </div>
           <button type="submit">Login</button>
           <div classe="Register" id="Register-button">
-            <p>Don't have a account <a href="#">Register</a></p>
+            <p>Don't have a account </p>
           </div>
       </section>
       <section id="signup">
-        <div class ="form-box">
+        <div class ="form-box" id="signup-box" >
           <div class="form-value">
             <form action="">
               <h2>Sign Up</h2>
@@ -58,12 +58,14 @@
               </div>
               <button type="submit">Sign Up</button>
               <div class="Enter" id="login-button">
-               <p>Already have an account? <a href="#">Enter</a></p>
+               <p>Already have an account? </p>
               </div>
     </section>
     <section>
       <nav class="buttons">
-          <div class="button client-button">Criar um novo Ticket></div>
+          <div class="button client-button">Criar um novo Ticket
+            <ion-icon name="ticket-outline"></ion-icon>
+          </div>
           <div class="button client-button">Tickets abertos</div>
           <div class="button agent-button">Tickets do próprio departamento</div>
           <div class="button admin-button">Associar agentes a departamentos</div>

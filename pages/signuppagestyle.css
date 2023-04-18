@@ -6,7 +6,7 @@
 }
 body{
   background: url('background6.jpg')no-repeat;
-  background-color: black;
+  background-color: #f4f6f9;
   background-position: center;
   background-size: auto;
 }
@@ -16,22 +16,6 @@ section{
     align-items: center;
 }
 
-.form-box-login{
-  display: flex;
-    position: relative;
-    width: 300px;
-    height: 340px;
-    background: transparent;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-    justify-content: center;
-    align-items: center;
-    transform: translateY(0%);
-    transition: transform 0.5s ease-in-out;
-}
-
-
 .form-box-signup{
   position: relative;
   width: 300px;
@@ -40,57 +24,13 @@ section{
   border: 2px solid rgba(255,255,255,0.5);
   border-radius: 15px;
   backdrop-filter: blur(15px);
+  display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(0%);
-  transition: transform 0.5s ease-in-out;
 }
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-400%);
-  }
-  to {
-    transform: translateX(0);
-  }
+.form-box-signup.hidden{
+  transform: translateY(-300%);
 }
-@keyframes slideOutLeft {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-400%);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(400%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-@keyframes slideOutRight {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(400%);
-  }
-}
-
-.slideInLeft {
-  animation-name: slideInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-}
-
-.slideInRight {
-  animation-name: slideInRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-}
-
 
 h1{
   font-size: 5em;
@@ -186,31 +126,7 @@ button{
     text-decoration: underline;
 }
 
-/*Para os botões */
-.admin-button, .agent-button, .client-button {
-  position: relative;
-  text-align: center;
-  width: relative;
-  background-color: transparent;
-  color: white;
-  backdrop-filter: blur(90px);
-  padding: 9px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  justify-content: center;
-  border-radius: 30px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  display: none;
-}
-
-.buttons {
-  display: flex;
-}
-
-
 /* Estilos para o footer */
-
 footer {
   padding: 20px;
   background-color: transparent;
