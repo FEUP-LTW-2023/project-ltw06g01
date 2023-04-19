@@ -21,7 +21,6 @@
       <section id="ticket-form">
         <h2>Preencha o Formulário do Ticket</h2>
         <form action="../actions/open_ticket.action.php" method="post">
-          <input type="hidden" name="uid" value=<?=$_GET["uid"]?>>
           <div>
             <label for="department">Departamento:</label>
             <select id="department" name="department">
