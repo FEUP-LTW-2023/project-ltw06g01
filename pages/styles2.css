@@ -61,7 +61,7 @@ footer {
 }
 
 #ticket-form textarea {
-    resize: horizontal;
+    resize: none;
     min-height: 100px;
     width: 200%;
 }

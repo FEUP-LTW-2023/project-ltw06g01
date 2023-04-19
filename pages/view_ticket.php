@@ -6,9 +6,11 @@
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/tickets.php');
+    require_once(__DIR__ . '/../utils/validations.php');
 
     $db = getDatabaseConnection();
     $ticket = getTicket($db, $_GET['id']);
+    if (!(isValidUser($ticket, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
 ?>    
 
 <!DOCTYPE html>
