@@ -4,8 +4,6 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/client.php');
 
-    echo var_dump($_POST);
-
     $db = getDatabaseConnection();
 
     $user = tryLoginName($db, $_POST["username"]);
@@ -20,5 +18,5 @@
         }
     }
 
-    echo var_dump($_SESSION);
+    header('Location: ../pages/page.php');
 ?>    
