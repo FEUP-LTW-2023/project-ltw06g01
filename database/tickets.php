@@ -37,6 +37,9 @@
     function addTicket($db, $uid, $title, $text, $department) {
         $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, isHistory) VALUES (?, ?, ?, ?, ?, 0)');
         $date = date('Y-m-d');
-        $stmt->execute(array($title, $text, $date, $uid, $department));
+        $result = $stmt->execute(array($title, $text, $date, $uid, $department));
+
+        if ($result === 0) return -1;
+        else return $db->lastInsertId();
     }
 ?>

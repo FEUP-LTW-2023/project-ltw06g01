@@ -19,7 +19,7 @@
 </head>
 <body>
   <header>
-    <h1>Visualizar Tciket</h1>
+    <h1>Visualizar Ticket</h1>
   </header>
   <main>
     <div class="container">
