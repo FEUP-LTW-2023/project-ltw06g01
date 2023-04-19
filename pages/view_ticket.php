@@ -6,11 +6,13 @@
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/tickets.php');
+    require_once(__DIR__ . '/../database/message.php');
     require_once(__DIR__ . '/../utils/validations.php');
 
     $db = getDatabaseConnection();
     $ticket = getTicket($db, $_GET['id']);
     if (!(isValidUser($ticket, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
+    $messages = getMessagesFromTicket($db, $_GET['id']);
 ?>    
 
 <!DOCTYPE html>
@@ -45,6 +47,14 @@
         </form>
       </section>
     </div>
+    <section id="messages">
+        <?php foreach ($messages as $message) { ?>
+        <div class = "message">
+            <h2><?=$message['dateSent']?></h2>
+            <p><?=$message['text']?></p>
+        </div>
+        <?php } ?>
+    </section>    
   </main>
   <footer>
     <p>Algum footer que queiramos</p>
