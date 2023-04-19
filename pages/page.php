@@ -50,7 +50,7 @@
           <label for="confirm-password">Confirm Password:</label>
           <input type="password" id="confirm-password" name="confirm-password">
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit" formaction='/../actions/register.action.php' formmethod='post'>Sign Up</button>
       </form>
     </section>
   <section>
