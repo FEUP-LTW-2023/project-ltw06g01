@@ -11,7 +11,7 @@
 
     $db = getDatabaseConnection();
     $ticket = getTicket($db, $_GET['id']);
-    if (!(isValidUser($ticket, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
+    if (!(isValidUser($ticket['uID'], $ticket['aID'], $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
     $messages = getMessagesFromTicket($db, $_GET['id']);
 ?>    
 
@@ -55,6 +55,15 @@
         </div>
         <?php } ?>
     </section>    
+    <section id="add-message"> 
+        <form>
+            <input type="hidden" name="tID" value=<?=$ticket['id']?>>
+            <input type="hidden" name="tuid" value=<?=$ticket['uID']?>>
+            <input type="hidden" name="auid" value=<?=$ticket['aUID']?>>
+            <input type="text" id="message-text" name="text" placeholder="Write a message">
+            <button type="submit" formaction="../actions/send_message.action.php" formmethod="get">Send</button>
+        </form>
+    </section>        
   </main>
   <footer>
     <p>Algum footer que queiramos</p>
