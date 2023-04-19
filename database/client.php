@@ -24,11 +24,7 @@
         $stmt = $db->prepare('INSERT INTO CLIENT(username, passHash, email, permissionLevel) VALUES (?, ?, ?, 0)');
         $result = $stmt->execute(array($username, hash('sha256', $password,), $email));
 
-        $stmt = $db->prepare('SELECT uid FROM CLIENT WHERE username = ?');
-        $stmt->execute(array($username));
-        $uid = $stmt->fetch();
-
-        return array(!($result === 0), $uid);
+        return array(!($result === 0), $db->lastInsertId());
     }
 
     function updateUserPerms($db, $id, $newLevel) {
