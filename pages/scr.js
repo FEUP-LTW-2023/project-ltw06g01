@@ -1,7 +1,7 @@
 
 // Exemplo de autenticação 
 var user = {
-  type: 'client'
+  type: 'admin'
 };
 //Caso não tenha conta e queira dar signup ou vice versa, então fzemos animações com as boxs
 // selecione os elementos DOM
@@ -47,7 +47,7 @@ signupBox.style.animation = 'slideInRight 1s ease-in-out';
 });
 
 //Para ao dar login enviar a box do login para cima e aparecer logout:
-loginForm.addEventListener('click', (event) => {
+loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
   loginBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
   logoutBox.style.display = "grid";

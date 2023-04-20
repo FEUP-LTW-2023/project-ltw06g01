@@ -342,9 +342,123 @@ top: -4px;
   font-size: 4em;
   right: 10px;
 }
-
-
 /*
+.buttons, .menu {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.buttons {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  transition: 0.5s;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0,0,0,.2);
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.buttons input:checked ~ .menu {
+  width: 450px;
+}
+
+.menu li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.menu li a:hover {
+  color: #161919;
+}
+
+.buttons input {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.buttons span {
+  position: absolute;
+  left: 30px;
+  width: 30px;
+  height: 4px;
+  border-radius: 50px;
+  background-color: #666;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.buttons input:checked ~ span {
+  background-color: #f974a1;
+}
+
+.buttons span:nth-child(2) {
+  transform: translateY(-8px);
+}
+
+.buttons input:checked ~ span:nth-child(2) {
+  transform: translateY(0) rotate(-45deg);
+}
+.buttons span:nth-child(3) {
+  transform: translateY(8px);
+}
+
+.buttons input:checked ~ span:nth-child(3) {
+  transform: translateY(0) rotate(45deg);
+}
+*/
+
+.before-menu {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height:40px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 30px;
+  background-color: white;
+  transition: 0.5s;
+  box-shadow: 0 8px 15px rgba(0,0,0,.2);
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu li  {
+  text-decoration: none;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.menu li :hover {
+  color: #161919;
+}
+.client-button a, .agent-button a, .admin-button a {
+  text-decoration: none;
+  color: inherit;
+}
 .admin-button, .agent-button, .client-button {
   display: none;
   position: relative;
@@ -353,44 +467,14 @@ top: -4px;
   background-color: transparent;
   color: white;
   backdrop-filter: blur(90px);
-  padding: 9px;
+  padding: 2px;
   border: 2px solid #fff/*rgba(255, 255, 255, 0.5)*/;
-  /*
   justify-content: center;
   border-radius: 30px;
   outline: none;
   cursor: pointer;
 }
-*/
 
-.buttons {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f2f2f2;
-  padding: 10px;
-  }
-  
-  .client-button, .agent-button, .admin-button {
-  flex: 1;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  background-color: transparent;
-  color: black;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  margin: 0 5px;
-  cursor: pointer;
-  font-size: 16px;
-  }
-.client-button:hover, .agent-button:hover, .admin-button:hover {
-    background-color: #ddd;
-    }
-    
-
-/* Estilos para o footer */
 
 footer {
   position:absolute; /*perguntar ao professor*/
