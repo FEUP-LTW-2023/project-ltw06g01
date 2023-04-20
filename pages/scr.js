@@ -1,60 +1,30 @@
-function showButtons(userType) {
-  if(userType != 'none'){
-  // Esconder todos os botões primeiro
-  var clientButtons = document.querySelectorAll('.client-button');
-    for (var i = 0; i < clientButtons.length; i++) {
-      clientButtons[i].style.display = 'inline-block';
-    }
-  
-  // Mostrar botões relevantes com base no tipo de usuário
-  if (userType === 'admin') {
-    var agentButtons = document.querySelectorAll('.agent-button');
-    for (var i = 0; i < agentButtons.length; i++) {
-      agentButtons[i].style.display = 'inline-block';
-    }
-    var adminButtons = document.querySelectorAll('.admin-button');
-    for (var i = 0; i < adminButtons.length; i++) {
-      adminButtons[i].style.display = 'inline-block';
-    }
-  } 
-  else if (userType === 'agent') {
-    var agentButtons = document.querySelectorAll('.agent-button');
-    for (var i = 0; i < agentButtons.length; i++) {
-      agentButtons[i].style.display = 'inline-block';
-    }
-  } 
-}
-}
 
 // Exemplo de autenticação 
 var user = {
-  type: 'none'
+  type: 'client'
 };
-
-window.onload = function() {
-  showButtons(user.type);
-};
-
-
 //Caso não tenha conta e queira dar signup ou vice versa, então fzemos animações com as boxs
 // selecione os elementos DOM
 const loginBox = document.querySelector('#login-box');
 const signupBox = document.querySelector('#signup-box');
 const loginButton = document.querySelector('#login-button');
 const signupButton = document.querySelector('#Register-button');
-
+const loginForm = document.querySelector('.submit-login');
+const signupForm = document.querySelector('.submit-signup');
+const logoutForm = document.querySelector('.logout-box');
+const logoutBox = document.querySelector('.logout-box')
 
 // adicione o manipulador de eventos de clique aos botões
 loginButton.addEventListener('click', () => {
 // verifica se a caixa de login já está visível
-if (loginBox.style.display === 'block') {
+if (loginBox.style.display === 'grid') {
 return; // não faz nada se já estiver visível
 }
 else{// esconde a caixa de inscrição e mostra a caixa de login
 signupBox.style.animation = 'slideOutRight 1s ease-in-out';
 setTimeout(() => {
 signupBox.style.display = 'none';
-loginBox.style.display = 'block';
+loginBox.style.display = 'grid';
 loginBox.style.animation = 'slideInLeft 1s ease-in-out';
 }, 900)
 }
@@ -62,7 +32,7 @@ loginBox.style.animation = 'slideInLeft 1s ease-in-out';
 
 signupButton.addEventListener('click', () => {
 // verifica se a caixa de inscrição já está visível
-if (signupBox.style.display === 'block') {
+if (signupBox.style.display === 'grid') {
 return; // não faz nada se já estiver visível
 }
 // esconde a caixa de login e mostra a caixa de inscrição
@@ -70,20 +40,116 @@ else{
 loginBox.style.animation = 'slideOutLeft 1s ease-in-out';
 setTimeout(() => {
 loginBox.style.display = 'none';
-signupBox.style.display = 'block';
+signupBox.style.display = 'grid';
 signupBox.style.animation = 'slideInRight 1s ease-in-out';
 }, 900)
 }
 });
 
-const loginForm = document.querySelector('.form-box-login');
-//Para ao dar login enviar a box do login para cima:
-loginForm.addEventListener('submit', (event) => {
+//Para ao dar login enviar a box do login para cima e aparecer logout:
+loginForm.addEventListener('click', (event) => {
   event.preventDefault();
-  loginForm.classList.add('hidden');
+  loginBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
+  logoutBox.style.display = "grid";
+  logoutBox.style.animation = "slideInLogout 2s ease-in-out";
+  showButtons(user.type);
   setTimeout(() => {
-    window.location.href = 'mainpage.html';
-  }, 500);
+  loginBox.style.display = 'none';
+}, 500)
 });
 
+//Para ao dar signup enviar a box do signup para cima e aparecer logout:
+signupForm.addEventListener('click', (event) => {
+  event.preventDefault();
+  signupBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
+  logoutBox.style.display = "grid";
+  logoutBox.style.animation = "slideInLogout 2s ease-in-out";
+  showButtons(user.type);
+  setTimeout(() => {
+  signupBox.style.display = 'none';
+}, 500)
+});
+
+logoutForm.addEventListener('click', (event) => {
+  event.preventDefault();
+  logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
+  outButtons(user.type);
+  setTimeout(() => {
+  loginBox.style.display = "grid";
+  loginBox.style.animation = "slideInLogout 2s ease-in-out";
+}, 1000)
+  setTimeout(() => {
+  logoutBox.style.display = 'none';
+}, 500)
+});
+
+function showButtons(userType) {
+  if(userType != 'none'){
+  var clientButtons = document.querySelectorAll('.client-button');
+    for (var i = 0; i < clientButtons.length; i++) {
+      clientButtons[i].style.animation = "slideInButtons 2s ease-in-out";
+      clientButtons[i].style.display = 'inline-grid';
+    }
+  
+  // Mostrar botões relevantes com base no tipo de usuário
+  if (userType === 'admin') {
+    var agentButtons = document.querySelectorAll('.agent-button');
+    for (var i = 0; i < agentButtons.length; i++) {
+      agentButtons[i].style.animation = "slideInButtons 2s ease-in-out";
+      agentButtons[i].style.display = 'inline-grid';
+    }
+    var adminButtons = document.querySelectorAll('.admin-button');
+    for (var i = 0; i < adminButtons.length; i++) {
+      adminButtons[i].style.animation = "slideInButtons 2s ease-in-out";
+      adminButtons[i].style.display = 'inline-grid';
+    }
+  } 
+  else if (userType === 'agent') {
+    var agentButtons = document.querySelectorAll('.agent-button');
+    for (var i = 0; i < agentButtons.length; i++) {
+      clientButtons[i].style.animation = "slideInButtons 2s ease-in-out";
+      agentButtons[i].style.display = 'inline-grid';
+    }
+  } 
+}
+}
+
+function outButtons(userType) {
+  if(userType != 'none'){
+  var clientButtons = document.querySelectorAll('.client-button');
+    for (var i = 0; i < clientButtons.length; i++) {
+      clientButtons[i].style.animation = "slideOutButtons 2s ease-in-out";
+      setTimeout(() => {
+      clientButtons[i].style.display = 'none';
+    }, 500)
+    }
+  
+  // Mostrar botões relevantes com base no tipo de usuário
+  if (userType === 'admin') {
+    var agentButtons = document.querySelectorAll('.agent-button');
+    for (var i = 0; i < agentButtons.length; i++) {
+      agentButtons[i].style.animation = "slideOutButtons 2s ease-in-out";
+      setTimeout(() => {
+      agentButtons[i].style.display = 'none';
+    }, 500)
+    }
+    var adminButtons = document.querySelectorAll('.admin-button');
+    for (var i = 0; i < adminButtons.length; i++) {
+      adminButtons[i].style.animation = "slideOutButtons 2s ease-in-out";
+      setTimeout(() => {
+      adminButtons[i].style.display = 'none';
+    }, 500)
+    }
+  } 
+  else if (userType === 'agent') {
+    var agentButtons = document.querySelectorAll('.agent-button');
+    for (var i = 0; i < agentButtons.length; i++) {
+      clientButtons[i].style.animation = "slideOutButtons 2s ease-in-out";
+      setTimeout(() => {
+      agentButtons[i].style.display = 'none';
+    }, 500)
+    }
+  } 
+}
+}
 

@@ -6,14 +6,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="header">
     <h1>Ticket System</h1>
-    <section id="logout">
+    <section id="logout" >
       <div class ="logout-box">
         <p>Logout</p>
       </div>
     </section>
+    </header>
     <section id="login">
-          <div class ="form-box" id="login-box">
+          <div class ="form-box-login" id="login-box">
             <div class="form-value">
               <form action="">
                 <h2>Login</h2>
@@ -27,19 +29,21 @@
                   <input type="password" required id="password" name="password">
                   <label for="password">Password:</label>
                 </div>
-                <div class="forget">
-                  <a href="#">Forget Password</a>
-                </div>
                 <button type="submit" class="submit-login">Login</button>
-                <div classe="Register" id="Register-button">
-                  <p>Don't have a account?</p>
+                <div class="Reg-forget">
+                  <div classe="Register" id="Register-button">
+                    <p>New account?</p>
+                  </div>
+                  <div class="forget">
+                    <a href="#">Forget Password?</a>
+                  </div>
                 </div>
               </form>
             </div>
           </div>
     </section>
     <section id="signup">
-      <div class ="form-box" id="signup-box" style="display: none;" >
+      <div class ="form-box-signup" id="signup-box">
         <div class="form-value">
           <form action="">
             <h2>Sign Up</h2>
@@ -63,7 +67,7 @@
               <input type="password" required id="confirm-password" name="confirm-password">
               <label for="confirm-password">Confirm Password:</label>
             </div>
-            <button type="submit" class="submit-login">Sign Up</button>
+            <button type="submit" class="submit-signup">Sign Up</button>
             <div class="Enter" id="login-button">
               <p>Already have an account? </p>
             </div>
@@ -73,18 +77,30 @@
     </section>
     <section>
       <nav class="buttons">
-          <div class="button client-button">Criar um novo Ticket
+          <div class="client-button">Criar um novo Ticket
             <ion-icon name="ticket-outline"></ion-icon>
           </div>
-          <div class="button client-button">Tickets abertos</div>
-          <div class="button agent-button">Tickets do próprio departamento</div>
-          <div class="button admin-button">Associar agentes a departamentos</div>
-          <div class="button admin-button">Adicionar novos departamentos/dados/entidades</div>
-          <div class="button admin-button">Promover</div>
+          <div class="client-button">Tickets abertos
+            <ion-icon name="receipt-outline"></ion-icon>
+            <ion-icon name="file-tray-stacked-outline"></ion-icon>
+          </div>
+          <div class="agent-button">Tickets do próprio departamento
+            <ion-icon name="construct-outline"></ion-icon>
+          </div>
+          <div class="admin-button">Associar agentes a departamentos
+            <ion-icon name="construct-outline"></ion-icon>
+          </div>
+          <div class="admin-button">Adicionar novos departamentos/dados/entidades
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </div>
+          <div class="admin-button">Promover
+            <ion-icon name="person-add-outline"></ion-icon>
+          </div>
       </nav>
     </section>
-    <section id="FAQs">
-      <p>Perguntas frequentes</p>
+    <section class="FAQs">
+      <ion-icon name="help-circle-outline" id="Faqs-icon"></ion-icon>
+      <p>FAQ's</p>
     </section>
   <footer>
     <p>Algum footer que queiramos</p>

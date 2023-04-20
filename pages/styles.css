@@ -5,18 +5,43 @@
     font-family: 'poppins',sans-serif;
 }
 body{
-  background: url('background6.jpg')no-repeat;
+  /*background: url('background6.jpg')no-repeat;*/
+  background-color: rgba(142, 142, 142, 0.8);
   background-position: center;
   background-size: auto;
 }
+
+.header{
+  /*background-image: linear-gradient(to bottom, aquamarine, rgba(0,0,0,0.2));*/
+  background-color: rgba(0, 0, 0, 0);
+  height: 150px;
+}
+
+h1{
+  left: 0;
+  display: grid;
+  position:fixed;
+  font-size: 3em; /* tamanho da fonte reduzido */
+  line-height: 100px;  color: #fff;
+  padding-bottom: 0.3em;
+  padding-top: 0.2em;
+  padding-left: 0.3em;
+}
+
 section{
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
 }
 
+h2{
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+
 .form-box-login{
-    display: flex;
+    display: grid;
     position: relative;
     width: 300px;
     height: 340px;
@@ -26,10 +51,9 @@ section{
     backdrop-filter: blur(15px);
     justify-content: center;
     align-items: center;
-    transform: translateY(0%);
-    transition: transform 0.5s ease-in-out;
 }
 .form-box-signup{
+  display: none;
   position: relative;
   width: 300px;
   height: 450px;
@@ -39,12 +63,10 @@ section{
   backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
-  transform: translateY(0%);
-  transition: transform 0.5s ease-in-out;
 }
 
 .logout-box{
-  display: flex;
+  display: none;
   position:fixed;
   padding: 0.5%;
   top: 0;
@@ -66,7 +88,7 @@ section{
 
 @keyframes slideInLeft {
   from {
-    transform: translateX(-400%);
+    transform: translateX(-100vw);
   }
   to {
     transform: translateX(0);
@@ -77,13 +99,13 @@ section{
     transform: translateX(0);
   }
   to {
-    transform: translateX(-400%);
+    transform: translateX(-100vw);
   }
 }
 
 @keyframes slideInRight {
   from {
-    transform: translateX(400%);
+    transform: translateX(100vw);
   }
   to {
     transform: translateX(0);
@@ -94,7 +116,54 @@ section{
     transform: translateX(0);
   }
   to {
-    transform: translateX(400%);
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes slideOutLoginToLogout {
+  from {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50vw);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLogout {
+  from {
+    transform: translateY(-30vw) scale(0.1);
+    opacity: 0;
+    
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInButtons {
+  from {
+    transform: translateY(100vw) scale(0);
+    opacity: 0;
+    
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutButtons {
+  from {
+    transform: translateY(0vw) scale(1);
+    opacity: 1;
+    
+  }
+  to {
+    transform: translateY(100vw) scale(0);
+    opacity: 0;
   }
 }
 
@@ -110,19 +179,31 @@ section{
   animation-timing-function: ease-in-out;
 }
 
+.slideOutLoginToLogout{
+animation-name: slideOutLoginToLogout;
+animation-timing-function: ease-in-out;
+animation-fill-mode: forwards;
+}
 
-h1{
-  font-size: 5em;
-  color: #fff;
-  text-align: center;
-  padding-bottom: 0.50em;
-  padding-top: 0.40em
+.slideInLogout{
+animation-name: slideInLogout;
+animation-duration: 2s;
+animation-timing-function: ease-in-out;
+animation-fill-mode: forwards;
 }
-h2{
-    font-size: 2em;
-    color: #fff;
-    text-align: center;
+
+.slideInButtons{
+  animation-name: slideInButtons;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
 }
+
+.slideOutButtons{
+  animation-name: slideOutButtons;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+
 .inputbox{
     position: relative;
     margin: 23px 0;
@@ -160,25 +241,6 @@ top: -4px;
     font-size: 1em;
     top: 15px;
 }
-.forget{
-    margin: -11px 0 11px ;
-    font-size: .8em;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;  
-}
-
-.forget label input{
-    margin-right: 1.25px;
-}
-
-.forget label a{
-    color: #fff;
-    text-decoration: none;
-}
-.forget label a:hover{
-    text-decoration: underline;
-}
 
 .submit-login {
   width: 100%;
@@ -213,42 +275,78 @@ top: -4px;
   color:#fff;
 }
 
-
 .submit-signup:hover {
   border-color: rgba(255,255,255,0.5);
   color: rgba(255,255,255,0.5); 
 }
 
-#Register-button,#login-button{
-display: flex;
-justify-content: center;
-font-size: 0.75em;
-margin: 4%;
+.Reg-forget,.Enter{
+  margin: -11px 0 11px;
+  font-size: 0.75em;
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5%;
+  bottom: 0;
+  width: 100%;
+}
+.Reg-forget p {
+  margin: 0; 
+}
+
+.forget{
+  margin-left: 0.5%;
+}
+
+.forget a{
+  color: #fff;
+  text-decoration: none;
+}
+.forget a:hover{
+  border-color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.5); 
+  text-decoration: underline;
+}
+
+#Register-button{
+  margin-right: 0.5%;
 }
 
 #Register-button:hover, #login-button:hover {
   color: rgba(255,255,255,0.5);
 }
 
+
+
+.FAQs{
+  /*position: fixed; /*perguntar isto ao professor*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 7%;
+  margin-right: 14%;
+  margin-left: auto;
+  color: #fff;
+}
+
+.FAQs:hover{
+  color: rgba(255,255,255,0.5);
+}
+
+#Faqs-icon{
+  position: relative;
+  font-size: 4em;
+  right: 10px;
+}
+
+
 /*
-button{
-    width: 100%;
-    height: 30px;
-    border-radius: 30px;
-    background: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 0.75em;
-    font-weight: 450;
-}
-*/
-
-#FAQs{
-  display: none;
-}
-
 .admin-button, .agent-button, .client-button {
+  display: none;
   position: relative;
   text-align: center;
   width: relative;
@@ -256,30 +354,51 @@ button{
   color: white;
   backdrop-filter: blur(90px);
   padding: 9px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid #fff/*rgba(255, 255, 255, 0.5)*/;
+  /*
   justify-content: center;
   border-radius: 30px;
-  border: none;
   outline: none;
   cursor: pointer;
-  display: none;
 }
+*/
 
 .buttons {
-  display: flex;
-}
-
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  }
+  
+  .client-button, .agent-button, .admin-button {
+  flex: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: transparent;
+  color: black;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+  }
+.client-button:hover, .agent-button:hover, .admin-button:hover {
+    background-color: #ddd;
+    }
+    
 
 /* Estilos para o footer */
 
 footer {
-  padding: 20px;
+  position:absolute; /*perguntar ao professor*/
   background-color: transparent;
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position:fixed;
   bottom: 0;
   left: 0;
   right: 0;
