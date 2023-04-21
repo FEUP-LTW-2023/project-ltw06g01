@@ -2,80 +2,119 @@
 <html>
 <head>
 <title>Ticket System</title>
-  <script src="scr.js"></script>
+  <script src="scr.js" defer></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
   <h1>Ticket System</h1>
-  <nav>
-    <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="index.php">Login/Sign up</a></li>
-    </ul>
-  </nav>
+  <section id="logout" >
+      <div class ="logout-box">
+        <p>Logout</p>
+      </div>
+  </section>
 </header>
-<main>
-<section id="login">
-      <h2>Login</h2>
-      <form>
-        <div>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username">
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password">
-        </div>
-        <button type="submit" formaction='/../actions/login.action.php' formmethod='post'>Login</button>
-      </form>
+  <section id="login">
+          <div class ="form-box-login" id="login-box">
+            <div class="form-value">
+              <form action="/../actions/login.action.php" method = 'post'>
+                <h2>Login</h2>
+                <div class="inputbox">
+                  <ion-icon name="person-outline"></ion-icon>
+                  <input type="text" required id="username" name="username">
+                  <label for="username">Username:</label>
+                </div>
+                <div class="inputbox">
+                  <ion-icon name="lock-closed-outline"></ion-icon>
+                  <input type="password" required id="password" name="password">
+                  <label for="password">Password:</label>
+                </div>
+                <button type="submit" class="submit-login">Login</button>
+                <div class="Reg-forget">
+                  <div classe="Register" id="Register-button">
+                    <p>New account?</p>
+                  </div>
+                  <div class="forget">
+                    <a href="#">Forget Password?</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
     </section>
     
     <section id="signup">
-      <h2>Sign Up</h2>
-      <form>
-        <div>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username">
+      <div class ="form-box-signup" id="signup-box">
+        <div class="form-value">
+          <form action='/../actions/register.action.php' method = "post">
+            <h2>Sign Up</h2>
+            <div class="inputbox">
+              <ion-icon name="person-outline"></ion-icon>
+              <input type="text" required id="username" name="username">
+              <label for="username">Username:</label>
+            </div>
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="text" required id="username" name="username">
+              <label for="email">Email:</label>
+            </div>
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input type="password" required id="password" name="password">
+              <label for="password">Password:</label>
+            </div>
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input type="password" required id="confirm-password" name="confirm-password">
+              <label for="confirm-password">Confirm Password:</label>
+            </div>
+            <button type="submit" class="submit-signup">Sign Up</button>
+            <div class="Enter" id="login-button">
+              <p>Already have an account? </p>
+            </div>
+          </form>
         </div>
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email">
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password">
-        </div>
-        <div>
-          <label for="confirm-password">Confirm Password:</label>
-          <input type="password" id="confirm-password" name="confirm-password">
-        </div>
-        <button type="submit" formaction='/../actions/register.action.php' formmethod='post'>Sign Up</button>
-      </form>
+      </div>
     </section>
   <section>
-    <h2>Secção 1</h2>
     <nav class="buttons">
-      <?php $user_type = get_user_type(); ?>
+    <div class="before-menu">
+      </div>
+      <div class="menu">
+      <?php $user_type = getUser(); ?>
       <?php if ($user_type === 'client'): ?>
-        <div class="button client-button">Criar um novo Ticket</div>
-        <div class="button client-button">Tickets abertos</div>
+        <div class="client-button"><a href="#"></a>
+            <p> Criar um novo Ticket </p>
+            <ion-icon name="ticket-outline"></ion-icon></div>
+        <div class="client-button"><a href="#"></a>
+            <p>Tickets abertos</p>
+            <ion-icon name="file-tray-stacked-outline"></ion-icon></div>
       <?php elseif ($user_type === 'agent'): ?>
-        <div class="button agent-button">Tickets do próprio departamento</div>
+        <div class="agent-button"><a href="#"></a>
+            <p>Tickets do próprio departamento</p>
+            <ion-icon name="construct-outline"></ion-icon></div>
       <?php elseif ($user_type === 'admin'): ?>
-        <div class="button admin-button">Associar agentes a departamentos</div>
-        <div class="button admin-button">Adicionar novos departamentos/dados/entidades</div>
-        <div class="button admin-button">Promover</div>
+        <div class="admin-button"><a href="#"></a>
+            <p>Associar agentes a departamentos</p>
+            <ion-icon name="construct-outline"></ion-icon></div>
+        <div class="admin-button"><a href="#"></a>
+            <p>Adicionar novos departamentos/dados/entidades</p>
+            <ion-icon name="add-circle-outline"></ion-icon></div>
+        <div class="admin-button"><a href="#"></a>
+            <p>Promover</p>
+            <ion-icon name="person-add-outline"></ion-icon></div>
       <?php endif; ?>
+      </div>
       </nav>
   </section>
-  <section>
-    <h2>Secção 2</h2>
-    <p>Perguntas frequentes</p>
-  </section>
-</main>
+  <section class="FAQs">
+      <ion-icon name="help-circle-outline" id="Faqs-icon"></ion-icon>
+      <p>FAQ's</p>
+    </section>
 <footer>
 <p>Algum footer que queiramos</p>
 </footer>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
