@@ -52,7 +52,7 @@ signupBox.style.animation = 'slideInRight 1s ease-in-out';
 
 //Para ao dar login enviar a box do login para cima e aparecer logout:
 loginForm.addEventListener('click', (event) => {
-  event.preventDefault();
+  //event.preventDefault();
   loginBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
   logoutBox.style.display = "grid";
   logoutBox.style.animation = "slideInLogout 2s ease-in-out";
