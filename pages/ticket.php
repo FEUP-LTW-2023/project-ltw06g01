@@ -6,9 +6,10 @@
   require_once(__DIR__ . '/../database/connection.php');
   require_once(__DIR__ . '/../database/departments.php');
   require_once(__DIR__ . '/../templates/ticket.tpl.php');
+  require_once(__DIR__ . '/../database/tickets.php');
 
-  if (isset($_POST['ticket'])) {
-    $ticket = $_POST['ticket'];
+  if (isset($_GET['id'])) {
+    $ticket = getTicket(getDatabaseConnection(), $_GET['id']);
   }
   else {
     $ticket = null;

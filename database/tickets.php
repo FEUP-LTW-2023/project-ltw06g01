@@ -44,7 +44,7 @@
     }
 
     function updateTicket($db, $uid, $title, $text, $department, $id) {
-        $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, history) VALUES (?, ? ,?, ?, ?, ?');
+        $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, history) VALUES (?, ? ,?, ?, ?, ?)');
         $date = date('Y-m-d');
         $result = $stmt->execute(array($title, $text, $date, $uid, $department, $id));
         $newId = $db->lastInsertId();

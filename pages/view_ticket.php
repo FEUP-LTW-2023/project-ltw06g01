@@ -44,7 +44,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
       <form>
         <input type="hidden" name="tID" value=<?= $ticket['id'] ?>>
         <input type="hidden" name="tuid" value=<?= $ticket['uID'] ?>>
-        <input type="hidden" name="auid" value=<?= $ticket['aUID'] ?>>
+        <input type="hidden" name="auid" value=<?= $ticket['aID'] ?>>
         <input type="text" id="message-text" name="text" placeholder="Write a message">
         <button type="submit" formaction="../actions/send_message.action.php" formmethod="get">Send</button>
       </form>

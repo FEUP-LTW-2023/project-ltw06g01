@@ -16,5 +16,5 @@
     }
 
 
-    $status = updateTicket($db, $_SESSION['uid'], $_POST['title'], $_POST['text'], $_POST['department'], $_POST['tID']);
+    $status = updateTicket($db, $_SESSION['uid'], $_POST['title'], $_POST['fulltext'], $_POST['department'], $_POST['id']);
 ?>    
