@@ -15,6 +15,7 @@ function drawTicketForm($ticket, $edit)
         <section id="ticket-form">
             <h2>Preencha o Formulário do Ticket</h2>
             <form>
+                <input type="hidden" value=<?=$ticket['id']?>>
                 <div>
                     <label for="department">Departamento:</label>
                     <select id="department" name="department" <?php if (!$edit) echo 'disabled'; ?>>

@@ -6,6 +6,13 @@
   require_once(__DIR__ . '/../database/connection.php');
   require_once(__DIR__ . '/../database/departments.php');
   require_once(__DIR__ . '/../templates/ticket.tpl.php');
+
+  if (isset($_POST['ticket'])) {
+    $ticket = $_POST['ticket'];
+  }
+  else {
+    $ticket = null;
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +25,7 @@
     <h1>Enviar Ticket</h1>
   </header>
   <main>
-    <?php drawTicketForm(null, true); ?>
+    <?php drawTicketForm($ticket, true); ?>
   </main>
   <footer>
     <p>Algum footer que queiramos</p>
