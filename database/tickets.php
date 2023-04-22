@@ -1,13 +1,13 @@
 <?php
     function getTicket($db, $id) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE id = ? AND isHistory = 0');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE id = ? AND history is NULL');
         $stmt->execute(array($id));
 
         return $stmt->fetch();
     }
 
     function getTicketsFromDepartment($db, $department) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ? AND isHistory = 0');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ? AND history is NULL');
         $stmt->execute(array($department));
 
         return $stmt->fetchAll();
@@ -47,8 +47,15 @@
         $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, history) VALUES (?, ? ,?, ?, ?, ?');
         $date = date('Y-m-d');
         $result = $stmt->execute(array($title, $text, $date, $uid, $department, $id));
+        $newId = $db->lastInsertId();
+
+        $stmt = $db->prepare('INSERT INTO MESSAGE (text, dateSent, uID, tID) SELECT text, dateSent, uID, ? FROM MESSAGE WHERE tID = ?');
+        $stmt->execute(array($newId, $id));
+
+        $stmt = $db->prepare('INSERT INTO TICKETTAG (tID, tag) SELECT ?, tag FROM TICKETTAG WHERE tID = ?');
+        $stmt->execute(array($newId, $id));
 
         if ($result === 0) return -1;
-        else return $db->lastInsertId();
+        else return $newId;
     }
 ?>
