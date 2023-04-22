@@ -19,5 +19,5 @@
         }
     }
 
-    //header('Location: ../pages/page.php');
+    header('Location: ../pages/page.php');
 ?>    
