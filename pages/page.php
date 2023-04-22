@@ -44,7 +44,7 @@
                 </div>
                 <button type="submit" class="submit-login" formaction="/../actions/login.action.php" formmethod="post">Login</button>
                 <div class="Reg-forget">
-                  <div classe="Register" id="Register-button">
+                  <div class="Register" id="Register-button">
                     <p>New account?</p>
                   </div>
                   <div class="forget">
@@ -68,7 +68,7 @@
             </div>
             <div class="inputbox">
               <ion-icon name="mail-outline"></ion-icon>
-              <input type="text" required id="username" name="username">
+              <input type="text" required id="email" name="email">
               <label for="email">Email:</label>
             </div>
             <div class="inputbox">
