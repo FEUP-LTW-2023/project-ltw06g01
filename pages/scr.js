@@ -16,7 +16,10 @@ const logoutBox = document.querySelector('.logout-box');
 const beforeMenuBox = document.querySelector('.before-menu');
 const menuBox = document.querySelector('.menu');
 const afterLoginBox = document.querySelector('.after-login');
+const playAnimation = document.querySelector('#animation');
 
+const animationFlag = playAnimation.getAttribute('value');
+console.log(animationFlag);
 
 // adicione o manipulador de eventos de clique aos botões
 loginButton.addEventListener('click', () => {
@@ -48,46 +51,6 @@ signupBox.style.display = 'grid';
 signupBox.style.animation = 'slideInRight 1s ease-in-out';
 }, 900)
 }
-});
-
-//Para ao dar login enviar a box do login para cima e aparecer logout:
-loginForm.addEventListener('click', (event) => {
-  //event.preventDefault();
-  loginBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
-  logoutBox.style.display = "grid";
-  logoutBox.style.animation = "slideInLogout 2s ease-in-out";
-  /* ainda a implementar
-  beforeMenuBox.style.display = "grid";
-  beforeMenuBox.style.animation = "slideInButtons 2s ease-in-out";
-  */
-
-  setTimeout(() => {
-    menuBox.style.display = "flex";
-    menuBox.style.animation = "slideInButtons 1.2s ease-in-out";
-  }, 500)
-  
-  showButtons(user.type);
-  setTimeout(() => {
-    loginBox.style.display = 'none';
-  }, 500)
-});
-
-//Para ao dar signup enviar a box do signup para cima e aparecer logout:
-signupForm.addEventListener('click', (event) => {
-  event.preventDefault();
-  signupBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
-  logoutBox.style.display = "grid";
-  logoutBox.style.animation = "slideInLogout 2s ease-in-out";
-  beforeMenuBox.style.display = "grid";
-  beforeMenuBox.style.animation = "slideInButtons 2s ease-in-out";
-  setTimeout(() => {
-    menuBox.style.display = "flex";
-    menuBox.style.animation = "slideInButtons 2s ease-in-out";
-  }, 500)
-  showButtons(user.type);
-  setTimeout(() => {
-  signupBox.style.display = 'none';
-}, 500)
 });
 
 logoutForm.addEventListener('click', (event) => {
@@ -177,3 +140,38 @@ function outButtons(userType) {
 }
 }
 
+if (animationFlag == "1") {
+  loginBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
+  logoutBox.style.display = "grid";
+  logoutBox.style.animation = "slideInLogout 2s ease-in-out";
+  /* ainda a implementar
+  beforeMenuBox.style.display = "grid";
+  beforeMenuBox.style.animation = "slideInButtons 2s ease-in-out";
+  */
+
+  setTimeout(() => {
+    menuBox.style.display = "flex";
+    menuBox.style.animation = "slideInButtons 1.2s ease-in-out";
+  }, 500)
+  
+  showButtons(user.type);
+  setTimeout(() => {
+    loginBox.style.display = 'none';
+  }, 500)
+}
+
+if (animationFlag == "2") {
+  signupBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
+  logoutBox.style.display = "grid";
+  logoutBox.style.animation = "slideInLogout 2s ease-in-out";
+  beforeMenuBox.style.display = "grid";
+  beforeMenuBox.style.animation = "slideInButtons 2s ease-in-out";
+  setTimeout(() => {
+    menuBox.style.display = "flex";
+    menuBox.style.animation = "slideInButtons 2s ease-in-out";
+  }, 500)
+  showButtons(user.type);
+  setTimeout(() => {
+  signupBox.style.display = 'none';
+}, 500)
+}

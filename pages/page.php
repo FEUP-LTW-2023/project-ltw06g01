@@ -1,7 +1,7 @@
 <?php
   session_start();
   if (isset($_SESSION['animation'])) {
-    $animation = 1;
+    $animation = $_SESSION['animation'];
     unset($_SESSION['animation']);
   }
   else {
@@ -25,7 +25,7 @@
     </section>
     </header>
 <form>
-  <input type="hidden" value=<?=$animation?>>
+  <input type="hidden" id="animation" value=<?=$animation?>>
 </form>
   <section id="login">
           <div class ="form-box-login" id="login-box">

@@ -17,7 +17,7 @@
     else {
         $_SESSION['uid'] = $userCreated[1];
         $_SESSION['level'] = 0;
-        $_SESSION['animation'] = true;
+        $_SESSION['animation'] = 2;
     }
 
     header('Location: ../pages/page.php');
