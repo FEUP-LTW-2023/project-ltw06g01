@@ -94,7 +94,7 @@
     <div class="before-menu">
       </div>
       <div class="menu">
-      <?php $user_type = getUser(); ?>
+      <?php $user_type = 'client'; ?>
       <?php if ($user_type === 'client'): ?>
         <div class="client-button"><a href="#"></a>
             <p> Criar um novo Ticket </p>
