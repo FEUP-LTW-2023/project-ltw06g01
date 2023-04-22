@@ -16,14 +16,14 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <h1>Ticket System</h1>
-  <section id="logout" >
+<header class="header">
+    <h1>Ticket System</h1>
+    <section id="logout" >
       <div class ="logout-box">
         <p>Logout</p>
       </div>
-  </section>
-</header>
+    </section>
+    </header>
 <form>
   <input type="hidden" value=<?=$animation?>>
 </form>
