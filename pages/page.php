@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  if (isset($_SESSION['animation'])) {
+    $animation = 1;
+    unset($_SESSION['animation']);
+  }
+  else {
+    $animation = 0;
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +24,13 @@
       </div>
   </section>
 </header>
+<form>
+  <input type="hidden" value=<?=$animation?>>
+</form>
   <section id="login">
           <div class ="form-box-login" id="login-box">
             <div class="form-value">
-              <form action="/../actions/login.action.php" method = 'post'>
+              <form>
                 <h2>Login</h2>
                 <div class="inputbox">
                   <ion-icon name="person-outline"></ion-icon>
@@ -29,7 +42,7 @@
                   <input type="password" required id="password" name="password">
                   <label for="password">Password:</label>
                 </div>
-                <button type="submit" class="submit-login">Login</button>
+                <button type="submit" class="submit-login" formaction="/../actions/login.action.php" formmethod="post">Login</button>
                 <div class="Reg-forget">
                   <div classe="Register" id="Register-button">
                     <p>New account?</p>

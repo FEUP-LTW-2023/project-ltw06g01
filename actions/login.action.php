@@ -15,8 +15,9 @@
         if ($user['passHash'] == hash('sha256', $_POST["password"])) {
             $_SESSION['uid'] = $user['uid'];
             $_SESSION['level'] = $user['permissionLevel'];
+            $_SESSION['animation'] = true;
         }
     }
 
-    header('Location: ../pages/page.php');
+    //header('Location: ../pages/page.php');
 ?>    
