@@ -11,7 +11,7 @@
 <html>
 <head>
   <title>Enviar Ticket</title>
-  <link rel="stylesheet" href="styles2.css">
+  <link rel="stylesheet" href="ticketstyle.css">
 </head>
 <body>
   <header>
