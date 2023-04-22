@@ -161,6 +161,8 @@ if (animationFlag == "1") {
 }
 
 if (animationFlag == "2") {
+  signupBox.style.display = "flex";
+  loginBox.style.display = "none";
   signupBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
   logoutBox.style.display = "grid";
   logoutBox.style.animation = "slideInLogout 2s ease-in-out";
