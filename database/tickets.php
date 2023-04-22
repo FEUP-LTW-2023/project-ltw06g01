@@ -1,13 +1,13 @@
 <?php
     function getTicket($db, $id) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE id = ? AND history is NULL');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE id = ?');
         $stmt->execute(array($id));
 
         return $stmt->fetch();
     }
 
     function getTicketsFromDepartment($db, $department) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ? AND history is NULL');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ?');
         $stmt->execute(array($department));
 
         return $stmt->fetchAll();
