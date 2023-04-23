@@ -35,6 +35,12 @@ class Ticket
         return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history']);
     }
 
+    static function openTicket(PDO $db, int $uid, string $title, string $text, ?string $department): Ticket {
+        $id = addTicket($db, $uid, $title, $text, $department);
+        
+        return Ticket::getTicket($db, $id);
+    }
+
     static function getTicketsFromUser(PDO $db, int $uid): array {
         $tickets = getTicketsByUser($db, $uid);
 
