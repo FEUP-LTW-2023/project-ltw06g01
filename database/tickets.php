@@ -6,6 +6,13 @@
         return $stmt->fetch();
     }
 
+    function getTicketsByUser($db, $uid) {
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE uID = ?');
+        $stmt->execute(array($uid));
+
+        return $stmt->fetchAll();
+    }
+
     function getTicketsFromDepartment($db, $department) {
         $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ?');
         $stmt->execute(array($department));
