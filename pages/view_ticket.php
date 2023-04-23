@@ -23,13 +23,18 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 
 <head>
   <title>Visualizar Ticket</title>
-  <link rel="stylesheet" href="styles2.css">
+  <link rel="stylesheet" href="view_ticketstyle.css">
 </head>
 
 <body>
-  <header>
+<header class="header">
     <h1>Visualizar Ticket</h1>
-  </header>
+    <section id="logout" >
+      <div class ="logout-box">
+        <p>Logout</p>
+      </div>
+    </section>
+</header>
   <main>
     <?php drawTicketForm($ticket, false); ?>
     <section id="messages">

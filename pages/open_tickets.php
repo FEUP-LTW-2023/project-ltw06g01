@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Ticket System - Create Ticket</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="open_ticketsstyle.css">
 </head>
 <body>
 <header>
