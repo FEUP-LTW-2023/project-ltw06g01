@@ -5,15 +5,14 @@ if (!isset($_SESSION['uid'])) {
 }
 
 require_once(__DIR__ . '/../database/connection.php');
-require_once(__DIR__ . '/../database/tickets.php');
 require_once(__DIR__ . '/../database/client.php');
 require_once(__DIR__ . '/../database/message.php');
+require_once(__DIR__ . '/../classes/ticket.class.php');
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../templates/ticket.tpl.php');
 
-$db = getDatabaseConnection();
-$ticket = getTicket($db, $_GET['id']);
-if (!(isValidUser($ticket['uID'], $ticket['aID'], $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
+$ticket = Ticket::getTicket($db, $_GET['id']);
+if (!(isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
 $messages = getMessagesFromTicket($db, $_GET['id']);
 ?>
 
@@ -42,9 +41,9 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     </section>
     <section id="add-message">
       <form>
-        <input type="hidden" name="tID" value=<?= $ticket['id'] ?>>
-        <input type="hidden" name="tuid" value=<?= $ticket['uID'] ?>>
-        <input type="hidden" name="auid" value=<?= $ticket['aID'] ?>>
+        <input type="hidden" name="tID" value=<?= $ticket->id ?>>
+        <input type="hidden" name="tuid" value=<?= $ticket->uid ?>>
+        <input type="hidden" name="auid" value=<?= $ticket->aid ?>>
         <input type="text" id="message-text" name="text" placeholder="Write a message">
         <button type="submit" formaction="../actions/send_message.action.php" formmethod="get">Send</button>
       </form>

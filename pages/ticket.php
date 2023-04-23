@@ -3,13 +3,15 @@
   if (!isset($_SESSION['uid'])) {
     header('Location: page.php');
   }
+
+  require_once(__DIR__ . '/../classes/ticket.class.php');
   require_once(__DIR__ . '/../database/connection.php');
-  require_once(__DIR__ . '/../database/departments.php');
   require_once(__DIR__ . '/../templates/ticket.tpl.php');
-  require_once(__DIR__ . '/../database/tickets.php');
+
+  $db = getDatabaseConnection();
 
   if (isset($_GET['id'])) {
-    $ticket = getTicket(getDatabaseConnection(), $_GET['id']);
+    $ticket = Ticket::getTicket($db, $_GET['id']);
   }
   else {
     $ticket = null;
