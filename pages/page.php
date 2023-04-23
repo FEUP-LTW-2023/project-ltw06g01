@@ -23,7 +23,7 @@
         <p>Logout</p>
       </div>
     </section>
-    </header>
+</header>
 <form>
   <input type="hidden" id="animation" value=<?=$animation?>>
 </form>
