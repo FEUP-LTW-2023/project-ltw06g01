@@ -20,6 +20,7 @@ class Ticket
         $this->title = $title;
         $this->text = $text;
         $this->dateCreated = $dateCreated;
+        $this->department = $department;
         $this->uid = $uid;
         $this->aid = $aid;
         $this->prev = $prev;

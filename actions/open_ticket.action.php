@@ -6,6 +6,8 @@
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/tickets.php');
+    require_once(__DIR__ . '/../classes/ticket.class.php');
+
     $db = getDatabaseConnection();
     $status = Ticket::openTicket($db, intval($_SESSION['uid']), $_POST['title'], $_POST['fulltext'], $_POST['department']);
     

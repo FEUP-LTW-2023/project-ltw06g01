@@ -11,6 +11,8 @@ require_once(__DIR__ . '/../classes/ticket.class.php');
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../templates/ticket.tpl.php');
 
+$db = getDatabaseConnection();
+
 $ticket = Ticket::getTicket($db, $_GET['id']);
 if (!(isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
 $messages = getMessagesFromTicket($db, $_GET['id']);
