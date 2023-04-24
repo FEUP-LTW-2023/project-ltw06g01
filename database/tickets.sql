@@ -78,6 +78,6 @@ CREATE TABLE FAQTAG (
     PRIMARY KEY (fID, tag)
 );
 
-INSERT INTO CLIENT VALUES(25, "onso", "1ff1922a7c24ef4ae794a15f2cb8fbb65527ee7205bfba88f126aef53a7b5d19", "afonso.vo@gmail.com", 0);
+INSERT INTO CLIENT VALUES(25, "onso", "1ff1922a7c24ef4ae794a15f2cb8fbb65527ee7205bfba88f126aef53a7b5d19", "afonso.vo@gmail.com", 2);
 
 INSERT INTO DEPARTMENT VALUES('Vendas'), ('Suporte'), ('Financeiro');

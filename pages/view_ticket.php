@@ -36,6 +36,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     </section>
 </header>
   <main>
+    <?php if ($_SESSION['level'] >= 1) drawNavigationButtons(); ?>
     <?php drawTicketForm($ticket, false); ?>
     <section id="messages">
       <?php foreach ($messages as $message) { ?>
