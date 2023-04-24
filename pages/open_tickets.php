@@ -1,12 +1,30 @@
+<?php 
+  session_start();
+  if (!isset($_SESSION['uid'])) {
+    header('Location: page.php');
+  }
+
+  require_once(__DIR__ . '/../classes/ticket.class.php');
+  require_once(__DIR__ . '/../database/connection.php');
+  require_once(__DIR__ . '/../templates/ticket.tpl.php');
+
+  $db = getDatabaseConnection();
+
+
+  if (empty($tickets)) {
+    $tickets = null;}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Open Tickets</title>
+<title>All Tickets</title>
+  <script src="open_tickets.js" defer></script>
   <link rel="stylesheet" href="open_ticketsstyle.css">
 </head>
 <body>
   <header class="header">
-      <h1>Open tickets</h1>
+      <h1>All tickets</h1>
       <section id="logout" >
         <div class ="logout-box">
           <p>Logout</p>
@@ -14,11 +32,22 @@
       </section>
   </header>
 <main>
-    <form>
-        <input type="hidden" name="uid" value=<?= $_GET['uid'] ?>>
-        <input type="text" name="title" placeholder="Enter ticket title">
-        <textarea name="fulltext" rows="8" cols="80">Please describe your issue here</textarea>
-        <button formaction="open_ticket.php" formmethod="post" type="submit">Submit ticket</button>
-    </form>
-</main>
+  <form method="get">
+    <label for="ticket-filter">Mostrar:</label>
+    <select name="ticket-filter" id="ticket-filter" onchange="this.form.submit()">
+      <option value="all" <?php if ($_GET['ticket-filter'] == 'all') echo 'selected'; ?>>Todos</option>
+      <option value="open" <?php if ($_GET['ticket-filter'] == 'open') echo 'selected'; ?>>Abertos</option>
+      <option value="closed" <?php if ($_GET['ticket-filter'] == 'closed') echo 'selected'; ?>>Fechados</option>
+    </select>
+  </form>
+  <?php
+    $status = $_GET['ticket-filter'] ?? null;
+    $tickets = getFilteredTickets($db, $status);
+
+    foreach ($tickets as $ticket) {
+        $ticketObj = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['status'], $ticket['dateCreated'], $ticket['uID'], $ticket['department']);
+        drawTicketForm($ticketObj, false);
+    }
+  ?>
+  </main>
 </body>    
