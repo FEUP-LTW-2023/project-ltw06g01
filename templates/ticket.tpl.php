@@ -35,7 +35,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                 </div>
                 <div>
                     <label for="fulltext">Mensagem:</label>
-                    <textarea id="fulltext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
                 <?php if ($edit) { ?> <button type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>
