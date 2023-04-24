@@ -31,7 +31,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                 </div>
                 <div>
                     <label for="title">Assunto:</label>
-                    <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value=<?= $ticket->title ?>>
+                    <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
                 <div>
                     <label for="fulltext">Mensagem:</label>

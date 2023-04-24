@@ -19,6 +19,6 @@
     $oldTicket = Ticket::getTicket($db, $_POST['id']);
     $status = $oldTicket->updateTicket($db, $_SESSION['uid'], $_POST['title'], $_POST['fulltext'], $_POST['department'], $_POST['id']);
     
-    if ($status == -1) header('Location: ../pages/page.php');
+    if (!$status) header('Location: ../pages/page.php');
     else header("Location: ../pages/view_ticket.php?id=$status->id");
 ?>    
