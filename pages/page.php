@@ -20,7 +20,7 @@
     <h1>Ticket System</h1>
     <section id="logout" >
       <div class ="logout-box">
-        <p>Logout</p>
+        <a href = "logout.php">Logout</a>
       </div>
     </section>
 </header>
@@ -96,10 +96,10 @@
       <div class="menu">
       <?php $user_type = 'client'; ?>
       <?php if ($user_type === 'client'): ?>
-        <div class="client-button"><a href="#"></a>
+        <div class="client-button"><a href="ticket.php"></a>
             <p> Criar um novo Ticket </p>
             <ion-icon name="ticket-outline"></ion-icon></div>
-        <div class="client-button"><a href="ticket.php"></a>
+        <div class="client-button"><a href="#"></a>
             <p>Tickets abertos</p>
             <ion-icon name="file-tray-stacked-outline"></ion-icon></div>
       <?php elseif ($user_type === 'agent'): ?>

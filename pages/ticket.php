@@ -43,36 +43,47 @@
     <ion-icon name="ticket-outline"></ion-icon>
   </div>
   <ul>
+    <?php $user_type = 'client'; ?>
+    <?php if ($user_type === 'client'): ?>
+      <li class="item-menu">
+        <a href = "#">
+          <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
+          <span class = "txt-link">Enviar Ticket</span>
+        </a>
+      </li>
+      <li class="item-menu">
+        <a href = "open_tickets.php">
+          <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
+          <span class = "txt-link">Tickets Abertos</span>
+        </a>
+    </li>
+    <?php elseif ($user_type === 'agent'): ?>
     <li class="item-menu">
       <a href = "#">
         <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-        <span class = "txt-link">Tickets</span>
+        <span class = "txt-link">Tickets do Departamento</span>
+      </a>
+    </li>
+    <?php elseif ($user_type === 'admin'): ?>
+    <li class="item-menu">
+      <a href = "#">
+        <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
+        <span class = "txt-link">Associar Agentes</span>
       </a>
     </li>
     <li class="item-menu">
       <a href = "#">
         <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-        <span class = "txt-link">Tickets</span>
+        <span class = "txt-link">Associar novos departamentos/dados/entidades</span>
       </a>
     </li>
     <li class="item-menu">
       <a href = "#">
         <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-        <span class = "txt-link">Tickets</span>
+        <span class = "txt-link">Promover</span>
       </a>
     </li>
-    <li class="item-menu">
-      <a href = "#">
-        <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-        <span class = "txt-link">Tickets</span>
-      </a>
-    </li>
-    <li class="item-menu">
-      <a href = "#">
-        <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-        <span class = "txt-link">Tickets</span>
-      </a>
-    </li>
+    <?php endif; ?>
   </ul>
 </nav>
     <?php drawTicketForm($ticket, true); ?>
