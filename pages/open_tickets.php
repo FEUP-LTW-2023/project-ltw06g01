@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ticket System - Create Ticket</title>
+<title>Open Tickets</title>
   <link rel="stylesheet" href="open_ticketsstyle.css">
 </head>
 <body>
-<header>
-  <h1>Ticket System</h1>
-  <nav>
-    <ul>
-      <li><a href="index.php">Home</a></li>
-    </ul>
-  </nav>
-</header>
+  <header class="header">
+      <h1>Open tickets</h1>
+      <section id="logout" >
+        <div class ="logout-box">
+          <p>Logout</p>
+        </div>
+      </section>
+  </header>
 <main>
     <form>
         <input type="hidden" name="uid" value=<?= $_GET['uid'] ?>>
