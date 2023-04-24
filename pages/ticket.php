@@ -24,9 +24,14 @@
   <link rel="stylesheet" href="ticketstyle.css">
 </head>
 <body>
-  <header>
+<header class="header">
     <h1>Enviar Ticket</h1>
-  </header>
+    <section id="logout" >
+      <div class ="logout-box">
+        <p>Logout</p>
+      </div>
+    </section>
+</header>
   <main>
     <?php drawTicketForm($ticket, true); ?>
   </main>
