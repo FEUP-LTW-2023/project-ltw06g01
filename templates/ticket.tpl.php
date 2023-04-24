@@ -15,7 +15,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
         <section id="ticket-form">
             <?php if ($edit) { ?> <h2>Preencha o Formulário do Ticket</h2> <?php } ?>
             <form>
-                <input type="hidden" name="id" value=<?=$ticket->id?>>
+                <input type="hidden" name="id" id="tid" value=<?= $ticket->id ?>>
                 <div>
                     <label for="department">Departamento:</label>
                     <select id="department" name="department" <?php if (!$edit) echo 'disabled'; ?>>
@@ -35,10 +35,18 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                 </div>
                 <div>
                     <label for="fulltext">Mensagem:</label>
-                    <textarea id="message" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <textarea id="fulltext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
                 <?php if ($edit) { ?> <button type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>
         </section>
     </div>
+<?php }
+
+function drawNavigationButtons()
+{
+?> <nav>
+        <button type="button" id="prev-button">&lt;</button>
+        <button type="button" id="next-button">&gt;</button>
+    </nav>
 <?php } ?>
