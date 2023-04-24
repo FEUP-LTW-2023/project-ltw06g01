@@ -58,4 +58,28 @@ class Ticket
 
         return Ticket::getTicket($db, $newTicket);
     }
+
+    function hasNext(): bool {
+        return $this->next;
+    }
+
+    function hasPrev(): bool {
+        return $this->prev;
+    }
+
+    function getPrev(PDO $db): ?Ticket {
+        if (isset($this->prev)) {
+            $ticket = Ticket::getTicket($db, $this->prev);
+            $ticket->next = $this->id;
+            return Ticket::getTicket($db, $this->prev);
+        }
+        else return null;
+    }
+
+    function getNext(PDO $db): ?Ticket {
+        if (isset($this->next)) {
+            return Ticket::getTicket($db, $this->next);
+        }
+        else return null;
+    }
 }
