@@ -6,6 +6,18 @@
         return $stmt->fetch();
     }
 
+    function getFilteredTickets($db, $statusFilter = null) {
+        if ($statusFilter === null) {
+            $stmt = $db->prepare('SELECT * FROM ticket');
+        } else {
+            $stmt = $db->prepare('SELECT * FROM ticket WHERE status = :status');
+            $stmt->bindParam(':status', $statusFilter);
+        }
+        
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     function getTicketsByUser($db, $uid) {
         $stmt = $db->prepare('SELECT * FROM ticket WHERE uID = ?');
         $stmt->execute(array($uid));
