@@ -24,6 +24,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 <head>
   <title>Visualizar Ticket</title>
   <link rel="stylesheet" href="view_ticketstyle.css">
+  <script src="/../javascript/history_navigation.js" defer></script>
 </head>
 
 <body>

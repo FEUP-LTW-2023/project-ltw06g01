@@ -7,12 +7,14 @@ const messages = document.querySelector('#messages')
 const addMessage = document.querySelector('#add-message')
 const tID = document.querySelector('#tid')
 
-let currID = tID.textContent
+let currID = tID.getAttribute('value')
 const initialID = currID
 
+
 prevButton.addEventListener('click', async function() {
-    const response = await fetch('../api/api_tickets.php?id=' + currID)
+    const response = await fetch('../api/api_ticket.php?id=' + currID)
     const ticket = await response.json()
+    console.log(ticket)
 
     let prevID = ticket.prev
     if (prevID === null) return
