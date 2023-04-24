@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -9,23 +10,93 @@ body{
   background-position: center;
   background-size: auto;
 }
-.header{
-    /*background-image: linear-gradient(to bottom, aquamarine, rgba(0,0,0,0.2));*/
-    background-color: rgba(0, 0, 0, 0);
-    height: 150px;
+
+nav.menu-lateral{
+    width: 70px;
+    height: 100%;
+    background-color: rgba(142, 142, 142, 0.8);
+    padding: 40px 0  40px 1%;
+    box-shadow: 3px 0 0 #ccc;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    transition: .2s;
 }
 
-h1{
-    left: 0;
-    display: grid;
-    position:fixed;
-    font-size: 3em; /* tamanho da fonte reduzido */
-    line-height: 100px;  color: #fff;
-    padding-bottom: 0.3em;
-    padding-top: 0.2em;
-    padding-left: 0.3em;
+nav.menu-lateral:hover{
+    width: 230px;
 }
 
+.btn-expandir{
+    padding-bottom: 20px;
+    width:100%;
+    padding-left: 10px;
+
+}
+
+.btn-expandir > ion-icon{
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu{
+    transition: .2s;
+}
+
+ul li.ativo{
+    background-color: #ccc;
+}
+
+ul li.item-menu:hover{
+    background: #ccc;
+}
+
+ul li.item-menu a {
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 40px;
+}
+
+ul li.item-menu a .icon > ion-icon{
+    font-size: 30px;
+}
+
+.header {
+  /*background-image: linear-gradient(to bottom, aquamarine, rgba(0,0,0,0.2));*/
+  background-color: rgba(0, 0, 0, 0);
+  height: 150px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 1.5em;
+}
+
+.h1{
+  left: 0;
+  display: grid;
+  position: fixed;
+  font-size: 3em; /* tamanho da fonte reduzido */
+  line-height: 100px;  
+  color: #fff;
+  padding-bottom: 0.3em;
+  padding-top: 0.2em;
+  padding-left: 0.3em;
+}
 
 
 /* Estilos gerais da página */
@@ -34,14 +105,9 @@ h1{
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 main {
