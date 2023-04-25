@@ -1,7 +1,7 @@
 
 // Exemplo de autenticação 
 var user = {
-  type: 'client'
+  type: 'admin'
 };
 
 

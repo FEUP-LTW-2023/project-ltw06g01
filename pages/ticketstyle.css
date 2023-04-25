@@ -77,27 +77,27 @@ ul li.item-menu a .icon > ion-icon{
 }
 
 .header {
-  /*background-image: linear-gradient(to bottom, aquamarine, rgba(0,0,0,0.2));*/
-  background-color: rgba(0, 0, 0, 0);
-  height: 150px;
-  text-align: center;
-  color: #fff;
-  padding-top: 1.5em;
-  display: grid;
-}
-
-h1{
-  left: 0;
-  display: grid;
-  position: fixed;
-  font-size: 4em; 
-  line-height: 100px;  
-  color: #fff;
-  padding-bottom: 0.3em;
-  padding-top: 0.2em;
-  padding-left: 0.3em;
-
-}
+    /*background-image: linear-gradient(to bottom, aquamarine, rgba(0,0,0,0.2));*/
+    background-color: rgba(0, 0, 0, 0);
+    height: 150px;
+    text-align: center;
+    color: #fff;
+    padding-top: 1.5em;
+    display: grid;
+  }
+  
+  h1{
+    left: 0;
+    display: grid;
+    position: fixed;
+    font-size: 4em; 
+    line-height: 100px;  
+    color: #fff;
+    padding-bottom: 0.3em;
+    padding-top: 0.2em;
+    padding-left: 0.3em;
+  
+  }
 
 
 /* Estilos gerais da página */

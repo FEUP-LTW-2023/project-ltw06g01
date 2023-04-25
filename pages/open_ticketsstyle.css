@@ -9,21 +9,128 @@ body{
   background-position: center;
   background-size: auto;
 }
-.header{
+.header {
     /*background-image: linear-gradient(to bottom, aquamarine, rgba(0,0,0,0.2));*/
-    background-color: rgba(0, 0, 0, 0);
-    height: 150px;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    height: 200px;
+    text-align: center;
+    color: rgba(142, 142, 142, 0.8);
+    margin: 0;
+    background-image: linear-gradient(to bottom, #FFFFFF, rgba(142, 142, 142, 0.8));
+    transition: background-image 0.5s ease;
+  }
+  
+  h1{
+    text-shadow: 1px 1px 2px rgba(142, 142, 142, 0.371);
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    position: fixed;
+    font-size: 40px; 
+    line-height: 100px;  
+    color: rgb(142, 142, 142);
+    padding-top: 0.1em;
+  }
+
+  h2{
+    left: 50px;
+    display: grid;
+    position: fixed;
+    font-size: 20px; 
+    color: rgb(142, 142, 142);
+    padding-top: 0.1em;
+    line-height: 100px;  
+  }
+
+
+nav.menu-lateral{
+    width: 70px;
+    height: 100%;
+    background-color: rgba(142, 142, 142, 0.8);
+    padding: 40px 0  40px 1%;
+    box-shadow: 3px 0 0 #ccc;
+    position: fixed;
+    top: 200px;
+    bottom: 0;
+    overflow: hidden;
+    transition: .2s;
+    border: 2px solid rgba(255,255,255,0.5);
 }
 
-h1{
-    left: 0;
-    display: grid;
-    position:fixed;
-    font-size: 3em; /* tamanho da fonte reduzido */
-    line-height: 100px;  color: #fff;
-    padding-bottom: 0.3em;
-    padding-top: 0.2em;
-    padding-left: 0.3em;
+nav.menu-lateral:hover{
+    width: 230px;
+}
+
+nav.menu-lateral:hover .item-menu {
+    margin-left: 10px;
+  }
+
+.btn-expandir{
+    padding-bottom: 20px;
+    width:100%;
+    padding-left: 10px;
+
+}
+
+.btn-expandir > ion-icon{
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu{
+    transition: .2s;
+}
+
+ul li.ativo{
+    background-color: #ccc;
+}
+
+ul li.item-menu:hover{
+    background: #ccc;
+}
+
+ul li.item-menu a {
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+
+ul li.item-menu a .txt-link{
+    margin-left: 40px;
+}
+/*
+nav.menu-lateral:hover + ul li.item-menu a .txt-link{
+    margin-left: 10px;
+} ?????????????
+*/ 
+
+ul li.item-menu a .icon > ion-icon{
+    font-size: 30px;
+}
+.ticket-filter-container{
+    position: relative;
+    left:70px;
+    padding: 40px 0  40px 3%;
+}
+
+nav.menu-lateral:hover + .ticket-filter-container {
+    position: relative;
+    left:230px;
 }
 
 #ticket-filter{
@@ -47,10 +154,6 @@ h1{
     align-items: center;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
 
 main {
     min-height: 400px;
@@ -139,15 +242,16 @@ main {
     border-color: rgba(255,255,255,0.5);
     color: rgba(255,255,255,0.5); 
 }
+
 .logout-box{
-    display: flex;
+    display: grid;
     position:fixed;
+    padding: 0.5%;
     top: 0;
     right: 0;
-    padding: 0.5%;
-    color: #fff;
+    color: rgba(142, 142, 142, 0.605);
     background: transparent;
-    border: 2px solid rgba(255,255,255,0.5);
+    border: 2px solid rgba(255, 255, 255, 0.815);
     border-radius: 15px;
     backdrop-filter: blur(15px);
     justify-content: center;
@@ -156,6 +260,8 @@ main {
   
   .logout-box:hover{
     border-color: #fff;
+    color: #ccc;
+    cursor: pointer;
   }
 
 footer {

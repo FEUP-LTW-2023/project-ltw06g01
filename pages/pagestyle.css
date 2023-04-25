@@ -90,6 +90,7 @@ h2{
 
 .logout-box:hover{
   border-color: #fff;
+  cursor: pointer;
 }
 
 
