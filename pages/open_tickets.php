@@ -95,11 +95,10 @@
   <?php
     $status = isset($_GET['ticket-filter']) ? $_GET['ticket-filter'] : 'open'; //// esta linha supostamente tem de sair?
     $_GET['ticket-filter'] = $_GET['ticket-filter'] ?? 'all';
-    $tickets = getFilteredTickets($db, $_GET['ticket-filter']);
+    $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter']);
 
     foreach ($tickets as $ticket) {
-        $ticketObj = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['status'], $ticket['dateCreated'], $ticket['uID'], $ticket['department']);
-        drawTicketForm($ticketObj, false);
+        drawTicketForm($ticket, false);
     }
   ?>
   </main>

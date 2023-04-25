@@ -8,7 +8,7 @@
 
     function getFilteredTickets($db, $statusFilter = null) {
         
-        if ($statusFilter === null) {
+        if ($statusFilter === null || $statusFilter == 'all') {
             $stmt = $db->prepare('SELECT * FROM ticket');
         } else {
             $stmt = $db->prepare('SELECT * FROM ticket WHERE status = :status');
