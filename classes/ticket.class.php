@@ -36,6 +36,16 @@ class Ticket
         return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
     }
 
+    static function getFilteredTickets(PDO $db, ?string $filter) {
+        $tickets = getFilteredTickets($db, $filter);
+
+        $res = array();
+        foreach ($tickets as $ticket) {
+            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
+        }
+
+        return $res;
+    }
 
     static function openTicket(PDO $db, int $uid, string $title, string $text, ?string $department): Ticket {
         $id = addTicket($db, $uid, $title, $text, $department);
