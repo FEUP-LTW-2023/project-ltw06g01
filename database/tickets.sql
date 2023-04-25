@@ -20,6 +20,7 @@ CREATE TABLE TICKET (
     aID INTEGER REFERENCES CLIENT(uid),
     uID INTEGER REFERENCES CLIENT(uid) NOT NULL,
     history INTEGER REFERENCES TICKET(id),
+    future INTEGER REFERENCES TICKET(id),
     /*CHECK(isHistory >= 0),*/
     CHECK(priority >= 0)
 );
