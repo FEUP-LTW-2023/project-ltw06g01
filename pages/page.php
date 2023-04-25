@@ -33,8 +33,8 @@
   <header class="header">
     <h1>Ticket System</h1>
     <section id="logout" >
-      <div class ="logout-box">
-        <button type="submit" class="submit-logout">Logout</button>
+      <div>
+        <button type="submit" class="logout-box">Logout</button>
       </div>
     </section>
   </header>

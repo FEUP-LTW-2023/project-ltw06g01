@@ -10,7 +10,6 @@
 
   $db = getDatabaseConnection();
 
-
   if (empty($tickets)) {
     $tickets = null;}
 ?>
@@ -41,7 +40,7 @@
     </select>
   </form>
   <?php
-    $status = isset($_GET['ticket-filter']) ? $_GET['ticket-filter'] : 'aberto'; //// esta linha supostamente tem de sair?
+    $status = isset($_GET['ticket-filter']) ? $_GET['ticket-filter'] : 'open'; //// esta linha supostamente tem de sair?
     $_GET['ticket-filter'] = $_GET['ticket-filter'] ?? 'all';
     $tickets = getFilteredTickets($db, $_GET['ticket-filter']);
 
