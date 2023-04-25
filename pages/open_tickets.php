@@ -41,8 +41,9 @@
     </select>
   </form>
   <?php
-    $status = $_GET['ticket-filter'] ?? null;
-    $tickets = getFilteredTickets($db, $status);
+    $status = isset($_GET['ticket-filter']) ? $_GET['ticket-filter'] : 'aberto'; //// esta linha supostamente tem de sair?
+    $_GET['ticket-filter'] = $_GET['ticket-filter'] ?? 'all';
+    $tickets = getFilteredTickets($db, $_GET['ticket-filter']);
 
     foreach ($tickets as $ticket) {
         $ticketObj = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['status'], $ticket['dateCreated'], $ticket['uID'], $ticket['department']);

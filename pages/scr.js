@@ -3,6 +3,8 @@
 var user = {
   type: 'client'
 };
+
+
 //Caso não tenha conta e queira dar signup ou vice versa, então fzemos animações com as boxs
 // selecione os elementos DOM
 const loginBox = document.querySelector('#login-box');
@@ -13,13 +15,20 @@ const loginForm = document.querySelector('.submit-login');
 const signupForm = document.querySelector('.submit-signup');
 const logoutForm = document.querySelector('.logout-box');
 const logoutBox = document.querySelector('.logout-box');
-const beforeMenuBox = document.querySelector('.before-menu');
 const menuBox = document.querySelector('.menu');
+const beforeMenuBox = document.querySelector('.before-menu');
 const afterLoginBox = document.querySelector('.after-login');
 const playAnimation = document.querySelector('#animation');
+const playLogin = document.querySelector('#loggedin');
 
 const animationFlag = playAnimation.getAttribute('value');
 console.log(animationFlag);
+
+const loggedinFlag = playLogin.getAttribute('value');  //para verificar a sessão iniciada ou não
+
+
+
+
 
 // adicione o manipulador de eventos de clique aos botões
 loginButton.addEventListener('click', () => {
@@ -54,6 +63,7 @@ signupBox.style.animation = 'slideInRight 1s ease-in-out';
 });
 
 logoutForm.addEventListener('click', (event) => {
+  loggedinFlag = 0;
   event.preventDefault();
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
   menuBox.style.animation = 'slideOutButtons 1s ease-in-out';
@@ -176,4 +186,30 @@ if (animationFlag == "2") {
   setTimeout(() => {
   signupBox.style.display = 'none';
 }, 500)
+}
+
+if (animationFlag == "3") {
+  logoutBox.style.display = "flex";
+  loginBox.style.display = "none";
+  logoutBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
+  loginBox.style.display = "grid";
+  loginBox.style.animation = "slideInLogout 2s ease-in-out";
+  beforeMenuBox.style.display = "none";
+  menuBox.style.display = "none";
+  oButtons(user.type);
+}
+
+if (loggedinFlag) { ///quando se está com sessão iniciada e se dá refresh
+  loginBox.style.display = "none";
+  logoutBox.style.display = "flex";
+    menuBox.style.display = "flex";
+    menuBox.style.animation = "slideInButtons 0s ease-in-out"; //pode-se alterar isto para chegar um pouco mais suave, tipo apareceer ja a meio da tela e subir somente um pouco
+  showButtons(user.type);
+}
+
+if (!loggedinFlag) { //quando não se está com a sessão iniciada
+  loginBox.style.display = "grid";
+  logoutBox.style.display = "none";
+  menuBox.style.display = "none";
+  outButtons(user.type);
 }

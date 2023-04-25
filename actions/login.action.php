@@ -16,6 +16,7 @@
             $_SESSION['uid'] = $user['uid'];
             $_SESSION['level'] = $user['permissionLevel'];
             $_SESSION['animation'] = 1;
+            $_SESSION["loggedin"] = 1;
         }
     }
 

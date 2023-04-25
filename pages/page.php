@@ -1,5 +1,6 @@
 <?php
   session_start();
+
   if (isset($_SESSION['animation'])) {
     $animation = $_SESSION['animation'];
     unset($_SESSION['animation']);
@@ -7,7 +8,16 @@
   else {
     $animation = 0;
   }
+
+  if (isset($_SESSION['loggedin'])){
+    $loggedin = $_SESSION['loggedin'];
+  }
+  else{
+    $loggedin = 0;
+  }
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +26,14 @@
   <link rel="stylesheet" href="pagestyle.css">
 </head>
 <body>
+<form>
+  <input type="hidden" id="loggedin" value=<?=$loggedin?>>
+</form>
 <header class="header">
     <h1>Ticket System</h1>
     <section id="logout" >
       <div class ="logout-box">
-        <a href = "logout.php">Logout</a>
+        <a href = "logout.action.php">Logout</a>
       </div>
     </section>
 </header>
@@ -131,3 +144,4 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
