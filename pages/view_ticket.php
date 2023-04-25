@@ -32,14 +32,14 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 </head>
 
 <body>
-<header class="header">
+  <header class="header">
     <h1>Visualizar Ticket</h1>
-    <section id="logout" >
-      <div class ="logout-box">
+    <section id="logout">
+      <div class="logout-box">
         <p>Logout</p>
       </div>
     </section>
-</header>
+  </header>
   <main>
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
     <?php drawTicketForm($ticket, false); ?>
@@ -52,15 +52,17 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
         </div>
       <?php } ?>
     </section>
-    <section id="add-message">
-      <form>
-        <input type="hidden" name="tID" value=<?= $ticket->id ?>>
-        <input type="hidden" name="tuid" value=<?= $ticket->uid ?>>
-        <input type="hidden" name="auid" value=<?= $ticket->aid ?>>
-        <input type="text" id="message-text" name="text" placeholder="Write a message">
-        <button type="submit" formaction="../actions/send_message.action.php" formmethod="get">Send</button>
-      </form>
-    </section>
+    <?php if (null === $ticket->hasNext()) { ?>
+      <section id="add-message">
+        <form>
+          <input type="hidden" name="tID" value=<?= $ticket->id ?>>
+          <input type="hidden" name="tuid" value=<?= $ticket->uid ?>>
+          <input type="hidden" name="auid" value=<?= $ticket->aid ?>>
+          <input type="text" id="message-text" name="text" placeholder="Write a message">
+          <button type="submit" formaction="../actions/send_message.action.php" formmethod="get">Send</button>
+        </form>
+      </section>
+    <?php } ?>
   </main>
   <footer>
     <p>Algum footer que queiramos</p>
