@@ -33,7 +33,7 @@ class Ticket
 
         if (!$ticket) return null;
 
-        return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history']);
+        return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
     }
 
     static function openTicket(PDO $db, int $uid, string $title, string $text, ?string $department): Ticket {
@@ -47,7 +47,7 @@ class Ticket
 
         $res = array();
         foreach ($tickets as $ticket) {
-            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history']);
+            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
         }
 
         return $res;
@@ -59,11 +59,11 @@ class Ticket
         return Ticket::getTicket($db, $newTicket);
     }
 
-    function hasNext(): bool {
+    function hasNext(): ?int {
         return $this->next;
     }
 
-    function hasPrev(): bool {
+    function hasPrev(): ?int {
         return $this->prev;
     }
 

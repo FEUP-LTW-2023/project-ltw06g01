@@ -13,6 +13,11 @@ require_once(__DIR__ . '/../templates/ticket.tpl.php');
 
 $db = getDatabaseConnection();
 
+if (!isset($_GET['id'])) {
+  if (isset($_GET['prev'])) $_GET['id'] = $_GET['prev'];
+  else if (isset($_GET['next'])) $_GET['id'] = $_GET['next'];
+}
+
 $ticket = Ticket::getTicket($db, $_GET['id']);
 if (!(isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
 $messages = getMessagesFromTicket($db, $_GET['id']);
@@ -24,7 +29,6 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 <head>
   <title>Visualizar Ticket</title>
   <link rel="stylesheet" href="view_ticketstyle.css">
-  <script src="/../javascript/history_navigation.js" defer></script>
 </head>
 
 <body>
@@ -37,7 +41,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     </section>
 </header>
   <main>
-    <?php if ($_SESSION['level'] >= 1) drawNavigationButtons(); ?>
+    <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
     <?php drawTicketForm($ticket, false); ?>
     <section id="messages">
       <?php foreach ($messages as $message) { ?>

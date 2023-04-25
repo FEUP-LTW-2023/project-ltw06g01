@@ -68,6 +68,9 @@
         $result = $stmt->execute(array($title, $text, $date, $uid, $department, $id));
         $newId = $db->lastInsertId();
 
+        $stmt = $db->prepare('UPDATE TICKET SET future = ? WHERE id = ?');
+        $stmt->execute(array($newId, $id));
+
         $stmt = $db->prepare('INSERT INTO MESSAGE (text, dateSent, uID, tID) SELECT text, dateSent, uID, ? FROM MESSAGE WHERE tID = ?');
         $stmt->execute(array($newId, $id));
 

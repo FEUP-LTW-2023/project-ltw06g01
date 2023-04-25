@@ -43,10 +43,14 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
     </div>
 <?php }
 
-function drawNavigationButtons()
+function drawNavigationButtons($prev, $next)
 {
 ?> <nav>
-        <button type="button" id="prev-button">&lt;</button>
-        <button type="button" id="next-button">&gt;</button>
+        <form>
+            <input type="hidden" value=<?= $prev ?> name="prev">
+            <input type="hidden" value=<?= $next ?> name="next">
+            <button type="submit" formaction="view_ticket.php" formmethod="get" id="prev-button" <?php if (!isset($prev)) echo "disabled"; ?>>&lt;</button>
+            <button type="submit" formaction="view_ticket.php" formmethod="get" id="next-button" <?php if (!isset($next)) echo "disabled"; ?>>&gt;</button>
+        </form>
     </nav>
 <?php } ?>
