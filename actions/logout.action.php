@@ -3,12 +3,14 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/client.php');
 
-    $db = getDatabaseConnection();
-    
+    session_unset();
     session_destroy();
+    session_write_close();
+    change_animationFlag(3);
 
-    $_SESSION["loggedin"] = 1;
-    $_SESSION['animation'] = 3;
+    session_regenerate_id(true);
 
-    header('Location: ../pages/page.php')
+
+    header('Location: ../pages/page.php');
 ?>
+

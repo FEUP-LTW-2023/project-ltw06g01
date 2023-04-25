@@ -29,14 +29,16 @@
 <form>
   <input type="hidden" id="loggedin" value=<?=$loggedin?>>
 </form>
-<header class="header">
+<form action="/../actions/logout.action.php">
+  <header class="header">
     <h1>Ticket System</h1>
     <section id="logout" >
       <div class ="logout-box">
-        <a href = "logout.action.php">Logout</a>
+        <button type="submit" class="submit-logout">Logout</button>
       </div>
     </section>
-</header>
+  </header>
+</form>
 <form>
   <input type="hidden" id="animation" value=<?=$animation?>>
 </form>

@@ -22,10 +22,8 @@ const playAnimation = document.querySelector('#animation');
 const playLogin = document.querySelector('#loggedin');
 
 const animationFlag = playAnimation.getAttribute('value');
-console.log(animationFlag);
 
 const loggedinFlag = playLogin.getAttribute('value');  //para verificar a sessão iniciada ou não
-
 
 
 
@@ -62,12 +60,13 @@ signupBox.style.animation = 'slideInRight 1s ease-in-out';
 }
 });
 
+/*
 logoutForm.addEventListener('click', (event) => {
-  loggedinFlag = 0;
-  event.preventDefault();
+  console.log("a segunda flag do login, depois de carregar no logout é:" , loggedinFlag);
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
+    
+  
   menuBox.style.animation = 'slideOutButtons 1s ease-in-out';
-
   setTimeout(() => {
     outButtons(user.type);
     loginBox.style.display = "grid";
@@ -79,6 +78,7 @@ logoutForm.addEventListener('click', (event) => {
     menuBox.style.display = 'none';
 }, 500)
 });
+*/
 
 function showButtons(userType) {
   if(userType != 'none'){
@@ -117,7 +117,6 @@ function outButtons(userType) {
     for (var i = 0; i < clientButtons.length; i++) {
       clientButtons[i].style.animation = "slideOutButtons 1s ease-in-out";
       setTimeout(() => {
-      clientButtons[i].style.display = 'none';
     }, 500)
     }
   
@@ -189,17 +188,25 @@ if (animationFlag == "2") {
 }
 
 if (animationFlag == "3") {
-  logoutBox.style.display = "flex";
-  loginBox.style.display = "none";
-  logoutBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
-  loginBox.style.display = "grid";
-  loginBox.style.animation = "slideInLogout 2s ease-in-out";
-  beforeMenuBox.style.display = "none";
-  menuBox.style.display = "none";
-  oButtons(user.type);
+  logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
+    
+  
+  menuBox.style.animation = 'slideOutButtons 1s ease-in-out';
+  setTimeout(() => {
+    outButtons(user.type);
+    loginBox.style.display = "grid";
+    loginBox.style.animation = "slideInLogout 1s ease-in-out";
+  }, 500)
+
+  setTimeout(() => {
+    logoutBox.style.display = 'none';
+    menuBox.style.display = 'none';
+}, 500)
 }
 
-if (loggedinFlag) { ///quando se está com sessão iniciada e se dá refresh
+
+
+if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciada e se dá refresh
   loginBox.style.display = "none";
   logoutBox.style.display = "flex";
     menuBox.style.display = "flex";
@@ -207,9 +214,9 @@ if (loggedinFlag) { ///quando se está com sessão iniciada e se dá refresh
   showButtons(user.type);
 }
 
-if (!loggedinFlag) { //quando não se está com a sessão iniciada
+
+if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a sessão iniciada
   loginBox.style.display = "grid";
   logoutBox.style.display = "none";
   menuBox.style.display = "none";
-  outButtons(user.type);
 }

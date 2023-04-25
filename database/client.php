@@ -38,4 +38,10 @@
         $stmt = $db->prepare('UPDATE CLIENT SET username = ?, email = ? WHERE uid = ?');
         $stmt->execute(array($username, $email, $id));
     }
+
+    function change_animationFlag($newFlag) {
+        session_start();
+        $_SESSION['animation'] = $newFlag;
+        session_write_close();
+    }
 ?>
