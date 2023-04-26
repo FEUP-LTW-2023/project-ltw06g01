@@ -43,8 +43,8 @@
     <ion-icon name="ticket-outline"></ion-icon>
   </div>
   <ul>
-    <?php $user_type = 'client'; ?>
-    <?php if ($user_type === 'client'): ?>
+    <?php $user_type = $_SESSION['level'] ?>
+    <?php if (isset($user_type)): ?>
       <li class="item-menu">
         <a href = "#">
           <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
@@ -57,14 +57,14 @@
           <span class = "txt-link">Tickets Abertos</span>
         </a>
     </li>
-    <?php elseif ($user_type === 'agent'): ?>
+    <?php endif; if ($user_type >= 1): ?>
     <li class="item-menu">
       <a href = "#">
         <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
         <span class = "txt-link">Tickets do Departamento</span>
       </a>
     </li>
-    <?php elseif ($user_type === 'admin'): ?>
+    <?php endif; if ($user_type == 2): ?>
     <li class="item-menu">
       <a href = "#">
         <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>

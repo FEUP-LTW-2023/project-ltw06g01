@@ -114,7 +114,7 @@
         <div class="client-button"><a href="ticket.php"></a>
             <p> Criar um novo Ticket </p>
             <ion-icon name="ticket-outline"></ion-icon></div>
-        <div class="client-button"><a href="#"></a>
+        <div class="client-button"><a href="profile.php"></a>
             <p>Tickets abertos</p>
             <ion-icon name="file-tray-stacked-outline"></ion-icon></div>
       <?php elseif ($user_type === 'agent'): ?>
