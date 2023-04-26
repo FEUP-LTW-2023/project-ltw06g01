@@ -9,6 +9,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
     } else {
         $buttonText = "Enviar";
         $action = "../actions/open_ticket.action.php";
+        $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0);
     }
 ?>
     <div class="container">
