@@ -6,7 +6,7 @@
     session_unset();
     session_destroy();
     session_write_close();
-    change_animationFlag(3);
+    change_animationFlag($_GET["logout"]);
 
     session_regenerate_id(true);
 

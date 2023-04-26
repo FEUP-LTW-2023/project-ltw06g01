@@ -1,6 +1,8 @@
 <?php
   session_start();
 
+  require_once(__DIR__ . '/../templates/common.tpl.php');
+
   if (isset($_SESSION['animation'])) {
     $animation = $_SESSION['animation'];
     unset($_SESSION['animation']);
@@ -16,6 +18,7 @@
     $loggedin = 0;
   }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -29,19 +32,7 @@
 <form>
   <input type="hidden" id="loggedin" value=<?=$loggedin?>>
 </form>
-<form action="/../actions/logout.action.php">
-  <header class="header">
-    <h1>Ticket System</h1>
-    <section id="logout" >
-      <div>
-        <button type="submit" class="logout-box">Logout</button>
-      </div>
-    </section>
-  </header>
-</form>
-<form>
-  <input type="hidden" id="animation" value=<?=$animation?>>
-</form>
+<?php drawHeader(3,"");?>
   <section id="login">
           <div class ="form-box-login" id="login-box">
             <div class="form-value">

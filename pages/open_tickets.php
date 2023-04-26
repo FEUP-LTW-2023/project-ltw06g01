@@ -7,6 +7,7 @@
   require_once(__DIR__ . '/../classes/ticket.class.php');
   require_once(__DIR__ . '/../database/connection.php');
   require_once(__DIR__ . '/../templates/ticket.tpl.php');
+  require_once(__DIR__ . '/../templates/common.tpl.php');
 
   $db = getDatabaseConnection();
 
@@ -24,17 +25,7 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-  <header class="header">
-    <section>
-      <h1>Ticket System</h1>
-      <h2>All tickets<h2>
-    </section>
-      <section id="logout" >
-        <div class ="logout-box">
-          <p>Logout</p>
-        </div>
-      </section>
-  </header>
+  <?php drawHeader(4,"All Tickets"); ?>
 <main>
 <nav class="menu-lateral">
     <div class="btn-expandir">
