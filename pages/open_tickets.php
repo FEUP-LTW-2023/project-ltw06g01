@@ -25,7 +25,7 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-  <?php drawHeader(4,"All Tickets"); ?>
+  <?php drawHeader(0, 4, "All Tickets"); ?>
 <main>
 <nav class="menu-lateral">
     <div class="btn-expandir">

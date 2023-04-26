@@ -42,6 +42,6 @@
     function change_animationFlag($newFlag) {
         session_start();
         $_SESSION['animation'] = $newFlag;
-        session_write_close();
+        //session_write_close();
     }
 ?>

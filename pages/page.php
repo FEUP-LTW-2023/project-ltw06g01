@@ -1,5 +1,6 @@
 <?php
   session_start();
+  echo var_dump($_SESSION);
 
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
@@ -32,7 +33,7 @@
 <form>
   <input type="hidden" id="loggedin" value=<?=$loggedin?>>
 </form>
-<?php drawHeader(3,"");?>
+<?php drawHeader($animation, 3,  "");?>
   <section id="login">
           <div class ="form-box-login" id="login-box">
             <div class="form-value">
