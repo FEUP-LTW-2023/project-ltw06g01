@@ -4,4 +4,8 @@
         if ($uid == $tUID || $uid == $aUID) return true;
         else return false;
     }
+
+    function hasAccessToPage($requiredLevel, $level) {
+        return $level >= $requiredLevel;
+    }
 ?>    

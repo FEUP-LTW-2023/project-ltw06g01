@@ -9,6 +9,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
     } else {
         $buttonText = "Enviar";
         $action = "../actions/open_ticket.action.php";
+        $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0);
     }
 ?>
     <div class="container">
@@ -33,7 +34,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                     <label for="title">Assunto:</label>
                     <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
-                <div>
+                <div id="textArea">
                     <label for="fulltext">Mensagem:</label>
                     <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
