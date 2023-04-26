@@ -1,6 +1,5 @@
 <?php
   session_start();
-  echo var_dump($_SESSION);
 
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
