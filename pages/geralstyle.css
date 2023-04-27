@@ -1,0 +1,348 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+body{
+  background-color: #d6d6d6;
+  background-position: center;
+  background-size: auto;
+  display: grid;
+  grid-template-areas:
+   "header header"
+   "nav content"
+   "footer footer";
+   grid-template-columns: auto 1fr;
+   grid-template-rows: auto 1fr 10px;
+}
+/* header */
+#header{
+    grid-area: header;
+    background-color: #4f4f51;
+    color: #d6d6d6;
+}
+
+/*dentro do drawHeader*/
+#drawHeader{
+    display: grid;
+    grid-template-areas:
+    "subtitle title logout";
+}
+
+#drawHeader > #title{  
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    color: #f2c4ce;
+    font-size: larger;
+    padding: 6%;
+}
+
+#drawHeader > #subtitle{
+    grid-area: subtitle;
+    display: flex;
+    justify-content: center;
+    padding: 6%;
+    padding-left: 0%;
+}
+
+#subtitle > h2{
+    display: grid;
+    align-self: end;
+}
+
+#drawHeader > #logout0{
+    grid-area: logout;
+    display: flex;
+    justify-content: end;
+    padding: 9%;
+    align-items: center;
+    color: #edd3d8;
+}
+
+#drawHeader > #logout0 > .logout-box{
+    color: #fff;
+    background: transparent;
+    border: 2px solid #edd3d8;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+    padding: 2%;
+    font-size: 14px;
+}
+
+#drawHeader > #logout0 > .logout-box:hover{
+    border-color: #edd3d8;
+    color: #edd3d8;
+    cursor: pointer;
+}
+
+/* Side Bar */
+
+#nav{
+    color: #fff;
+    grid-area: nav;
+    background-color: #edd3d8;
+    border: 2px solid #c4aeb3;
+    transition: .2s;
+    position: relative; /*verificar isto*/
+    /*height: calc(100vh - <altura do header> - <altura do footer>); como faço isto? para que ele ocupe sempre o resto da página*/
+}
+
+ul li.item-menu:hover{
+    background: #d6b7be;
+}
+
+#drawSideBar{
+    display: grid;
+}
+
+#drawSideBar .txt-link{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    width: 30px;
+}
+
+#nav:hover .txt-link{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+    width: auto;
+    
+}
+
+.icon{
+    font-size: 30px;
+}
+
+.item-menu a span {  /*esta parte não está a funcionar como devido*/
+    display: flex;
+    align-items: end;
+    white-space: nowrap;
+    padding: 10px;
+    color: #fff;
+}
+
+.item-menu{
+    margin-bottom: 25px;
+}
+
+a{
+   text-decoration: none; 
+}
+
+
+/* content */
+
+#content{
+    grid-area: content;
+    background-color: white;
+    flex-direction: column;
+    flex: 1 1 auto; /* set the flex basis to auto so the container takes all available space /
+    overflow-y: auto; / add a scrollbar to the container */
+}
+
+/*tickets gerais*/ /*talvez devia-se fazer um css diferente para os a visualização de todos os tickets*/
+
+#ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+
+    display: grid;
+    grid-template-areas:
+    "title_box title_box"
+    "departamento assunto"
+    "textArea textArea"
+    "enviar enviar";
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.5);
+
+    justify-content: center;
+    gap: 10px;
+    background-color: #a4a4a5;
+    height: fit-content;
+
+}
+
+#ticket-form > #title_box{
+    grid-area: title_box;
+}
+
+#ticket-form > #departamento{
+    grid-area: departamento;
+}
+
+#ticket-form > #assunto{
+    grid-area: assunto;
+}
+
+#ticket-form > #textArea{
+    grid-area: textArea;
+}
+
+#ticket-form label {
+    font-size: 0.85em;
+    max-width: 100%;
+}
+
+#ticket-form #tickettext,
+#ticket-form #subject,
+#ticket-form #department{
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#tickettext{
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+}
+
+#ticket-form > #enviar{
+    grid-area: enviar;
+    padding: 10px 20px; /* Tamanho do botão ajustado */
+    font-size: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(15px);
+    position: relative;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+#ticket-form > #enviar:hover {
+    border-color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.5); 
+}
+
+
+
+/*footer*/
+
+#footer{
+    grid-area: footer;
+    display: grid;
+    justify-self: center;
+    position: relative;
+    bottom: 0;
+}
+
+
+/*dentro da pagina open_tickets, o botão de filtro*/
+
+#filtro{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%
+}
+#filtro label{
+    display: none; /*ver como preferem*/
+    color:#a4a4a5;
+}
+#filtro select{
+    color:#fff;
+    background-color: #edd3d8;
+    padding: 0.5%;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    text-align: center;
+}
+
+/*dentro da página view_ticket*/
+
+#add-message{
+    display: grid;
+    grid-template-areas: "mensagem enviar";
+    grid-template-columns: 1fr auto;
+    padding-left: 80px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+}
+
+#message-text{
+    grid-area: mensagem;
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #f2c4ce;
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+#send-message{
+    grid-area: enviar;
+    padding: 10px 20px; /* Tamanho do botão ajustado */
+    font-size: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(15px);
+    position: relative;
+    background: transparent;
+    border: 2px solid #f2c4ce;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
+#send-message:hover {
+    border-color: #f3a3b4;
+    color: #f3a3b4; 
+}
+
+#messages{
+    padding-left: 80px;
+    padding-right: 110px;
+    padding-bottom: 30px;
+}
+
+.message{
+    display: grid;
+    grid-template-areas: 
+    "content content content"
+    "nome data data";
+    background-color: #f3a3b4;
+    color: #fff;
+
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #f2c4ce;
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.message h2{ /*pode-se trocar a fonte deste texto para ficar mais bonito*/
+    grid-area: nome;
+    font-size: 15px;
+    justify-self: flex-start;
+    align-self: end;
+}
+
+.message h4{ /*pode-se trocar a fonte deste texto para ficar mais bonito*/
+    grid-area: data;
+    font-size: 10px;
+    justify-self: flex-end;
+    align-self: end;
+}
+
+.message p{ /*pode-se trocar a fonte deste texto para ficar mais bonito*/
+    font-size: 30px;
+    grid-area: content;
+}
+/*questões para o professor
+    -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?
+    -como colocar os icons logo seguidos do texto?
+    -como fazer que o content não se mova com o abrir da lateral
+    -verificar se o footer é suposto estar assim
+    -como faço para que o side bar ocupe sempre o restante da página? e como é que o meto sempre parado
+    -como é que o footer fica sempre posicionado no minimo da página?
+*/

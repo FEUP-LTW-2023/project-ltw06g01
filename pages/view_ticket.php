@@ -10,6 +10,8 @@ require_once(__DIR__ . '/../database/message.php');
 require_once(__DIR__ . '/../classes/ticket.class.php');
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../templates/ticket.tpl.php');
+require_once(__DIR__ . '/../templates/common.tpl.php');
+
 
 $db = getDatabaseConnection();
 
@@ -28,19 +30,21 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 
 <head>
   <title>Visualizar Ticket</title>
-  <link rel="stylesheet" href="view_ticketstyle.css">
+  <link rel="stylesheet" href="geralstyle.css">
+  <script src="/../javascript/open_tickets.js" defer></script>
+  <script src="/../javascript/scr.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
-  <header class="header">
-    <h1>Visualizar Ticket</h1>
-    <section id="logout">
-      <div class="logout-box">
-        <p>Logout</p>
-      </div>
-    </section>
-  </header>
-  <main>
+  <div id="header">
+    <?php drawHeader(0, 4, "All Tickets"); ?>
+  </div>
+  <div id="nav">
+    <?php drawSideBar(); ?>
+  </div>
+  <div id="content">
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
     <?php drawTicketForm($ticket, false); ?>
     <section id="messages">
@@ -53,20 +57,22 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
       <?php } ?>
     </section>
     <?php if (null === $ticket->hasNext()) { ?>
-      <section id="add-message">
-        <form>
+      <section>
+        <form id="add-message">
           <input type="hidden" name="tID" value=<?= $ticket->id ?>>
           <input type="hidden" name="tuid" value=<?= $ticket->uid ?>>
           <input type="hidden" name="auid" value=<?= $ticket->aid ?>>
           <input type="text" id="message-text" name="text" placeholder="Write a message">
-          <button type="submit" formaction="../actions/send_message.action.php" formmethod="get">Send</button>
+          <button id="send-message" type="submit" formaction="../actions/send_message.action.php" formmethod="get">Send</button>
         </form>
       </section>
     <?php } ?>
-  </main>
+  </div>
+  <div id="footer">
   <footer>
     <p>Algum footer que queiramos</p>
   </footer>
+  </div>
 </body>
 
 </html>

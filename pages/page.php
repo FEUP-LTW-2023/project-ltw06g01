@@ -25,7 +25,7 @@
 <html>
 <head>
 <title>Ticket System</title>
-  <script src="scr.js" defer></script>
+<script src="/../javascript/scr.js" defer></script>
   <link rel="stylesheet" href="pagestyle.css">
 </head>
 <body>
