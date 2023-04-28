@@ -3,10 +3,9 @@
     padding: 0;
     font-family: 'poppins',sans-serif;
 }
+
 body{
-  background-color: #d6d6d6;
-  background-position: center;
-  background-size: auto;
+  background-color: #c6c5c54a;
   display: grid;
   grid-template-areas:
    "header header"
@@ -15,11 +14,14 @@ body{
    grid-template-columns: auto 1fr;
    grid-template-rows: auto 1fr 10px;
 }
+
 /* header */
 #header{
     grid-area: header;
-    background-color: #4f4f51;
-    color: #d6d6d6;
+    background-color: #55b0c6;
+    color: #363538;
+    border-bottom-right-radius: 90px;
+
 }
 
 /*dentro do drawHeader*/
@@ -33,10 +35,14 @@ body{
     grid-area: title;
     display: flex;
     justify-content: center;
-    color: #f2c4ce;
+    color: #cbf2fa;
     font-size: larger;
     padding: 6%;
+    text-shadow: 2px 2px 8px #2b5a65;
+    -webkit-text-stroke: 1px #408697;
+    text-stroke: 1px #408697;   
 }
+
 
 #drawHeader > #subtitle{
     grid-area: subtitle;
@@ -44,6 +50,9 @@ body{
     justify-content: center;
     padding: 6%;
     padding-left: 0%;
+    color:#ebfcff;
+
+
 }
 
 #subtitle > h2{
@@ -58,38 +67,45 @@ body{
     padding: 9%;
     align-items: center;
     color: #edd3d8;
-}
-
-#drawHeader > #logout0 > .logout-box{
-    color: #fff;
+  }
+  
+  #drawHeader > #logout0 > .logout-box{
+    display: flex;
+    color: #f6f6f6;
     background: transparent;
-    border: 2px solid #edd3d8;
+    border: 2px solid rgba(255,255,255,0.5);
     border-radius: 23px;
     backdrop-filter: blur(15px);
     padding: 2%;
     font-size: 14px;
-}
-
-#drawHeader > #logout0 > .logout-box:hover{
-    border-color: #edd3d8;
-    color: #edd3d8;
+  }
+  
+  #drawHeader > #logout0 > .logout-box:hover{
+    border-color: #fff;
     cursor: pointer;
-}
+    border-radius: 30px;
+  }
 
 /* Side Bar */
 
 #nav{
     color: #fff;
     grid-area: nav;
-    background-color: #edd3d8;
-    border: 2px solid #c4aeb3;
+    background-color: #8281814a;
+    border: 2px solid #55b0c6;
     transition: .2s;
     position: relative; /*verificar isto*/
     /*height: calc(100vh - <altura do header> - <altura do footer>); como faço isto? para que ele ocupe sempre o resto da página*/
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+
 }
 
 ul li.item-menu:hover{
-    background: #d6b7be;
+    background: #55afc641;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+
 }
 
 #drawSideBar{
@@ -124,7 +140,7 @@ ul li.item-menu:hover{
 }
 
 .item-menu{
-    margin-bottom: 25px;
+   /* margin-bottom: 25px;*/
 }
 
 a{
@@ -136,7 +152,7 @@ a{
 
 #content{
     grid-area: content;
-    background-color: white;
+    /*
     flex-direction: column;
     flex: 1 1 auto; /* set the flex basis to auto so the container takes all available space /
     overflow-y: auto; / add a scrollbar to the container */
@@ -164,9 +180,10 @@ a{
 
     justify-content: center;
     gap: 10px;
-    background-color: #a4a4a5;
+    background-color: #55b0c6;
     height: fit-content;
 
+    color: #ebfcff;
 }
 
 #ticket-form > #title_box{
@@ -218,6 +235,7 @@ a{
     border-radius: 15px;
     justify-content: center;
     align-items: center;
+    color:#ebfcff;
 }
 
 #ticket-form > #enviar:hover {
@@ -235,6 +253,8 @@ a{
     justify-self: center;
     position: relative;
     bottom: 0;
+    color: #55afc66c;
+
 }
 
 
@@ -251,7 +271,7 @@ a{
 }
 #filtro select{
     color:#fff;
-    background-color: #edd3d8;
+    background-color: #55afc641;
     padding: 0.5%;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
@@ -345,4 +365,5 @@ a{
     -verificar se o footer é suposto estar assim
     -como faço para que o side bar ocupe sempre o restante da página? e como é que o meto sempre parado
     -como é que o footer fica sempre posicionado no minimo da página?
+    -na pagina do loggin como mudo os tamanhos para que o faq e o footer também não se mexam
 */

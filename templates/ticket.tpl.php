@@ -14,7 +14,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
 ?>
             <form id="ticket-form">
                 <div id="title_box">
-                    <?php if ($edit) { ?> <h2>Preencha o Formulário do Ticket</h2> <?php } ?>
+                    <?php if ($edit) { ?> <h2>Novo Ticket</h2> <?php } ?>
                 </div>
                 <input type="hidden" name="id" id="tid" value=<?= $ticket->id ?>>
                 <div id="departamento">

@@ -23,44 +23,40 @@ function drawSideBar(){
 ?>
     <nav id="drawSideBar">
       <ul>
-        <?php $user_type = 'client'; ?>
-        <?php if ($user_type === 'client'): ?>
+        <li class="item-menu">
+          <a href = "page.php">
+            <span class = "icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class = "txt-link">Página Principal</span>
+          </a>
+        </li>
+        <?php $user_type = $_SESSION['level'] ?>
+        <?php if (isset($user_type)): ?>
           <li class="item-menu">
-            <a href = "#">
-              <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-              <span class = "txt-link">Enviar Ticket</span>
+            <a href = "ticket.php">
+              <span class = "icon"><ion-icon name="ticket-outline"></ion-icon></span>
+              <span class = "txt-link">Criar Ticket</span>
             </a>
           </li>
           <li class="item-menu">
             <a href = "open_tickets.php">
-              <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-              <span class = "txt-link">Tickets Abertos</span>
+              <span class = "icon"><ion-icon name="file-tray-stacked-outline"></ion-icon></span>
+              <span class = "txt-link">Visualizar Tickets</span>
             </a>
         </li>
-        <?php elseif ($user_type === 'agent'): ?>
+        <!--  Podemos colocar este filtro dentro da página com todos os tickets
+        <?php endif; if ($user_type >= 1): ?>
         <li class="item-menu">
-          <a href = "#">
+          <a href = "open_tickets.php">
             <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
             <span class = "txt-link">Tickets do Departamento</span>
           </a>
         </li>
-        <?php elseif ($user_type === 'admin'): ?>
+        -->
+        <?php endif; if ($user_type == 2): ?>
         <li class="item-menu">
-          <a href = "#">
+          <a href = "user_management.php">
             <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-            <span class = "txt-link">Associar Agentes</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href = "#">
-            <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-            <span class = "txt-link">Associar novos departamentos/dados/entidades</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href = "#">
-            <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-            <span class = "txt-link">Promover</span>
+            <span class = "txt-link">Secção Admins</span>
           </a>
         </li>
         <?php endif; ?>
