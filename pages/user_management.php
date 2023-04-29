@@ -5,8 +5,32 @@ if (!isset($_SESSION['uid'])) {
 }
 
 require_once(__DIR__ . '/../utils/validations.php');
+require_once(__DIR__ . '/../database/connection.php');
+require_once(__DIR__ . '/../classes/user.class.php');
+require_once(__DIR__ . '/../templates/profile.tpl.php');
+require_once(__DIR__ . '/../templates/common.tpl.php');
 
 if (!hasAccessToPage(2, $_SESSION['level'])) {
     header('Location: page.php');
+}
+
+$db = getDatabaseConnection();
+$users = User::getUsersAdmin($db);
+
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>All Tickets</title>
+  <link rel="stylesheet" href="geralstyle.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+<?php 
+drawHeader(0, 4, 'Manage users');
+foreach ($users as $user) {
+   drawUserBox($user, true);
 }
 ?>
