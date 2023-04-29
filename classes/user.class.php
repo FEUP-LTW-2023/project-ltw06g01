@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/../database/client.php');
 
-class Username
+class User
 {
     public int $id;
     public string $username;

@@ -56,5 +56,5 @@
 
 <?php
 // Fechar a conexão com a base de dados
-$db->null;
+$db = null;
 ?>
