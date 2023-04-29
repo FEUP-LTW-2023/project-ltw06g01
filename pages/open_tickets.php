@@ -60,4 +60,5 @@
       <p>Algum footer que queiramos</p>
     </footer>
   </div>
-</body>    
+</body>
+</html>

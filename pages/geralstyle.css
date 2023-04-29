@@ -481,6 +481,21 @@ a{
     color: #fff;
 }
 
+/*dentro do profile*/
+
+.form-box-profile{
+    display: grid;
+    position: relative;
+    width: 300px;
+    height: 340px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
+}
+
 /*questões para o professor
     -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?
     -como colocar os icons logo seguidos do texto?
