@@ -5,11 +5,12 @@ userBoxes.forEach((element) => {
     const uid = id.getAttribute('value')
 
     const button = element.querySelector('.user-promotion-button')
-    button.addEventListener('input', async function(value) {
-        const response = await fetch('../api/api_users.php?uid=' + uid + '&level=' + value)
+    button.addEventListener('input', async function(e) {
+        console.log('../api/api_users.php?uid=' + uid + '&level=' + e.target.value)
+        const response = await fetch('../api/api_users.php?uid=' + uid + '&level=' + e.target.value)
         const content = await response.json()
 
-        if (json.success === "0") {
+        if (content.success === "0") {
             element.style.backgroundColor = "red"
         } 
         else {
