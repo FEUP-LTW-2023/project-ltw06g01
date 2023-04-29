@@ -35,18 +35,11 @@
             <h2>Profile</h2>
             <div class="inputbox">
               <ion-icon name="person-outline"></ion-icon>
-              <input type="text" required id="username" name="username">
               <label for="username">Username: <?php echo $curr_user['username']; ?></label>
             </div>
             <div class="inputbox">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type="text" required id="email" name="email">
                 <label for="email">Email: <?php echo $curr_user['email']; ?></label>
-            </div>
-            <div class="inputbox">
-              <ion-icon name="lock-closed-outline"></ion-icon>
-              <input type="password" required id="password" name="password">
-              <label for="password">Password: </label>
             </div>
           </form>
         </div>
