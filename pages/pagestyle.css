@@ -8,12 +8,12 @@ body{
   background-color: #55b0c6;
   display: grid;
   grid-template-areas:
-   "header header"
-   "content content"
-   "faqs faqs"
-   "footer footer";
-   grid-template-columns: 1fr 1fr;
-   grid-template-rows: min-content 1fr min-content min-content;
+   "header"
+   "content"
+   "faqs"
+   "footer";
+   grid-template-columns: 1fr;
+   grid-template-rows: fit-content 1fr fit-content fit-content; /*verificar isto*/
 }
 
 /* header */
@@ -27,7 +27,8 @@ body{
 #drawHeader{
   display: grid;
   grid-template-areas:
-  "title logout";
+  "title title logout";
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 #drawHeader > #title{  
@@ -35,12 +36,30 @@ body{
   display: flex;
   justify-content: start;
   color: #cbf2fa;
-  font-size: larger;
   padding: 3%;
   text-shadow: 2px 2px 8px #2b5a65;
   -webkit-text-stroke: 1px #f6f6f6;
   text-stroke: 1px #f6f6f6;
   font-size: 2em;
+}
+
+
+#drawHeader > #profile{
+  grid-area: logout;
+  display: flex;
+  justify-content: center;
+  padding: 9%;
+  align-items: center;
+  color: #edd3d8;
+}
+
+#drawHeader > #profile > .profile-box{
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  
 }
 
 #drawHeader > #logout0{
@@ -79,13 +98,13 @@ body{
   overflow-y: auto; / add a scrollbar to the container */
 }
 
-section{
+#content section{
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
-h2{
+#content h2{
   font-size: 2em;
   color: #fff;
   text-align: center;

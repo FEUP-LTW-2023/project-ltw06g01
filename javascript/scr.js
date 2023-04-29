@@ -15,6 +15,7 @@ const loginForm = document.querySelector('.submit-login');
 const signupForm = document.querySelector('.submit-signup');
 const logoutForm = document.querySelector('.logout-box');
 const logoutBox = document.querySelector('.logout-box');
+const profileBox = document.querySelector('.profile-box');
 const menuBox = document.querySelector('.menu');
 const beforeMenuBox = document.querySelector('.before-menu');
 const afterLoginBox = document.querySelector('.after-login');
@@ -151,8 +152,10 @@ function outButtons(userType) {
 
 if (animationFlag == "1") {
   loginBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
-  logoutBox.style.display = "grid";
+  logoutBox.style.display = "flex";
   logoutBox.style.animation = "slideInLogout 2s ease-in-out";
+  profileBox.style.display = "flex";
+  profileBox.style.animation = "slideInLogout 2s ease-in-out"
   /* ainda a implementar
   beforeMenuBox.style.display = "grid";
   beforeMenuBox.style.animation = "slideInButtons 2s ease-in-out";
@@ -175,6 +178,8 @@ if (animationFlag == "2") {
   signupBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
   logoutBox.style.display = "grid";
   logoutBox.style.animation = "slideInLogout 2s ease-in-out";
+  profileBox.style.display = "flex";
+  profileBox.style.display = "slideInLogout 2s ease-in-out";
   beforeMenuBox.style.display = "grid";
   beforeMenuBox.style.animation = "slideInButtons 2s ease-in-out";
   setTimeout(() => {
@@ -189,6 +194,7 @@ if (animationFlag == "2") {
 
 if (animationFlag == "3") {
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
+  profileBox.style.animation = "slideOutLoginToLogout 2s ease-in-out";
     
   
   menuBox.style.animation = 'slideOutButtons 1s ease-in-out';
@@ -200,17 +206,20 @@ if (animationFlag == "3") {
 
   setTimeout(() => {
     logoutBox.style.display = 'none';
+    profileBox.style.display = 'none';
     menuBox.style.display = 'none';
 }, 500)
 }
 
 
 
+
 if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciada e se dá refresh
   loginBox.style.display = "none";
   logoutBox.style.display = "flex";
-    menuBox.style.display = "flex";
-    menuBox.style.animation = "slideInButtons 0s ease-in-out"; //pode-se alterar isto para chegar um pouco mais suave, tipo apareceer ja a meio da tela e subir somente um pouco
+  profileBox.style.display = "flex";
+  menuBox.style.display = "flex";
+  menuBox.style.animation = "slideInButtons 0s ease-in-out"; //pode-se alterar isto para chegar um pouco mais suave, tipo apareceer ja a meio da tela e subir somente um pouco
   showButtons(user.type);
 }
 
@@ -218,5 +227,6 @@ if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciad
 if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a sessão iniciada
   loginBox.style.display = "grid";
   logoutBox.style.display = "none";
+  profileBox.style.display = "none";
   menuBox.style.display = "none";
 }

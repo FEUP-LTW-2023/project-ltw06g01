@@ -13,6 +13,9 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
         <div id="logout0">
           <button type="submit" class="logout-box">Logout</button>
         </div>
+        <div id="profile">
+          <a class="profile-box" href="/../pages/profile.php"><ion-icon name="person-outline"></ion-icon></a>
+        </div>
     </form>
 <?php 
 }
