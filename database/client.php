@@ -31,7 +31,9 @@
         if ($newLevel > 2 && $newLevel < 0) return;
 
         $stmt = $db->prepare('UPDATE CLIENT SET permissionLevel = ? WHERE uid = ?');
-        $stmt->execute(array($newLevel, $id));
+        $result = $stmt->execute(array($newLevel, $id));
+        
+        return !($result === 0);
     }
 
     function updateProfile($db, $id, $username, $email) {

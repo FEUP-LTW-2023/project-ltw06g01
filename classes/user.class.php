@@ -32,4 +32,8 @@ class User
 
         return new User($user['uid'], $user['username'], $user['email'], $user['permissionLevel']);
     }
+
+    static function updateUserPermissions(PDO $db, int $uid, int $level): int {
+        return updateUserPerms($db, $uid, $level);
+    }
 }
