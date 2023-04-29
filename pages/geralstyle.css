@@ -9,10 +9,11 @@ body{
   display: grid;
   grid-template-areas:
    "header header"
-   "nav content"
+   "nav nav"
+   "content content"
    "footer footer";
-   grid-template-columns: auto 1fr;
-   grid-template-rows: auto 1fr 10px;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: auto auto 1fr auto;
 }
 
 /* header */
@@ -86,54 +87,79 @@ body{
     border-radius: 30px;
   }
 
-/* Side Bar */
+/* Menu Bar */
 
-#nav{
+#nav {
     color: #fff;
     grid-area: nav;
     background-color: #8281814a;
     border: 2px solid #55b0c6;
     transition: .2s;
-    position: relative; /*verificar isto*/
-    /*height: calc(100vh - <altura do header> - <altura do footer>); como faço isto? para que ele ocupe sempre o resto da página*/
+    width: fit-content;
+    position: static;
+    display: inline-grid;
+    justify-content: space-between;
+    align-items: center;
     border-bottom-right-radius: 30px;
-    border-top-right-radius: 30px;
-
+    border-bottom-left-radius: 30px;
+    /*border-top-left-radius: 5px;
+    border-top-right-radius: 5px;*/
+    justify-self: center;
+    border-top-style: hidden;
+    min-height: 100%;
 }
+  
+  ul{
+    display: flex; /* atualizar esta linha */
+    list-style: none; /* adicionar esta linha */
+    margin: 0; /* adicionar esta linha */
+    padding: 0; /* adicionar esta linha */
+    align-items: center;
+  }
+  
+  ul li.item-menu {
+    flex: 1;
+    text-align: center; 
+  }
 
-ul li.item-menu:hover{
+  ul li.item-menu:hover{
     background: #55afc641;
-    border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-
-}
-
-#drawSideBar{
-    display: grid;
-}
-
-#drawSideBar .txt-link{
+    border-bottom-left-radius: 30px;
+  }
+  
+  #drawSideBar{
+    display: flex; 
+  }
+  
+  #drawSideBar .txt-link{
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out;
-    width: 30px;
-}
-
-#nav:hover .txt-link{
+    width: auto;
+  }
+  
+  #nav:hover .item-menu .txt-link{
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease-in-out;
     width: auto;
-    
-}
+    display: flex;
+  }
+  
 
 .icon{
     font-size: 30px;
 }
 
+.item-menu a {
+    display: grid;
+    align-items: center;
+    justify-content: center; 
+    height: fit-content; 
+  }
+
 .item-menu a span {  /*esta parte não está a funcionar como devido*/
-    display: flex;
-    align-items: end;
     white-space: nowrap;
     padding: 10px;
     color: #fff;
@@ -295,7 +321,7 @@ a{
     grid-area: mensagem;
     padding: 8px;
     font-size: 14px;
-    border: 2px solid #f2c4ce;
+    border: 2px solid #55afc688;
     border-radius: 15px;
     width: 100%;
     box-sizing: border-box;
@@ -307,15 +333,16 @@ a{
     cursor: pointer;
     backdrop-filter: blur(15px);
     position: relative;
-    background: transparent;
-    border: 2px solid #f2c4ce;
+    background: #55afc688;
+    border: 2px solid #fff;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
+    color: #fff;
 }
 #send-message:hover {
-    border-color: #f3a3b4;
-    color: #f3a3b4; 
+    border-color: #55afc688;
+    color: #55b0c6; 
 }
 
 #messages{
@@ -327,24 +354,26 @@ a{
 .message{
     display: grid;
     grid-template-areas: 
-    "content content content"
-    "nome data data";
-    background-color: #f3a3b4;
+    "content content"
+    "nome data";
+    grid-template-columns: 1fr auto;
+    background-color: #55afc688;
     color: #fff;
 
     padding: 8px;
     font-size: 14px;
-    border: 2px solid #f2c4ce;
+    border: 2px solid #9dd5e370;
     border-radius: 15px;
     width: 100%;
     box-sizing: border-box;
+    margin: 10px;
 }
 
 .message h2{ /*pode-se trocar a fonte deste texto para ficar mais bonito*/
     grid-area: nome;
     font-size: 15px;
-    justify-self: flex-start;
-    align-self: end;
+    justify-self: end;
+    padding-right: 2%;
 }
 
 .message h4{ /*pode-se trocar a fonte deste texto para ficar mais bonito*/
