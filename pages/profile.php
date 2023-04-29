@@ -22,9 +22,9 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-  <div id="header">
+  <header>
     <?php drawHeader(0, 4, "Profile"); ?>
-  </div>
+  </header>
   <div id="nav">
     <?php drawSideBar(); ?>
   </div>

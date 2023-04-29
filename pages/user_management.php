@@ -29,9 +29,9 @@ $users = User::getUsersAdmin($db);
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-  <div id="header">
-      <?php drawHeader(0, 4, "Manage users"); ?>
-    </div>
+  <header>
+      <?php   drawHeader(0, 4, "Manage users"); ?>
+  </header>
     <div id="nav">
       <?php drawSideBar(); ?>
     </div>

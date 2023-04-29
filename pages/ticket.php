@@ -30,9 +30,9 @@
   <link rel="stylesheet" href="geralstyle.css">
 </head>
 <body>
-  <div id="header">
+  <header>
     <?php drawHeader(0, 4, "Create Ticket"); ?>
-  </div>
+  </header>
   <div id="nav">
     <?php drawSideBar(); ?>
   </div>

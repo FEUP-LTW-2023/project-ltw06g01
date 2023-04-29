@@ -32,9 +32,9 @@
   <form>
     <input type="hidden" id="loggedin" value=<?=$loggedin?>>
   </form>
-  <div id="header">
+  <header>
     <?php drawHeader($animation, 3,  "");?>
-  </div>
+  </header>
   <div id="content">
       <section id="login">
               <div class ="form-box-login" id="login-box">
