@@ -24,6 +24,7 @@ $users = User::getUsersAdmin($db);
 <head>
 <title>All Tickets</title>
   <link rel="stylesheet" href="geralstyle.css">
+  <script src="/../javascript/scr.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>

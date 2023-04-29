@@ -23,7 +23,7 @@
 </head>
 <body>
   <div id="header">
-    <?php drawHeader(0, 4, "All Tickets"); ?>
+    <?php drawHeader(0, 4, "Profile"); ?>
   </div>
   <div id="nav">
     <?php drawSideBar(); ?>

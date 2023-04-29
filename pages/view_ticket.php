@@ -31,7 +31,6 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 <head>
   <title>Visualizar Ticket</title>
   <link rel="stylesheet" href="geralstyle.css">
-  <script src="/../javascript/open_tickets.js" defer></script>
   <script src="/../javascript/scr.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -39,7 +38,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 
 <body>
   <div id="header">
-    <?php drawHeader(0, 4, "All Tickets"); ?>
+    <?php drawHeader(0, 4, "Ticket history"); ?>
   </div>
   <div id="nav">
     <?php drawSideBar(); ?>

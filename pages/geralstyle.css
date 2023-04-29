@@ -175,10 +175,10 @@ body{
 }
   
   ul{
-    display: flex; /* atualizar esta linha */
-    list-style: none; /* adicionar esta linha */
-    margin: 0; /* adicionar esta linha */
-    padding: 0; /* adicionar esta linha */
+    display: flex; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
     align-items: center;
   }
   

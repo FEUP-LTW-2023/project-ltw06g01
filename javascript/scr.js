@@ -1,4 +1,18 @@
 
+/*verificar onde colocar esta função, serve para colocar os itens da antiga side bar todos ao mesmo tamanho*/
+var itemMenus = document.querySelectorAll('.item-menu');
+console.log(itemMenus);
+var maxWidth = 0;
+for (var i = 0; i < itemMenus.length; i++) {
+  var width = itemMenus[i].offsetWidth;
+  if (width > maxWidth) {
+    maxWidth = width;
+  }
+}
+for (var i = 0; i < itemMenus.length; i++) {
+  itemMenus[i].style.width = maxWidth + 'px';
+}
+
 // Exemplo de autenticação 
 var user = {
   type: 'admin'
@@ -193,11 +207,11 @@ if (animationFlag == "2") {
 }
 
 if (animationFlag == "3") {
+
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
   profileBox.style.animation = "slideOutLoginToLogout 2s ease-in-out";
-    
-  
   menuBox.style.animation = 'slideOutButtons 1s ease-in-out';
+  
   setTimeout(() => {
     outButtons(user.type);
     loginBox.style.display = "grid";
@@ -211,7 +225,19 @@ if (animationFlag == "3") {
 }, 500)
 }
 
+/*
+if (animationFlag == "4"){
 
+  logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
+  profileBox.style.animation = "slideOutLoginToLogout 2s ease-in-out";
+
+
+  setTimeout(() => {
+    logoutBox.style.display = 'none';
+    profileBox.style.display = 'none';
+  }, 500)
+}
+*/
 
 
 if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciada e se dá refresh
@@ -230,3 +256,4 @@ if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a se
   profileBox.style.display = "none";
   menuBox.style.display = "none";
 }
+

@@ -24,7 +24,6 @@
 <html>
 <head>
   <title>Enviar Ticket</title>
-  <script src="/../javascript/open_tickets.js" defer></script>
   <script src="/../javascript/scr.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -32,7 +31,7 @@
 </head>
 <body>
   <div id="header">
-    <?php drawHeader(0, 4, "All Tickets"); ?>
+    <?php drawHeader(0, 4, "Create Ticket"); ?>
   </div>
   <div id="nav">
     <?php drawSideBar(); ?>

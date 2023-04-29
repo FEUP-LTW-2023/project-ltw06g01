@@ -28,13 +28,3 @@ logoutForm.addEventListener('click', (event) => {
     window.location.href = 'page.php';
   }, 500)
 });
-
-
-/* colocar isto a funcionar
-
-document.querySelectorAll('ticket-form').forEach(ticket => {
-  ticket.addEventListener('click', () => {
-    const ticketId = getTicket($db, $_GET['id']);
-    window.location.href = `view_ticket.php?id=${ticketId}`; 
-  });
-}); */

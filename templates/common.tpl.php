@@ -29,7 +29,7 @@ function drawSideBar(){
         <li class="item-menu">
           <a href = "page.php">
             <span class = "icon"><ion-icon name="home-outline"></ion-icon></span>
-            <span class = "txt-link">Página Principal</span>
+            <span class = "txt-link">Home</span>
           </a>
         </li>
         <?php $user_type = $_SESSION['level'] ?>
@@ -37,13 +37,13 @@ function drawSideBar(){
           <li class="item-menu">
             <a href = "ticket.php">
               <span class = "icon"><ion-icon name="ticket-outline"></ion-icon></span>
-              <span class = "txt-link">Criar Ticket</span>
+              <span class = "txt-link">Create Ticket</span>
             </a>
           </li>
           <li class="item-menu">
             <a href = "open_tickets.php">
               <span class = "icon"><ion-icon name="file-tray-stacked-outline"></ion-icon></span>
-              <span class = "txt-link">Visualizar Tickets</span>
+              <span class = "txt-link">All Tickets</span>
             </a>
         </li>
         <!--  Podemos colocar este filtro dentro da página com todos os tickets
@@ -59,7 +59,7 @@ function drawSideBar(){
         <li class="item-menu">
           <a href = "user_management.php">
             <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-            <span class = "txt-link">Secção Admins</span>
+            <span class = "txt-link">Manage Users</span>
           </a>
         </li>
         <?php endif; ?>
