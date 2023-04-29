@@ -28,9 +28,16 @@ $users = User::getUsersAdmin($db);
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-<?php 
-drawHeader(0, 4, 'Manage users');
-foreach ($users as $user) {
-   drawUserBox($user, true);
-}
-?>
+  <div id="header">
+      <?php drawHeader(0, 4, "Manage users"); ?>
+    </div>
+    <div id="nav">
+      <?php drawSideBar(); ?>
+    </div>
+    <div id="content">
+    <?php
+      foreach ($users as $user) {
+        drawUserBox($user, true);
+      }
+      ?>
+    </div>
