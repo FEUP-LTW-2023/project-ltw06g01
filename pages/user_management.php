@@ -39,7 +39,7 @@ $users = User::getUsersAdmin($db);
     <div id="content">
     <?php
       foreach ($users as $user) {
-        drawUserBox($user, true);
+        drawUserBox($db, $user, true);
       }
       ?>
     </div>

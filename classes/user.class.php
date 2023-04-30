@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__ . '/../database/client.php');
+require_once(__DIR__ . '/../database/departments.php');
 
 class User
 {
@@ -35,5 +36,13 @@ class User
 
     static function updateUserPermissions(PDO $db, int $uid, int $level): int {
         return updateUserPerms($db, $uid, $level);
+    }
+
+    static function getAgentDepartments(PDO $db, int $aid): array {
+        return getDepartmentsAgent($db, $aid);
+    }
+
+    static function toggleAgentDepartment(PDO $db, int $aid, string $department): array {
+        return toggleDepartment($db, $aid, $department);
     }
 }
