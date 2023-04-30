@@ -53,7 +53,6 @@
             </form>
           </a>
     <?php } ?>
-    ?>
   </div>
   <div id="footer">
     <footer>

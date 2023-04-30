@@ -29,21 +29,7 @@
     <?php drawSideBar(); ?>
   </div>
   <div id="content">
-      <div class ="form-box-profile" id="profile-box">
-        <div class="form-value">
-          <form>
-            <h2>Profile</h2>
-            <div class="inputbox">
-              <ion-icon name="person-outline"></ion-icon>
-              <label for="username">Username: <?php echo $curr_user['username']; ?></label>
-            </div>
-            <div class="inputbox">
-                <ion-icon name="mail-outline"></ion-icon>
-                <label for="email">Email: <?php echo $curr_user['email']; ?></label>
-            </div>
-          </form>
-        </div>
-      </div>
+    <?php drawProfile($curr_user); ?>
   </div>
   <div id="footer">
     <footer>
