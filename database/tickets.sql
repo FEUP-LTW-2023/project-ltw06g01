@@ -83,3 +83,5 @@ INSERT INTO CLIENT VALUES(25, "onso", "1ff1922a7c24ef4ae794a15f2cb8fbb65527ee720
 INSERT INTO CLIENT VALUES(37, "wololo", "7b868fe521b09b3fbf9a638850235ba1f195c2a2be20777260468aaa269e3268", "locas.minas@gmail.com", 1);
 
 INSERT INTO DEPARTMENT VALUES('Vendas'), ('Suporte'), ('Financeiro');
+
+INSERT INTO AGENTDEPARTMENT VALUES (37, 'Vendas'), (37, 'Financeiro');

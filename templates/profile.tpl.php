@@ -11,7 +11,7 @@ function drawUserBox(PDO $db, User $user, bool $admin)
             $departments = User::getAgentDepartments($db, $user->id); ?>
             <div class="user-departments">
                 <?php foreach ($departments as $department) { ?>
-                    <p><?= $department ?></p>
+                    <p><?= $department['department'] ?></p>
                 <?php } ?>
             </div>
             <select name="departments" class="department-select"></select>
