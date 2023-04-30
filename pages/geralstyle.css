@@ -507,6 +507,7 @@ a{
     align-items: center;
     justify-self: center;
     margin: 7%;
+    align-content: space-evenly;
 }
 
 #image {
@@ -522,18 +523,25 @@ a{
 #image ion-icon{
     font-size: 100px;
     align-self: center;
+    justify-self: center;
 }
 
 #name{
     grid-area: name;
+    justify-self: center;
+
 }
 
 #email{
     grid-area: email;
+    justify-self: center;
+
 }
 
 #type{
     grid-area: type;
+    justify-self: center;
+
 }
 
 
