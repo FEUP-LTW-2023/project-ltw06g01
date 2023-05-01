@@ -18,10 +18,10 @@ function drawUserBox(PDO $db, User $user, bool $admin)
         <?php } ?>
       </div>
       <?php if ($admin) { ?> <select name="departments" class="department-select">
-        <?php foreach ($selectDepartments as $selectDepartment) { ?>
-          <option value=<?=$selectDepartment?>><?=$selectDepartment?></option>
-        <?php } ?>
-      </select>
+          <?php foreach ($selectDepartments as $selectDepartment) { ?>
+            <option value=<?= $selectDepartment ?>><?= $selectDepartment ?></option>
+          <?php } ?>
+        </select>
         <button type="button" class="toggle-button">Toggle</button> <?php }
                                                                 } ?>
     <?php if ($admin) ?> <input name="n" type="number" class="user-promotion-button" value=<?= $user->level ?> min="0" max="2" step="1">
