@@ -507,6 +507,7 @@ a{
     align-items: center;
     justify-self: center;
     margin: 7%;
+    align-content: center;
 }
 
 #image {
@@ -515,25 +516,88 @@ a{
     justify-content: center;
     align-items: center;
     height: fit-content;
-    padding: 0%;
     margin: 0%;
+    padding: 15%;
 }
 
 #image ion-icon{
     font-size: 100px;
     align-self: center;
+    justify-self: center;
 }
 
 #name{
     grid-area: name;
+    justify-self: center;
+    font-size: 30px;
+
 }
 
 #email{
     grid-area: email;
+    justify-self: center;
+
 }
 
 #type{
     grid-area: type;
+    justify-self: center;
+}
+
+/* dentro da pagina user_management*/
+
+#all-users {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+  }
+
+.user-box{
+    display: grid;
+    grid-template: 
+    "name"
+    "email"
+    "department"
+    "department-selection"
+    "promotion";
+    min-width: 300px;
+    min-height: 340px;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    margin-top: 10%;
+    align-content: center;
+
+}
+
+.user-box > #name{
+    grid-area: name;
+}
+.user-box > #email{
+    grid-area: email;
+}
+.user-box > .user-departments{
+    grid-area: department;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+    padding: 7%;
+}
+.user-box > .department-select{
+    grid-area: department-selection;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+}
+.user-box > .user-promotion-button{
+    grid-area: promotion;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
 }
 
 
@@ -546,4 +610,5 @@ a{
     -como faço para que o side bar ocupe sempre o restante da página? e como é que o meto sempre parado
     -como é que o footer fica sempre posicionado no minimo da página?
     -na pagina do loggin como mudo os tamanhos para que o faq e o footer também não se mexam
+    -bug na página dos open_tickets, href está em tudo e não só na caixa.
 */

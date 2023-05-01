@@ -68,33 +68,3 @@ function drawSideBar(){
 <?php 
 }
 ?>
-
-<?php 
-function drawProfile($curr_user){ 
-?>
-  <div class ="form-box-profile">
-      <div id="image">
-        <ion-icon name="person-circle-outline"></ion-icon>
-      </div>
-      <div id="name">
-        <ion-icon name="person-outline"></ion-icon>
-        <label> <?php echo $curr_user['username']; ?> </label>
-      </div>
-      <div id="email">
-          <ion-icon name="mail-outline"></ion-icon>
-          <label> <?php echo $curr_user['email']; ?></label>
-      </div>
-      <div id="type">
-          <ion-icon name="podium-outline"></ion-icon>
-          <?php if ($curr_user['permissionLevel'] >= 1): ?>
-            <label for="level">Type: Agent</label>
-          <?php elseif ($curr_user['permissionLevel'] == 2): ?>
-            <label for="level">Type: Admin</label>
-          <?php else: ?>
-            <label for="level">Type: Client</label>
-          <?php endif; ?>     
-       </div>
-  </div>
-<?php 
-}
-?>
