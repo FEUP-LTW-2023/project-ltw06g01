@@ -22,4 +22,3 @@ $db = getDatabaseConnection();
 $result = User::toggleAgentDepartment($db, $_GET['aid'], $_GET['department']);
 
 echo json_encode($result);
-?>
