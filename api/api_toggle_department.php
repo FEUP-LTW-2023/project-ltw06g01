@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 session_start();
 if (!isset($_SESSION['uid'])) {
@@ -13,15 +14,12 @@ if (!hasAccessToPage(2, $_SESSION['level'])) {
     header('Location: /../pages/page.php');
 }
 
-if (!isset($_GET['uid']) || !isset($_GET['level'])) {
+if (!isset($_GET['aid']) || !isset($_GET['department'])) {
     header('Location: /../pages/page.php');
 }
 
 $db = getDatabaseConnection();
-$result = User::updateUserPermissions($db, $_GET['uid'], $_GET['level']);
-$result = $result ? 1 : 0;
+$result = User::toggleAgentDepartment($db, $_GET['aid'], $_GET['department']);
 
-$json = array();
-$json['success'] = $result;
-
-echo json_encode($json);
+echo json_encode($result);
+?>
