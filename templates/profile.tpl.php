@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . '/../classes/user.class.php');
+require_once(__DIR__ . '/../database/departments.php');
 
 function drawUserBox(PDO $db, User $user, bool $admin)
 { ?>
@@ -8,13 +9,19 @@ function drawUserBox(PDO $db, User $user, bool $admin)
     <h3 id="name"><?= $user->username ?></h3>
     <p id="email"><?= $user->email ?></p>
     <?php if ($user->level >= 1) {
-      $departments = User::getAgentDepartments($db, $user->id); ?>
+      $departments = User::getAgentDepartments($db, $user->id);
+      $allDepartments =  getDepartments($db);
+      $selectDepartments = array_diff($allDepartments, $departments); ?>
       <div class="user-departments">
         <?php foreach ($departments as $department) { ?>
-          <p id="departament"><?= $department['department'] ?></p>
+          <p id="departament"><?= $department ?></p>
         <?php } ?>
       </div>
-      <?php if ($admin) { ?> <select name="departments" class="department-select"></select>
+      <?php if ($admin) { ?> <select name="departments" class="department-select">
+        <?php foreach ($selectDepartments as $selectDepartment) { ?>
+          <option value=<?=$selectDepartment?>><?=$selectDepartment?></option>
+        <?php } ?>
+      </select>
         <button type="button" class="toggle-button">Toggle</button> <?php }
                                                                 } ?>
     <?php if ($admin) ?> <input name="n" type="number" class="user-promotion-button" value=<?= $user->level ?> min="0" max="2" step="1">
