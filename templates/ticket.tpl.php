@@ -37,7 +37,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                     <select id="department" name="department" <?php if (!$edit) echo 'disabled'; ?>>
                         <?php if ($edit) {
                             foreach (getDepartments(getDatabaseConnection()) as $department) { ?>
-                                <option value=<?= $department['name'] ?>><?= $department['name'] ?></option>
+                                <option value=<?= $department ?>><?= $department ?></option>
                             <?php }
                         } else { ?>
                             <option value=<?= $ticket->department ?>><?= $ticket->department ?></option>

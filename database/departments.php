@@ -3,7 +3,14 @@
         $stmt = $db->prepare('SELECT * FROM DEPARTMENT');
         $stmt->execute();
 
-        return $stmt->fetchAll();
+        $departments =  $stmt->fetchAll();
+
+        $result = array();
+        foreach ($departments as $department) {
+            $result[] = $department['name'];
+        }
+
+        return $result;
     }
 
     function getDepartmentsAgent($db, $aid) {
