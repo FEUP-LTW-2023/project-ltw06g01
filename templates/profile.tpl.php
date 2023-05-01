@@ -13,7 +13,7 @@ function drawUserBox(PDO $db, User $user, bool $admin)
       $allDepartments =  getDepartments($db); ?>
       <div class="user-departments">
         <?php foreach ($departments as $department) { ?>
-          <p id="departament"><?= $department ?></p>
+          <p class="department"><?= $department ?></p>
         <?php } ?>
       </div>
       <?php if ($admin) { ?> <select name="departments" class="department-select">

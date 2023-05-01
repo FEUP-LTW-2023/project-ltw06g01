@@ -12,6 +12,14 @@ agentBoxes.forEach((element) => {
         if (department === '') return
         const response = await fetch('../api/api_toggle_department.php?aid=' + aid.getAttribute('value') + '&department=' + department)
         const departments = await response.json()
-        console.log(departments)
+        
+        userDepartments.innerHTML = ''
+        departments.forEach((department) => {
+            const p = document.createElement('p')
+            p.textContent = department.department
+            p.classList.add('department')
+
+            userDepartments.appendChild(p)
+        })
     })
 })
