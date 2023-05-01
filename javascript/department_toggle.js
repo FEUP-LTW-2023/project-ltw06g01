@@ -10,8 +10,8 @@ agentBoxes.forEach((element) => {
     toggleButton.addEventListener('click', async function() {
         const department = departmentSelect.value 
         if (department === '') return
-        const response = await fetch('../api/api_toggle_department.php?aid=' + aid.textContent + '&department=' + department)
-        const departments = response.json()
+        const response = await fetch('../api/api_toggle_department.php?aid=' + aid.getAttribute('value') + '&department=' + department)
+        const departments = await response.json()
         console.log(departments)
     })
 })

@@ -10,16 +10,15 @@ function drawUserBox(PDO $db, User $user, bool $admin)
     <p id="email"><?= $user->email ?></p>
     <?php if ($user->level >= 1) {
       $departments = User::getAgentDepartments($db, $user->id);
-      $allDepartments =  getDepartments($db);
-      $selectDepartments = array_diff($allDepartments, $departments); ?>
+      $allDepartments =  getDepartments($db); ?>
       <div class="user-departments">
         <?php foreach ($departments as $department) { ?>
           <p id="departament"><?= $department ?></p>
         <?php } ?>
       </div>
       <?php if ($admin) { ?> <select name="departments" class="department-select">
-          <?php foreach ($selectDepartments as $selectDepartment) { ?>
-            <option value=<?= $selectDepartment ?>><?= $selectDepartment ?></option>
+          <?php foreach ($allDepartments as $allDepartment) { ?>
+            <option value=<?= $allDepartment ?>><?= $allDepartment ?></option>
           <?php } ?>
         </select>
         <button type="button" class="toggle-button">Toggle</button> <?php }
