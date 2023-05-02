@@ -15,7 +15,6 @@ require_once(__DIR__ . '/../templates/common.tpl.php');
 
 $db = getDatabaseConnection();
 
-echo var_dump($_POST);
 if (!isset($_GET['id'])) {
   if (isset($_GET['prev-button'])) $_GET['id'] = $_GET['prev'];
   else if (isset($_GET['next-button'])) $_GET['id'] = $_GET['next'];
