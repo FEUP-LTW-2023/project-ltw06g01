@@ -21,16 +21,12 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                 <div id="title_box">
                     <?php if ($edit) { ?> <h2>Novo Ticket</h2> <?php } ?>
                 </div>
-                <!--
                 <div id="edit">
-                    <?php /*adicionei este if para colocar o link para a edição do ticket, caso esteja dentro da página view_ticket então vai ter esse link*/
-                        if ($_SERVER['PHP_SELF'] == "/../pages/view_ticket.php?id={$ticket->id}" ||
-                            $_SERVER['PHP_SELF'] == "/../pages/view_ticket.php?next=<?= $ticket->id ?>" || 
-                            $_SERVER['PHP_SELF'] == "/../pages/view_ticket.php?prev=<?= $ticket->id ?>") { ?>
+                    <?php
+                        if (strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
                         <a href="../pages/ticket.php?id=<?= $ticket->id ?>"> <p> Edit </p> </a>
                     <?php } ?>
                 </div>
-                -->
                 <input type="hidden" name="id" id="tid" value=<?= $ticket->id ?>>
                 <div id="departamento">
                     <label for="department">Departamento:</label>
