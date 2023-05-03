@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../database/connection.php');
 require_once(__DIR__ . '/../database/departments.php');
-function drawTicketForm(?Ticket $ticket, bool $edit)
+function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 {
     /*adicionei este if para colocar o link para a edição do ticket, caso esteja dentro da página view_ticket então vai ter esse link*/
     if ($_SERVER['PHP_SELF'] == '/../pages/view_ticket.php' && isset($ticket)) {
@@ -49,6 +49,11 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                     <label for="fulltext">Mensagem:</label>
                     <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
+                <?php if ($_SESSION['level'] >= 1) {
+                    foreach ($tags as $tag) {
+                        ?> <div class="tag"><?=$tag['tag']?> <span class="tag-delete">X</span></div>
+                    <?php } 
+                } ?>
                 <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>
 <?php }
