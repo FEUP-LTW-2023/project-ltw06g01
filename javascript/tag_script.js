@@ -9,8 +9,6 @@ allTags.querySelectorAll('option').forEach((option) => {
     tagList.push(option.textContent)
 })
 
-console.log(tagList)
-
 function tagSetup(tag) {
     const x = tag.querySelector('.tag-delete')
     x.addEventListener('click', (e) => {
@@ -22,7 +20,9 @@ tags.forEach((tag) => tagSetup(tag))
 
 addButton.addEventListener('click', (e) => {
     const newTag = tagInput.value 
-    if (tagList.includes(newTag)) {
+
+    const currTags = Array.from(tagBox.querySelectorAll('.tag')).map(node => node.textContent.slice(0, -2))
+    if (tagList.includes(newTag) && !currTags.includes(newTag)) {
         const tagNode = document.createElement('div')
         const newButton = document.createElement('span')
 
