@@ -17,6 +17,8 @@ body{
    "content content";
    grid-template-columns: 1fr 1fr;
    grid-template-rows: auto auto 1fr;
+   max-width: 100em;
+   margin: 0 auto;
 }
 
 /* header */
@@ -247,10 +249,7 @@ a{
 
 #content{
     grid-area: content;
-    /*
-    flex-direction: column;
-    flex: 1 1 auto; /* set the flex basis to auto so the container takes all available space /
-    overflow-y: auto; / add a scrollbar to the container */
+    display: grid;
 }
 
 /*tickets gerais*/ /*talvez devia-se fazer um css diferente para os a visualização de todos os tickets*/
@@ -355,210 +354,6 @@ a{
     font-size: 15px;
   }
 
-
-
-/*dentro da página view_ticket*/
-
-#add-message{
-    display: grid;
-    grid-template-areas: "mensagem enviar";
-    grid-template-columns: 1fr auto;
-    padding-left: 80px;
-    padding-right: 40px;
-    padding-bottom: 30px;
-}
-
-#message-text{
-    grid-area: mensagem;
-    padding: 8px;
-    font-size: 14px;
-    border: 2px solid #55afc688;
-    border-radius: 15px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#message-text:focus{
-    border-color: #55afc6c6; /*verificar porquê que não funciona*/
-}
-#send-message{
-    grid-area: enviar;
-    padding: 10px 20px; 
-    font-size: 10px;
-    cursor: pointer;
-    backdrop-filter: blur(15px);
-    position: relative;
-    background: #55afc688;
-    border: 2px solid #fff;
-    border-radius: 15px;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-}
-#send-message:hover {
-    border-color: #55afc688;
-    color: #55b0c6; 
-}
-
-#messages{
-    padding-left: 80px;
-    padding-right: 110px;
-    padding-bottom: 30px;
-}
-
-.message{
-    display: grid;
-    grid-template-areas: 
-    "content content"
-    "nome data";
-    grid-template-columns: 1fr auto;
-    background-color: #55afc688;
-    color: #fff;
-
-    padding: 8px;
-    font-size: 14px;
-    border: 2px solid #9dd5e370;
-    border-radius: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 10px;
-}
-
-.message h2{ /*pode-se trocar a fonte deste texto para ficar mais bonito*/
-    grid-area: nome;
-    font-size: 15px;
-    justify-self: end;
-    padding-right: 2%;
-}
-
-.message h4{ /*pode-se trocar a fonte deste texto para ficar mais bonito*/
-    grid-area: data;
-    font-size: 10px;
-    justify-self: flex-end;
-    align-self: end;
-}
-
-.message p{ /*pode-se trocar a fonte deste texto para ficar mais bonito*/
-    font-size: 30px;
-    grid-area: content;
-}
-
-/*botões para ver histórico do ticket, drawNavigationButtons*/
-
-#hist-ticket{
-    display:flex;
-    justify-content: center;
-    padding-top: 4%;
-}
-
-#hist-ticket form{
-    display: flex;
-}
-
-#prev-button, #next-button{
-    background-color: transparent;
-    font-size: 20px;
-    border: 2px solid #8281814a;
-    border-radius: 5px;
-    margin-left: 7px;
-    margin-right: 7px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-#edit{
-    display: flex;
-    color: #fff;
-}
-
-
-.form-box-profile{
-    color: #f6f6f6;
-    display: grid;
-    grid-template:
-    "edit"
-    "image"
-    "name"
-    "email"
-    "type";
-    min-width: inherit ;
-    min-height: inherit;
-    background: #55b0c6;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    margin: 7%;
-    align-content: center;
-}
-
-.submit-login {
-    width: 100%;
-    height: 30px;
-    border: 2px solid #fff;
-    border-radius: 30px;
-    backdrop-filter: blur(15px);
-    background: transparent;
-    font-size: 0.75em;
-    font-weight: 450;
-    cursor: pointer;
-    color:#fff;
-  }
-
-
-#edit {
-    grid-area: edit;
-    display: flex;
-    justify-content: flex-end;
-
-}
-
-#edit ion-icon {
-    background-color: #55b0c6;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-
-#image {
-    grid-area: image;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    margin: 0%;
-    padding: 15%;
-}
-
-
-#image ion-icon{
-    font-size: 100px;
-    align-self: center;
-    justify-self: center;
-}
-
-#name{
-    grid-area: name;
-    justify-self: center;
-    font-size: 30px;
-
-}
-
-#email{
-    grid-area: email;
-    justify-self: center;
-
-}
-
-#type{
-    grid-area: type;
-    justify-self: center;
-}
-
 /* dentro da pagina user_management*/
 
 #all-users {
@@ -567,53 +362,6 @@ a{
     gap: 10px;
   }
 
-.user-box{
-    display: grid;
-    grid-template: 
-    "name"
-    "email"
-    "department"
-    "department-selection"
-    "promotion";
-    min-width: 300px;
-    min-height: 340px;
-    background: #55b0c6;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    margin-top: 10%;
-    align-content: center;
-
-}
-
-.user-box > #name{
-    grid-area: name;
-}
-.user-box > #email{
-    grid-area: email;
-}
-.user-box > .user-departments{
-    grid-area: department;
-    border: 2px solid #9ea4a6;
-    border-radius: 23px;
-    backdrop-filter: blur(15px);
-    padding: 7%;
-}
-.user-box > .department-select{
-    grid-area: department-selection;
-    border: 2px solid #9ea4a6;
-    border-radius: 23px;
-    backdrop-filter: blur(15px);
-}
-.user-box > .user-promotion-button{
-    grid-area: promotion;
-    border: 2px solid #9ea4a6;
-    border-radius: 23px;
-    backdrop-filter: blur(15px);
-}
 
 
 
