@@ -57,7 +57,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                         ?> <div class="tag"><?=$tag['tag']?> <span class="tag-delete">X</span></div>
                     <?php } 
                     ?> </div> <?php 
-                    if ($edit) {
+                    if ($edit && $ticket->id != -1) {
                         ?> <input name="tagdata" list="taglist">
                         <datalist id="taglist">
                             <?php foreach ($allTags as $allTag) { ?>
