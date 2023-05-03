@@ -58,13 +58,14 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                     <?php } 
                     ?> </div> <?php 
                     if ($edit && $ticket->id != -1) {
-                        ?> <input name="tagdata" list="taglist">
+                        ?> <input name="tagdata" list="taglist" class="tag-input">
                         <datalist id="taglist">
                             <?php foreach ($allTags as $allTag) { ?>
                                 <option><?=$allTag['name']?></option>
                              <?php } ?>
-                            </datalist> <?php     
-                    }
+                            </datalist> 
+                            <button type="button" class="tag-add">+</button>
+                    <?php }
                 } ?>
                 <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>
