@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../database/connection.php');
 require_once(__DIR__ . '/../database/departments.php');
-function drawTicketForm(?Ticket $ticket, bool $edit)
+function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 {
     /*adicionei este if para colocar o link para a edição do ticket, caso esteja dentro da página view_ticket então vai ter esse link*/
     if ($_SERVER['PHP_SELF'] == '/../pages/view_ticket.php' && isset($ticket)) {
@@ -16,6 +16,8 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
         $action = "../actions/open_ticket.action.php";
         $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0);
     }
+
+    $allTags = getAllTags(getDatabaseConnection());
 ?>
             <form id="ticket-form">
                 <div id="title_box">
@@ -43,12 +45,28 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                 </div>
                 <div id="assunto">
                     <label for="title">Assunto:</label>
-                    <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value="<?= $ticket->title ?>">
+                    <input type="text" id="subject" name="title" <?php if (!$edit || $_SESSION['id'] != $ticket->uid) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
                 <div id="textArea">
                     <label for="fulltext">Mensagem:</label>
-                    <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <textarea id="tickettext" name="fulltext" <?php if (!$edit || $_SESSION['id'] != $ticket->uid) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
+                <?php if ($_SESSION['level'] >= 1) {
+                    ?> <div class="tags"> <?php 
+                    foreach ($tags as $tag) {
+                        ?> <div class="tag"><?=$tag['tag']?> <span class="tag-delete">X</span></div>
+                    <?php } 
+                    ?> </div> <?php 
+                    if ($edit && $ticket->id != -1) {
+                        ?> <input name="tagdata" list="taglist" class="tag-input">
+                        <datalist id="taglist">
+                            <?php foreach ($allTags as $allTag) { ?>
+                                <option><?=$allTag['name']?></option>
+                             <?php } ?>
+                            </datalist> 
+                            <button type="button" class="tag-add">+</button>
+                    <?php }
+                } ?>
                 <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>
 <?php }

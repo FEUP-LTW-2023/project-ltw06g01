@@ -47,13 +47,6 @@
         return $stmt->fetchAll();
     }
 
-    function getTicketTags($db, $id, $maxTags) {
-        $stmt = $db->prepare('SELECT tag FROM tickettag WHERE tid = ? LIMIT ?');
-        $stmt = $db->execute(array($id, $maxTags));
-
-        return $stmt->fecthAll();
-    }
-
     function addTicket($db, $uid, $title, $text, $department) {
         $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department) VALUES (?, ?, ?, ?, ?)');
         $date = date('Y-m-d');
