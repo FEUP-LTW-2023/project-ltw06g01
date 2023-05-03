@@ -16,6 +16,8 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
         $action = "../actions/open_ticket.action.php";
         $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0);
     }
+
+    $allTags = getAllTags(getDatabaseConnection());
 ?>
             <form id="ticket-form">
                 <div id="title_box">
@@ -43,11 +45,11 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                 </div>
                 <div id="assunto">
                     <label for="title">Assunto:</label>
-                    <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value="<?= $ticket->title ?>">
+                    <input type="text" id="subject" name="title" <?php if (!$edit || $_SESSION['id'] != $ticket->uid) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
                 <div id="textArea">
                     <label for="fulltext">Mensagem:</label>
-                    <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <textarea id="tickettext" name="fulltext" <?php if (!$edit || $_SESSION['id'] != $ticket->uid) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
                 <?php if ($_SESSION['level'] >= 1) {
                     ?> <div class="tags"> <?php 
@@ -55,6 +57,14 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                         ?> <div class="tag"><?=$tag['tag']?> <span class="tag-delete">X</span></div>
                     <?php } 
                     ?> </div> <?php 
+                    if ($edit) {
+                        ?> <input name="tagdata" list="taglist">
+                        <datalist id="taglist">
+                            <?php foreach ($allTags as $allTag) { ?>
+                                <option><?=$allTag['name']?></option>
+                             <?php } ?>
+                            </datalist> <?php     
+                    }
                 } ?>
                 <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>
