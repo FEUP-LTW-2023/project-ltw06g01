@@ -11,6 +11,7 @@ require_once(__DIR__ . '/../classes/ticket.class.php');
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../templates/ticket.tpl.php');
 require_once(__DIR__ . '/../templates/common.tpl.php');
+require_once(__DIR__ . '/../database/tags.php');
 
 
 $db = getDatabaseConnection();
@@ -21,6 +22,7 @@ if (!isset($_GET['id'])) {
 }
 
 $ticket = Ticket::getTicket($db, $_GET['id']);
+$tags = getTicketTags($db, $ticket->id);
 if (!(isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
 $messages = getMessagesFromTicket($db, $_GET['id']);
 ?>
@@ -44,7 +46,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
   </div>
   <div id="content">
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
-    <?php drawTicketForm($ticket, false); ?>
+    <?php drawTicketForm($ticket, false, $tags); ?>
     <section id="messages">
       <?php foreach ($messages as $message) { ?>
         <div class="message">

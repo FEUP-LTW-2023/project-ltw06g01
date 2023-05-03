@@ -50,9 +50,11 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                     <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
                 <?php if ($_SESSION['level'] >= 1) {
+                    ?> <div class="tags"> <?php 
                     foreach ($tags as $tag) {
                         ?> <div class="tag"><?=$tag['tag']?> <span class="tag-delete">X</span></div>
                     <?php } 
+                    ?> </div> <?php 
                 } ?>
                 <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>

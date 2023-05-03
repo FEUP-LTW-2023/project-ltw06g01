@@ -7,11 +7,11 @@ function getAllTags($db) {
     return $stmt->fetchAll();
 }
 
-function getTicketTags($db, $id, $maxTags) {
-    $stmt = $db->prepare('SELECT tag FROM tickettag WHERE tid = ? LIMIT ?');
-    $stmt = $db->execute(array($id, $maxTags));
+function getTicketTags($db, $id) {
+    $stmt = $db->prepare('SELECT tag FROM tickettag WHERE tid = ?');
+    $stmt->execute(array($id));
 
-    return $stmt->fecthAll();
+    return $stmt->fetchAll();
 }
 
 function setTicketTags($db, $id, $tags) {
