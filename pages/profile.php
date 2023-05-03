@@ -30,6 +30,7 @@
   </div>
   <div id="content">
     <?php drawProfile($curr_user); ?>
+    <?php drawProfileEdit($curr_user); ?>
   </div>
   <div id="footer">
     <footer>
