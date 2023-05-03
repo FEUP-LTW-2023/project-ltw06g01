@@ -1,5 +1,87 @@
+#ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
 
-/*dentro da página view_ticket*/
+    display: grid;
+    grid-template-areas:
+    "title_box title_box"
+    "departamento assunto"
+    "textArea textArea"
+    "enviar enviar";
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.5);
+
+    justify-content: center;
+    gap: 10px;
+    background-color: #55b0c6;
+    height: fit-content;
+
+    color: #ebfcff;
+}
+
+#ticket-form > #title_box{
+    grid-area: title_box;
+}
+
+#ticket-form > #departamento{
+    grid-area: departamento;
+}
+
+#ticket-form > #assunto{
+    grid-area: assunto;
+}
+
+#ticket-form > #textArea{
+    grid-area: textArea;
+}
+
+#ticket-form label {
+    font-size: 0.85em;
+    max-width: 100%;
+}
+
+#ticket-form #tickettext,
+#ticket-form #subject,
+#ticket-form #department{
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#tickettext{
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+}
+
+#ticket-form > #enviar{
+    grid-area: enviar;
+    padding: 10px 20px; 
+    font-size: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(15px);
+    position: relative;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    color:#ebfcff;
+}
+
+#ticket-form > #enviar:hover {
+    border-color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.5); 
+}
+
+/*chat*/
 
 #add-message{
     display: grid;
