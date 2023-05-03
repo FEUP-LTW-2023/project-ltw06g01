@@ -1,0 +1,55 @@
+/* dentro da pagina user_management*/
+
+#all-users {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+  }
+
+.user-box{
+    display: grid;
+    grid-template: 
+    "name"
+    "email"
+    "department"
+    "department-selection"
+    "promotion";
+    min-width: 300px;
+    min-height: 340px;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    margin-top: 10%;
+    align-content: center;
+
+}
+
+.user-box > #name{
+    grid-area: name;
+}
+.user-box > #email{
+    grid-area: email;
+}
+.user-box > .user-departments{
+    grid-area: department;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+    padding: 7%;
+}
+.user-box > .department-select{
+    grid-area: department-selection;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+}
+.user-box > .user-promotion-button{
+    grid-area: promotion;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+}

@@ -26,7 +26,7 @@
 <head>
 <title>Ticket System</title>
 <script src="/../javascript/scr.js" defer></script>
-  <link rel="stylesheet" href="pagestyle.css">
+  <link rel="stylesheet" href="/../css/pagestyle.css">
 </head>
 <body>
   <form>

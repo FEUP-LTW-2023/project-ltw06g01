@@ -225,6 +225,7 @@ if (animationFlag == "3") {
 }, 500)
 }
 
+/*para além de criar uma nova transição para o logout a partir de outra page que não a inicial, criar uma transição para o signup, identica à transição 3, mas para o signup*/
 /*
 if (animationFlag == "4"){
 

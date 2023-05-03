@@ -23,7 +23,8 @@ $users = User::getUsersAdmin($db);
 <html>
   <head>
   <title>All Tickets</title>
-    <link rel="stylesheet" href="geralstyle.css">
+    <link rel="stylesheet" href="/../css/geralStyle.css">
+    <link rel="stylesheet" href="/../css/user_managementStyle.css">
     <script src="/../javascript/scr.js" defer></script>
     <script src="/../javascript/department_toggle.js" defer></script>
     <script src="/../javascript/user_promotion.js" defer></script>
