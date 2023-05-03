@@ -1,7 +1,7 @@
 const tagBox = document.querySelector('.tags')
 const tags = tagBox.querySelectorAll('.tag')
 const allTags = document.querySelector('#taglist')
-const addButton = document.querySelector('.add-tag')
+const addButton = document.querySelector('.tag-add')
 const tagInput = document.querySelector('.tag-input')
 const tagList = []
 
@@ -30,10 +30,11 @@ addButton.addEventListener('click', (e) => {
         newButton.textContent = "X"
 
         tagNode.classList.add('tag')
-        tagNode.textContent = newTag
+        tagNode.textContent = newTag + " "
 
-        tagSetup(newTag)
+        tagNode.appendChild(newButton)
+        tagSetup(tagNode)
         
-        tagBox.appendChild(newTag)
+        tagBox.appendChild(tagNode)
     }
 })
