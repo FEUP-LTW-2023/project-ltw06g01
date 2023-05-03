@@ -7,11 +7,11 @@ function getAllTags($db) {
     return $stmt->fetchAll();
 }
 
-function getTicketTags($db, $id) {
-    $stmt = $db->prepare('SELECT * FROM TICKETTAG WHERE tID = ?');
-    $stmt->execute(array($id));
+function getTicketTags($db, $id, $maxTags) {
+    $stmt = $db->prepare('SELECT tag FROM tickettag WHERE tid = ? LIMIT ?');
+    $stmt = $db->execute(array($id, $maxTags));
 
-    return $stmt->fetchAll();
+    return $stmt->fecthAll();
 }
 
 function setTicketTags($db, $id, $tags) {
@@ -21,10 +21,10 @@ function setTicketTags($db, $id, $tags) {
     $params = array();
 
     $query = 'INSERT INTO TICKETTAG VALUES';
-    for (int $i = 0; $i < $n-1; $i++) {
+    for ($i = 0; $i < $n-1; $i++) {
         $query = $query . '(?, ?),';
         $params[] = $id;
-        $params[] = $tags[i];
+        $params[] = $tags[$i];
     }
     $query = $query . '(?, ?)';
     $params[] = $id;
