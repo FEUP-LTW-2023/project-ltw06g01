@@ -1,0 +1,58 @@
+/*dentro do profile*/
+
+.form-box-profile{
+    color: #f6f6f6;
+    display: grid;
+    grid-template:
+    "image"
+    "name"
+    "email"
+    "type";
+    min-width: 300px;
+    min-height: 340px;
+    height: fit-content;
+    width: fit-content;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-content: center;
+    padding: 2%;
+}
+
+#image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    margin: 0%;
+    padding: 15%;
+}
+
+#image ion-icon{
+    font-size: 100px;
+    align-self: center;
+    justify-self: center;
+}
+
+#name{
+    grid-area: name;
+    justify-self: center;
+    font-size: 30px;
+
+}
+
+#email{
+    grid-area: email;
+    justify-self: center;
+
+}
+
+#type{
+    grid-area: type;
+    justify-self: center;
+}

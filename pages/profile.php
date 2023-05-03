@@ -17,7 +17,9 @@
 <head>
   <title>Profile Page</title>
   <script src="/../javascript/scr.js" defer></script>
-  <link rel="stylesheet" href="geralstyle.css">
+  <link rel="stylesheet" href="/../css/geralStyle.css">
+  <link rel="stylesheet" href="/../css/profileStyle.css">
+
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>

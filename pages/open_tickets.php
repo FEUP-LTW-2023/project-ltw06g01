@@ -21,7 +21,8 @@
 <title>All Tickets</title>
   <script src="/../javascript/scr.js" defer></script>
   <script src="/../javascript/open_tickets.js" defer></script>
-  <link rel="stylesheet" href="geralstyle.css">
+  <link rel="stylesheet" href="/../css/geralStyle.css">
+  <link rel="stylesheet" href="/../css/open_ticketsStyle.css">
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>

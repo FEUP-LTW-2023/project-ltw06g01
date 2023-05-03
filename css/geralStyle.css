@@ -4,16 +4,19 @@
     font-family: 'poppins',sans-serif;
 }
 
+html,body{
+    min-height: 100vh;
+}
+
 body{
   background-color: #c6c5c54a;
   display: grid;
   grid-template-areas:
    "header header"
    "nav nav"
-   "content content"
-   "footer footer";
+   "content content";
    grid-template-columns: 1fr 1fr;
-   grid-template-rows: auto auto 1fr auto;
+   grid-template-rows: auto auto 1fr;
 }
 
 /* header */
@@ -243,7 +246,6 @@ a{
 /* content */
 
 #content{
-    display: grid;
     grid-area: content;
     /*
     flex-direction: column;
@@ -341,37 +343,19 @@ a{
 /*footer*/
 
 #footer{
-    grid-area: footer;
     display: grid;
     justify-self: center;
     position: relative;
-    bottom: 0;
     color: #55afc66c;
+    grid-column: 1 / span 2;
+
 
 }
+#footer p{
+    font-size: 15px;
+  }
 
 
-/*dentro da pagina open_tickets, o botão de filtro*/
-
-#filtro{
-    display: flex;
-    justify-content: center;
-    padding-top: 3%
-}
-#filtro label{
-    display: none; /*ver como preferem*/
-    color:#a4a4a5;
-}
-#filtro select{
-    color:#fff;
-    background-color: #55afc641;
-    padding: 0.5%;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-    justify-content: center;
-    text-align: center;
-}
 
 /*dentro da página view_ticket*/
 
@@ -487,7 +471,6 @@ a{
     color: #fff;
 }
 
-/*dentro do profile*/
 
 .form-box-profile{
     color: #f6f6f6;
@@ -636,11 +619,10 @@ a{
 
 /*questões para o professor
     -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?
-    -como colocar os icons logo seguidos do texto?
     -como fazer que o content não se mova com o abrir da lateral
-    -verificar se o footer é suposto estar assim
-    -como faço para que o side bar ocupe sempre o restante da página? e como é que o meto sempre parado
-    -como é que o footer fica sempre posicionado no minimo da página?
+    -os problemas com o footer
     -na pagina do loggin como mudo os tamanhos para que o faq e o footer também não se mexam
     -bug na página dos open_tickets, href está em tudo e não só na caixa.
+    -como colocar os icons logo seguidos do texto?
+
 */

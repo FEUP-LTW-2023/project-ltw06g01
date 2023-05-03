@@ -4,16 +4,20 @@
     padding: 0;
     font-family: 'poppins',sans-serif;
 }
+
+
+html,body{
+  min-height: 100vh;
+}
 body{
   background-color: #55b0c6;
   display: grid;
   grid-template-areas:
    "header"
    "content"
-   "faqs"
-   "footer";
+   "faqs";
    grid-template-columns: 1fr;
-   grid-template-rows: fit-content 1fr fit-content fit-content; /*verificar isto*/
+   grid-template-rows: auto 1fr auto ; /*verificar isto*/
 }
 
 /* header */
@@ -375,7 +379,6 @@ a{
   display: grid;
   align-items: end;
   justify-content: flex-end;
-  padding-top: 5%;
   padding-right: 10%;
   color: #fff;
 }
@@ -444,12 +447,9 @@ ion-icon,.client-button p, .agent-button p, .admin-button p{
 /*footer*/
 
 #footer{
-  grid-area: footer;
   display: grid;
   justify-self: center;
   position: relative;
-  bottom: 0;
-  position: fixed;
   color: #f6f6f67d;
 }
 

@@ -1,0 +1,33 @@
+/*dentro da pagina open_tickets, o botão de filtro*/
+
+#filtro{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%
+}
+#filtro label{
+    display: none; /*ver como preferem*/
+    color:#a4a4a5;
+}
+#filtro select{
+    color:#fff;
+    background-color: #55afc641;
+    padding: 0.5%;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+/*questões para o professor
+    -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?
+    -como fazer que o content não se mova com o abrir da lateral
+    -os problemas com o footer
+    -na pagina do loggin como mudo os tamanhos para que o faq e o footer também não se mexam
+    -bug na página dos open_tickets, href está em tudo e não só na caixa.
+    -como colocar os icons logo seguidos do texto?
+
+*/

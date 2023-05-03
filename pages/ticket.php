@@ -31,7 +31,8 @@
   <script src="/../javascript/tag_script.js" defer ></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <link rel="stylesheet" href="geralstyle.css">
+  <link rel="stylesheet" href="/../css/geralStyle.css">
+  <link rel="stylesheet" href="/../css/ticketStyle.css">
 </head>
 <body>
   <header>
