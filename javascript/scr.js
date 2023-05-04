@@ -13,10 +13,6 @@ for (var i = 0; i < itemMenus.length; i++) {
   itemMenus[i].style.width = maxWidth + 'px';
 }
 
-// Exemplo de autenticação 
-var user = {
-  type: 'admin'
-};
 
 
 //Caso não tenha conta e queira dar signup ou vice versa, então fzemos animações com as boxs
@@ -30,8 +26,7 @@ const signupForm = document.querySelector('.submit-signup');
 const logoutForm = document.querySelector('.logout-box');
 const logoutBox = document.querySelector('.logout-box');
 const profileBox = document.querySelector('.profile-box');
-const menuBox = document.querySelector('.menu');
-const beforeMenuBox = document.querySelector('.before-menu');
+const menuBox = document.querySelector('#nav');
 const afterLoginBox = document.querySelector('.after-login');
 const playAnimation = document.querySelector('#animation');
 const playLogin = document.querySelector('#loggedin');
@@ -95,92 +90,16 @@ logoutForm.addEventListener('click', (event) => {
 });
 */
 
-function showButtons(userType) {
-  if(userType != 'none'){
-  var clientButtons = document.querySelectorAll('.client-button');
-    for (var i = 0; i < clientButtons.length; i++) {
-      clientButtons[i].style.animation = "expand 2s ease-out";
-      clientButtons[i].style.display = 'inline-grid';
-    }
-  
-  // Mostrar botões relevantes com base no tipo de usuário
-  if (userType === 'admin') {
-    var agentButtons = document.querySelectorAll('.agent-button');
-    for (var i = 0; i < agentButtons.length; i++) {
-      agentButtons[i].style.animation = "expand 2s ease-out";
-      agentButtons[i].style.display = 'inline-grid';
-    }
-    var adminButtons = document.querySelectorAll('.admin-button');
-    for (var i = 0; i < adminButtons.length; i++) {
-      adminButtons[i].style.animation = "expand 2s ease-out";
-      adminButtons[i].style.display = 'inline-grid';
-    }
-  } 
-  else if (userType === 'agent') {
-    var agentButtons = document.querySelectorAll('.agent-button');
-    for (var i = 0; i < agentButtons.length; i++) {
-      clientButtons[i].style.animation = "expand 2s ease-out";
-      agentButtons[i].style.display = 'inline-grid';
-    }
-  } 
-}
-}
-
-function outButtons(userType) {
-  if(userType != 'none'){
-  var clientButtons = document.querySelectorAll('.client-button');
-    for (var i = 0; i < clientButtons.length; i++) {
-      clientButtons[i].style.animation = "slideOutButtons 1s ease-in-out";
-      setTimeout(() => {
-    }, 500)
-    }
-  
-  // Mostrar botões relevantes com base no tipo de usuário
-  if (userType === 'admin') {
-    var agentButtons = document.querySelectorAll('.agent-button');
-    for (var i = 0; i < agentButtons.length; i++) {
-      agentButtons[i].style.animation = "slideOutButtons 1s ease-in-out";
-      setTimeout(() => {
-      agentButtons[i].style.display = 'none';
-    }, 500)
-    }
-    var adminButtons = document.querySelectorAll('.admin-button');
-    for (var i = 0; i < adminButtons.length; i++) {
-      adminButtons[i].style.animation = "slideOutButtons 1s ease-in-out";
-      setTimeout(() => {
-      adminButtons[i].style.display = 'none';
-    }, 500)
-    }
-  } 
-  else if (userType === 'agent') {
-    var agentButtons = document.querySelectorAll('.agent-button');
-    for (var i = 0; i < agentButtons.length; i++) {
-      clientButtons[i].style.animation = "slideOutButtons 1s ease-in-out";
-      setTimeout(() => {
-      agentButtons[i].style.display = 'none';
-    }, 500)
-    }
-  } 
-}
-}
 
 if (animationFlag == "1") {
   loginBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
-  logoutBox.style.display = "flex";
+  logoutBox.style.display = "grid";
   logoutBox.style.animation = "slideInLogout 2s ease-in-out";
-  profileBox.style.display = "flex";
+  profileBox.style.display = "grid";
   profileBox.style.animation = "slideInLogout 2s ease-in-out"
-  /* ainda a implementar
-  beforeMenuBox.style.display = "grid";
-  beforeMenuBox.style.animation = "slideInButtons 2s ease-in-out";
-  */
-
-  setTimeout(() => {
-    menuBox.style.display = "flex";
-    menuBox.style.animation = "slideInButtons 1.2s ease-in-out";
-  }, 500)
+  menuBox.style.display = "block";
+  menuBox.style.animation = "slideInButtons 2s ease-in-out";
   
-  showButtons(user.type);
   setTimeout(() => {
     loginBox.style.display = 'none';
   }, 500)
@@ -194,13 +113,10 @@ if (animationFlag == "2") {
   logoutBox.style.animation = "slideInLogout 2s ease-in-out";
   profileBox.style.display = "flex";
   profileBox.style.display = "slideInLogout 2s ease-in-out";
-  beforeMenuBox.style.display = "grid";
-  beforeMenuBox.style.animation = "slideInButtons 2s ease-in-out";
   setTimeout(() => {
     menuBox.style.display = "flex";
     menuBox.style.animation = "slideInButtons 2s ease-in-out";
   }, 500)
-  showButtons(user.type);
   setTimeout(() => {
   signupBox.style.display = 'none';
 }, 500)
@@ -208,21 +124,21 @@ if (animationFlag == "2") {
 
 if (animationFlag == "3") {
 
+  console.log(animationFlag);
+  setTimeout(() => {
+
+  menuBox.style.animation = 'slideOutButtons 2s ease-in-out';
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
   profileBox.style.animation = "slideOutLoginToLogout 2s ease-in-out";
-  menuBox.style.animation = 'slideOutButtons 1s ease-in-out';
-  
-  setTimeout(() => {
-    outButtons(user.type);
-    loginBox.style.display = "grid";
-    loginBox.style.animation = "slideInLogout 1s ease-in-out";
-  }, 500)
+}, 200)
 
   setTimeout(() => {
+    loginBox.style.display = "grid";
+    loginBox.style.animation = "slideInLogout 1s ease-in-out";
     logoutBox.style.display = 'none';
     profileBox.style.display = 'none';
     menuBox.style.display = 'none';
-}, 500)
+}, 1000)
 }
 
 /*para além de criar uma nova transição para o logout a partir de outra page que não a inicial, criar uma transição para o signup, identica à transição 3, mas para o signup*/
@@ -247,7 +163,6 @@ if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciad
   profileBox.style.display = "flex";
   menuBox.style.display = "flex";
   menuBox.style.animation = "slideInButtons 0s ease-in-out"; //pode-se alterar isto para chegar um pouco mais suave, tipo apareceer ja a meio da tela e subir somente um pouco
-  showButtons(user.type);
 }
 
 
