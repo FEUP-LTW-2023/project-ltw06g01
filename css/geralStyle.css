@@ -34,7 +34,7 @@ header{
 #drawHeader{
     display: grid;
     grid-template-areas:
-    "subtitle title logout";
+    "home-or-subtitle title logout";
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -51,24 +51,55 @@ header{
     text-stroke: 1px #408697;   
 }
 
+#drawHeader > #home-or-subtitle{
+  display: grid;
+  grid-area: home-or-subtitle;
+  grid-template-areas: "home subtitle";
+  grid-template-columns: auto 1fr;
+}
 
-#drawHeader > #subtitle{
+#home-or-subtitle > #subtitle{
     grid-area: subtitle;
     display: flex;
     justify-content: center;
     padding: 6%;
     padding-left: 0%;
     color: #f6f6f6;
-
-
-}
-
-#subtitle > h2{
     display: grid;
     align-self: end;
     -webkit-text-stroke: 1px #cbf2fa;
     text-stroke: 1px #f6f6f6;
 }
+
+#home{  
+  grid-area: home;
+  display: flex;
+  justify-content: center;
+  padding: 14.617px;
+  padding-left: 100%;
+  color: #f6f6f6;
+  display: grid;
+  align-self: end;
+  -webkit-text-stroke: 1px #cbf2fa;
+  text-stroke: 1px #f6f6f6;
+}
+.icon-hover{
+  display: none;
+}
+#home:hover .icon-hover{
+  font-size: 32px;
+  display: flex;
+}
+
+#home .icon{
+  font-size: 32px;
+  display: flex;
+}
+
+#home:hover .icon{
+  display: none;
+}
+
 
 #drawHeader > #profile{
     grid-area: logout;
@@ -85,7 +116,21 @@ header{
     border: none;
     color: #fff;
     font-size: 24px;
-    
+}
+
+#profile-button-hover{
+  display: none;
+}
+.profile-box:hover #profile-button-hover{
+  display: flex;
+}
+
+.profile-box #profile-button{
+  display: flex;
+}
+
+.profile-box:hover #profile-button{
+  display: none;
 }
 
 #drawHeader > #logout0{
@@ -269,13 +314,6 @@ a{
     font-size: 15px;
   }
 
-/* dentro da pagina user_management*/
-
-#all-users {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-  }
 
 
 

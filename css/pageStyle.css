@@ -93,6 +93,10 @@ header{
   border-radius: 30px;
 }
 
+#home{
+  display: none;
+}
+
 
 /* content */
 

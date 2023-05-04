@@ -142,9 +142,12 @@ if (animationFlag == "3") {
 }
 
 /*para além de criar uma nova transição para o logout a partir de outra page que não a inicial, criar uma transição para o signup, identica à transição 3, mas para o signup*/
-/*
-if (animationFlag == "4"){
 
+if (animationFlag == "4"){
+  setTimeout(() => {
+  }, 3000)
+
+  console.log('ola');
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
   profileBox.style.animation = "slideOutLoginToLogout 2s ease-in-out";
 
@@ -154,7 +157,7 @@ if (animationFlag == "4"){
     profileBox.style.display = 'none';
   }, 500)
 }
-*/
+
 
 
 if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciada e se dá refresh
