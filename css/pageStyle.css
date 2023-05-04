@@ -93,6 +93,21 @@ header{
   border-radius: 30px;
 }
 
+#profile-button-hover{
+  display: none;
+}
+.profile-box:hover #profile-button-hover{
+  display: flex;
+}
+
+.profile-box #profile-button{
+  display: flex;
+}
+
+.profile-box:hover #profile-button{
+  display: none;
+}
+
 #home{
   display: none;
 }
