@@ -35,12 +35,26 @@ const beforeMenuBox = document.querySelector('.before-menu');
 const afterLoginBox = document.querySelector('.after-login');
 const playAnimation = document.querySelector('#animation');
 const playLogin = document.querySelector('#loggedin');
+const editIcon = document.querySelector("#edit");
+const backIcon = document.querySelector("#back");
+const profile = document.querySelector("#profile_box");
+const profileEdit = document.querySelector("#profile-edit");
 
 const animationFlag = playAnimation.getAttribute('value');
 
-const loggedinFlag = playLogin.getAttribute('value');  //para verificar a sessão iniciada ou não
+//const loggedinFlag = playLogin.getAttribute('value');  //para verificar a sessão iniciada ou não
 
 
+editIcon.addEventListener("click", () => {
+    profile.style.display = "none";
+    profileEdit.style.display = "grid";
+  
+});
+
+backIcon.addEventListener("click", () => {
+  profile.style.display = "grid";
+  profileEdit.style.display = "none";
+})
 
 
 // adicione o manipulador de eventos de clique aos botões

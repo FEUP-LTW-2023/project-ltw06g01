@@ -32,10 +32,10 @@ function drawUserBox(PDO $db, User $user, bool $admin)
 function drawProfile($curr_user)
 {
 ?>
-  <div class="form-box-profile">
+  <div class="form-box-profile" id = "profile_box">
     <div id="edit">
-        <ion-icon name="hammer-outline"></ion-icon>
-    </div>
+      <ion-icon name="hammer-outline"></ion-icon>
+    </div>    
     <div id="image">
       <ion-icon name="person-circle-outline"></ion-icon>
     </div>
@@ -67,19 +67,20 @@ function drawProfile($curr_user)
 function drawProfileEdit($curr_user)
 {
 ?>
-  <div class="form-box-profile">
+  <div class="form-box-edit-profile" id = "profile-edit">
   <form>
+    <div id ="back">
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
     <div id="image">
       <ion-icon name="person-circle-outline"></ion-icon>
     </div>
     <div id="name">
-      <ion-icon name="person-outline"></ion-icon>
       <input type="text"  required id = "username" name="username" value="<?php echo $curr_user['username']; ?>" />
     </div>
     <div id="email">
-      <input type="email" required id = "email" name="email" value="<?php echo $curr_user['email']; ?>" />
       <ion-icon name="mail-outline"></ion-icon>
-    
+      <input type="email" required id = "email" name="email" value="<?php echo $curr_user['email']; ?>" />
     </div>
     <div id="type">
       <ion-icon name="podium-outline"></ion-icon>
@@ -91,7 +92,9 @@ function drawProfileEdit($curr_user)
         <label for="level">Type: Client</label>
       <?php endif; ?>
     </div>
-    <button type="submit" class="submit-update" formaction="/../actions/updating_profile.php" formmethod="post">Save</button>
+    <div id = "save">
+      <button type="submit" class="submit-update" formaction="/../actions/updating_profile.php" formmethod="post">Save</button>
+    </div>
   </form>
   </div>
 <?php

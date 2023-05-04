@@ -4,6 +4,7 @@
     color: #f6f6f6;
     display: grid;
     grid-template:
+    "edit"
     "image"
     "name"
     "email"
@@ -16,11 +17,52 @@
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
     backdrop-filter: blur(15px);
-    justify-content: center;
+    justify-content: inherit;
     align-items: center;
     justify-self: center;
     align-content: center;
     padding: 2%;
+}
+
+.form-box-edit-profile{
+    color: #f6f6f6;
+    display: grid;
+    grid-template:
+    "back"
+    "image"
+    "name"
+    "email"
+    "type"
+    "save";
+    min-width: 300px;
+    min-height: 340px;
+    height: fit-content;
+    width: fit-content;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: inherit;
+    align-items: center;
+    justify-self: center;
+    align-content: center;
+    padding: 2%;
+}
+
+#profile-edit{
+    display: none;
+}
+
+#edit{
+    display: grid;
+    justify-content: end;
+    cursor: pointer;
+}
+
+#back{
+    cursor: pointer;
+    display: grid;
+    justify-content: end;
 }
 
 #image {
@@ -43,16 +85,47 @@
     grid-area: name;
     justify-self: center;
     font-size: 30px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
 }
+
 
 #email{
     grid-area: email;
     justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
 
 }
 
 #type{
     grid-area: type;
     justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+#save{
+    grid-area: save;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+
+#username{
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.498);
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
 }
