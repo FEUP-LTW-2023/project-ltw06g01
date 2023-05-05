@@ -23,7 +23,6 @@ const loginButton = document.querySelector('#login-button');
 const signupButton = document.querySelector('#Register-button');
 const loginForm = document.querySelector('.submit-login');
 const signupForm = document.querySelector('.submit-signup');
-const logoutForm = document.querySelector('.logout-box');
 const logoutBox = document.querySelector('.logout-box');
 const profileBox = document.querySelector('.profile-box');
 const menuBox = document.querySelector('#nav');

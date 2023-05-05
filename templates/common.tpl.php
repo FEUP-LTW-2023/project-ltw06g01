@@ -14,14 +14,15 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
             </a>
             <h2 id="subtitle" ><?=$title?></h2>
         </div>
-        <div id="logout0">
-          <button type="submit" class="logout-box">Logout</button>
-        </div>
-        <div id="profile">
+        <div id="profile-or-logout">
           <a class="profile-box" href="/../pages/profile.php">
             <ion-icon id="profile-button" name="person-outline"></ion-icon>
             <ion-icon id="profile-button-hover" name="person"></ion-icon>
           </a>
+          <button type="submit" class="logout-box">
+            <ion-icon id="logout-icon" name="log-out"></ion-icon>
+            <ion-icon id="logout-icon-hover" name="log-out-outline"></ion-icon>
+          </button>
         </div>
     </form>
 <?php 

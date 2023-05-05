@@ -32,7 +32,7 @@ header{
 #drawHeader{
   display: grid;
   grid-template-areas:
-  "title title logout";
+  "title title profile-or-logout";
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -67,30 +67,23 @@ header{
   
 }
 
-#drawHeader > #logout0{
-  grid-area: logout;
-  display: flex;
-  justify-content: end;
-  padding: 9%;
-  align-items: center;
-  color: #edd3d8;
+#drawHeader > #profile-or-logout{
+  grid-area: profile-or-logout;
+  display: grid;
+  grid-template-areas: "profile logout";
+  grid-template-columns: 1fr auto;
 }
 
-#drawHeader > #logout0 > .logout-box{
-  display: none;
-  color: #f6f6f6;
-  background: transparent;
-  border: 2px solid rgba(255,255,255,0.5);
-  border-radius: 23px;
-  backdrop-filter: blur(15px);
-  padding: 2%;
-  font-size: 14px;
-}
-
-#drawHeader > #logout0 > .logout-box:hover{
-  border-color: #fff;
-  cursor: pointer;
-  border-radius: 30px;
+#profile-or-logout > .profile-box{
+    grid-area: profile;
+    display: flex;
+    align-self: center;
+    color: #fff;
+    font-size: 32px;
+    background-color: transparent;
+    border: none;
+    justify-self: end;
+    margin-right: 70px;
 }
 
 #profile-button-hover{
@@ -108,10 +101,37 @@ header{
   display: none;
 }
 
-#home{
+#profile-or-logout > .logout-box{
+    grid-area: logout;
+    border: none;
+    display: flex;
+    color: #fff;
+    font-size: 32px;
+    background: transparent;
+    align-self: center;
+    margin-right: 60px;
+
+  }
+  
+  #profile-or-logout > .logout-box:hover{
+    cursor: pointer;
+  }
+
+.logout-box > #logout-icon-hover{
+  display: none;
+  }
+
+ .logout-box:hover > #logout-icon{
+  display: none;
+  }
+
+.logout-box:hover > #logout-icon-hover{
+  display: flex;
+  }
+
+#home {
   display: none;
 }
-
 
 /* content */
 
