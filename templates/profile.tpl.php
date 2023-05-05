@@ -79,18 +79,7 @@ function drawProfileEdit($curr_user)
       <input type="text"  required id = "username" name="username" value="<?php echo $curr_user['username']; ?>" />
     </div>
     <div id="email">
-      <ion-icon name="mail-outline"></ion-icon>
-      <input type="email" required id = "email" name="email" value="<?php echo $curr_user['email']; ?>" />
-    </div>
-    <div id="type">
-      <ion-icon name="podium-outline"></ion-icon>
-      <?php if ($curr_user['permissionLevel'] >= 1) : ?>
-        <label for="level">Type: Agent</label>
-      <?php elseif ($curr_user['permissionLevel'] == 2) : ?>
-        <label for="level">Type: Admin</label>
-      <?php else : ?>
-        <label for="level">Type: Client</label>
-      <?php endif; ?>
+      <input type="email" required id = "email-text" name="email" value="<?php echo $curr_user['email']; ?>" />
     </div>
     <div id = "save">
       <button type="submit" class="submit-update" formaction="/../actions/updating_profile.php" formmethod="post">Save</button>
