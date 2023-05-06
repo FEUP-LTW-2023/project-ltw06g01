@@ -30,9 +30,10 @@ const afterLoginBox = document.querySelector('.after-login');
 const playAnimation = document.querySelector('#animation');
 const playLogin = document.querySelector('#loggedin');
 
-const animationFlag = playAnimation.getAttribute('value');
 
-const loggedinFlag = playLogin.getAttribute('value');  //para verificar a sessão iniciada ou não
+const animationFlag = playAnimation.getAttribute('value');
+//const loggedinFlag = playLogin.getAttribute('value');  //para verificar a sessão iniciada ou não
+
 
 
 
@@ -104,6 +105,8 @@ if (animationFlag == "1") {
   }, 500)
 }
 
+
+
 if (animationFlag == "2") {
   signupBox.style.display = "flex";
   loginBox.style.display = "none";
@@ -174,4 +177,7 @@ if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a se
   profileBox.style.display = "none";
   menuBox.style.display = "none";
 }
+
+
+
 

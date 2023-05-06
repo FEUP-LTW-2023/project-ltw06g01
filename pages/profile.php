@@ -15,8 +15,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
   <title>Profile Page</title>
-  <script src="/../javascript/scr.js" defer></script>
+  <script src="/../javascript/profile.js" defer></script>
   <link rel="stylesheet" href="/../css/geralStyle.css">
   <link rel="stylesheet" href="/../css/profileStyle.css">
 
@@ -31,6 +32,7 @@
     <?php drawSideBar(); ?>
   </div>
   <div id="content">
+    
     <?php drawProfile($curr_user); ?>
     <?php drawProfileEdit($curr_user); ?>
   </div>
