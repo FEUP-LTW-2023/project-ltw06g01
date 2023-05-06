@@ -7,22 +7,14 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
         <div id="title">
           <h1>Ticket System</h1>
         </div>
-        <div id="home-or-subtitle">
-            <a id="home" href = "page.php">
-              <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-              <span class="icon-hover"><ion-icon name="home"></ion-icon></span>
-            </a>
-            <h2 id="subtitle" ><?=$title?></h2>
+        <div id="subtitle">
+          <h2><?=$title?></h2>
         </div>
-        <div id="profile-or-logout">
-          <a class="profile-box" href="/../pages/profile.php">
-            <ion-icon id="profile-button" name="person-outline"></ion-icon>
-            <ion-icon id="profile-button-hover" name="person"></ion-icon>
-          </a>
-          <button type="submit" class="logout-box">
-            <ion-icon id="logout-icon" name="log-out"></ion-icon>
-            <ion-icon id="logout-icon-hover" name="log-out-outline"></ion-icon>
-          </button>
+        <div id="logout0">
+          <button type="submit" class="logout-box">Logout</button>
+        </div>
+        <div id="profile">
+          <a class="profile-box" href="/../pages/profile.php"><ion-icon name="person-outline"></ion-icon></a>
         </div>
     </form>
 <?php 
@@ -34,6 +26,12 @@ function drawSideBar(){
 ?>
     <nav id="drawSideBar">
       <ul>
+        <li class="item-menu">
+          <a href = "page.php">
+            <span class = "icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class = "txt-link">Home</span>
+          </a>
+        </li>
         <?php $user_type = $_SESSION['level'] ?>
         <?php if (isset($user_type)): ?>
           <li class="item-menu">

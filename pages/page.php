@@ -36,6 +36,7 @@
     <?php drawHeader($animation, 3,  "");?>
   </header>
   <div id="content">
+      <section id="login">
               <div class ="form-box-login" id="login-box">
                 <div class="form-value">
                   <form>
@@ -62,7 +63,9 @@
                   </form>
                 </div>
               </div>
+        </section>
         
+        <section id="signup">
           <div class ="form-box-signup" id="signup-box">
             <div class="form-value">
               <form action='/../actions/register.action.php' method = "post">
@@ -94,9 +97,44 @@
               </form>
             </div>
           </div>
-        <div id="nav">
-          <?php drawSideBar(); ?>
-        </div>
+        </section>
+      <section>
+        <nav class="buttons">
+          <div class="before-menu">
+          </div>
+          <div class="menu">
+          <?php $user_type = 'client'; ?>
+          <?php if ($user_type === 'client'): ?>
+              <a class="client-button" href="ticket.php">
+                <p> Criar um novo Ticket </p>
+                <ion-icon name="ticket-outline"></ion-icon>
+              </a>
+              <a class="client-button" href="open_tickets.php">
+                  <p>Todos os Tickets</p>
+                  <ion-icon name="file-tray-stacked-outline"></ion-icon>
+              </a>
+          <?php elseif ($user_type === 'agent'): ?>
+              <a class="agent-button" href="#"></a>
+                  <p>Tickets do próprio departamento</p>
+                  <ion-icon name="construct-outline"></ion-icon>
+              </a>
+          <?php elseif ($user_type === 'admin'): ?>
+              <a class="admin-button" href="#">
+                  <p>Página do admin</p>
+                  <ion-icon name="construct-outline"></ion-icon>
+              </a>
+              <a class="admin-button" href="#"></a>
+                    <p>Adicionar novos departamentos/dados/entidades</p>
+                    <ion-icon name="add-circle-outline"></ion-icon>
+              </a>
+              <a class="admin-button" href="#"></a>
+                    <p>Promover</p>
+                    <ion-icon name="person-add-outline"></ion-icon>
+              </a>
+          <?php endif; ?>
+          </div>
+          </nav>
+      </section>
   </div>
   <div id="faqs">
     <section class="FAQs">

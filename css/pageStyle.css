@@ -18,7 +18,10 @@ body{
    "faqs";
    grid-template-columns: 1fr;
    grid-template-rows: auto 1fr auto ;
-   max-width: 100em;
+      /*
+   width: 60em;
+   margin: 0 auto;
+   */
 }
 
 /* header */
@@ -32,7 +35,7 @@ header{
 #drawHeader{
   display: grid;
   grid-template-areas:
-  "title title profile-or-logout";
+  "title title logout";
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -67,84 +70,47 @@ header{
   
 }
 
-#drawHeader > #profile-or-logout{
-  grid-area: profile-or-logout;
-  display: grid;
-  grid-template-areas: "profile logout";
-  grid-template-columns: 1fr auto;
-}
-
-#profile-or-logout > .profile-box{
-    grid-area: profile;
-    display: flex;
-    align-self: center;
-    color: #fff;
-    font-size: 32px;
-    background-color: transparent;
-    border: none;
-    justify-self: end;
-    margin-right: 70px;
-}
-
-#profile-button-hover{
-  display: none;
-}
-.profile-box:hover #profile-button-hover{
+#drawHeader > #logout0{
+  grid-area: logout;
   display: flex;
+  justify-content: end;
+  padding: 9%;
+  align-items: center;
+  color: #edd3d8;
 }
 
-.profile-box #profile-button{
-  display: flex;
+#drawHeader > #logout0 > .logout-box{
+  display: none;
+  color: #f6f6f6;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 23px;
+  backdrop-filter: blur(15px);
+  padding: 2%;
+  font-size: 14px;
 }
 
-.profile-box:hover #profile-button{
-  display: none;
+#drawHeader > #logout0 > .logout-box:hover{
+  border-color: #fff;
+  cursor: pointer;
+  border-radius: 30px;
 }
 
-#profile-or-logout > .logout-box{
-    grid-area: logout;
-    border: none;
-    display: flex;
-    color: #fff;
-    font-size: 32px;
-    background: transparent;
-    align-self: center;
-    margin-right: 60px;
-
-  }
-  
-  #profile-or-logout > .logout-box:hover{
-    cursor: pointer;
-  }
-
-.logout-box > #logout-icon-hover{
-  display: none;
-  }
-
- .logout-box:hover > #logout-icon{
-  display: none;
-  }
-
-.logout-box:hover > #logout-icon-hover{
-  display: flex;
-  }
-
-#home {
-  display: none;
-}
 
 /* content */
 
 #content{
-  display: grid;
   grid-area: content;
-  grid-template-areas: "login"
-  "singup"
-  "nav";
-  justify-content: center;
-  align-content: center; 
+  flex-direction: column;
+  flex: 1 1 auto; /* set the flex basis to auto so the container takes all available space /
+  overflow-y: auto; / add a scrollbar to the container */
 }
 
+#content section{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
 
 #content h2{
   font-size: 2em;
@@ -153,23 +119,20 @@ header{
 }
 
 .form-box-login{
-  grid-area: login;
-  justify-self: center;
-  display: grid;
-  width: 300px;
-  height: 340px;
-  background: transparent;
-  border: 2px solid rgba(255,255,255,0.5);
-  border-radius: 15px;
-  backdrop-filter: blur(15px);
-  justify-content: center;
-  align-items: center;
+    display: grid;
+    position: relative;
+    width: 300px;
+    height: 340px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
 }
-
 .form-box-signup{
-  grid-area: signup;
   display: none;
-  justify-self: center;
+  position: relative;
   width: 300px;
   height: 450px;
   background: transparent;
@@ -434,6 +397,57 @@ a{
   right: 10px;
 }
 
+.buttons{
+  padding: 40px;
+}
+
+
+.admin-button:hover, .agent-button:hover, .client-button:hover {
+  transition: 200ms cubic-bezier(1, 0.49, 0.09, 0.09);
+  background-color: #abc7cf;
+  border: 2px solid *rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  backdrop-filter: blur(90px);
+}
+
+.menu{
+  font-size: 0.93em;
+  display: none;
+  position: relative;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  border: 2px solid #fff/*rgba(255, 255, 255, 0.5)*/;
+  border-radius: 30px;
+  backdrop-filter: blur(90px);
+  background-color: #cbcccc;
+  justify-content: space-around;
+  align-items: center;
+  left: 0;
+  right: 0;
+}
+
+ion-icon,.client-button p, .agent-button p, .admin-button p{
+  justify-self: center;
+}
+
+
+.admin-button, .agent-button, .client-button {
+  display: none; /* depende da animação*/
+  position: relative;
+  width: auto;
+  height: 90px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  align-items: center;
+}
+
+
 /*footer*/
 
 #footer{
@@ -516,86 +530,3 @@ a{
   margin: auto;
 }
 */
-
-
-/* Menu Bar */ /*igual ao do geralStyle*/
-
-#nav {
-  color: #fff;
-  grid-area: nav;
-  background-color: #cbcccc;
-  border: 2px solid #55b0c6;
-  transition: .2s;
-  width: fit-content;
-  justify-content: space-between;
-  align-items: center;
-  align-self: top;
-  border-radius: 30px;
-  justify-self: center;
-  border-top-style: hidden;
-  min-height: 100%;
-}
-
-ul{
-  display: flex; 
-  list-style: none; 
-  margin: 0; 
-  padding: 0; 
-  align-items: center;
-}
-
-ul li.item-menu {
-  flex: 1;
-  text-align: center; 
-}
-
-ul li.item-menu:hover{
-  background: #55afc641;
-  border-radius: 30px;
-  transition: 200ms cubic-bezier(1, 0.49, 0.09, 0.09);
-}
-
-#drawSideBar{
-  display: flex; 
-}
-
-#drawSideBar .txt-link{
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out;
-  width: auto;
-}
-
-#nav:hover .item-menu .txt-link{
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s ease-in-out;
-  width: auto;
-  display: flex;
-}
-
-
-.icon{
-  font-size: 30px;
-}
-
-.item-menu a {
-  display: grid;
-  align-items: center;
-  justify-content: center; 
-  height: fit-content; 
-}
-
-.item-menu a span {  /*esta parte não está a funcionar como devido*/
-  white-space: nowrap;
-  padding: 10px;
-  color: #fff;
-}
-
-.item-menu{
- /* margin-bottom: 25px;*/
-}
-
-a{
- text-decoration: none; 
-}
