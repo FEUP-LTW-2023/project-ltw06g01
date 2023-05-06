@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
   <title>Profile Page</title>
   <script src="/../javascript/profile.js" defer></script>
   <link rel="stylesheet" href="/../css/geralStyle.css">

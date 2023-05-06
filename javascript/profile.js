@@ -4,12 +4,26 @@ const profile = document.querySelector("#profile_box");
 const profileEdit = document.querySelector("#profile-edit");
 
 editIcon.addEventListener("click", () => {
-    profile.style.display = "none"
-    profileEdit.style.display = "grid";
-  
+  rotatePage(profile, profileEdit);
+});
+
+backIcon.addEventListener("click", () => {
+  rotatePage(profileEdit, profile);
+});
+
+function rotatePage(pageOut, pageIn) {
+  pageOut.classList.add("rotate-out");
+  pageIn.classList.add("rotate-in");
+
+  pageOut.addEventListener("animationend", () => {
+    pageOut.style.display = "none";
+    pageOut.classList.remove("rotate-out");
+    pageIn.style.display = "grid";
   });
-  
-  backIcon.addEventListener("click", () => {
-    profile.style.display = "grid"
-    profileEdit.style.display = "none";
-  })
+
+  pageIn.addEventListener("animationend", () => {
+    pageIn.style.display = "grid";
+    pageIn.classList.remove("rotate-in");
+    pageOut.style.display = "none";
+  });
+}

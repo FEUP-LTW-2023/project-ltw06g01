@@ -35,14 +35,14 @@ function drawProfile($curr_user)
   <div class="form-box-profile" id = "profile_box">
     <div id="edit">
       <ion-icon name="hammer-outline"></ion-icon>
-    </div>    
+    </div> 
+    <div id="name">
+      <label> <?php echo $curr_user['username']; ?> </label>
+    </div>   
     <div id="image">
       <ion-icon name="person-circle-outline"></ion-icon>
     </div>
-    <div id="name">
-      <ion-icon name="person-outline"></ion-icon>
-      <label> <?php echo $curr_user['username']; ?> </label>
-    </div>
+
     <div id="email">
       <ion-icon name="mail-outline"></ion-icon>
       <label> <?php echo $curr_user['email']; ?></label>
