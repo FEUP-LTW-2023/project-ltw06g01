@@ -59,6 +59,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                     ?> </div> <?php 
                     if ($edit && $ticket->id != -1) {
                         ?> <input name="tagdata" list="taglist" class="tag-input">
+                        <input type="hidden" class="curr-tags" value=<?=implode(',', array_map(fn($tag) => $tag['tag'], $tags))?>>
                         <datalist id="taglist">
                             <?php foreach ($allTags as $allTag) { ?>
                                 <option><?=$allTag['name']?></option>
