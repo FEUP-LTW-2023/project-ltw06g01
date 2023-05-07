@@ -15,6 +15,9 @@ function getTicketTags($db, $id) {
 }
 
 function setTicketTags($db, $id, $tags) {
+    $stmt = $db->prepare('DELETE FROM TICKETTAG WHERE tID = ?');
+    $stmt->execute(array($id));
+    
     $n = count($tags);
     if ($n == 0) return;
 
