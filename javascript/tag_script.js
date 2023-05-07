@@ -4,6 +4,7 @@ const allTags = document.querySelector('#taglist')
 const addButton = document.querySelector('.tag-add')
 const tagInput = document.querySelector('.tag-input')
 const tagList = []
+const tagString = document.querySelector('.curr-tags')
 
 allTags.querySelectorAll('option').forEach((option) => {
     tagList.push(option.textContent)
@@ -12,6 +13,9 @@ allTags.querySelectorAll('option').forEach((option) => {
 function tagSetup(tag) {
     const x = tag.querySelector('.tag-delete')
     x.addEventListener('click', (e) => {
+        const tagName = tag.textContent.slice(0, -2)
+        tagString.value = tagString.value.replace(tagName, '').replace(/^,/, '').replace(/,,/, ',').replace(/,$/, '')
+        
         tag.remove()
     })
 }
@@ -34,6 +38,8 @@ addButton.addEventListener('click', (e) => {
 
         tagNode.appendChild(newButton)
         tagSetup(tagNode)
+
+        tagString.value += (',' + newTag).replace(/^,/, '')
         
         tagBox.appendChild(tagNode)
     }
