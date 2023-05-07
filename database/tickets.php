@@ -9,9 +9,9 @@
     function getFilteredTickets($db, $statusFilter = null) {
         
         if ($statusFilter === null || $statusFilter == 'all') {
-            $stmt = $db->prepare('SELECT * FROM ticket');
+            $stmt = $db->prepare('SELECT * FROM ticket AND future = NULL');
         } else {
-            $stmt = $db->prepare('SELECT * FROM ticket WHERE status = :status');
+            $stmt = $db->prepare('SELECT * FROM ticket WHERE status = :status AND future = NULL');
             $stmt->bindParam(':status', $statusFilter);
         }
         
@@ -20,14 +20,14 @@
     }
 
     function getTicketsByUser($db, $uid) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE uID = ?');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE uID = ? AND future = NULL');
         $stmt->execute(array($uid));
 
         return $stmt->fetchAll();
     }
 
     function getTicketsFromDepartment($db, $department) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ?');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ? AND future = NULL');
         $stmt->execute(array($department));
 
         return $stmt->fetchAll();
@@ -76,8 +76,8 @@
     }
 
     function assignAgent($db, $id, $aid) {
-        $stmt = $db->prepare('UPDATE TICKET SET aID = ? WHERE id = ?');
-        $otherStmt = $db->prepare('UPDATE TICKET SET status = "assigned" WHERE id = ? AND status = "open"');
+        $stmt = $db->prepare('UPDATE TICKET SET aID = ? WHERE id = ? AND future = NULL');
+        $otherStmt = $db->prepare('UPDATE TICKET SET status = "assigned" WHERE id = ? AND status = "open" AND future = NULL');
 
         $stmt->execute(array($aid, $id));
         $otherStmt->execute(array($id));
