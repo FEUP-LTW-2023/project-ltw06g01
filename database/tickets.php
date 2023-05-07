@@ -48,9 +48,9 @@
     }
 
     function addTicket($db, $uid, $title, $text, $department) {
-        $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department) VALUES (?, ?, ?, ?, ?)');
+        $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, status) VALUES (?, ?, ?, ?, ?, ?)');
         $date = date('Y-m-d');
-        $result = $stmt->execute(array($title, $text, $date, $uid, $department));
+        $result = $stmt->execute(array($title, $text, $date, $uid, $department, 'open'));
 
         if ($result === 0) return -1;
         else return $db->lastInsertId();
@@ -73,5 +73,13 @@
 
         if ($result === 0) return -1;
         else return $newId;
+    }
+
+    function assignAgent($db, $id, $aid) {
+        $stmt = $db->prepare('UPDATE TICKET SET aID = ? WHERE id = ?');
+        $otherStmt = $db->prepare('UPDATE TICKET SET status = "assigned" WHERE id = ? AND status = "open"');
+
+        $stmt->execute(array($aid, $id));
+        $otherStmt->execute(array($id));
     }
 ?>
