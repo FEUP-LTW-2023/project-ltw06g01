@@ -48,11 +48,11 @@
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter']);
 
       foreach ($tickets as $ticket) { ?>
-          <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-            <form id="ticket-form">
-              <?php drawTicketForm($ticket, false); ?>
-            </form>
-          </a>
+          <div id="allTickets">
+              <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>" id="ticket-form">
+                <?php drawTicketForm($ticket, false); ?>
+                </a>
+          </div>
     <?php } ?>
   </div>
   <div id="footer">
