@@ -68,8 +68,8 @@
         $stmt = $db->prepare('INSERT INTO MESSAGE (text, dateSent, uID, tID) SELECT text, dateSent, uID, ? FROM MESSAGE WHERE tID = ?');
         $stmt->execute(array($newId, $id));
 
-        $stmt = $db->prepare('INSERT INTO TICKETTAG (tID, tag) SELECT ?, tag FROM TICKETTAG WHERE tID = ?');
-        $stmt->execute(array($newId, $id));
+        //$stmt = $db->prepare('INSERT INTO TICKETTAG (tID, tag) SELECT ?, tag FROM TICKETTAG WHERE tID = ?');
+        //$stmt->execute(array($newId, $id));
 
         if ($result === 0) return -1;
         else return $newId;

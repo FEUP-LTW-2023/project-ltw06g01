@@ -40,7 +40,7 @@ addButton.addEventListener('click', (e) => {
         tagSetup(tagNode)
 
         tagString.value += (',' + newTag)
-        tagString.value += tagString.value.replace(/^,/, '')
+        tagString.value = tagString.value.replace(/^,/, '')
         
         tagBox.appendChild(tagNode)
     }

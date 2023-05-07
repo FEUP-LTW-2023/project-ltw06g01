@@ -6,6 +6,8 @@
     require_once(__DIR__ . '/../database/tickets.php');
     require_once(__DIR__ . '/../database/tags.php');
 
+
+    echo var_dump($_POST);
     if (!isset($_POST['id'])) {
       die();
     }
