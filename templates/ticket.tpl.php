@@ -45,11 +45,11 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                 </div>
                 <div id="assunto">
                     <label for="title">Assunto:</label>
-                    <input type="text" id="subject" name="title" <?php if (!$edit || $_SESSION['uid'] != $ticket->uid) echo 'readonly'; ?> value="<?= $ticket->title ?>">
+                    <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
                 <div id="textArea">
                     <label for="fulltext">Mensagem:</label>
-                    <textarea id="tickettext" name="fulltext" <?php if (!$edit || $_SESSION['uid'] != $ticket->uid) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
                 <?php if ($_SESSION['level'] >= 1) {
                     ?> <div class="tags"> <?php 
