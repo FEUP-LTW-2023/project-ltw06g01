@@ -104,4 +104,9 @@ class Ticket
 
         return $res;
     }
+
+    static function joinFilters(array ...$filteredTickets): array {
+        if (count($filteredTickets) == 1) return $filteredTickets; 
+        return array_intersect(...$filteredTickets);
+    }
 }
