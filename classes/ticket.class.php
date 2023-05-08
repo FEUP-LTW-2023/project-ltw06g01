@@ -39,12 +39,19 @@ class Ticket
     static function getFilteredTickets(PDO $db, ?string $filter) {
         $tickets = getFilteredTickets($db, $filter);
 
-        $res = array();
-        foreach ($tickets as $ticket) {
-            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
-        }
+        return Ticket::createArray($tickets);
+    }
 
-        return $res;
+    static function getTicketsByTags(PDO $db, array $tags): array {
+        $tickets = getTicketsWithTags($db, $tags);
+
+        return Ticket::createArray($tickets);
+    }
+
+    static function getTicketsFromAgent(PDO $db, int $aid): array {
+        $tickets = getTicketsAssignedTo($db, $aid);
+
+        return Ticket::createArray($tickets);
     }
 
     static function openTicket(PDO $db, int $uid, string $title, string $text, ?string $department): Ticket {
@@ -56,12 +63,7 @@ class Ticket
     static function getTicketsFromUser(PDO $db, int $uid): array {
         $tickets = getTicketsByUser($db, $uid);
 
-        $res = array();
-        foreach ($tickets as $ticket) {
-            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
-        }
-
-        return $res;
+        return Ticket::createArray($tickets);
     }
 
     function updateTicket(PDO $db, int $uid, string $title, string $text, ?string $department, int $id): Ticket {
@@ -92,5 +94,14 @@ class Ticket
             return Ticket::getTicket($db, $this->next);
         }
         else return null;
+    }
+
+    private static function createArray(array $tickets): array {
+        $res = array();
+        foreach ($tickets as $ticket) {
+            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
+        }
+
+        return $res;
     }
 }
