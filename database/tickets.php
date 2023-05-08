@@ -19,6 +19,27 @@
         return $stmt->fetchAll();
     }
 
+    function getTicketsAssignedTo($db, $aid) {
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE aID = ? AND future = NULL');
+        $stmt->execute(array($aid));
+
+        return $stmt->fetchAll();
+    }
+
+    function getTicketsWithTags($db, array $tags) {
+        if (empty($tags)) return;
+        $query = 'SELECT * FROM ticket t JOIN TICKETTAG tt ON t.id = tt.tID WHERE tt.tag = ?';
+        for ($i = 0; $i < count($tags) - 1; $i++) {
+            $query = $query . ' OR tt.tag = ?';
+        }
+        $query = $query . ' GROUP BY t.id HAVING count(tt.tag) = ?';
+        
+        $stmt = $db->prepare($query);
+        $stmt->execute(array_merge($tags, array(count($tags) - 1)));
+
+        return $stmt->fetchAll();
+    }
+
     function getTicketsByUser($db, $uid) {
         $stmt = $db->prepare('SELECT * FROM ticket WHERE uID = ? AND future = NULL');
         $stmt->execute(array($uid));
