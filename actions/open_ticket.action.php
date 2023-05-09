@@ -13,6 +13,6 @@
     $status = Ticket::openTicket($db, intval($_SESSION['uid']), $_POST['title'], $_POST['fulltext'], $_POST['department']);
     setTicketTags($db, $status->id, array('potato', 'tomato'));
     
-    if ($status == -1) header('Location: ../pages/page.php');
+    if (!isset($status)) header('Location: ../pages/page.php');
     else header("Location: ../pages/view_ticket.php?id=$status->id");
 ?>    

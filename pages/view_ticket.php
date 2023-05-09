@@ -23,7 +23,8 @@ if (!isset($_GET['id'])) {
 
 $ticket = Ticket::getTicket($db, $_GET['id']);
 $tags = getTicketTags($db, $ticket->id);
-if (!(isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
+$validity = isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']);
+if ($validity == 0) header('Location: ../pages/page.php');
 $messages = getMessagesFromTicket($db, $_GET['id']);
 ?>
 

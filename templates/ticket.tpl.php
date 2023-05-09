@@ -1,8 +1,12 @@
 <?php
 require_once(__DIR__ . '/../database/connection.php');
 require_once(__DIR__ . '/../database/departments.php');
+require_once(__DIR__ . '/../utils/validations.php');
+
 function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 {
+    $validity = isValidUser($ticket->uid ?? -1, $ticket->aid ?? -1, $_SESSION['uid'], $_SESSION['level']);
+    
     /*adicionei este if para colocar o link para a edição do ticket, caso esteja dentro da página view_ticket então vai ter esse link*/
     if ($_SERVER['PHP_SELF'] == '/../pages/view_ticket.php' && isset($ticket)) {
         echo '<a id="edit" href="../pages/ticket.php?id=' . $ticket->id . '">Edit</a>';
@@ -32,7 +36,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                 <input type="hidden" name="id" id="tid" value=<?= $ticket->id ?>>
                 <div id="departamento">
                     <label for="department">Departamento:</label>
-                    <select id="department" name="department" <?php if (!$edit) echo 'disabled'; ?>>
+                    <select id="department" name="department" <?php if (!$edit && $validity != 2) echo 'disabled'; ?>>
                         <?php if ($edit) {
                             foreach (getDepartments(getDatabaseConnection()) as $department) { ?>
                                 <option value=<?= $department ?>><?= $department ?></option>
