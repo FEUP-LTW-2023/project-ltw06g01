@@ -4,10 +4,15 @@ require_once(__DIR__ . '/../database/departments.php');
 
 function drawUserBox(PDO $db, User $user, bool $admin)
 { ?>
-  <div class="user-box">
+  <div class="user-box" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
     <input type="hidden" name="id" class="uid" value=<?= $user->id ?>>
     <h3 id="name"><?= $user->username ?></h3>
     <p id="email"><?= $user->email ?></p>
+  </div>
+  <div class="user-box-popup" id="user-box-popup-<?= $user->id ?>">
+  <button type="button" class="back-button" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
+    <ion-icon name="arrow-back"></ion-icon> 
+  </button>
     <?php if ($user->level >= 1) {
       $departments = User::getAgentDepartments($db, $user->id);
       $allDepartments =  getDepartments($db); ?>
@@ -16,16 +21,35 @@ function drawUserBox(PDO $db, User $user, bool $admin)
           <p class="department"><?= $department ?></p>
         <?php } ?>
       </div>
-      <?php if ($admin) { ?> <select name="departments" class="department-select">
+      <?php if ($admin) { ?>
+        <select name="departments" class="department-select">
           <?php foreach ($allDepartments as $allDepartment) { ?>
-            <option value=<?= $allDepartment ?>><?= $allDepartment ?></option>
+            <option value="<?= $allDepartment ?>"><?= $allDepartment ?></option>
           <?php } ?>
         </select>
-        <button type="button" class="toggle-button">Toggle</button> <?php }
-                                                                } ?>
-    <?php if ($admin) ?> <input name="n" type="number" class="user-promotion-button" value=<?= $user->level ?> min="0" max="2" step="1">
+        <button type="button" class="toggle-button">Toggle</button>
+      <?php } ?>
+    <?php } ?>
+    <?php if ($admin) { ?>
+      <input name="n" type="number" class="user-promotion-button" value="<?= $user->level ?>" min="0" max="2" step="1">
+    <?php } ?>
   </div>
+  <script>
+    function toggleUserBoxPopup(userId) {
+    const popup = document.querySelector("#user-box-popup-" + userId);
+    if (popup.style.display === "none") {
+      popup.style.display = "grid";
+      popup.classList.toggle('active');
+      
+    } else {
+      popup.style.display = "none";
+      popup.classList.toggle('active');
+      
+    }
+  }
+  </script>   
 <?php } ?>
+
 
 
 <?php

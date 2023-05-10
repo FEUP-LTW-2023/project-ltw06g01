@@ -11,10 +11,7 @@
     display: grid;
     grid-template: 
     "name"
-    "email"
-    "department"
-    "department-selection"
-    "promotion";
+    "email";
     width: 300px;
     height: 340px;
     background: #55b0c6;
@@ -29,6 +26,41 @@
     line-break: anywhere;
     color: aliceblue;
 }
+
+.user-box-popup{
+    display: none;
+    grid-template: 
+    "back-button"
+    "department"
+    "department-selection"
+    "promotion"
+    "toggle";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 340px;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    margin-top: 10%;
+    align-content: center;
+    line-break: anywhere;
+    color: aliceblue;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.user-box-popup.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;    
+}
+
 
 .user-box > #name{
     grid-area: name;
@@ -62,3 +94,22 @@
 .user-promotion-button:focus .user-box {
     background-color:#55b0c6;
 }
+
+
+.back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+  
+.back-button ion-icon {
+    margin-right: 5px;
+}
+
+  
+  
