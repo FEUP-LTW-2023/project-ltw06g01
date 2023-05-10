@@ -41,6 +41,7 @@
               <div class ="form-box-login" id="login-box">
                 <div class="form-value">
                   <form>
+                    <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
                     <h2>Login</h2>
                     <div class="inputbox">
                       <ion-icon name="person-outline"></ion-icon>
@@ -68,6 +69,7 @@
           <div class ="form-box-signup" id="signup-box">
             <div class="form-value">
               <form action='/../actions/register.action.php' method = "post">
+                <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
                 <h2>Sign Up</h2>
                 <div class="inputbox">
                   <ion-icon name="person-outline"></ion-icon>

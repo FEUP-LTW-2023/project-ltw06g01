@@ -64,6 +64,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     <?php if (null === $ticket->hasNext()) { ?>
       <section>
         <form id="add-message">
+          <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
           <input type="hidden" name="tID" value=<?= $ticket->id ?>>
           <input type="hidden" name="tuid" value=<?= $ticket->uid ?>>
           <input type="hidden" name="auid" value=<?= $ticket->aid ?>>
