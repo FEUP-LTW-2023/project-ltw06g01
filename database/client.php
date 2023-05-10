@@ -22,7 +22,7 @@
 
     function createNewUser($db, $username, $email, $password) {
         $stmt = $db->prepare('INSERT INTO CLIENT(username, passHash, email, permissionLevel) VALUES (?, ?, ?, 0)');
-        $result = $stmt->execute(array($username, hash('sha256', $password,), $email));
+        $result = $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT), $email));
 
         return array(!($result === 0), $db->lastInsertId());
     }
