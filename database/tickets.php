@@ -9,9 +9,9 @@
     function getFilteredTickets($db, $statusFilter = null) {
         
         if ($statusFilter === null || $statusFilter == 'all') {
-            $stmt = $db->prepare('SELECT * FROM ticket');
+            $stmt = $db->prepare('SELECT * FROM ticket AND future is NULL');
         } else {
-            $stmt = $db->prepare('SELECT * FROM ticket WHERE status = :status');
+            $stmt = $db->prepare('SELECT * FROM ticket WHERE status = :status AND future is NULL');
             $stmt->bindParam(':status', $statusFilter);
         }
         
@@ -20,14 +20,14 @@
     }
 
     function getTicketsByUser($db, $uid) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE uID = ?');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE uID = ? AND future is NULL');
         $stmt->execute(array($uid));
 
         return $stmt->fetchAll();
     }
 
     function getTicketsFromDepartment($db, $department) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ?');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE department = ? AND future is NULL');
         $stmt->execute(array($department));
 
         return $stmt->fetchAll();
@@ -41,14 +41,14 @@
     }*/
 
     function getTicketsFromAgent($db, $aid) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE aid = ?');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE aid = ? AND future is NULL');
         $stmt->execute(array($aid));
 
         return $stmt->fetchAll();
     }
 
     function getTicketTags($db, $id, $maxTags) {
-        $stmt = $db->prepare('SELECT tag FROM tickettag WHERE tid = ? LIMIT ?');
+        $stmt = $db->prepare('SELECT tag FROM tickettag WHERE tid = ? AND future is NULL LIMIT ?');
         $stmt = $db->execute(array($id, $maxTags));
 
         return $stmt->fecthAll();
