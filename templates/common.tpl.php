@@ -34,7 +34,7 @@ function drawSideBar(){
 ?>
     <nav id="drawSideBar">
       <ul>
-        <?php $user_type = $_SESSION['level'] ?>
+        <?php $user_type = $_SESSION['level'] ?? -1?>
         <?php if (isset($user_type)): ?>
           <li class="item-menu">
             <a href = "ticket.php">
