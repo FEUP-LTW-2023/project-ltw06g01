@@ -9,7 +9,7 @@
 
 $session = new Session();
 
-if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
+if (!$session->isLoggedIn()) {
     header('Location: page.php');
 }
 

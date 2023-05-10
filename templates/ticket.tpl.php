@@ -24,6 +24,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
     $allTags = getAllTags(getDatabaseConnection());
 ?>
             <form id="ticket-form">
+                <input type="hidden" name="csrf" value<?= $_SESSION['csrf'] ?>>
                 <div id="title_box">
                     <?php if ($edit) { ?> <h2>Novo Ticket</h2> <?php } ?>
                 </div>
