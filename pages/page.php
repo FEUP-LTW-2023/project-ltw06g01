@@ -1,5 +1,7 @@
 <?php
-  session_start();
+  require_once(__DIR__ . '/../classes/session.class.php');
+
+  $session = new Session();
 
   require_once(__DIR__ . '/../templates/common.tpl.php');
 

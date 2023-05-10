@@ -14,7 +14,7 @@
     }
 
     public function isLoggedIn() : bool {
-      return isset($_SESSION['id']);    
+      return isset($_SESSION['uid']);    
     }
 
     public function isValidSession(string $token) : bool {
