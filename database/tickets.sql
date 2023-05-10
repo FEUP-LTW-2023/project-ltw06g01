@@ -82,7 +82,7 @@ CREATE TABLE FAQTAG (
 INSERT INTO STATUS VALUES ('open'), ('assigned'), ('closed');
 INSERT INTO TAG VALUES ('potato'), ('tomato'), ('banana'), ('apple');
 
-INSERT INTO CLIENT VALUES(25, "onso", "1ff1922a7c24ef4ae794a15f2cb8fbb65527ee7205bfba88f126aef53a7b5d19", "afonso.vo@gmail.com", 2);
+INSERT INTO CLIENT VALUES(25, "onso", "$2y$10$elfuu1AexoMbccFQaG28Pu9GdtfHhH2bGfchrSVOn6OiYWg6.Pw/y", "afonso.vo@gmail.com", 2);
 INSERT INTO CLIENT VALUES(37, "wololo", "7b868fe521b09b3fbf9a638850235ba1f195c2a2be20777260468aaa269e3268", "locas.minas@gmail.com", 1);
 
 INSERT INTO DEPARTMENT VALUES('Vendas'), ('Suporte'), ('Financeiro');
