@@ -49,14 +49,14 @@ function drawSideBar(){
             </a>
         </li>
         <!--  Podemos colocar este filtro dentro da página com todos os tickets
-        <?php endif; if ($user_type >= 1): ?>
-        <li class="item-menu">
+                <li class="item-menu">
           <a href = "open_tickets.php">
             <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
             <span class = "txt-link">Tickets do Departamento</span>
           </a>
         </li>
         -->
+        <?php endif; if ($user_type >= 1): ?>
         <?php endif; if ($user_type == 2): ?>
         <li class="item-menu">
           <a href = "user_management.php">
