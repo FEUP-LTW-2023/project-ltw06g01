@@ -115,17 +115,15 @@ if (animationFlag == "2") {
   setTimeout(() => {
     menuBox.style.display = "flex";
     menuBox.style.animation = "slideInButtons 2s ease-in-out";
-  }, 500)
+  }, 500);
   setTimeout(() => {
   signupBox.style.display = 'none';
-}, 500)
+}, 500);
 }
 
 if (animationFlag == "3") {
 
-  console.log(animationFlag);
   setTimeout(() => {
-
   menuBox.style.animation = 'slideOutButtons 2s ease-in-out';
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
   profileBox.style.animation = "slideOutLoginToLogout 2s ease-in-out";

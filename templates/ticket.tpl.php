@@ -13,7 +13,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
     }
 
     if (isset($ticket)) {
-        $buttonText = "Editar";
+        $buttonText = "Editado";
         $action = "../actions/edit_ticket.action.php";
     } else {
         $buttonText = "Enviar";
@@ -31,7 +31,10 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                 <div id="edit">
                     <?php
                         if (strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
-                        <a href="../pages/ticket.php?id=<?= $ticket->id ?>"> <p> Edit </p> </a>
+                        <a href="../pages/ticket.php?id=<?= $ticket->id ?>"> 
+                            <ion-icon id="edit-not-hover" name="hammer-outline"></ion-icon> 
+                            <ion-icon id="edit-hover" name="hammer"></ion-icon>
+                        </a>
                     <?php } ?>
                 </div>
                 <input type="hidden" name="id" id="tid" value=<?= $ticket->id ?>>
@@ -57,21 +60,30 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                     <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
                 <?php if ($_SESSION['level'] >= 1) {
-                    ?> <div class="tags"> <?php 
-                    foreach ($tags as $tag) {
-                        ?> <div class="tag"><?=$tag['tag']?> <span class="tag-delete">X</span></div>
-                    <?php } 
+                    ?> <div class="tagsArea"> <p> Tags: </p>
+                        <div class="tags">
+                        <?php 
+                        foreach ($tags as $tag) {
+                            ?>
+                                    <div class="tag"><?=$tag['tag']?> <?php if ($edit) { ?> <span class="tag-delete">X</span> <?php } ?> </div>
+                        <?php 
+                        } ?>
+                        </div>
+                        <?php 
+                        if ($edit && $ticket->id != -1) {
+                            ?> 
+                            <div>
+                                <input name="tagdata" list="taglist" class="tag-input">
+                                <input type="hidden" name="tag-string" class="curr-tags" value=<?=implode(',', array_map(fn($tag) => $tag['tag'], $tags))?>>
+                                <datalist id="taglist">
+                                    <?php foreach ($allTags as $allTag) { ?>
+                                        <option><?=$allTag['name']?></option>
+                                    <?php } ?>
+                                    </datalist> 
+                                    <button type="button" class="tag-add">+</button>
+                            </div>
+                        <?php }
                     ?> </div> <?php 
-                    if ($edit && $ticket->id != -1) {
-                        ?> <input name="tagdata" list="taglist" class="tag-input">
-                        <input type="hidden" name="tag-string" class="curr-tags" value=<?=implode(',', array_map(fn($tag) => $tag['tag'], $tags))?>>
-                        <datalist id="taglist">
-                            <?php foreach ($allTags as $allTag) { ?>
-                                <option><?=$allTag['name']?></option>
-                             <?php } ?>
-                            </datalist> 
-                            <button type="button" class="tag-add">+</button>
-                    <?php }
                 } ?>
                 <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>

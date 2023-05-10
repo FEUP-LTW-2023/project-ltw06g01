@@ -1,3 +1,8 @@
+a{
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
 #ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
     max-width: 800px;
     margin: 40px auto;
@@ -8,9 +13,10 @@
 
     display: grid;
     grid-template-areas:
-    "title_box title_box"
+    "title_box edit"
     "departamento assunto"
     "textArea textArea"
+    "tagsArea tagsArea"
     "enviar enviar";
     grid-template-columns: 1fr 1fr;
     border-radius: 15px;
@@ -26,6 +32,27 @@
 
 #ticket-form > #title_box{
     grid-area: title_box;
+}
+
+#ticket-form > #edit{
+    grid-area: edit;
+    justify-self: end;
+}
+
+#edit-not-hover{
+    display: flex;
+}
+
+#edit-hover{
+    display: none;
+}
+
+#edit:hover #edit-not-hover{
+    display: none;
+}
+
+#edit:hover #edit-hover{
+    display: flex;
 }
 
 #ticket-form > #departamento{
@@ -54,11 +81,67 @@
     border-radius: 15px;
     width: 100%;
     box-sizing: border-box;
+    color: #55b0c6;
 }
 
 #tickettext{
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
+}
+
+
+.tagsArea{
+    grid-area: tagsArea;
+    display: grid;
+    grid-template-areas:
+    "titletags titletags"
+    "tags tags"
+    "lista adicionar";
+    font-size: 13px;
+    gap:6px;
+}
+
+.tagsArea p{
+    grid-area: titletags;
+    padding-bottom: 4px;
+}
+.tags{
+    grid-area:tags;
+    display: inline-flex;
+}
+
+.tag{
+    width: fit-content;
+    padding: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background: #fff;
+    border: 1px solid #55b0c6;
+    border-radius: 15px;
+    color: #55b0c6;
+}
+
+.tag-add{
+    grid-area:adicionar;
+    width: fit-content;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #fff;
+}
+
+.tag-input{
+    grid-area:lista;
+    width: fit-content;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    margin-left: 5px;
+    color: #fff;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 #ticket-form > #enviar{
@@ -172,7 +255,6 @@
 #hist-ticket{
     display:flex;
     justify-content: center;
-    padding-top: 4%;
 }
 
 #hist-ticket form{

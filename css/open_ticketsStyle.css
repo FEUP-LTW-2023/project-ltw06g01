@@ -30,8 +30,8 @@
 #allTickets{
     grid-area: allTickets;
     display: grid;
-    grid-template-columns: 1fr; /* Definir apenas uma coluna */
-    gap: 20px; /* Definir espaço entre os tickets */
+    grid-template-columns: 1fr;
+    gap: 20px; 
 }
 
 #ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/

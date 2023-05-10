@@ -11,6 +11,7 @@
     "title_box title_box"
     "departamento assunto"
     "textArea textArea"
+    "tagsArea tagsArea"
     "enviar enviar";
     grid-template-columns: 1fr 1fr;
     border-radius: 15px;
@@ -54,11 +55,65 @@
     border-radius: 15px;
     width: 100%;
     box-sizing: border-box;
+    color: #55b0c6;
 }
 
 #tickettext{
     border: 2px solid rgba(255,255,255,0.5);
+}
+
+.tagsArea{
+    grid-area: tagsArea;
+    display: grid;
+    grid-template-areas:
+    "titletags titletags"
+    "tags tags"
+    "lista adicionar";
+    font-size: 13px;
+    gap:6px;
+}
+
+.tagsArea p{
+    grid-area: titletags;
+    padding-bottom: 4px;
+}
+.tags{
+    grid-area:tags;
+    display: inline-flex;
+}
+
+.tag{
+    width: fit-content;
+    padding: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background: #fff;
+    border: 1px solid #55b0c6;
     border-radius: 15px;
+    color: #55b0c6;
+}
+
+.tag-add{
+    grid-area:adicionar;
+    width: fit-content;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #fff;
+}
+
+.tag-input{
+    grid-area:lista;
+    width: fit-content;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    margin-left: 5px;
+    color: #fff;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 #ticket-form > #enviar{
