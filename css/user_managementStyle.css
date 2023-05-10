@@ -8,6 +8,7 @@
   }
 
 .user-box{
+    position: relative;
     display: grid;
     grid-template: 
     "name"

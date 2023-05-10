@@ -26,7 +26,9 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
             <form id="ticket-form">
                 <input type="hidden" name="csrf" value<?= $_SESSION['csrf'] ?>>
                 <div id="title_box">
-                    <?php if ($edit) { ?> <h2>Novo Ticket</h2> <?php } ?>
+                    <?php if ($ticket->id == -1) { ?> <h2>Novo Ticket</h2> <?php } 
+                    else if ($edit) { ?> <h2>Editar:</h2> <?php } ?> 
+
                 </div>
                 <div id="edit">
                     <?php
@@ -69,9 +71,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                         <?php 
                         } ?>
                         </div>
-                        <?php 
-                        if ($edit && $ticket->id != -1) {
-                            ?> 
+
                             <div>
                                 <input name="tagdata" list="taglist" class="tag-input">
                                 <input type="hidden" name="tag-string" class="curr-tags" value=<?=implode(',', array_map(fn($tag) => $tag['tag'], $tags))?>>
@@ -82,8 +82,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                                     </datalist> 
                                     <button type="button" class="tag-add">+</button>
                             </div>
-                        <?php }
-                    ?> </div> <?php 
+                 </div> <?php 
                 } ?>
                 <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>

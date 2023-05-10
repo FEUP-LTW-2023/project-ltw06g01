@@ -1,7 +1,6 @@
 /*dentro do profile*/
 
 .form-box-profile{
-    margin: 40px auto;
     color: #f6f6f6;
     display: grid;
     grid-template:
@@ -27,7 +26,6 @@
 }
 
 .form-box-edit-profile{
-    margin: 40px auto;
     color: #f6f6f6;
     display: grid;
     grid-template:

@@ -18,6 +18,16 @@
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    
+/* mostra todos os tickets só para fazer o css
+
+    function getFilteredTickets($db) {
+    $stmt = $db->prepare('SELECT * FROM ticket');
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+*/    
 
     function getTicketsAssignedTo($db, $aid) {
         $stmt = $db->prepare('SELECT * FROM ticket WHERE aID = ? AND future = NULL');
