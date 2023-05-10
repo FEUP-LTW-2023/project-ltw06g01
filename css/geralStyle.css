@@ -1,0 +1,332 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+
+html,body{
+    min-height: 100vh;
+}
+
+body{
+  background-color: #c6c5c54a;
+  display: grid;
+  grid-template-areas:
+   "header header"
+   "nav nav"
+   "content content";
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: auto auto 1fr;
+   max-width: 100em;
+   margin: 0 auto;
+}
+
+/* header */
+header{
+    grid-area: header;
+    background-color: #55b0c6;
+    color: #363538;
+    border-bottom-right-radius: 90px;
+
+}
+
+/*dentro do drawHeader*/
+#drawHeader{
+    display: grid;
+    grid-template-areas:
+    "home-or-subtitle title profile-or-logout";
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+}
+
+#drawHeader > #title{  
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cbf2fa;
+    font-size: larger;
+    padding: 3%;
+    text-shadow: 2px 2px 8px #2b5a65;
+    -webkit-text-stroke: 1px #f6f6f6;
+    text-stroke: 1px #408697;   
+}
+
+#drawHeader > #home-or-subtitle{
+  display: grid;
+  grid-area: home-or-subtitle;
+  grid-template-areas: "home subtitle";
+  grid-template-columns: auto 1fr;
+}
+
+#home-or-subtitle > #subtitle{
+    grid-area: subtitle;
+    display: flex;
+    justify-content: center;
+    padding-left: 0%;
+    color: #f6f6f6;
+    display: grid;
+    -webkit-text-stroke: 1px #cbf2fa;
+    text-stroke: 1px #f6f6f6;
+    align-self: center;
+}
+
+#home{  
+  grid-area: home;
+  display: flex;
+  justify-content: center;
+  padding-left: 200%;
+  color: #f6f6f6;
+  display: grid;
+  -webkit-text-stroke: 1px #cbf2fa;
+  text-stroke: 1px #f6f6f6;
+  align-self: center;
+}
+.icon-hover{
+  display: none;
+}
+#home:hover .icon-hover{
+  font-size: 32px;
+  display: flex;
+}
+
+#home .icon{
+  font-size: 32px;
+  display: flex;
+}
+
+#home:hover .icon{
+  display: none;
+}
+
+#drawHeader > #profile-or-logout{
+  grid-area: profile-or-logout;
+  display: grid;
+  grid-template-areas: "profile logout";
+  grid-template-columns: 1fr auto;
+}
+
+#profile-or-logout > .profile-box{
+    grid-area: profile;
+    display: flex;
+    align-self: center;
+    color: #fff;
+    font-size: 32px;
+    background-color: transparent;
+    border: none;
+    justify-self: end;
+    margin-right: 70px;
+}
+
+#profile-button-hover{
+  display: none;
+}
+.profile-box:hover #profile-button-hover{
+  display: flex;
+}
+
+.profile-box #profile-button{
+  display: flex;
+}
+
+.profile-box:hover #profile-button{
+  display: none;
+}
+
+#profile-or-logout > .logout-box{
+    grid-area: logout;
+    border: none;
+    display: flex;
+    color: #fff;
+    font-size: 32px;
+    background: transparent;
+    align-self: center;
+    margin-right: 60px;
+
+  }
+  
+  #profile-or-logout > .logout-box:hover{
+    cursor: pointer;
+  }
+
+.logout-box > #logout-icon-hover{
+  display: none;
+  }
+
+ .logout-box:hover > #logout-icon{
+  display: none;
+  }
+
+.logout-box:hover > #logout-icon-hover{
+  display: flex;
+  }
+
+  /*
+  
+#drawHeader > #profile_and_logout{
+    grid-area: profile_and_logout;
+    display: grid;
+    grid-template-areas: 
+    "profile logout";
+    color: #fff;
+  }
+#profile_and_logout > #logout{
+    grid-area: logout;
+    display: flex;
+}
+  
+#logout {
+    color: #f6f6f6;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+    padding: 5%;
+    font-size: 14px;
+  }
+  
+#logout .logout-box:hover{
+    border-color: #fff;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+
+#profile_and_logout > #profile{
+    grid-area: profile;
+    display: flex;
+}
+
+#profile > .profile-box{
+
+}
+
+#profile > .profile-box:hover{
+
+}*/
+
+/* Menu Bar */
+
+#nav {
+    color: #fff;
+    grid-area: nav;
+    background-color: #cbcccc;
+    border: 2px solid #55b0c6;
+    transition: .2s;
+    width: fit-content;
+    position: static;
+    display: inline-grid;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    /*border-top-left-radius: 5px;
+    border-top-right-radius: 5px;*/
+    justify-self: center;
+    border-top-style: hidden;
+    min-height: 100%;
+}
+  
+  ul{
+    display: flex; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    align-items: center;
+  }
+  
+  ul li.item-menu {
+    flex: 1;
+    text-align: center; 
+  }
+
+  ul li.item-menu:hover{
+    background: #55afc641;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    transition: 200ms cubic-bezier(1, 0.49, 0.09, 0.09);
+  }
+  
+  #drawSideBar{
+    display: flex; 
+  }
+  
+  #drawSideBar .txt-link{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    width: auto;
+  }
+  
+  #nav:hover .item-menu .txt-link{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+    width: auto;
+    display: flex;
+  }
+  
+
+.icon{
+    font-size: 30px;
+}
+
+.item-menu a {
+    display: grid;
+    align-items: center;
+    justify-content: center; 
+    height: fit-content; 
+  }
+
+.item-menu a span {  /*esta parte não está a funcionar como devido*/
+    white-space: nowrap;
+    padding: 10px;
+    color: #fff;
+}
+
+.item-menu{
+   /* margin-bottom: 25px;*/
+}
+
+a{
+   text-decoration: none; 
+}
+
+
+/* content */
+
+#content{
+    grid-area: content;
+    display: grid;
+    margin-top: 30px;
+}
+
+
+
+/*footer*/
+
+#footer{
+    display: grid;
+    justify-self: center;
+    position: relative;
+    color: #55afc66c;
+    grid-column: 1 / span 2;
+
+
+}
+#footer p{
+    font-size: 15px;
+  }
+
+
+
+
+
+/*questões para o professor
+    -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?
+    -como fazer que o content não se mova com o abrir da lateral
+    -os problemas com o footer
+    -na pagina do loggin como mudo os tamanhos para que o faq e o footer também não se mexam
+    -bug na página dos open_tickets, href está em tudo e não só na caixa.
+    -como colocar os icons logo seguidos do texto?
+
+*/

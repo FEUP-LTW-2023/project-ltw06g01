@@ -1,0 +1,203 @@
+/*dentro do profile*/
+
+.form-box-profile{
+    color: #f6f6f6;
+    display: grid;
+    grid-template:
+    "edit"
+    "name"
+    "image"
+    "email"
+    "type";
+    min-width: 300px;
+    min-height: 340px;
+    height: fit-content;
+    width: fit-content;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: inherit;
+    align-items: center;
+    justify-self: center;
+    align-content: center;
+    padding: 2%;
+    grid-gap: 10px;
+}
+
+.form-box-edit-profile{
+    color: #f6f6f6;
+    display: grid;
+    grid-template:
+    "back"
+    "image"
+    "name"
+    "email"
+    "type"
+    "save";
+    background-color: rgba(0,0,0,0.5);
+    min-width: 300px;
+    min-height: 340px;
+    height: fit-content;
+    width: fit-content;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: inherit;
+    align-items: center;
+    justify-self: center;
+    align-content: center;
+    padding: 2%;
+    padding-bottom: 0;
+}
+
+#save{
+    margin: 23px 0;
+}
+
+#profile-edit{
+    display: none;
+    position: grid;
+}
+
+#edit{
+    display: grid;
+    justify-content: end;
+    cursor: pointer;
+}
+
+#back{
+    cursor: pointer;
+    display: grid;
+    justify-content: end;
+}
+
+#image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    margin: 0%;
+    padding: 15%;
+}
+
+#image ion-icon{
+    font-size: 100px;
+    align-self: center;
+    justify-self: center;
+}
+
+#name{
+    grid-area: name;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+
+#email{
+    grid-area: email;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+#type{
+    grid-area: type;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+#save{
+    grid-area: save;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    
+}
+
+
+.submit-update{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    color: #f6f6f6;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+    padding: 2%;
+    font-size: 14px;
+    justify-content: center;
+    
+}
+
+#username{
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.498);
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin: 23px 0;
+}
+
+#email-text{
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.498);
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+
+/* Adicione as seguintes classes para animar a rotação das páginas */
+.rotate-in {
+    animation-name: rotateIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  .rotate-out {
+    animation-name: rotateOut;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  /* Defina a animação para a rotação de entrada */
+  @keyframes rotateIn {
+    from {
+      transform: rotateY(-90deg);
+      opacity: 0;
+    }
+    to {
+      transform: rotateY(0deg);
+      opacity: 1;
+    }
+  }
+  
+  /* Defina a animação para a rotação de saída */
+  @keyframes rotateOut {
+    from {
+      transform: rotateY(0deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotateY(90deg);
+      opacity: 0;
+    }
+  }
+  

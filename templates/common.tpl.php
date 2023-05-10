@@ -1,20 +1,29 @@
 <?php 
 function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento title devia ser subtitle*/
 ?>
-    <form id="drawHeader" action="/../actions/logout.action.php">
+    <form id="drawHeader" action="/../actions/logout.action.php" method="get">
+      <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
         <input name= "next-logout" type="hidden" id="next-animation" value=<?=$nextAnimation?>>
         <input name= "logout" type="hidden" id="animation" value=<?=$animationFlag?>> 
         <div id="title">
           <h1>Ticket System</h1>
         </div>
-        <div id="subtitle">
-          <h2><?=$title?></h2>
+        <div id="home-or-subtitle">
+            <a id="home" href = "page.php">
+              <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+              <span class="icon-hover"><ion-icon name="home"></ion-icon></span>
+            </a>
+            <h2 id="subtitle" ><?=$title?></h2>
         </div>
-        <div id="logout0">
-          <button type="submit" class="logout-box">Logout</button>
-        </div>
-        <div id="profile">
-          <a class="profile-box" href="/../pages/profile.php"><ion-icon name="person-outline"></ion-icon></a>
+        <div id="profile-or-logout">
+          <a class="profile-box" href="/../pages/profile.php">
+            <ion-icon id="profile-button" name="person-outline"></ion-icon>
+            <ion-icon id="profile-button-hover" name="person"></ion-icon>
+          </a>
+          <button type="submit" class="logout-box">
+            <ion-icon id="logout-icon" name="log-out"></ion-icon>
+            <ion-icon id="logout-icon-hover" name="log-out-outline"></ion-icon>
+          </button>
         </div>
     </form>
 <?php 
@@ -26,13 +35,7 @@ function drawSideBar(){
 ?>
     <nav id="drawSideBar">
       <ul>
-        <li class="item-menu">
-          <a href = "page.php">
-            <span class = "icon"><ion-icon name="home-outline"></ion-icon></span>
-            <span class = "txt-link">Home</span>
-          </a>
-        </li>
-        <?php $user_type = $_SESSION['level'] ?>
+        <?php $user_type = $_SESSION['level'] ?? -1?>
         <?php if (isset($user_type)): ?>
           <li class="item-menu">
             <a href = "ticket.php">
@@ -47,14 +50,14 @@ function drawSideBar(){
             </a>
         </li>
         <!--  Podemos colocar este filtro dentro da página com todos os tickets
-        <?php endif; if ($user_type >= 1): ?>
-        <li class="item-menu">
+                <li class="item-menu">
           <a href = "open_tickets.php">
             <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
             <span class = "txt-link">Tickets do Departamento</span>
           </a>
         </li>
         -->
+        <?php endif; if ($user_type >= 1): ?>
         <?php endif; if ($user_type == 2): ?>
         <li class="item-menu">
           <a href = "user_management.php">

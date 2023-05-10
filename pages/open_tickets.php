@@ -1,13 +1,16 @@
 <?php 
-  session_start();
-  if (!isset($_SESSION['uid'])) {
-    header('Location: page.php');
-  }
+require_once(__DIR__ . '/../classes/session.class.php');
 
+$session = new Session();
+
+if (!$session->isLoggedIn()) {
+    header('Location: page.php');
+}
   require_once(__DIR__ . '/../classes/ticket.class.php');
   require_once(__DIR__ . '/../database/connection.php');
   require_once(__DIR__ . '/../templates/ticket.tpl.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
+  require_once(__DIR__ . '/../database/tags.php');
 
   $db = getDatabaseConnection();
 
@@ -21,7 +24,8 @@
 <title>All Tickets</title>
   <script src="/../javascript/scr.js" defer></script>
   <script src="/../javascript/open_tickets.js" defer></script>
-  <link rel="stylesheet" href="geralstyle.css">
+  <link rel="stylesheet" href="/../css/geralStyle.css">
+  <link rel="stylesheet" href="/../css/open_ticketsStyle.css">
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
@@ -47,11 +51,11 @@
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter']);
 
       foreach ($tickets as $ticket) { ?>
-          <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-            <form id="ticket-form">
-              <?php drawTicketForm($ticket, false); ?>
-            </form>
-          </a>
+          <div id="allTickets">
+              <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>" id="ticket-form">
+                <?php drawTicketForm($ticket, false); ?>
+                </a>
+          </div>
     <?php } ?>
   </div>
   <div id="footer">

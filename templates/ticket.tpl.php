@@ -1,36 +1,48 @@
 <?php
 require_once(__DIR__ . '/../database/connection.php');
 require_once(__DIR__ . '/../database/departments.php');
-function drawTicketForm(?Ticket $ticket, bool $edit)
+require_once(__DIR__ . '/../utils/validations.php');
+
+function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 {
+    $validity = isValidUser($ticket->uid ?? -1, $ticket->aid ?? -1, $_SESSION['uid'], $_SESSION['level']);
+    
     /*adicionei este if para colocar o link para a edição do ticket, caso esteja dentro da página view_ticket então vai ter esse link*/
     if ($_SERVER['PHP_SELF'] == '/../pages/view_ticket.php' && isset($ticket)) {
         echo '<a id="edit" href="../pages/ticket.php?id=' . $ticket->id . '">Edit</a>';
     }
 
     if (isset($ticket)) {
-        $buttonText = "Editar";
+        $buttonText = "Editado";
         $action = "../actions/edit_ticket.action.php";
     } else {
         $buttonText = "Enviar";
         $action = "../actions/open_ticket.action.php";
         $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0);
     }
+
+    $allTags = getAllTags(getDatabaseConnection());
 ?>
             <form id="ticket-form">
+                <input type="hidden" name="csrf" value<?= $_SESSION['csrf'] ?>>
                 <div id="title_box">
-                    <?php if ($edit) { ?> <h2>Novo Ticket</h2> <?php } ?>
+                    <?php if ($ticket->id == -1) { ?> <h2>Novo Ticket</h2> <?php } 
+                    else if ($edit) { ?> <h2>Editar:</h2> <?php } ?> 
+
                 </div>
                 <div id="edit">
                     <?php
                         if (strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
-                        <a href="../pages/ticket.php?id=<?= $ticket->id ?>"> <p> Edit </p> </a>
+                        <a href="../pages/ticket.php?id=<?= $ticket->id ?>"> 
+                            <ion-icon id="edit-not-hover" name="hammer-outline"></ion-icon> 
+                            <ion-icon id="edit-hover" name="hammer"></ion-icon>
+                        </a>
                     <?php } ?>
                 </div>
                 <input type="hidden" name="id" id="tid" value=<?= $ticket->id ?>>
                 <div id="departamento">
                     <label for="department">Departamento:</label>
-                    <select id="department" name="department" <?php if (!$edit) echo 'disabled'; ?>>
+                    <select id="department" name="department" <?php if (!$edit && $validity != 2) echo 'disabled'; ?>>
                         <?php if ($edit) {
                             foreach (getDepartments(getDatabaseConnection()) as $department) { ?>
                                 <option value=<?= $department ?>><?= $department ?></option>
@@ -49,6 +61,29 @@ function drawTicketForm(?Ticket $ticket, bool $edit)
                     <label for="fulltext">Mensagem:</label>
                     <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
+                <?php if ($_SESSION['level'] >= 1) {
+                    ?> <div class="tagsArea"> <p> Tags: </p>
+                        <div class="tags">
+                        <?php 
+                        foreach ($tags as $tag) {
+                            ?>
+                                    <div class="tag"><?=$tag['tag']?> <?php if ($edit) { ?> <span class="tag-delete">X</span> <?php } ?> </div>
+                        <?php 
+                        } ?>
+                        </div>
+
+                            <div>
+                                <input name="tagdata" list="taglist" class="tag-input">
+                                <input type="hidden" name="tag-string" class="curr-tags" value=<?=implode(',', array_map(fn($tag) => $tag['tag'], $tags))?>>
+                                <datalist id="taglist">
+                                    <?php foreach ($allTags as $allTag) { ?>
+                                        <option><?=$allTag['name']?></option>
+                                    <?php } ?>
+                                    </datalist> 
+                                    <button type="button" class="tag-add">+</button>
+                            </div>
+                 </div> <?php 
+                } ?>
                 <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>
 <?php }

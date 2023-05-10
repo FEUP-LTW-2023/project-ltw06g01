@@ -1,0 +1,73 @@
+#content{
+    display: grid;
+    grid-template-areas: 
+    "filtro"
+    "allTickets";
+    grid-template-rows: auto 1fr;
+}
+
+#filtro{
+    grid-area: filtro;
+    display: flex;
+    justify-content: center;
+    padding-top: 3%
+}
+#filtro label{
+    display: none; /*ver como preferem*/
+    color:#a4a4a5;
+}
+#filtro select{
+    color:#fff;
+    background-color: #55afc641;
+    padding: 0.5%;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    text-align: center;
+}
+
+#allTickets{
+    grid-area: allTickets;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px; 
+}
+
+#ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+
+    display: grid;
+    grid-template-areas:
+    "title_box title_box"
+    "departamento assunto"
+    "textArea textArea"
+    "enviar enviar";
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.5);
+
+    justify-content: center;
+    gap: 10px;
+    background-color: #55b0c6;
+    height: fit-content;
+
+    color: #ebfcff;
+}
+
+
+
+/*questões para o professor
+    -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?
+    -como fazer que o content não se mova com o abrir da lateral
+    -os problemas com o footer
+    -na pagina do loggin como mudo os tamanhos para que o faq e o footer também não se mexam
+    -bug na página dos open_tickets, href está em tudo e não só na caixa.
+    -como colocar os icons logo seguidos do texto?
+
+*/

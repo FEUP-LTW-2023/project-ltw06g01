@@ -1,10 +1,13 @@
 <?php
     require_once(__DIR__ . '/../utils/validations.php');
 
-    session_start();
-    if (!isset($_SESSION['uid']) || !isValidUser($_GET['tuid'], $_GET['auid'], $_SESSION['uid'], $_SESSION['level'])) {
-      header('Location: page.php');
-    }
+    require_once(__DIR__ . '/../classes/session.class.php');
+
+$session = new Session();
+
+if (!$session->isLoggedIn() || !$session->isValidSession($_GET['csrf'])) {
+    header('Location: page.php');
+}
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/message.php');

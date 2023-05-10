@@ -1,7 +1,10 @@
 <?php
-session_start();
-if (!isset($_SESSION['uid'])) {
-  header('Location: page.php');
+require_once(__DIR__ . '/../classes/session.class.php');
+
+$session = new Session();
+
+if (!$session->isLoggedIn()) {
+    header('Location: page.php');
 }
 
 require_once(__DIR__ . '/../database/connection.php');
@@ -11,6 +14,7 @@ require_once(__DIR__ . '/../classes/ticket.class.php');
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../templates/ticket.tpl.php');
 require_once(__DIR__ . '/../templates/common.tpl.php');
+require_once(__DIR__ . '/../database/tags.php');
 
 
 $db = getDatabaseConnection();
@@ -21,7 +25,9 @@ if (!isset($_GET['id'])) {
 }
 
 $ticket = Ticket::getTicket($db, $_GET['id']);
-if (!(isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']))) header('Location: ../pages/page.php');
+$tags = getTicketTags($db, $ticket->id);
+$validity = isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']);
+if ($validity == 0) header('Location: ../pages/page.php');
 $messages = getMessagesFromTicket($db, $_GET['id']);
 ?>
 
@@ -30,7 +36,8 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 
 <head>
   <title>Visualizar Ticket</title>
-  <link rel="stylesheet" href="geralstyle.css">
+  <link rel="stylesheet" href="/../css/view_ticketStyle.css">
+  <link rel="stylesheet" href="/../css/geralStyle.css">
   <script src="/../javascript/scr.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -44,7 +51,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
   </div>
   <div id="content">
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
-    <?php drawTicketForm($ticket, false); ?>
+    <?php drawTicketForm($ticket, false, $tags); ?>
     <section id="messages">
       <?php foreach ($messages as $message) { ?>
         <div class="message">
@@ -57,6 +64,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     <?php if (null === $ticket->hasNext()) { ?>
       <section>
         <form id="add-message">
+          <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
           <input type="hidden" name="tID" value=<?= $ticket->id ?>>
           <input type="hidden" name="tuid" value=<?= $ticket->uid ?>>
           <input type="hidden" name="auid" value=<?= $ticket->aid ?>>

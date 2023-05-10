@@ -1,0 +1,116 @@
+/* dentro da pagina user_management*/
+
+
+#all-users {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+  }
+
+.user-box{
+    position: relative;
+    display: grid;
+    grid-template: 
+    "name"
+    "email";
+    width: 300px;
+    height: 340px;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    margin-top: 10%;
+    align-content: center;
+    line-break: anywhere;
+    color: aliceblue;
+}
+
+.user-box-popup{
+    display: none;
+    grid-template: 
+    "back-button"
+    "department"
+    "department-selection"
+    "promotion"
+    "toggle";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 340px;
+    background: #55b0c6;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    margin-top: 10%;
+    align-content: center;
+    line-break: anywhere;
+    color: aliceblue;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.user-box-popup.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;    
+}
+
+
+.user-box > #name{
+    grid-area: name;
+    font-size: 30px;
+    justify-self: center;
+}
+.user-box > #email{
+    grid-area: email;
+}
+.user-box > .user-departments{
+    grid-area: department;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+    padding: 7%;
+    background-color: rgba(240, 248, 255, 0.288);
+}
+.user-box > .department-select{
+    grid-area: department-selection;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+}
+.user-box > .user-promotion-button{
+    grid-area: promotion;
+    border: 2px solid #9ea4a6;
+    border-radius: 23px;
+    backdrop-filter: blur(15px);
+}
+
+.user-promotion-button:focus .user-box {
+    background-color:#55b0c6;
+}
+
+
+.back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+  
+.back-button ion-icon {
+    margin-right: 5px;
+}
+
+  
+  

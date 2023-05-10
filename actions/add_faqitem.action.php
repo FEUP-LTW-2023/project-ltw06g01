@@ -1,7 +1,10 @@
 <?php
 
-session_start();
-if (!isset($_SESSION['uid'])) {
+require_once(__DIR__ . '/../classes/session.class.php');
+
+$session = new Session();
+
+if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
     header('Location: page.php');
 }
 

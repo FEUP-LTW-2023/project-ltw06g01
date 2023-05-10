@@ -6,6 +6,13 @@
         return $stmt->fetchAll();
     }
 
+    function getSingleFAQ($db, $id) {
+        $stmt = $db->prepare('SELECT * FROM FAQITEM WHERE id = ?');
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
     function getFAQItemTags($db, $id, $maxTags) {
         $stmt = $db->prepare('SELECT tag FROM faqtag WHERE fid = ? limit ?');
         $stmt->execute(array($id, $maxTags));
