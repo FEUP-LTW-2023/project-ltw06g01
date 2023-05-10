@@ -1,7 +1,8 @@
 <?php 
 function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento title devia ser subtitle*/
 ?>
-    <form id="drawHeader" action="/../actions/logout.action.php">
+    <form id="drawHeader" action="/../actions/logout.action.php" method="get">
+      <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
         <input name= "next-logout" type="hidden" id="next-animation" value=<?=$nextAnimation?>>
         <input name= "logout" type="hidden" id="animation" value=<?=$animationFlag?>> 
         <div id="title">
