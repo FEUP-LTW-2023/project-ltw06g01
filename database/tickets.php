@@ -9,7 +9,7 @@
     function getFilteredTickets($db, $statusFilter = null) {
         
         if ($statusFilter === null || $statusFilter == 'all') {
-            $stmt = $db->prepare('SELECT * FROM ticket AND future is NULL');
+            $stmt = $db->prepare('SELECT * FROM ticket WHERE future is NULL');
         } else {
             $stmt = $db->prepare('SELECT * FROM ticket WHERE status = :status AND future is NULL');
             $stmt->bindParam(':status', $statusFilter);
