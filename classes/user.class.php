@@ -50,7 +50,14 @@ class User
     }
 
     static function getAgentsFromDepartment(PDO $db, string $department): array {
-        
+        $agents = getAgentsByDepartment($db, $department);
+
+        $res = array();
+        foreach ($agents as $agent) {
+            $res[] = new User($agent['uid'], $agent['username'], $agent['email'], $agent['permissionLevel']);
+        }
+
+        return $res;
     }
 
     static function toggleAgentDepartment(PDO $db, int $aid, string $department): array {
