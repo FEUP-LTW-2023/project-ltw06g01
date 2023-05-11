@@ -125,8 +125,8 @@
     }
 
     function assignAgent($db, $id, $aid) {
-        $stmt = $db->prepare('UPDATE TICKET SET aID = ? WHERE id = ? AND future = NULL');
-        $otherStmt = $db->prepare('UPDATE TICKET SET status = "assigned" WHERE id = ? AND status = "open" AND future = NULL');
+        $stmt = $db->prepare('UPDATE TICKET SET aID = ? WHERE id = ? AND future is NULL');
+        $otherStmt = $db->prepare('UPDATE TICKET SET status = "assigned" WHERE id = ? AND status = "open" AND future is NULL');
 
         $stmt->execute(array($aid, $id));
         $otherStmt->execute(array($id));

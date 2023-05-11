@@ -8,5 +8,6 @@ assignBoxes.forEach((element) => {
     assignButton.addEventListener('click', async function () {
         const response = await fetch('../api/api_assign_agent.php?aid=' + agentSelect.value + '&id=' + tID)
         const json = await response.json()
+        console.log(json)
     })
 })
