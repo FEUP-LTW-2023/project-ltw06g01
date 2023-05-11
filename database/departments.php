@@ -35,4 +35,11 @@
 
         return getDepartmentsAgent($db, $aid);
     }
+
+    function getAgentsByDepartment($db, $department) {
+        $stmt = $db->prepare('SELECT * FROM CLIENT WHERE department = ?');
+        $stmt->execute(array($department));
+
+        return $stmt->fetchAll();
+    }
 ?>    
