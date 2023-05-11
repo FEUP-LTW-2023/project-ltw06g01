@@ -113,6 +113,7 @@ function drawAssignAgent($db, $ticket) {
             ?> <option value=<?= $agent->id ?>><?= $agent->username ?></option> <?php
         } ?>
         </select>
+        <button type="button" class="assign-confirm">Assign</button>
     </form> <?php     
 }
 

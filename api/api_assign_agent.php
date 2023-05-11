@@ -14,7 +14,7 @@ if (!hasAccessToPage(1, $_SESSION['level'])) {
 }
 
 $db = getDatabaseConnection();
-$agent = User::getUser($db, $_SESSION['uid']);
+$agent = User::getUser($db, $_GET['aid']);
 
 $result = $agent->assignToTicket($db, $_GET['id']);
 
