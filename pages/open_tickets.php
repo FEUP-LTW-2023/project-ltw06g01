@@ -51,10 +51,11 @@ if (!$session->isLoggedIn()) {
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter']);?>
 
       <div id="allTickets">
-        <?php foreach ($tickets as $ticket) { ?>
+        <?php foreach ($tickets as $ticket) { 
+                $tags = getTicketTags($db, $ticket->id); ?>
                 <div>
                   <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-                     <?php drawTicketForm($ticket, false); ?>
+                     <?php drawTicketForm($ticket, false, $tags); ?>
                   </a>
                 </div>
         <?php } ?>
