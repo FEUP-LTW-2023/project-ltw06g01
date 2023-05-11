@@ -13,6 +13,7 @@ if (!$session->isLoggedIn()) {
   require_once(__DIR__ . '/../database/tags.php');
 
   $db = getDatabaseConnection();
+  $_GET['ticket-filter'] = $_GET['ticket-filter'] ?? 'all';
 
   if (empty($tickets)) {
     $tickets = null;}
@@ -47,7 +48,6 @@ if (!$session->isLoggedIn()) {
     </form>
     <?php
       $status = isset($_GET['ticket-filter']) ? $_GET['ticket-filter'] : 'open'; //// esta linha supostamente tem de sair?
-      $_GET['ticket-filter'] = $_GET['ticket-filter'] ?? 'all';
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter']);
 
       foreach ($tickets as $ticket) { ?>
