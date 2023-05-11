@@ -94,6 +94,17 @@
         else return $db->lastInsertId();
     }
 
+    function deleteTicket($db, $id, $prev = null) {
+        if (!isset($hasPrev)) {
+            $stmt = $db->prepare('DELETE FROM TICKET WHERE id = ?');
+            $stmt->execute(array($id));
+        }
+        else {
+            $prev = getTicket($db, $prev);
+            deleteTicket($db, $prev, $prev['history']);
+        }
+    }
+
     function updateTicket($db, $uid, $title, $text, $department, $id) {
         $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, history) VALUES (?, ? ,?, ?, ?, ?)');
         $date = date('Y-m-d');
