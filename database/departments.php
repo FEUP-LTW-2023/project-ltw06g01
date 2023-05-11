@@ -37,7 +37,7 @@
     }
 
     function getAgentsByDepartment($db, $department) {
-        $stmt = $db->prepare('SELECT * FROM CLIENT WHERE department = ?');
+        $stmt = $db->prepare('SELECT * FROM CLIENT c JOIN AGENTDEPARTMENT d ON (d.aID = c.uid) WHERE department = ?');
         $stmt->execute(array($department));
 
         return $stmt->fetchAll();

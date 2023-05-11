@@ -56,7 +56,7 @@ if (!$session->isLoggedIn()) {
                 <div>
                   <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
                      <?php drawTicketForm($ticket, false, $tags); 
-                           drawAssignAgent($ticket);      ?>
+                           drawAssignAgent($db, $ticket);      ?>
                   </a>
                 </div>
         <?php } ?>
