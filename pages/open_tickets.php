@@ -48,15 +48,18 @@ if (!$session->isLoggedIn()) {
     </form>
     <?php
       $status = isset($_GET['ticket-filter']) ? $_GET['ticket-filter'] : 'open'; //// esta linha supostamente tem de sair?
-      $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter']);
+      $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter']);?>
 
-      foreach ($tickets as $ticket) { ?>
-          <div id="allTickets">
-              <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>" id="ticket-form">
-                <?php drawTicketForm($ticket, false); ?>
-                </a>
-          </div>
-    <?php } ?>
+      <div id="allTickets">
+        <?php foreach ($tickets as $ticket) { ?>
+                <div>
+                  <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
+                     <?php drawTicketForm($ticket, false); ?>
+                  </a>
+                </div>
+        <?php } ?>
+      </div>
+
   </div>
   <div id="footer">
     <footer>

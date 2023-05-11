@@ -55,6 +55,9 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                 </div>
                 <div id="assunto">
                     <label for="title">Assunto:</label>
+                    <?php if (strpos($_SERVER['REQUEST_URI'], 'open_tickets') !== false) { ?>
+                        <ion-icon name="file-tray-full"></ion-icon>
+                    <?php } ?>
                     <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
                 <div id="textArea">

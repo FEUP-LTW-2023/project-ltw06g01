@@ -10,7 +10,7 @@
     grid-area: filtro;
     display: flex;
     justify-content: center;
-    padding-top: 3%
+    padding-bottom: 3%;
 }
 #filtro label{
     display: none; /*ver como preferem*/
@@ -34,9 +34,10 @@
     gap: 20px; 
 }
 
+
 #ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
     max-width: 800px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
     justify-content: center;
@@ -44,20 +45,118 @@
 
     display: grid;
     grid-template-areas:
-    "title_box title_box"
-    "departamento assunto"
-    "textArea textArea"
-    "enviar enviar";
-    grid-template-columns: 1fr 1fr;
+    "departamento"
+    "assunto"
+    "msg"
+    "tags";
+    grid-template-columns: 1fr;
     border-radius: 15px;
     border: 2px solid rgba(255,255,255,0.5);
 
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
     background-color: #55b0c6;
     height: fit-content;
 
     color: #ebfcff;
+}
+
+#departamento{
+    grid-area: departamento;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+}
+
+#departamento label{
+    display: none;
+}
+
+#department{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    font-size: 23px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #cbf2fa;
+  }
+
+#assunto{
+    grid-area: assunto;
+    justify-self: start;
+    display: grid;
+    grid-template-areas: "icon subject";
+    align-items: center;
+    justify-content: center;
+}
+
+#assunto label{
+    display: none;
+}
+#assunto ion-icon{
+    grid-area: icon;
+}
+
+#subject{
+    grid-area: subject;
+    background-color: #55afc641;
+    color: #fff;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    text-decoration: underline;
+    font-size: 18px;
+    text-align: center;
+}
+
+#textArea{
+    grid-area: msg;
+}
+
+#textArea label{
+    display: none;
+}
+
+#tickettext{
+    background-color: #bed9e041;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    font-size: 13px;
+    justify-self: start;
+    padding: 1%;
+}
+
+.tagsArea{
+    grid-area: tags;
+}
+
+.tags{
+    grid-area:tags;
+    display: inline-flex;
+}
+
+.tag{
+    width: fit-content;
+    padding: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background: #fff;
+    border: 1px solid #55b0c6;
+    border-radius: 15px;
+    color: #55b0c6;
+}
+
+.tagsArea p{
+    display: none;
+}
+
+#title_box, #edit, .tag-input, .tag-add{
+    display: none;
 }
 
 
