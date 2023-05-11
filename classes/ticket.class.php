@@ -109,4 +109,8 @@ class Ticket
         if (count($filteredTickets) == 1) return $filteredTickets; 
         return array_intersect(...$filteredTickets);
     }
+
+    function deleteTicket(PDO $db): void {
+        deleteTicket($db, $this->id, $this->prev);
+    }
 }
