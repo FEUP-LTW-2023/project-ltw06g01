@@ -13,9 +13,9 @@ if (!hasAccessToPage(1, $_SESSION['level'])) {
     header('Location: /../pages/page.php');
 }
 
-if (!isset($_GET['uid']) || !isset($_GET['level'])) {
-    header('Location: /../pages/page.php');
-}
-
 $db = getDatabaseConnection();
-$result = 
+$agent = User::getUser($db, $_SESSION['uid']);
+
+$result = $agent->assignToTicket($db, $_GET['id']);
+
+echo json_encode($result);
