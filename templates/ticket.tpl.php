@@ -2,6 +2,7 @@
 require_once(__DIR__ . '/../database/connection.php');
 require_once(__DIR__ . '/../database/departments.php');
 require_once(__DIR__ . '/../utils/validations.php');
+require_once(__DIR__ . '/../classes/user.class.php');
 
 function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 {
@@ -103,5 +104,16 @@ function drawNavigationButtons($prev, $next)
     </nav>
 <?php } 
 
-function drawAssignAgent($ticket) {
+function drawAssignAgent($db, $ticket) {
+    $agents = User::getAgentsFromDepartment($db, $ticket->department);
+    ?> <form class="assign-box">
+        <input type="hidden" class="assign-id" value=<?= $ticket->id ?>>
+        <select name="agents" class="agent-list"> <?php 
+        foreach($agents as $agent) {
+            ?> <option value=<?= $agent->id ?>><?= $agent->username ?></option> <?php
+        } ?>
+        </select>
+    </form> <?php     
 }
+
+?>
