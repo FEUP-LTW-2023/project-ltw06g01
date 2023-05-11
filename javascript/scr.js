@@ -178,16 +178,12 @@ if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a se
 /* para o pop up do user box na página dops admins */
 
 function toggleUserBoxPopup(userId) {
-  const popup = document.querySelector("#userBoxPopup-" + userId);
-  if (popup.style.display === "none") {
-    popup.style.display = "grid";
-    popup.classList.toggle('active');
-  } else {
-    popup.style.display = "none";
-    popup.classList.toggle('active');
-  }
-}
+  var userBoxPopup = document.getElementById("userBoxPopup-" + userId);
+  var backdrop = document.getElementById("backdrop");
 
+  userBoxPopup.classList.toggle("active");
+  backdrop.style.display = userBoxPopup.classList.contains("active") ? "block" : "none";
+}
 const userBoxes = document.querySelectorAll('.user-box');
 
 userBoxes.forEach((element) => {

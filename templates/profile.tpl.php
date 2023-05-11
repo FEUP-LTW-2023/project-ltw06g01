@@ -4,7 +4,8 @@ require_once(__DIR__ . '/../database/departments.php');
 
 function drawUserBox(PDO $db, User $user, bool $admin)
 { ?>
-  <div class="user-box" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
+  <div class="backdrop" id="backdrop"></div>
+  <div class="user-box" id="userBox-<?= $user->id ?>" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
   <input type="hidden" name="id" class="uid" value=<?= $user->id ?>>
   <h3 id="name"><?= $user->username ?></h3>
   <p id="email"><?= $user->email ?></p>
@@ -22,6 +23,9 @@ function drawUserBox(PDO $db, User $user, bool $admin)
       <?php } ?>
     </div>
     <?php if ($admin) { ?>
+    <input name="n" type="number" class="user-promotion-button" value="<?= $user->level ?>" min="0" max="2" step="1">
+    <?php } ?>
+    <?php if ($admin) { ?>
       <select name="departments" class="department-select">
         <?php foreach ($allDepartments as $allDepartment) { ?>
           <option value="<?= $allDepartment ?>"><?= $allDepartment ?></option>
@@ -29,9 +33,6 @@ function drawUserBox(PDO $db, User $user, bool $admin)
       </select>
       <button type="button" class="toggle-button">Toggle</button>
     <?php } ?>
-  <?php } ?>
-  <?php if ($admin) { ?>
-    <input name="n" type="number" class="user-promotion-button" value="<?= $user->level ?>" min="0" max="2" step="1">
   <?php } ?>
 </div>
 <?php } ?>

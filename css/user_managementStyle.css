@@ -3,18 +3,36 @@
 
 #all-users {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 10px;
+    
   }
 
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 9998;
+    display: none;
+}
+
+
+.user-box-popup.active + .backdrop {
+    display: block;
+}
+
 .user-box{
-    position: relative;
     display: grid;
     grid-template: 
     "name"
     "email";
-    width: 300px;
-    height: 340px;
+    min-width: 300px;
+    min-height: 340px;
+    height: fit-content;
+    width: fit-content;
     background: #55b0c6;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
@@ -26,6 +44,8 @@
     align-content: center;
     line-break: anywhere;
     color: aliceblue;
+    padding: 2%;
+    grid-gap: 20px;
 }
 
 .user-box-popup{
@@ -39,11 +59,13 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 300px;
-    height: 340px;
-    background: #55b0c6;
+    min-width: 300px;
+    min-height: 340px;
+    height: fit-content;
+    width: fit-content;
+    background-color: #55b0c6;
     border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 15px;
+    border-radius: 5px;
     backdrop-filter: blur(15px);
     justify-content: center;
     align-items: center;
@@ -53,14 +75,27 @@
     line-break: anywhere;
     color: aliceblue;
     transform: translate(-50%, -50%);
-    z-index: 999;
+    z-index: 9999;
+    border-radius: 15px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  
 }
 
 .user-box-popup.active{
-    filter: blur(20px);
-    pointer-events: none;
     user-select: none;    
 }
+
+  
+  .user-box-popup.active {
+    display: grid;
+    z-index: 9999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
 
 
 .user-box > #name{
@@ -106,11 +141,11 @@
     align-items: center;
     font-size: 16px;
     margin-top: 10px;
-}
+  }
   
-.back-button ion-icon {
+  .back-button ion-icon {
     margin-right: 5px;
-}
+  }
 
   
   
