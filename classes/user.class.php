@@ -2,6 +2,7 @@
 
 require_once(__DIR__ . '/../database/client.php');
 require_once(__DIR__ . '/../database/departments.php');
+require_once(__DIR__ . '/../database/tickets.php');
 
 class User
 {
@@ -62,5 +63,11 @@ class User
 
     static function toggleAgentDepartment(PDO $db, int $aid, string $department): array {
         return toggleDepartment($db, $aid, $department);
+    }
+
+    function assignToTicket(PDO $db, int $tID): string {
+        if ($this->level < 1) return "NOT ALLOWED";
+        assignAgent($db, $tID, $this->id);
+        return $this->username;
     }
 }
