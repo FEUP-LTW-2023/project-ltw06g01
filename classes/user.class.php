@@ -49,6 +49,10 @@ class User
         return $result;
     }
 
+    static function getAgentsFromDepartment(PDO $db, string $department): array {
+        
+    }
+
     static function toggleAgentDepartment(PDO $db, int $aid, string $department): array {
         return toggleDepartment($db, $aid, $department);
     }

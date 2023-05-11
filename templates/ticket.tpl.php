@@ -101,4 +101,7 @@ function drawNavigationButtons($prev, $next)
             <button type="submit" name="next-button" formaction="view_ticket.php" formmethod="get" id="next-button" <?php if (!isset($next)) echo "disabled"; ?>>&gt;</button>
         </form>
     </nav>
-<?php } ?>
+<?php } 
+
+function drawAssignAgent($ticket) {
+}

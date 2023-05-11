@@ -55,7 +55,8 @@ if (!$session->isLoggedIn()) {
                 $tags = getTicketTags($db, $ticket->id); ?>
                 <div>
                   <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-                     <?php drawTicketForm($ticket, false, $tags); ?>
+                     <?php drawTicketForm($ticket, false, $tags); 
+                           drawAssignAgent($ticket);      ?>
                   </a>
                 </div>
         <?php } ?>
