@@ -106,8 +106,8 @@ class Ticket
     }
 
     static function joinFilters(array ...$filteredTickets): array {
-        if (count($filteredTickets) == 1) return $filteredTickets; 
-        return array_intersect(array_filter(...$filteredTickets));
+        if (count(array_filter($filteredTickets)) == 1) return array_filter($filteredTickets); 
+        return array_intersect(...array_filter($filteredTickets));
     }
 
     function deleteTicket(PDO $db): void {
