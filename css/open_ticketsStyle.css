@@ -172,20 +172,36 @@
 #delete-button{
     grid-area: delete;
     justify-self: end;
+}
+
+button[type="submit"] {
+    background: transparent;
+    border: none;
+    padding: 5px;
+    color: #fff;
+    font-size: 20px;
 
 }
 
+#delete-button:hover{
+    cursor: pointer;
+  }
+
 #delete-not-hover{
     display: flex;
-    background-color: transparent;
-    border: none;
 }
 
 #delete-hover{
     display: none;
-    background-color: transparent;
-    border: none;
 }
+
+#delete-button:hover #delete-not-hover{
+  display: none;
+  }
+
+ #delete-button:hover #delete-hover{
+    display: flex;
+    }
 
 .assign-box{
     display: grid;

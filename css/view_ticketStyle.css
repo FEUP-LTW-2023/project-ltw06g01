@@ -13,11 +13,12 @@ a{
 
     display: grid;
     grid-template-areas:
-    "title_box edit"
+    "delete edit"
     "departamento assunto"
     "textArea textArea"
     "tagsArea tagsArea"
-    "enviar enviar";
+    "enviar enviar"
+    ;
     grid-template-columns: 1fr 1fr;
     border-radius: 15px;
     border: 2px solid rgba(255,255,255,0.5);
@@ -163,6 +164,40 @@ a{
     border-color: rgba(255,255,255,0.5);
     color: rgba(255,255,255,0.5); 
 }
+
+#delete-button{
+    grid-area: delete;
+    justify-self: start;
+}
+
+button[type="submit"] {
+    background: transparent;
+    border: none;
+    padding: 5px;
+    color: #fff;
+    font-size: 20px;
+
+}
+
+#delete-button:hover{
+    cursor: pointer;
+  }
+
+#delete-not-hover{
+    display: flex;
+}
+
+#delete-hover{
+    display: none;
+}
+
+#delete-button:hover #delete-not-hover{
+  display: none;
+  }
+
+ #delete-button:hover #delete-hover{
+    display: flex;
+    }
 
 /*chat*/
 
