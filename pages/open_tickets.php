@@ -59,10 +59,12 @@ if (!$session->isLoggedIn()) {
     </form>
     <?php
       $status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
-      $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status']);?>
+      $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status']);
+      $ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
+      $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent);?>
 
       <div id="allTickets">
-        <?php foreach ($tickets as $ticket) { 
+        <?php foreach ($finalTickets as $ticket) { 
                 $tags = getTicketTags($db, $ticket->id); ?>
                 <div>
                   <?php drawAssignAgent($db, $ticket); ?>
