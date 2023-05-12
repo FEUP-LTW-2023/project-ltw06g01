@@ -65,7 +65,8 @@ if (!$session->isLoggedIn()) {
       $status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status']);
       $ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
-      $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent)[0]; ?>
+      $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent)[0]; 
+      echo var_dump($ticketsAgent); ?>
 
       <div id="allTickets">
         <?php foreach ($finalTickets as $ticket) { 

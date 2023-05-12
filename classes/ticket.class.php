@@ -49,7 +49,7 @@ class Ticket
     }
 
     static function getTicketsFromAgent(PDO $db, int $aid): array {
-        $tickets = getTicketsAssignedTo($db, $aid);
+        $tickets = getTicketsFromAgent($db, $aid);
 
         return Ticket::createArray($tickets);
     }
