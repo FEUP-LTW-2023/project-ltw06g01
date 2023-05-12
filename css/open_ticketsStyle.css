@@ -31,13 +31,15 @@
     grid-area: allTickets;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px; 
+    gap: 35px; 
+
+    justify-items: center;
 }
 
 
 #ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
-    max-width: 800px;
-    margin: 0 auto;
+    width: 800px;
+    margin: 0;
     padding: 20px;
     box-sizing: border-box;
     justify-content: center;
@@ -48,7 +50,8 @@
     "departamento"
     "assunto"
     "msg"
-    "tags";
+    "tags"
+    "delete";
     grid-template-columns: 1fr;
     border-radius: 15px;
     border: 2px solid rgba(255,255,255,0.5);
@@ -88,6 +91,7 @@
     justify-self: start;
     display: grid;
     grid-template-areas: "icon subject";
+    grid-template-columns: auto 1fr;
     align-items: center;
     justify-content: center;
 }
@@ -97,9 +101,11 @@
 }
 #assunto ion-icon{
     grid-area: icon;
+    font-size: 21px;
+    margin-right: 5px;
 }
 
-#subject{
+#subject[readonly]{ /*não percebo pq que isto não fica centrado verticalmente*/
     grid-area: subject;
     background-color: #55afc641;
     color: #fff;
@@ -108,7 +114,8 @@
     -webkit-appearance: none;
     text-decoration: underline;
     font-size: 18px;
-    text-align: center;
+    text-align: start;
+    align-self: center;
 }
 
 #textArea{
@@ -129,10 +136,13 @@
     font-size: 13px;
     justify-self: start;
     padding: 1%;
+    height: auto;
+    width: -webkit-fill-available;
 }
 
 .tagsArea{
     grid-area: tags;
+    font-size: 13px;
 }
 
 .tags{
@@ -142,7 +152,7 @@
 
 .tag{
     width: fit-content;
-    padding: 5px;
+    padding: 2px 5px;
     margin-right: 5px;
     margin-left: 5px;
     background: #fff;
@@ -159,7 +169,49 @@
     display: none;
 }
 
+#delete-button{
+    grid-area: delete;
+    justify-self: end;
 
+}
+
+#delete-not-hover{
+    display: flex;
+    background-color: transparent;
+    border: none;
+}
+
+#delete-hover{
+    display: none;
+    background-color: transparent;
+    border: none;
+}
+
+.assign-box{
+    display: grid;
+    grid-template-areas: "agent confirm";
+    grid-template-columns: 1fr auto;
+}
+
+.agent-list{
+    grid-area: agent;
+    justify-self: end;
+    padding: 2px 5px;
+    background: transparent;
+    border: 1px solid #55b0c6;
+    border-radius: 15px;
+    color: #55b0c6;
+}
+
+.assign-confirm{
+    grid-area: confirm;
+    justify-self: end;
+    padding: 2px 5px;
+    background: #fff;
+    border: 1px solid #55b0c6;
+    border-radius: 15px;
+    color: #55b0c6;
+}
 
 /*questões para o professor
     -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?

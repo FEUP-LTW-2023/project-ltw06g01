@@ -55,10 +55,10 @@ if (!$session->isLoggedIn()) {
         <?php foreach ($tickets as $ticket) { 
                 $tags = getTicketTags($db, $ticket->id); ?>
                 <div>
+                  <?php drawAssignAgent($db, $ticket); ?>
                   <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
                      <?php drawTicketForm($ticket, false, $tags); ?>
                   </a>
-                  <?php drawAssignAgent($db, $ticket); ?>
                 </div>
         <?php } ?>
       </div>
