@@ -14,7 +14,7 @@ if (!$session->isLoggedIn()) {
   require_once(__DIR__ . '/../database/tags.php');
 
   $db = getDatabaseConnection();
-  $_GET['ticket-filter'] = $_GET['ticket-filter'] ?? 'all';
+  $_GET['ticket-filter-status'] = $_GET['ticket-filter-status'] ?? 'all';
 
   $users = User::getUsersAdmin($db);
 
@@ -45,9 +45,9 @@ if (!$session->isLoggedIn()) {
     <form id="filtro" method="get" class="ticket-filter-container">
       <label for="ticket-filter-status">Mostrar:</label>
       <select name="ticket-filter-status" id="ticket-filter" onchange="this.form.submit()">
-        <option value="all" <?php if ($_GET['ticket-filter'] == 'all') echo 'selected'; ?>>Todos</option>
-        <option value="open" <?php if ($_GET['ticket-filter'] == 'open') echo 'selected'; ?>>Abertos</option>
-        <option value="closed" <?php if ($_GET['ticket-filter'] == 'closed') echo 'selected'; ?>>Fechados</option>
+        <option value="all" <?php if ($_GET['ticket-filter-status'] == 'all') echo 'selected'; ?>>Todos</option>
+        <option value="open" <?php if ($_GET['ticket-filter-status'] == 'open') echo 'selected'; ?>>Abertos</option>
+        <option value="closed" <?php if ($_GET['ticket-filter-status'] == 'closed') echo 'selected'; ?>>Fechados</option>
       </select>
       <select name="ticket-filter-agent" class="ticket-filter" onchange="this.form.submit()">
       <?php foreach ($users as $user) {
@@ -57,8 +57,8 @@ if (!$session->isLoggedIn()) {
   </select>
     </form>
     <?php
-      $status = isset($_GET['ticket-filter']) ? $_GET['ticket-filter'] : 'open'; //// esta linha supostamente tem de sair?
-      $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter']);?>
+      $status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
+      $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status']);?>
 
       <div id="allTickets">
         <?php foreach ($tickets as $ticket) { 
