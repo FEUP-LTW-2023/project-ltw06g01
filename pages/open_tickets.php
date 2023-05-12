@@ -14,7 +14,10 @@ if (!$session->isLoggedIn()) {
   require_once(__DIR__ . '/../database/tags.php');
 
   $db = getDatabaseConnection();
+  
   $_GET['ticket-filter-status'] = $_GET['ticket-filter-status'] ?? 'all';
+
+  if ($_GET['ticket-filter-agent'] == 'default') $_GET['ticket-filter-agent'] = -1;
   $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? -1;
 
   $users = User::getUsersAdmin($db);
@@ -51,7 +54,7 @@ if (!$session->isLoggedIn()) {
         <option value="closed" <?php if ($_GET['ticket-filter-status'] == 'closed') echo 'selected'; ?>>Fechados</option>
       </select>
       <select name="ticket-filter-agent" class="ticket-filter" onchange="this.form.submit()">
-         <option value="" selected></option>
+         <option value="default" selected></option>
       <?php foreach ($users as $user) {
         if ($user->level < 1 ) continue; ?>
          <option value=<?= $user->id ?>><?= $user->username ?></option>
