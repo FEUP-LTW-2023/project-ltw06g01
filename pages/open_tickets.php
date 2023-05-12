@@ -50,6 +50,7 @@ if (!$session->isLoggedIn()) {
         <option value="closed" <?php if ($_GET['ticket-filter-status'] == 'closed') echo 'selected'; ?>>Fechados</option>
       </select>
       <select name="ticket-filter-agent" class="ticket-filter" onchange="this.form.submit()">
+         <option value="" selected></option>
       <?php foreach ($users as $user) {
         if ($user->level < 1 ) continue; ?>
          <option value=<?= $user->id ?>><?= $user->username ?></option>
