@@ -141,7 +141,7 @@ function drawChangeStatus($db, $ticket) {
         <input type="hidden" class="status-id" value=<?= $ticket->id ?>>
         <select name="statuses" class="status-list"> <?php
         foreach ($statuses as $status) {
-            ?> <option value=<?= $status ?>><?= $status ?></option> <?php
+            ?> <option value=<?= $status ?> <?php if ($ticket->status == $status) echo 'selected'; ?>><?= $status ?></option> <?php
         } ?>
         </select>
         <button type="button" class="status-confirm">Change</button>
