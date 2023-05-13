@@ -1,6 +1,6 @@
-const assignBoxes = document.querySelectorAll('.status-box')
+const statusBoxes = document.querySelectorAll('.status-box')
 
-assignBoxes.forEach((element) => {
+statusBoxes.forEach((element) => {
     const tID = element.querySelector('.status-id').value
     const statusSelect = element.querySelector('select')
     const assignButton = element.querySelector('.status-confirm')
