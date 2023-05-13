@@ -72,7 +72,8 @@ if (!$session->isLoggedIn()) {
         <?php foreach ($finalTickets as $ticket) { 
                 $tags = getTicketTags($db, $ticket->id); ?>
                 <div>
-                  <?php drawAssignAgent($db, $ticket); ?>
+                  <?php drawAssignAgent($db, $ticket);
+                        drawChangeStatus($db, $ticket); ?>
                   <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
                      <?php drawTicketForm($ticket, false, $tags); ?>
                   </a>

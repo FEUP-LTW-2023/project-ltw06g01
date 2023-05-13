@@ -134,4 +134,18 @@ function drawAssignAgent($db, $ticket) {
     </form> <?php     
 }
 
+function drawChangeStatus($db, $ticket) { 
+    $statuses = getAllStatuses($db);
+    $statuses = array_map(fn($value) => $value['name'], $statuses); ?>
+    <form class="status-box">
+        <input type="hidden" class="id" value=<?= $ticket->id ?>>
+        <select name="statuses" class="status-list"> <?php
+        foreach ($statuses as $status) {
+            ?> <option value=<?= $status ?>><?= $status ?></option> <?php
+        } ?>
+        </select>
+        <button type="button" class="status-confirm">Change</button>
+    </form> <?php
+}
+
 ?>
