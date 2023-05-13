@@ -9,4 +9,19 @@
     function hasAccessToPage($requiredLevel, $level) {
         return $level >= $requiredLevel;
     }
+
+    function isValidName(String $attemp) : bool {
+        if (!preg_match ("/^[a-zA-Z0-9]+$/", $attemp)) {
+            return false;
+        }
+        return true;
+    }
+
+    function isValidEmail(String $attemp) : bool {
+        if (filter_var($attemp, FILTER_VALIDATE_EMAIL) == NULL) {
+            return false;
+        }
+        return true;
+    }
+
 ?>    
