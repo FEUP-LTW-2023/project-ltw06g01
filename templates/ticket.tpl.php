@@ -138,7 +138,7 @@ function drawChangeStatus($db, $ticket) {
     $statuses = getAllStatuses($db);
     $statuses = array_map(fn($value) => $value['name'], $statuses); ?>
     <form class="status-box">
-        <input type="hidden" class="id" value=<?= $ticket->id ?>>
+        <input type="hidden" class="status-id" value=<?= $ticket->id ?>>
         <select name="statuses" class="status-list"> <?php
         foreach ($statuses as $status) {
             ?> <option value=<?= $status ?>><?= $status ?></option> <?php
