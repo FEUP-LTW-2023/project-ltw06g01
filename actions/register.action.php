@@ -9,10 +9,11 @@
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/client.php');
+    require_once(__DIR__ . '/../utils/validations.php');
 
     $db = getDatabaseConnection();
 
-    if ($_POST['password'] != $_POST['confirm-password']) {
+    if (($_POST['password'] != $_POST['confirm-password']) || !isValidName($_POST['username']) || !isValidEmail($_POST['email'])) {
         header('Location: ../pages/page.php');
     }
 
