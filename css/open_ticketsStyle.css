@@ -203,13 +203,13 @@ button[type="submit"] {
     display: flex;
     }
 
-.assign-box{
+.assign-box,.status-box{
     display: grid;
     grid-template-areas: "agent confirm";
     grid-template-columns: 1fr auto;
 }
 
-.agent-list{
+.agent-list,.status-list{
     grid-area: agent;
     justify-self: end;
     padding: 2px 5px;
@@ -219,7 +219,7 @@ button[type="submit"] {
     color: #55b0c6;
 }
 
-.assign-confirm{
+.assign-confirm,.status-confirm{
     grid-area: confirm;
     justify-self: end;
     padding: 2px 5px;
