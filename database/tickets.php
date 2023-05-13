@@ -131,4 +131,9 @@
         $stmt->execute(array($aid, $id));
         $otherStmt->execute(array($id));
     }
+
+    function changeStatus($db, $status, $id) {
+        $stmt = $db->prepare('UPDATE TICKET SET status = ? WHERE id = ?');
+        $stmt->execute(array($status, $id));
+    }
 ?>

@@ -8,18 +8,20 @@ class Ticket
     public string $title;
     public string $text;
     public string $dateCreated;
+    public string $status;
     public ?string $department;
     public int $uid;
     public ?int $aid;
     private ?int $prev;
     private ?int $next;
 
-    public function __construct(int $id, string $title, string $text, string $dateCreated, ?string $department, int $uid, ?int $aid, ?int $prev, ?int $next = null)
+    public function __construct(int $id, string $title, string $text, string $dateCreated, string $status, ?string $department, int $uid, ?int $aid, ?int $prev, ?int $next = null)
     {
         $this->id = $id;
         $this->title = $title;
         $this->text = $text;
         $this->dateCreated = $dateCreated;
+        $this->status = $status;
         $this->department = $department;
         $this->uid = $uid;
         $this->aid = $aid;
@@ -33,7 +35,7 @@ class Ticket
 
         if (!$ticket) return null;
 
-        return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
+        return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
     }
 
     static function getFilteredTickets(PDO $db, ?string $filter) {
@@ -99,7 +101,7 @@ class Ticket
     private static function createArray(array $tickets): array {
         $res = array();
         foreach ($tickets as $ticket) {
-            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
+            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
         }
 
         return $res;
@@ -114,6 +116,11 @@ class Ticket
     function deleteTicket(PDO $db): void {
         deleteTicket($db, $this->id, $this->prev);
     }
+
+    function changeStatus(PDO $db, string $newStatus): void {
+        if ($this->status == $newStatus) return;
+        else changeStatus($db, $newStatus, $this->id);
+    } 
 
     public function __toString() {
         return strval($this->id);
