@@ -9,6 +9,7 @@ if (!$session->isLoggedIn()) {
   require_once(__DIR__ . '/../classes/ticket.class.php');
   require_once(__DIR__ . '/../classes/user.class.php');
   require_once(__DIR__ . '/../database/connection.php');
+  require_once(__DIR__ . '/../database/status.php');
   require_once(__DIR__ . '/../templates/ticket.tpl.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
   require_once(__DIR__ . '/../database/tags.php');
