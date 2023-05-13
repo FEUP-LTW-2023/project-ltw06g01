@@ -17,6 +17,7 @@ if (!$session->isLoggedIn()) {
   $db = getDatabaseConnection();
   
   $_GET['ticket-filter-status'] = $_GET['ticket-filter-status'] ?? 'all';
+  $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? 'default';
 
   if ($_GET['ticket-filter-agent'] == 'default') $_GET['ticket-filter-agent'] = -1;
   $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? -1;
