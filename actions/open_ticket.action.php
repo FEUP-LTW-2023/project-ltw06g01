@@ -16,6 +16,7 @@
     $db = getDatabaseConnection();
     $status = Ticket::openTicket($db, intval($_SESSION['uid']), $_POST['title'], $_POST['fulltext'], $_POST['department']);
     
+    $session->addMessage('success', 'Ticket opened');
     if (!isset($status) == -1) header('Location: ../pages/page.php');
     else header("Location: ../pages/view_ticket.php?id=$status->id");
 ?>    

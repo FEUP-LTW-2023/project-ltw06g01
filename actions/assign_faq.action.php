@@ -26,4 +26,5 @@ $faqitem = FAQ::getFAQItem($db, $_POST['faq-selection']);
 $faqitem->assignToTicket($db, $_POST['tid']);
 $tID = $ticket->id;
 
+$session->addMessage('success', 'FAQ item assigned');
 header("Location: /../pages/view_ticket.php?id=$tID");

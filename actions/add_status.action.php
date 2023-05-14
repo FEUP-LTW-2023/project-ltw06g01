@@ -19,12 +19,15 @@ if (!hasAccessToPage(2, $_SESSION['level'])) {
 }
 
 if (!isset($_POST['status'])) {
+    $session->addMessage('error', 'Invalid input');
     header('Location: /../pages/page.php');
 }
 
 $db = getDatabaseConnection();
 
 addStatus($db, $_POST['status']);
+$session->addMessage('success', 'Status created');
+
 
 ?>
 

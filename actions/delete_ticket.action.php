@@ -18,4 +18,5 @@ $ticket = Ticket::getTicket($db, $_POST['id']);
 
 $ticket->deleteTicket($db);
 
+$session->addMessage('success', 'Ticket deleted');
 header('Location: ../pages/open_tickets.php');

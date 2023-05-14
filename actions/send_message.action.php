@@ -17,6 +17,7 @@ if (!$session->isLoggedIn() || !$session->isValidSession($_GET['csrf'])) {
 
     sendMessageToTicket($db, $_GET['tID'], $_SESSION['uid'], $_GET['text']);
 
+    $session->addMessage('success', 'Message sent');
     $id = $_GET['tID'];
     header("Location: /../pages/view_ticket.php?id=$id");
 ?>

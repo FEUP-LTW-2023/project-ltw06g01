@@ -19,12 +19,15 @@ if (!hasAccessToPage(1, $_SESSION['level'])) {
 }
 
 if (!isset($_POST['question']) || !isset($_POST['answer'])) {
+    $session->addMessage('error', 'Invalid inputs');
     header('Location: /../pages/page.php');
 }
 
 $db = getDatabaseConnection();
 
 createFAQItem($db, $_POST['question'], $_POST['answer']);
+$session->addMessage('success', 'FAQ item created');
+
 
 ?>
 

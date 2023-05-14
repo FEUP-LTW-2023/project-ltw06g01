@@ -3,10 +3,10 @@
 
     $session = new Session();
     
-    if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
-        $session->addMessage('error', 'Not logged in');
-        header('Location: page.php');
-    }
+    //if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
+    //    $session->addMessage('error', 'Not logged in');
+    //    header('Location: page.php');
+    //}
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/client.php');
@@ -16,6 +16,7 @@
     $user = tryLoginName($db, $_POST["username"]);
 
     if (empty($user)) {
+        $session->addMessage('error', 'Invalid login');
         echo "NO USER";
     }
     else {
@@ -27,5 +28,6 @@
         }
     }
 
+    $session->addMessage('success', 'Logged in');
     header('Location: ../pages/page.php');
 ?>    

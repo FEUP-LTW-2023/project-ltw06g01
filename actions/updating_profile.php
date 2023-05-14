@@ -18,5 +18,6 @@
 
     $updated = updateProfile($db, $user_id, $username, $email);
 
+    $session->addMessage('success', 'Profile updated');
     header('Location: ../pages/profile.php');
 ?>    
