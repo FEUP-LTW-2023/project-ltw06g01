@@ -1,4 +1,4 @@
-const agentBoxes = document.querySelectorAll('.user-box')
+const agentBoxes = document.querySelectorAll('.user-box-popup')
 
 agentBoxes.forEach((element) => {
     const userDepartments = element.querySelector('.user-departments')

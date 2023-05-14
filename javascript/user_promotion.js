@@ -1,4 +1,4 @@
-const userBoxes = document.querySelectorAll('.user-box')
+const userBoxes = document.querySelectorAll('.user-box-popup')
 
 userBoxes.forEach((element) => {
     const id = element.querySelector('.uid')
