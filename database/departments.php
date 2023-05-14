@@ -42,4 +42,9 @@
 
         return $stmt->fetchAll();
     }
+
+    function addDepartment($db, $department) {
+        $stmt = $db->prepare('INSERT INTO DEPARTMENT VALUES (?)');
+        $stmt->execute(array($department));
+    }
 ?>    

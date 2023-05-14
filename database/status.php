@@ -6,3 +6,8 @@ function getAllStatuses($db) {
 
     return $stmt->fetchAll();
 }
+
+function addStatus($db, $status) {
+    $stmt = $db->prepare('INSERT INTO STATUS VALUES (?)');
+    $stmt->execute(array($status));
+}
