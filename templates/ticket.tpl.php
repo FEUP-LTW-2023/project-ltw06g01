@@ -20,7 +20,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
     } else {
         $buttonText = "Enviar";
         $action = "../actions/open_ticket.action.php";
-        $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0);
+        $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0, 0);
     }
 
     $allTags = getAllTags(getDatabaseConnection());
