@@ -169,7 +169,7 @@ function drawChangeStatus($db, $ticket) {
 }
 
 function drawTicketFAQ($db, $ticket) {
-    if (!isset($ticket->faqitem)) { 
+    if (!isset($ticket->faqitem) && $_SESSION['uid'] == $ticket->aid) { 
         $faqs = FAQ::getAllFAQ($db); ?>
         <form class="faq-box">
             <input type="hidden" value=<?= $ticket->id ?>>
