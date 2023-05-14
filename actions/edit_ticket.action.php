@@ -5,7 +5,8 @@ require_once(__DIR__ . '/../classes/session.class.php');
 $session = new Session();
 
 if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
-    header('Location: page.php');
+  $session->addMessage('error', 'Not logged in');
+  header('Location: page.php');
 }
   
     require_once(__DIR__ . '/../utils/validations.php');
@@ -24,6 +25,7 @@ if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
     $ticket = Ticket::getTicket($db, $_POST['id']);
     
     if (!isset($_SESSION['uid']) || !isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level'])) {
+      $session->addMessage('error', 'No access to ticket');
       header('Location: page.php');
     }
 

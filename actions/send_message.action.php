@@ -6,6 +6,7 @@
 $session = new Session();
 
 if (!$session->isLoggedIn() || !$session->isValidSession($_GET['csrf'])) {
+    $session->addMessage('error', 'Not logged in');
     header('Location: page.php');
 }
 

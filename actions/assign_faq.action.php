@@ -5,6 +5,7 @@ require_once(__DIR__ . '/../classes/session.class.php');
 $session = new Session();
 
 if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
+    $session->addMessage('error', 'Not logged in');
     header('Location: page.php');
 }
 
@@ -17,6 +18,7 @@ $db = getDatabaseConnection();
 $ticket = Ticket::getTicket($db, $_POST['tid']);
 
 if (!hasAccessToPage(2, $_SESSION['level']) || ($_SESSION['uid'] != $ticket->aid)) {
+    $session->addMessage('error', 'Insufficient permissions');
     header('Location: /../pages/page.php');
 }
 
