@@ -15,6 +15,6 @@ require_once(__DIR__ . '/../classes/ticket.class.php');
 $db = getDatabaseConnection();
 $ticket = Ticket::getTicket($db, $_POST['id']);
 
-$ticket->deleteTicket();
+$ticket->deleteTicket($db);
 
 header('Location: ../pages/open_tickets.php');
