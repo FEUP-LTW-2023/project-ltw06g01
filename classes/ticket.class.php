@@ -137,6 +137,11 @@ class Ticket
         else changeStatus($db, $newStatus, $this->id);
     } 
 
+    function changePriority(PDO $db, int $newPriority): void {
+        if ($this->priority == $newPriority) return;
+        else changePriority($db, $newPriority, $this->id);
+    }
+
     public function __toString() {
         return strval($this->id);
     }
