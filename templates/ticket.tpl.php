@@ -3,6 +3,7 @@ require_once(__DIR__ . '/../database/connection.php');
 require_once(__DIR__ . '/../database/departments.php');
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../classes/user.class.php');
+require_once(__DIR__ . '/../classes/faq.class.php');
 
 function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 {
@@ -168,6 +169,24 @@ function drawChangeStatus($db, $ticket) {
 }
 
 function drawTicketFAQ($db, $ticket) {
-    
+    if (!isset($ticket->faqitem)) { 
+        $faqs = FAQ::getAllFAQ($db); ?>
+        <form class="faq-box">
+            <input type="hidden" value=<?= $ticket->id ?>>
+            <select name="faq-selection" class="faq-list">
+            <?php foreach ($faqs as $faq) { ?>
+                <option value=<?= $faq->id ?>><?= $faq->question ?></option>
+            <?php } ?>
+            </select>
+            <button type="submit" formaction="../actions/assign_faq.action.php" formmethod="post">Assign</button>
+        </form> <?php 
+    }
+    else { 
+        $faq = FAQ::getFAQItem($db, $ticket->faqitem);  ?>
+        <div id="faqitem">
+            <h3><?= $faq->question?></h3>
+            <p><?= $faq->answer ?></p>
+        </div> <?php 
+    }
 }
 ?>
