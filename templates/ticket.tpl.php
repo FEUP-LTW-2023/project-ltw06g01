@@ -168,8 +168,8 @@ function drawChangeStatus($db, $ticket) {
     </form> <?php
 }
 
-function drawTicketFAQ($db, $ticket) {
-    if (!isset($ticket->faqitem) && $_SESSION['uid'] == $ticket->aid) { 
+function drawTicketFAQ($db, $ticket, $edit) {
+    if (!isset($ticket->faqitem) && $_SESSION['uid'] == $ticket->aid && $edit) { 
         $faqs = FAQ::getAllFAQ($db); ?>
         <form class="faq-box">
             <input type="hidden" value=<?= $ticket->id ?>>
@@ -181,7 +181,7 @@ function drawTicketFAQ($db, $ticket) {
             <button type="submit" formaction="../actions/assign_faq.action.php" formmethod="post">Assign</button>
         </form> <?php 
     }
-    else { 
+    else if (isset($ticket->faqitem)) { 
         $faq = FAQ::getFAQItem($db, $ticket->faqitem);  ?>
         <div id="faqitem">
             <h3><?= $faq->question?></h3>
