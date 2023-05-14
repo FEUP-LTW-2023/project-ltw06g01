@@ -1,3 +1,4 @@
+
 <?php
     function getDepartments($db) {
         $stmt = $db->prepare('SELECT * FROM DEPARTMENT');
