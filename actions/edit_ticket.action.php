@@ -29,7 +29,7 @@ if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
 
     $oldTicket = Ticket::getTicket($db, $_POST['id']);
     if ($_SESSION['uid'] == $oldTicket->uid) $status = $oldTicket->updateTicket($db, $_SESSION['uid'], $_POST['title'], $_POST['fulltext'], $_POST['department'], $_POST['id']);
-    else $stats = $oldTicket->updateDepartment($db, $_POST['department']);
+    else $status = $oldTicket->updateDepartment($db, $_POST['department']);
     
     if (!$status) header('Location: ../pages/page.php');
 

@@ -64,12 +64,12 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                     <?php if (strpos($_SERVER['REQUEST_URI'], 'open_tickets') !== false) { ?>
                         <ion-icon name="file-tray-full"></ion-icon>
                     <?php } ?>
-                    <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value="<?= $ticket->title ?>">
+                    <input type="text" id="subject" name="title" <?php if (!$edit || $validity != 1) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
 
                 <div id="textArea">
                     <label for="fulltext">Mensagem:</label>
-                    <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <textarea id="tickettext" name="fulltext" <?php if (!$edit || $validity != 1) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
 
                 <?php if ($_SESSION['level'] >= 1) {

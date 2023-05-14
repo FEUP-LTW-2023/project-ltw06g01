@@ -76,7 +76,7 @@ class Ticket
     }
 
     function updateTicket(PDO $db, int $uid, string $title, string $text, ?string $department, int $id): Ticket {
-        $newTicket = updateTicket($db, $uid, $title, $text, $department, $id);
+        $newTicket = updateTicket($db, $uid, $title, $text, $department, $id, $this->status);
 
         return Ticket::getTicket($db, $newTicket);
     }
