@@ -166,4 +166,8 @@ function drawChangeStatus($db, $ticket) {
         </select>
     </form> <?php
 }
+
+function drawTicketFAQ($db, $ticket) {
+    
+}
 ?>
