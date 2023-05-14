@@ -99,8 +99,8 @@ if (!$session->isLoggedIn()) {
                             <?php drawAssignAgent($db, $ticket);
                                   drawChangeStatus($db, $ticket); 
                                   drawPriorityButtons($ticket); ?>
-                                  ?>
                         </div>
+
                       <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
                         <ion-icon id="view-not-hover" name="eye-outline"></ion-icon>
                         <ion-icon id="view-hover" name="eye"></ion-icon>
