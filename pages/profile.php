@@ -22,6 +22,7 @@ if (!$session->isLoggedIn()) {
 <html>
 <head>
   <title>Profile Page</title>
+  <script src="/../javascript/scr.js" defer></script>
   <script src="/../javascript/profile.js" defer></script>
   <link rel="stylesheet" href="/../css/geralStyle.css">
   <link rel="stylesheet" href="/../css/profileStyle.css">
