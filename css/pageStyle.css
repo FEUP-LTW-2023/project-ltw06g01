@@ -25,6 +25,7 @@ body{
 header{
   grid-area: header;
   color: #363538;
+  background-color: #e8e9e9;
   border-bottom-right-radius: 90px;
 }
 
@@ -40,10 +41,10 @@ header{
   grid-area: title;
   display: flex;
   justify-content: start;
-  color: #cbf2fa;
+  color: #55b0c6;
   padding: 3%;
-  text-shadow: 2px 2px 8px #2b5a65;
-  -webkit-text-stroke: 1px #f6f6f6;
+  text-shadow: 2px 2px 4px #2b5a65;
+  -webkit-text-stroke: 1px #88d9e9;
   text-stroke: 1px #f6f6f6;
   font-size: 2em;
 }
@@ -148,22 +149,109 @@ header{
 
 #content h2{
   font-size: 2em;
-  color: #fff;
+  color: #55b0c6;
   text-align: center;
+
+}
+
+#login-box-animated::before{
+  content: '';
+  position: absolute;
+  width: 302px;
+  height: 340px;
+  top:-50%;
+  left: -50%;
+  background: linear-gradient(0deg,transparent,transparent,#9fecfb,#9fecfb,#9fecfb);
+  z-index: 1;
+  animation: animate-arround 6s linear infinite;
+  transform-origin: bottom right;
+}
+
+#login-box-animated::after{
+  content: '';
+  position: absolute;
+  width: 302px;
+  height: 340px;
+  top:-50%;
+  left: -50%;
+  background: linear-gradient(0deg,transparent,transparent,#9fecfb,#9fecfb,#9fecfb);
+  z-index: 1;
+  animation: animate-arround 6s linear infinite;
+  transform-origin: bottom right;
+  animation-delay: -3s;
+}
+
+@keyframes animate-arround{
+0%
+{
+transform: rotate(0deg) ;
+}
+100%{
+transform: rotate(360deg);
+}
+}
+
+#login-box-animated{
+  width: 310px;
+  height: 348px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border-radius: 15px;
 }
 
 .form-box-login{
   grid-area: login;
   justify-self: center;
-  display: grid;
   width: 300px;
   height: 340px;
-  background: transparent;
-  border: 2px solid rgba(255,255,255,0.5);
+  background: #e8e9e9;
   border-radius: 15px;
-  backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  align-self: center;
+}
+
+#signup-box-animated::before{
+  content: '';
+  position: absolute;
+  width: 314px;
+  height: 460px;
+  top:-50%;
+  left: -50%;
+  background: linear-gradient(0deg,transparent,transparent,#9fecfb,#9fecfb,#9fecfb);
+  z-index: 1;
+  animation: animate-arround 6s linear infinite;
+  transform-origin: bottom right;
+}
+
+#signup-box-animated::after{
+  content: '';
+  position: absolute;
+  width: 314px;
+  height: 460px;
+  top:-50%;
+  left: -50%;
+  background: linear-gradient(0deg,transparent,transparent,#9fecfb,#9fecfb,#9fecfb);
+  z-index: 1;
+  animation: animate-arround 6s linear infinite;
+  transform-origin: bottom right;
+  animation-delay: -3s;
+}
+
+#signup-box-animated{
+  display: none;
+  width: 310px;
+  height: 458px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border-radius: 15px;
 }
 
 .form-box-signup{
@@ -172,12 +260,13 @@ header{
   justify-self: center;
   width: 300px;
   height: 450px;
-  background: transparent;
-  border: 2px solid rgba(255,255,255,0.5);
+  background: #e8e9e9;
   border-radius: 15px;
   backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  align-self: center;
 }
 
 @keyframes slideInLeft {
@@ -302,14 +391,14 @@ animation-fill-mode: forwards;
     position: relative;
     margin: 23px 0;
     width: 233px;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #55b0c6;
 }
 .inputbox label{
     position: absolute;
     top: 50%;
     left: 4px;
     transform: translateY(-50%);
-    color: #fff;
+    color: #55b0c6;
     font-size: 0.75em;
     pointer-events: none;
     transition: .4s;
@@ -326,12 +415,12 @@ top: -4px;
     outline: none;
     font-size: 0.75em;
     padding:0 27px 0 4px;
-    color: #fff;
+    color: #55b0c6;
 }
 .inputbox ion-icon{
     position: absolute;
     right: 6px;
-    color: #fff;
+    color: #55b0c6;
     font-size: 1em;
     top: 15px;
 }
@@ -339,45 +428,45 @@ top: -4px;
 .submit-login {
   width: 100%;
   height: 30px;
-  border: 2px solid #fff;
+  border: 2px solid #55b0c6;
   border-radius: 30px;
   backdrop-filter: blur(15px);
   background: transparent;
   font-size: 0.75em;
   font-weight: 450;
   cursor: pointer;
-  color:#fff;
+  color:#55b0c6;
 }
 
 
 .submit-login:hover {
-  border-color: rgba(255,255,255,0.5);
-  color: rgba(255,255,255,0.5); 
+  border-color: #88d9e9;
+  color: #88d9e9; 
 }
 
 .submit-signup {
   width: 100%;
   height: 30px;
-  border: 2px solid #fff;
+  border: 2px solid #55b0c6;
   border-radius: 30px;
   backdrop-filter: blur(15px);
   background: transparent;
   font-size: 0.75em;
   font-weight: 450;
   cursor:pointer;
-  color:#fff;
+  color:#55b0c6;
 }
 
 .submit-signup:hover {
-  border-color: rgba(255,255,255,0.5);
-  color: rgba(255,255,255,0.5); 
+  border-color: #88d9e9;
+  color: #88d9e9; 
 }
 
 .Reg-forget,.Enter{
   margin: -11px 0 11px;
   font-size: 0.75em;
   display: flex;
-  color: #fff;
+  color: #55b0c6;
   justify-content: space-between;
   align-items: center;
   margin: 0.5%;
@@ -393,12 +482,12 @@ top: -4px;
 }
 
 a{
-  color: #fff;
+  color: #55b0c6;
   text-decoration: none;
 }
 .forget a:hover{
-  border-color: rgba(255,255,255,0.5);
-  color: rgba(255,255,255,0.5); 
+  border-color: #88d9e9;
+  color: #88d9e9; 
   text-decoration: underline;
 }
 
@@ -407,7 +496,8 @@ a{
 }
 
 #Register-button:hover, #login-button:hover {
-  color: rgba(255,255,255,0.5);
+  color: #88d9e9;
+  cursor: pointer;
 }
 
 /* faqs */
@@ -421,7 +511,7 @@ a{
   align-items: end;
   justify-content: flex-end;
   padding-right: 10%;
-  color: #fff;
+  color: #e8e9e9;
 }
 
 #Faqs-icon:hover{

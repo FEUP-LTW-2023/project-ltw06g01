@@ -18,7 +18,9 @@ for (var i = 0; i < itemMenus.length; i++) {
 //Caso não tenha conta e queira dar signup ou vice versa, então fzemos animações com as boxs
 // selecione os elementos DOM
 const loginBox = document.querySelector('#login-box');
+const loginBox2 = document.querySelector('#login-box-animated');
 const signupBox = document.querySelector('#signup-box');
+const signupBox2 = document.querySelector('#signup-box-animated');
 const loginButton = document.querySelector('#login-button');
 const signupButton = document.querySelector('#Register-button');
 const loginForm = document.querySelector('.submit-login');
@@ -45,10 +47,14 @@ return; // não faz nada se já estiver visível
 }
 else{// esconde a caixa de inscrição e mostra a caixa de login
 signupBox.style.animation = 'slideOutRight 1s ease-in-out';
+signupBox2.style.animation = 'slideOutRight 1s ease-in-out';
 setTimeout(() => {
 signupBox.style.display = 'none';
+signupBox2.style.display = 'none';
 loginBox.style.display = 'grid';
 loginBox.style.animation = 'slideInLeft 1s ease-in-out';
+loginBox2.style.display = 'flex';
+loginBox2.style.animation = 'slideInLeft 1s ease-in-out';
 }, 900)
 }
 });
@@ -61,10 +67,14 @@ return; // não faz nada se já estiver visível
 // esconde a caixa de login e mostra a caixa de inscrição
 else{
 loginBox.style.animation = 'slideOutLeft 1s ease-in-out';
+loginBox2.style.animation = 'slideOutLeft 1s ease-in-out';
 setTimeout(() => {
 loginBox.style.display = 'none';
+loginBox2.style.display = 'none';
 signupBox.style.display = 'grid';
+signupBox2.style.display = 'flex';
 signupBox.style.animation = 'slideInRight 1s ease-in-out';
+signupBox2.style.animation = 'slideInRight 1s ease-in-out';
 }, 900)
 }
 });
@@ -92,6 +102,7 @@ logoutForm.addEventListener('click', (event) => {
 
 if (animationFlag == "1") {
   loginBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
+  loginBox2.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
   logoutBox.style.display = "grid";
   logoutBox.style.animation = "slideInLogout 2s ease-in-out";
   profileBox.style.display = "grid";
@@ -101,13 +112,17 @@ if (animationFlag == "1") {
   
   setTimeout(() => {
     loginBox.style.display = 'none';
+    loginBox2.style.display = 'none';
   }, 500)
 }
 
 if (animationFlag == "2") {
-  signupBox.style.display = "flex";
+  signupBox.style.display = "grid";
+  signupBox2.style.display = "flex";
   loginBox.style.display = "none";
+  loginBox2.style.display = "none";
   signupBox.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
+  signupBox2.style.animation = 'slideOutLoginToLogout 0.6s ease-in-out';
   logoutBox.style.display = "grid";
   logoutBox.style.animation = "slideInLogout 2s ease-in-out";
   profileBox.style.display = "flex";
@@ -118,6 +133,7 @@ if (animationFlag == "2") {
   }, 500);
   setTimeout(() => {
   signupBox.style.display = 'none';
+  signupBox2.style.display = 'none';
 }, 500);
 }
 
@@ -131,7 +147,9 @@ if (animationFlag == "3") {
 
   setTimeout(() => {
     loginBox.style.display = "grid";
+    loginBox2.style.display = "flex";
     loginBox.style.animation = "slideInLogout 1s ease-in-out";
+    loginBox2.style.animation = "slideInLogout 1s ease-in-out";
     logoutBox.style.display = 'none';
     profileBox.style.display = 'none';
     menuBox.style.display = 'none';
@@ -159,6 +177,7 @@ if (animationFlag == "4"){
 
 if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciada e se dá refresh
   loginBox.style.display = "none";
+  loginBox2.style.display = "none";
   logoutBox.style.display = "flex";
   profileBox.style.display = "flex";
   menuBox.style.display = "flex";
@@ -168,6 +187,7 @@ if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciad
 
 if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a sessão iniciada
   loginBox.style.display = "grid";
+  loginBox2.style.display = "flex";
   logoutBox.style.display = "none";
   profileBox.style.display = "none";
   menuBox.style.display = "none";
