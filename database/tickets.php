@@ -86,9 +86,9 @@
     }*/
 
     function addTicket($db, $uid, $title, $text, $department) {
-        $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, status) VALUES (?, ?, ?, ?, ?, ?)');
+        $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, status, priority) VALUES (?, ?, ?, ?, ?, ?, ?)');
         $date = date('Y-m-d');
-        $result = $stmt->execute(array($title, $text, $date, $uid, $department, 'open'));
+        $result = $stmt->execute(array($title, $text, $date, $uid, $department, 'open', 0));
 
         if ($result === 0) return -1;
         else return $db->lastInsertId();
@@ -105,10 +105,10 @@
         }
     }
 
-    function updateTicket($db, $uid, $title, $text, $department, $id, $status) {
-        $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, history, status) VALUES (?, ? ,?, ?, ?, ?, ?)');
+    function updateTicket($db, $uid, $title, $text, $department, $id, $status, $priority) {
+        $stmt = $db->prepare('INSERT INTO TICKET(title, text, dateCreated, uID, department, history, status, priority) VALUES (?, ? ,?, ?, ?, ?, ?, ?)');
         $date = date('Y-m-d');
-        $result = $stmt->execute(array($title, $text, $date, $uid, $department, $id, $status));
+        $result = $stmt->execute(array($title, $text, $date, $uid, $department, $id, $status, $priority));
         $newId = $db->lastInsertId();
 
         $stmt = $db->prepare('UPDATE TICKET SET future = ? WHERE id = ?');

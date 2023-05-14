@@ -12,11 +12,12 @@ class Ticket
     public ?string $department;
     public ?int $faqitem;
     public int $uid;
+    public int $priority;
     public ?int $aid;
     private ?int $prev;
     private ?int $next;
 
-    public function __construct(int $id, string $title, string $text, string $dateCreated, string $status, ?string $department, ?int $faqitem, int $uid, ?int $aid, ?int $prev, ?int $next = null)
+    public function __construct(int $id, string $title, string $text, string $dateCreated, string $status, ?string $department, ?int $faqitem, int $uid, int $priority, ?int $aid, ?int $prev, ?int $next = null)
     {
         $this->id = $id;
         $this->title = $title;
@@ -26,6 +27,7 @@ class Ticket
         $this->department = $department;
         $this->faqitem = $faqitem;
         $this->uid = $uid;
+        $this->priority = $priority;
         $this->aid = $aid;
         $this->prev = $prev;
         $this->next = $next;
@@ -76,7 +78,7 @@ class Ticket
     }
 
     function updateTicket(PDO $db, int $uid, string $title, string $text, ?string $department, int $id): Ticket {
-        $newTicket = updateTicket($db, $uid, $title, $text, $department, $id, $this->status);
+        $newTicket = updateTicket($db, $uid, $title, $text, $department, $id, $this->status, $this->priority);
 
         return Ticket::getTicket($db, $newTicket);
     }
