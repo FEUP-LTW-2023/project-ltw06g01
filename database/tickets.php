@@ -133,7 +133,14 @@
     }
 
     function changeStatus($db, $status, $id) {
-        $stmt = $db->prepare('UPDATE TICKET SET status = ? WHERE id = ?');
+        $stmt = $db->prepare('UPDATE TICKET SET status = ? WHERE id = ? AND future is NULL');
         $stmt->execute(array($status, $id));
+    }
+
+    function changePriority($db, $priority, $id) {
+        if ($priority < 0 || $priority > 3) return;
+
+        $stmt = $db->prepare('UPDATE TICKET SET priority = ? WHERE id = ? AND future is NULL');
+        $stmt->execute(array($priority, $id));
     }
 ?>
