@@ -39,7 +39,7 @@ class Ticket
 
         if (!$ticket) return null;
 
-        return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
+        return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['priority'], $ticket['aID'], $ticket['history'], $ticket['future']);
     }
 
     static function getFilteredTickets(PDO $db, ?string $filter) {
@@ -116,7 +116,7 @@ class Ticket
     private static function createArray(array $tickets): array {
         $res = array();
         foreach ($tickets as $ticket) {
-            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
+            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['priority'], $ticket['aID'], $ticket['history'], $ticket['future']);
         }
 
         return $res;
