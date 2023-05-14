@@ -91,7 +91,8 @@ if (!$session->isLoggedIn()) {
                   <div id="options">
                       <div id="filters">
                         <?php drawAssignAgent($db, $ticket);
-                              drawChangeStatus($db, $ticket); ?>
+                              drawChangeStatus($db, $ticket);
+                              drawPriorityButtons($ticket); ?>
                       </div>
 
                       <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
