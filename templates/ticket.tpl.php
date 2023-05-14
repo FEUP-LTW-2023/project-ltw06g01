@@ -133,7 +133,7 @@ function drawAssignAgent($db, $ticket) {
         <input type="hidden" class="assign-id" value=<?= $ticket->id ?>>
         <select name="agents" class="agent-list" onchange="this.form.submit()"> <?php 
         foreach($agents as $agent) {
-            ?> <option value=<?= $agent->id ?>><?= $agent->username ?></option> <?php
+            ?> <option value=<?= $agent->id ?>><?= $agent->username ?> <?php if ($ticket->aid == $agent->id) echo 'selected'; ?></option> <?php
         } ?>
         </select>
     </form> <?php     
