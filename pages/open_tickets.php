@@ -10,6 +10,7 @@ if (!$session->isLoggedIn()) {
   require_once(__DIR__ . '/../classes/user.class.php');
   require_once(__DIR__ . '/../database/connection.php');
   require_once(__DIR__ . '/../database/status.php');
+  require_once(__DIR__ . '/../database/departments.php');
   require_once(__DIR__ . '/../templates/ticket.tpl.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
   require_once(__DIR__ . '/../database/tags.php');
@@ -18,11 +19,13 @@ if (!$session->isLoggedIn()) {
   
   $_GET['ticket-filter-status'] = $_GET['ticket-filter-status'] ?? 'all';
   $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? 'default';
+  $_GET['ticket-filter-department'] = $_GET['ticket-filter-department'] ?? 'unassigned';
 
   if ($_GET['ticket-filter-agent'] == 'default') $_GET['ticket-filter-agent'] = -1;
   $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? -1;
 
   $users = User::getUsersAdmin($db);
+  $departments = getDepartments($db);
 
   if (empty($tickets)) {
     $tickets = null;}
@@ -63,13 +66,19 @@ if (!$session->isLoggedIn()) {
          <option value=<?= $user->id ?> <?php if ($_GET['ticket-filter-agent'] == $user->id) echo 'selected'; ?>><?= $user->username ?></option>
       <?php } ?>
   </select>
+  <select name="ticket-filter-department" class="ticket-filter" onchange="this.form().submit()">
+        <option value="unassigned" <?php if ($_GET['ticket-filter-department'] == 'unassigned') echo 'selected'; ?>>Unassigned</option>
+        <?php foreach ($departments as $department) { ?>
+          <option value=<?= $department ?> <?php if ($_GET['ticket-filter-department'] == $deparrment) echo 'selected'; ?>><?= $department ?></option>
+        <?php } ?>
+  </select>
     </form>
     <?php
       $status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status']);
       $ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
-      $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent)[0]; 
-      echo var_dump($finalTickets); ?>
+      $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent); 
+      echo var_dump($finalTickets)[0]; ?>
 
       <div id="allTickets">
         <?php foreach ($finalTickets as $ticket) {
