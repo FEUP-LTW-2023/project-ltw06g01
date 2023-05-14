@@ -72,14 +72,30 @@ if (!$session->isLoggedIn()) {
       echo var_dump($finalTickets); ?>
 
       <div id="allTickets">
-        <?php foreach ($finalTickets as $ticket) { 
+        <?php foreach ($finalTickets as $ticket) {
                 $tags = getTicketTags($db, $ticket->id); ?>
-                <div>
-                  <?php drawAssignAgent($db, $ticket);
-                        drawChangeStatus($db, $ticket); ?>
-                  <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-                     <?php drawTicketForm($ticket, false, $tags); ?>
-                  </a>
+                <div id="ticket-display">
+                
+                  <?php drawTicketForm($ticket, false, $tags); ?>
+
+                  <div id="options">
+                      <div id="filters">
+                        <?php drawAssignAgent($db, $ticket);
+                              drawChangeStatus($db, $ticket); ?>
+                      </div>
+
+                      <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
+                        <ion-icon id="view-not-hover" name="eye-outline"></ion-icon>
+                        <ion-icon id="view-hover" name="eye"></ion-icon>
+                      </a>
+
+                      <div id="delete-button">
+                          <button type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
+                              <ion-icon id="delete-not-hover" name="trash-outline"></ion-icon>
+                              <ion-icon id="delete-hover" name="trash"></ion-icon>
+                          </button>
+                      </div>
+                  </div>
                 </div>
         <?php } ?>
       </div>

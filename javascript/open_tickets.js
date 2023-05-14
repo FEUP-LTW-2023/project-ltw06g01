@@ -28,3 +28,4 @@ logoutForm.addEventListener('click', (event) => {
     window.location.href = 'page.php';
   }, 500)
 });
+

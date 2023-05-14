@@ -32,16 +32,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                     <?php if ($ticket->id == -1) { ?> <h2>Novo Ticket</h2> <?php } 
                     else if ($edit) { ?> <h2>Editar:</h2> <?php } ?> 
                 </div>
-
-                <div id="delete-button">
-                <?php if ((strpos($_SERVER['REQUEST_URI'], 'open_tickets') !== false) || strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
-                    <button type="submit">
-                        <ion-icon id="delete-not-hover" name="trash-outline"></ion-icon>
-                        <ion-icon id="delete-hover" name="trash"></ion-icon>
-                    </button>
-                <?php } ?>
-                </div>
-
+                
                 <div id="edit">
                     <?php
                         if (strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
@@ -121,6 +112,7 @@ function drawNavigationButtons($prev, $next)
     </nav>
 <?php } 
 
+/*
 function drawAssignAgent($db, $ticket) {
     $agents = User::getAgentsFromDepartment($db, $ticket->department);
     ?> <form class="assign-box">
@@ -133,7 +125,21 @@ function drawAssignAgent($db, $ticket) {
         <button type="button" class="assign-confirm">Assign</button>
     </form> <?php     
 }
+*/
 
+function drawAssignAgent($db, $ticket) {
+    $agents = User::getAgentsFromDepartment($db, $ticket->department);
+    ?> <form class="assign-box">
+        <input type="hidden" class="assign-id" value=<?= $ticket->id ?>>
+        <select name="agents" class="agent-list" onchange="this.form.submit()"> <?php 
+        foreach($agents as $agent) {
+            ?> <option value=<?= $agent->id ?>><?= $agent->username ?></option> <?php
+        } ?>
+        </select>
+    </form> <?php     
+}
+
+/*
 function drawChangeStatus($db, $ticket) { 
     $statuses = getAllStatuses($db);
     $statuses = array_map(fn($value) => $value['name'], $statuses); ?>
@@ -147,5 +153,17 @@ function drawChangeStatus($db, $ticket) {
         <button type="button" class="status-confirm">Change</button>
     </form> <?php
 }
-
+*/
+function drawChangeStatus($db, $ticket) { 
+    $statuses = getAllStatuses($db);
+    $statuses = array_map(fn($value) => $value['name'], $statuses); ?>
+    <form class="status-box">
+        <input type="hidden" class="status-id" value=<?= $ticket->id ?>>
+        <select name="statuses" class="status-list" onchange="this.form.submit()"> <?php
+        foreach ($statuses as $status) {
+            ?> <option value=<?= $status ?> <?php if ($ticket->status == $status) echo 'selected'; ?>><?= $status ?></option> <?php
+        } ?>
+        </select>
+    </form> <?php
+}
 ?>

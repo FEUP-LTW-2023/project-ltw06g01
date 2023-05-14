@@ -27,6 +27,7 @@
     text-align: center;
 }
 
+
 #allTickets{
     grid-area: allTickets;
     display: grid;
@@ -36,8 +37,7 @@
     justify-items: center;
 }
 
-
-#ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
+#ticket-display{
     width: 800px;
     margin: 0;
     padding: 20px;
@@ -47,15 +47,27 @@
 
     display: grid;
     grid-template-areas:
-    "departamento"
-    "assunto"
-    "msg"
-    "tags"
-    "delete";
+    "ticket-form"
+    "options";
     grid-template-columns: 1fr;
     border-radius: 15px;
     border: 2px solid rgba(255,255,255,0.5);
 
+    row-gap: 5px;
+    background-color: #55b0c6;
+    height: fit-content;
+
+    color: #ebfcff;
+}
+#ticket-form {
+    grid-area: ticket-form;
+    display: grid;
+    grid-template-areas:
+    "departamento"
+    "assunto"
+    "msg"
+    "tags";
+    grid-template-columns: 1fr;
     justify-content: center;
     gap: 5px;
     background-color: #55b0c6;
@@ -138,6 +150,7 @@
     padding: 1%;
     height: auto;
     width: -webkit-fill-available;
+    resize: none;
 }
 
 .tagsArea{
@@ -203,32 +216,75 @@ button[type="submit"] {
     display: flex;
     }
 
-.assign-box,.status-box{
+
+#allTickets a{
+    grid-area: view;
+    justify-self: end;
+    background: transparent;
+    padding: 5px;
+    color: #fff;
+    font-size: 20px;
+}
+
+#allTickets a:hover{
+    cursor: pointer;
+    }
+
+#view-not-hover{
+    display: flex;
+}
+
+#view-hover{
+    display: none;
+}
+
+#allTickets a:hover #view-not-hover{
+    display: none;
+}
+
+#allTickets a:hover #view-hover{
+    display: flex;
+}
+
+#options{
+    grid-area: options;
     display: grid;
-    grid-template-areas: "agent confirm";
-    grid-template-columns: 1fr auto;
+    grid-template-areas: "filters view delete";
+    grid-template-columns: 1fr auto auto;
+}
+
+#filters{
+    grid-area: filters;
+    display: grid;
+    grid-template-areas: "status assign";
+    grid-template-columns: auto 1fr;
+}
+
+.assign-box{
+    grid-area: assign;
+    display: flex;
+    justify-content: start;
+}
+
+.status-box{
+    grid-area: status;
+    display: flex;
+    justify-content: start;
 }
 
 .agent-list,.status-list{
-    grid-area: agent;
     justify-self: end;
-    padding: 2px 5px;
-    background: transparent;
-    border: 1px solid #55b0c6;
+    padding: 0px 5px;
+    background: #cccccc61;
+    border: 1px solid #cccccc61;
     border-radius: 15px;
-    color: #55b0c6;
+    color: #fff;
+    width: auto;
 }
 
-.assign-confirm,.status-confirm{
-    grid-area: confirm;
-    justify-self: end;
-    padding: 2px 5px;
-    background: #fff;
-    border: 1px solid #55b0c6;
-    border-radius: 15px;
-    color: #55b0c6;
+select option{
+    text-align: center;
 }
-
 /*questões para o professor
     -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?
     -como fazer que o content não se mova com o abrir da lateral
