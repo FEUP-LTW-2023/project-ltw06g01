@@ -74,6 +74,12 @@ class Ticket
         return Ticket::getTicket($db, $newTicket);
     }
 
+    function updateDepartment(PDO $db, string $department): Ticket {
+        $newTicket = $this->updateTicket($db, $this->uid, $this->title, $this->text, $department, $this->id);
+
+        return $newTicket;
+    }
+
     function hasNext(): ?int {
         return $this->next;
     }
