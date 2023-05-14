@@ -54,14 +54,15 @@ if (!$session->isLoggedIn()) {
   </div>
   <div id="content">
     <form id="filtro" method="get" class="ticket-filter-container">
-      <label for="ticket-filter-status">Mostrar:</label>
-      <select name="ticket-filter-status" id="ticket-filter" onchange="this.form.submit()">
+      <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>
+      <select id="ticket-filter-status" class="ticket-filter" onchange="this.form.submit()">
         <option value="all" <?php if ($_GET['ticket-filter-status'] == 'all') echo 'selected'; ?>>Todos</option>
         <option value="open" <?php if ($_GET['ticket-filter-status'] == 'open') echo 'selected'; ?>>Abertos</option>
         <option value="closed" <?php if ($_GET['ticket-filter-status'] == 'closed') echo 'selected'; ?>>Fechados</option>
       </select>
-      <select name="ticket-filter-agent" class="ticket-filter" onchange="this.form.submit()">
-         <option value="default" <?php if ($_GET['ticket-filter-agent'] == 1) echo 'selected'; ?>></option>
+      <label id="ticket-filter-agent-title" for="ticket-filter-agent">Agent</label>
+      <select id="ticket-filter-agent" class="ticket-filter" onchange="this.form.submit()">
+         <option value="default" <?php if ($_GET['ticket-filter-agent'] == 1) echo 'selected'; ?>>Todos</option>
       <?php foreach ($users as $user) {
         if ($user->level < 1 ) continue; ?>
          <option value=<?= $user->id ?> <?php if ($_GET['ticket-filter-agent'] == $user->id) echo 'selected'; ?>><?= $user->username ?></option>
@@ -90,11 +91,15 @@ if (!$session->isLoggedIn()) {
                   <?php drawTicketForm($ticket, false, $tags); ?>
 
                   <div id="options">
-                      <div id="filters">
-                        <?php drawAssignAgent($db, $ticket);
-                              drawChangeStatus($db, $ticket);
-                              drawPriorityButtons($ticket); ?>
-                      </div>
+                        <div id="filters-toggle">
+                            <ion-icon id="settings-not-hover" name="settings-outline"></ion-icon>
+                            <ion-icon id="settings-hover" name="settings"></ion-icon>
+                        </div>
+                        <div id="filters-container">
+                            <?php drawAssignAgent($db, $ticket);
+                                  drawChangeStatus($db, $ticket); 
+                                  drawPriorityButtons($ticket); ?>
+                        </div>
 
                       <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
                         <ion-icon id="view-not-hover" name="eye-outline"></ion-icon>

@@ -8,14 +8,28 @@
 
 #filtro{
     grid-area: filtro;
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+    "ticket-filter-status-title ticket-filter-agent-title"
+    "ticket-filter-status ticket-filter-agent";
     justify-content: center;
     padding-bottom: 3%;
 }
-#filtro label{
-    display: none; /*ver como preferem*/
+#filtro #ticket-filter-status-title{
+    grid-area: ticket-filter-status-title;
+    display: flex; /*ver como preferem*/
     color:#a4a4a5;
+    justify-self: center;
 }
+
+#filtro #ticket-filter-agent-title{
+    grid-area: ticket-filter-agent-title;
+    display: flex; /*ver como preferem*/
+    color:#a4a4a5;
+    justify-self: center;
+
+}
+
 #filtro select{
     color:#fff;
     background-color: #55afc641;
@@ -63,10 +77,9 @@
     grid-area: ticket-form;
     display: grid;
     grid-template-areas:
-    "departamento"
-    "assunto"
-    "msg"
-    "tags";
+    "assunto departamento"
+    "textArea textArea"
+    "tags tags";
     grid-template-columns: 1fr;
     justify-content: center;
     gap: 5px;
@@ -78,8 +91,8 @@
 
 #departamento{
     grid-area: departamento;
-    justify-self: center;
-    align-self: center;
+    justify-self: end;
+    align-self: start;
     display: flex;
 }
 
@@ -89,13 +102,13 @@
 
 #department{
     background-color: transparent;
+    opacity: 0.7;
     color: #fff;
     border: none;
     appearance: none;
     -webkit-appearance: none;
-    font-size: 23px;
+    font-size: 17px;
     font-weight: bold;
-    -webkit-text-stroke: 1px #cbf2fa;
   }
 
 #assunto{
@@ -113,25 +126,28 @@
 }
 #assunto ion-icon{
     grid-area: icon;
-    font-size: 21px;
-    margin-right: 5px;
+    font-size: 16px;
+    margin-right: 8px;
 }
+input[type="text"] {
+    width: auto;
+  }
 
 #subject[readonly]{ /*não percebo pq que isto não fica centrado verticalmente*/
     grid-area: subject;
-    background-color: #55afc641;
+    background-color: transparent;
     color: #fff;
     border: none;
-    appearance: none;
     -webkit-appearance: none;
-    text-decoration: underline;
-    font-size: 18px;
+    font-size: 23px;
+    -webkit-text-stroke: 0.5px #cbf2fa;
     text-align: start;
     align-self: center;
 }
 
 #textArea{
-    grid-area: msg;
+    display: flex;
+    grid-area: textArea;
 }
 
 #textArea label{
@@ -214,7 +230,8 @@ button[type="submit"] {
 
  #delete-button:hover #delete-hover{
     display: flex;
-    }
+    cursor: pointer;
+}
 
 
 #allTickets a{
@@ -249,37 +266,94 @@ button[type="submit"] {
 #options{
     grid-area: options;
     display: grid;
-    grid-template-areas: "filters view delete";
+    grid-template-areas: 
+    "filters-toggle view delete"
+    "filters-container filters-container filters-container";
     grid-template-columns: 1fr auto auto;
 }
 
-#filters{
-    grid-area: filters;
-    display: grid;
-    grid-template-areas: "status assign";
-    grid-template-columns: auto 1fr;
+#filters-toggle {
+    width: fit-content;
+    padding: 5px;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    justify-self: end;
+    margin-right:0;
+    margin-left: auto;
+}
+
+
+#settings-not-hover{
+    display: flex;
+}
+
+#settings-hover{
+    display: none;
+}
+
+#filters-toggle:hover #settings-not-hover{
+cursor: pointer;
+  display: none;
+  }
+
+  #filters-toggle:hover #settings-hover{
+    display: flex;
+    cursor: pointer;
+}
+
+
+#filters-container{
+    grid-area: filters-container;
+    display: none;
+    grid-template-areas: 
+    "status"
+    "assign";
+    grid-template-columns: auto;
+    row-gap: 5px;
+    justify-content: end;
+    grid-column: 1 / span 3;
 }
 
 .assign-box{
     grid-area: assign;
     display: flex;
-    justify-content: start;
+    justify-content: end;
 }
 
 .status-box{
     grid-area: status;
     display: flex;
-    justify-content: start;
+    justify-content: end;
 }
 
 .agent-list,.status-list{
-    justify-self: end;
     padding: 0px 5px;
     background: #cccccc61;
     border: 1px solid #cccccc61;
     border-radius: 15px;
     color: #fff;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     width: auto;
+}
+
+.status-confirm, .assign-confirm{
+    display: block;
+    padding: 0px 5px;
+    background: #f6f6f6;
+    border: 1px solid #cccccc61;
+    border-radius: 15px;
+    color: #55b0c6;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: auto;
+}
+
+.status-confirm:hover, .assign-confirm:hover{
+    background: #ffffff84;
+    border: 1px solid #fff;   
+    cursor: pointer;
 }
 
 select option{

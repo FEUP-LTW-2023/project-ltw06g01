@@ -1,31 +1,26 @@
-
-var menuItem = document.querySelectorAll('.item-menu')
-
-function selectLink(){
-  menuItem.forEach((item) =>
-    item.classList.remove('ativo')
-  )
-  this.classList.add('ativo')
-}
-
-menuItem.forEach((item) =>
-  item.addEventListener('click', selectLink)
-)
-
-const ticketFilterSelect = document.querySelector('#ticket-filter');
+const ticketFilterSelect = document.querySelector('.ticket-filter');
 ticketFilterSelect.addEventListener('change', () => {
   ticketFilterSelect.form.submit();
 });
 
+const logoutBox1 = document.querySelector('.logout-box');
 
-const logoutForm = document.querySelector('.logout-box');
-const logoutBox = document.querySelector('.logout-box');
-
-logoutForm.addEventListener('click', (event) => {
+logoutBox1.addEventListener('click', (event) => {
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
   
   setTimeout(() => {
     window.location.href = 'page.php';
   }, 500)
+});
+
+const filtersToggle = document.querySelector('#filters-toggle');
+const filtersContainer = document.querySelector('#filters-container');
+
+filtersToggle.addEventListener('click', () => {
+    if (filtersContainer.style.display === 'none') {
+        filtersContainer.style.display = 'grid';
+    } else {
+        filtersContainer.style.display = 'none';
+    }
 });
 
