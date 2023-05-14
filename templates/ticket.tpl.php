@@ -172,7 +172,8 @@ function drawTicketFAQ($db, $ticket, $edit) {
     if (!isset($ticket->faqitem) && $_SESSION['uid'] == $ticket->aid && $edit) { 
         $faqs = FAQ::getAllFAQ($db); ?>
         <form class="faq-box">
-            <input type="hidden" value=<?= $ticket->id ?>>
+            <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
+            <input type="hidden" name="tid" value=<?= $ticket->id ?>>
             <select name="faq-selection" class="faq-list">
             <?php foreach ($faqs as $faq) { ?>
                 <option value=<?= $faq->id ?>><?= $faq->question ?></option>
