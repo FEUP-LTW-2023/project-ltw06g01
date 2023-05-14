@@ -10,19 +10,19 @@ if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
 
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../database/connection.php');
-require_once(__DIR__ . '/../database/faq.php');
+require_once(__DIR__ . '/../database/departments.php');
 
-if (!hasAccessToPage(1, $_SESSION['level'])) {
+if (!hasAccessToPage(2, $_SESSION['level'])) {
     header('Location: /../pages/page.php');
 }
 
-if (!isset($_POST['question']) || !isset($_POST['answer'])) {
+if (!isset($_POST['department'])) {
     header('Location: /../pages/page.php');
 }
 
 $db = getDatabaseConnection();
 
-createFAQItem($db, $_POST['question'], $_POST['answer']);
+addDepartment($db, $_POST['department']);
 
 ?>
 
