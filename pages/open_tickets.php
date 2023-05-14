@@ -66,10 +66,10 @@ if (!$session->isLoggedIn()) {
          <option value=<?= $user->id ?> <?php if ($_GET['ticket-filter-agent'] == $user->id) echo 'selected'; ?>><?= $user->username ?></option>
       <?php } ?>
   </select>
-  <select name="ticket-filter-department" class="ticket-filter" onchange="this.form().submit()">
+  <select name="ticket-filter-department" class="ticket-filter" onchange="this.form.submit()">
         <option value="unassigned" <?php if ($_GET['ticket-filter-department'] == 'unassigned') echo 'selected'; ?>>Unassigned</option>
         <?php foreach ($departments as $department) { ?>
-          <option value=<?= $department ?> <?php if ($_GET['ticket-filter-department'] == $deparrment) echo 'selected'; ?>><?= $department ?></option>
+          <option value=<?= $department ?> <?php if ($_GET['ticket-filter-department'] == $department) echo 'selected'; ?>><?= $department ?></option>
         <?php } ?>
   </select>
     </form>
@@ -79,7 +79,7 @@ if (!$session->isLoggedIn()) {
       $ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
       $departmentTickts = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
       $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent, $departmentTickets); 
-      echo var_dump($finalTickets)[0]; ?>
+      echo var_dump($departmentTickets); ?>
 
       <div id="allTickets">
         <?php foreach ($finalTickets as $ticket) {
