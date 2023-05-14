@@ -10,6 +10,7 @@ if (!$session->isLoggedIn()) {
   require_once(__DIR__ . '/../classes/user.class.php');
   require_once(__DIR__ . '/../database/connection.php');
   require_once(__DIR__ . '/../database/status.php');
+  require_once(__DIR__ . '/../database/departments.php');
   require_once(__DIR__ . '/../templates/ticket.tpl.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
   require_once(__DIR__ . '/../database/tags.php');
@@ -18,11 +19,13 @@ if (!$session->isLoggedIn()) {
   
   $_GET['ticket-filter-status'] = $_GET['ticket-filter-status'] ?? 'all';
   $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? 'default';
+  $_GET['ticket-filter-department'] = $_GET['ticket-filter-department'] ?? 'unassigned';
 
   if ($_GET['ticket-filter-agent'] == 'default') $_GET['ticket-filter-agent'] = -1;
   $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? -1;
 
   $users = User::getUsersAdmin($db);
+  $departments = getDepartments($db);
 
   if (empty($tickets)) {
     $tickets = null;}
@@ -36,6 +39,7 @@ if (!$session->isLoggedIn()) {
   <script src="/../javascript/open_tickets.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>
   <script src="/../javascript/status_change.js" defer></script>
+  <script src="/../javascript/priority_change.js" defer></script>
   <link rel="stylesheet" href="/../css/geralStyle.css">
   <link rel="stylesheet" href="/../css/open_ticketsStyle.css">
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -64,13 +68,20 @@ if (!$session->isLoggedIn()) {
          <option value=<?= $user->id ?> <?php if ($_GET['ticket-filter-agent'] == $user->id) echo 'selected'; ?>><?= $user->username ?></option>
       <?php } ?>
   </select>
+  <select name="ticket-filter-department" class="ticket-filter" onchange="this.form.submit()">
+        <option value="unassigned" <?php if ($_GET['ticket-filter-department'] == 'unassigned') echo 'selected'; ?>>Unassigned</option>
+        <?php foreach ($departments as $department) { ?>
+          <option value=<?= $department ?> <?php if ($_GET['ticket-filter-department'] == $department) echo 'selected'; ?>><?= $department ?></option>
+        <?php } ?>
+  </select>
     </form>
     <?php
       $status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status']);
       $ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
-      $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent)[0]; 
-      echo var_dump($finalTickets); ?>
+      $departmentTickts = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
+      $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent, $departmentTickets); 
+      echo var_dump($departmentTickets); ?>
 
       <div id="allTickets">
         <?php foreach ($finalTickets as $ticket) {
@@ -86,9 +97,10 @@ if (!$session->isLoggedIn()) {
                         </div>
                         <div id="filters-container">
                             <?php drawAssignAgent($db, $ticket);
-                                  drawChangeStatus($db, $ticket); ?>
+                                  drawChangeStatus($db, $ticket); 
+                                  drawPriorityButtons($ticket); ?>
+                                  ?>
                         </div>
-
                       <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
                         <ion-icon id="view-not-hover" name="eye-outline"></ion-icon>
                         <ion-icon id="view-hover" name="eye"></ion-icon>

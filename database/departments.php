@@ -1,3 +1,4 @@
+
 <?php
     function getDepartments($db) {
         $stmt = $db->prepare('SELECT * FROM DEPARTMENT');
@@ -41,5 +42,10 @@
         $stmt->execute(array($department));
 
         return $stmt->fetchAll();
+    }
+
+    function addDepartment($db, $department) {
+        $stmt = $db->prepare('INSERT INTO DEPARTMENT VALUES (?)');
+        $stmt->execute(array($department));
     }
 ?>    

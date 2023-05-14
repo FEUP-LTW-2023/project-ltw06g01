@@ -5,7 +5,8 @@ require_once(__DIR__ . '/../classes/session.class.php');
 $session = new Session();
 
 if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
-    header('Location: ../pages/page.php');
+    $session->addMessage('error', 'Not logged in');
+    header('Location: page.php');
 }
 
 require_once(__DIR__ . '/../utils/validations.php');
@@ -15,6 +16,7 @@ require_once(__DIR__ . '/../classes/ticket.class.php');
 $db = getDatabaseConnection();
 $ticket = Ticket::getTicket($db, $_POST['id']);
 
-$ticket->deleteTicket();
+$ticket->deleteTicket($db);
 
+$session->addMessage('success', 'Ticket deleted');
 header('Location: ../pages/open_tickets.php');

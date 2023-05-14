@@ -36,7 +36,7 @@ CREATE TABLE MESSAGE (
     id INTEGER PRIMARY KEY,
     text VARCHAR NOT NULL,
     dateSent DATETIME NOT NULL,
-    uID INTEGER REFERENCES CLIENT(id) NOT NULL,
+    uID INTEGER REFERENCES CLIENT(uid) NOT NULL,
     tID INTEGER REFERENCES TICKET(id) ON DELETE CASCADE NOT NULL
 );
 
@@ -79,12 +79,35 @@ CREATE TABLE FAQTAG (
     PRIMARY KEY (fID, tag)
 );
 
-INSERT INTO STATUS VALUES ('open'), ('assigned'), ('closed');
-INSERT INTO TAG VALUES ('potato'), ('tomato'), ('banana'), ('apple');
+-- Inserting data into CLIENT table
+INSERT INTO CLIENT (uid, username, passHash, email, permissionLevel)
+VALUES (25, 'onso', '$2y$10$elfuu1AexoMbccFQaG28Pu9GdtfHhH2bGfchrSVOn6OiYWg6.Pw/y', 'afonso.vo@gmail.com', 2);
 
-INSERT INTO CLIENT VALUES(25, "onso", "$2y$10$elfuu1AexoMbccFQaG28Pu9GdtfHhH2bGfchrSVOn6OiYWg6.Pw/y", "afonso.vo@gmail.com", 2);
-INSERT INTO CLIENT VALUES(37, "wololo", "7b868fe521b09b3fbf9a638850235ba1f195c2a2be20777260468aaa269e3268", "locas.minas@gmail.com", 1);
+-- Inserting data into DEPARTMENT table
+INSERT INTO DEPARTMENT (name) VALUES ('Vendas'), ('Suporte'), ('Financeiro');
 
-INSERT INTO DEPARTMENT VALUES('Vendas'), ('Suporte'), ('Financeiro');
+-- Inserting data into TAG table
+INSERT INTO TAG (name) VALUES ('potato'), ('tomato'), ('banana'), ('apple');
 
-INSERT INTO AGENTDEPARTMENT VALUES (37, 'Vendas'), (37, 'Financeiro');
+-- Inserting data into STATUS table
+INSERT INTO STATUS (name) VALUES ('open'), ('assigned'), ('closed');
+
+-- Inserting data into TICKET table
+INSERT INTO TICKET (id, title, text, dateCreated, priority, status, faqitem, department, aID, uID, history, future)
+VALUES (1, 'Urgent Issue', 'Having trouble accessing the system', '2023-05-12', 1, 'open', NULL, 'Suporte', NULL, 25, NULL, NULL),
+       (2, 'Payment Inquiry', 'Need information about my recent payment', '2023-05-13', 2, 'open', NULL, 'Financeiro', NULL, 25, NULL, NULL),
+       (3, 'Product Recommendation', 'Looking for suggestions on new products', '2023-05-14', 1, 'assigned', NULL, 'Vendas', NULL, 25, NULL, NULL);
+
+-- Inserting data into FAQITEM table
+INSERT INTO FAQITEM (id, question, answer, dateCreated)
+VALUES (1, 'How do I reset my password?', 'You can reset your password by clicking on the "Forgot Password" link on the login page.', '2023-05-10'),
+       (2, 'What payment methods do you accept?', 'We accept credit cards (Visa, MasterCard, and American Express) and PayPal.', '2023-05-11'),
+       (3, 'How can I track my order?', 'Once your order is shipped, you will receive a tracking number via email.', '2023-05-12');
+
+-- Inserting data into MESSAGE table
+INSERT INTO MESSAGE (id, text, dateSent, uID, tID)
+VALUES (1, 'I''m unable to login. Help!', '2023-05-12', 25, 1),
+       (2, 'Can you provide a refund?', '2023-05-13', 25, 2),
+       (3, 'I need assistance with my order', '2023-05-14', 25, 3);
+
+INSERT INTO AGENTDEPARTMENT VALUES (25, 'Vendas'), (25, 'Financeiro');

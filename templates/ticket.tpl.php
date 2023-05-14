@@ -3,6 +3,7 @@ require_once(__DIR__ . '/../database/connection.php');
 require_once(__DIR__ . '/../database/departments.php');
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../classes/user.class.php');
+require_once(__DIR__ . '/../classes/faq.class.php');
 
 function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 {
@@ -19,7 +20,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
     } else {
         $buttonText = "Enviar";
         $action = "../actions/open_ticket.action.php";
-        $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0);
+        $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0, 0);
     }
 
     $allTags = getAllTags(getDatabaseConnection());
@@ -63,12 +64,12 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                     <?php if (strpos($_SERVER['REQUEST_URI'], 'open_tickets') !== false) { ?>
                         <ion-icon name="file-tray-full"></ion-icon>
                     <?php } ?>
-                    <input type="text" id="subject" name="title" <?php if (!$edit) echo 'readonly'; ?> value="<?= $ticket->title ?>">
+                    <input type="text" id="subject" name="title" <?php if (!$edit || $validity != 1) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
 
                 <div id="textArea">
                     <label for="fulltext">Mensagem:</label>
-                    <textarea id="tickettext" name="fulltext" <?php if (!$edit) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <textarea id="tickettext" name="fulltext" <?php if (!$edit || $validity != 1) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
 
                 <?php if ($_SESSION['level'] >= 1) {
@@ -112,7 +113,7 @@ function drawNavigationButtons($prev, $next)
     </nav>
 <?php } 
 
-
+/*
 function drawAssignAgent($db, $ticket) {
     $agents = User::getAgentsFromDepartment($db, $ticket->department);
     ?> <form class="assign-box">
@@ -125,8 +126,21 @@ function drawAssignAgent($db, $ticket) {
         <button type="button" class="assign-confirm">Assign</button>
     </form> <?php     
 }
+*/
 
+function drawAssignAgent($db, $ticket) {
+    $agents = User::getAgentsFromDepartment($db, $ticket->department);
+    ?> <form class="assign-box">
+        <input type="hidden" class="assign-id" value=<?= $ticket->id ?>>
+        <select name="agents" class="agent-list" onchange="this.form.submit()"> <?php 
+        foreach($agents as $agent) {
+            ?> <option value=<?= $agent->id ?>><?= $agent->username ?> <?php if ($ticket->aid == $agent->id) echo 'selected'; ?></option> <?php
+        } ?>
+        </select>
+    </form> <?php     
+}
 
+/*
 function drawChangeStatus($db, $ticket) { 
     $statuses = getAllStatuses($db);
     $statuses = array_map(fn($value) => $value['name'], $statuses); ?>
@@ -140,3 +154,50 @@ function drawChangeStatus($db, $ticket) {
         <button type="button" class="status-confirm">Change</button>
     </form> <?php
 }
+*/
+function drawChangeStatus($db, $ticket) { 
+    $statuses = getAllStatuses($db);
+    $statuses = array_map(fn($value) => $value['name'], $statuses); ?>
+    <form class="status-box">
+        <input type="hidden" class="status-id" value=<?= $ticket->id ?>>
+        <select name="statuses" class="status-list" onchange="this.form.submit()"> <?php
+        foreach ($statuses as $status) {
+            ?> <option value=<?= $status ?> <?php if ($ticket->status == $status) echo 'selected'; ?>><?= $status ?></option> <?php
+        } ?>
+        </select>
+    </form> <?php
+}
+
+function drawTicketFAQ($db, $ticket, $edit) {
+    if (!isset($ticket->faqitem) && $_SESSION['uid'] == $ticket->aid && $edit) { 
+        $faqs = FAQ::getAllFAQ($db); ?>
+        <form class="faq-box">
+            <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
+            <input type="hidden" name="tid" value=<?= $ticket->id ?>>
+            <select name="faq-selection" class="faq-list">
+            <?php foreach ($faqs as $faq) { ?>
+                <option value=<?= $faq->id ?>><?= $faq->question ?></option>
+            <?php } ?>
+            </select>
+            <button type="submit" formaction="../actions/assign_faq.action.php" formmethod="post">Assign</button>
+        </form> <?php 
+    }
+    else if (isset($ticket->faqitem)) { 
+        $faq = FAQ::getFAQItem($db, $ticket->faqitem);  ?>
+        <div id="faqitem">
+            <h3><?= $faq->question?></h3>
+            <p><?= $faq->answer ?></p>
+        </div> <?php 
+    }
+}
+
+function drawPriorityButtons($ticket) { ?>
+    <form class="priority-box">
+        <input type="hidden" name="csrf" class="csrf" value=<?= $_SESSION['csrf'] ?>>
+        <input type="hidden" name="tid" class="tid" value=<?= $ticket['id'] ?>>
+        <input type="hidden" name="priority" class="priority" value=<?= $ticket['priority'] ?>>
+        <button type="button" class="increment-priority">^</button>
+        <button type="button" class="decrement-priority">v</button>
+    </form>
+<?php }
+?>

@@ -6,11 +6,11 @@ function drawUserBox(PDO $db, User $user, bool $admin)
 { ?>
   <div class="backdrop" id="backdrop"></div>
   <div class="user-box" id="userBox-<?= $user->id ?>" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
-  <input type="hidden" name="id" class="uid" value=<?= $user->id ?>>
   <h3 id="name"><?= $user->username ?></h3>
   <p id="email"><?= $user->email ?></p>
 </div>
 <div class="user-box-popup" id="userBoxPopup-<?= $user->id ?>">
+  <input type="hidden" name="id" class="uid" value=<?= $user->id ?>>
   <button type="button" class="back-button" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
     <ion-icon name="arrow-back"></ion-icon> 
   </button>
@@ -27,6 +27,7 @@ function drawUserBox(PDO $db, User $user, bool $admin)
     <?php } ?>
     <?php if ($admin) { ?>
       <select name="departments" class="department-select">
+      <option value=""></option>
         <?php foreach ($allDepartments as $allDepartment) { ?>
           <option value="<?= $allDepartment ?>"><?= $allDepartment ?></option>
         <?php } ?>
@@ -57,7 +58,7 @@ function drawProfile($curr_user)
       <label> <?php echo $curr_user['email']; ?></label>
     </div>
     <div id="type">
-      <?php if ($curr_user['permissionLevel'] >= 1) : ?>
+      <?php if ($curr_user['permissionLevel'] == 1) : ?>
         <label for="level">Type: Agent</label>
       <?php elseif ($curr_user['permissionLevel'] == 2) : ?>
         <label for="level">Type: Admin</label>

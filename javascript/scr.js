@@ -184,7 +184,7 @@ function toggleUserBoxPopup(userId) {
   userBoxPopup.classList.toggle("active");
   backdrop.style.display = userBoxPopup.classList.contains("active") ? "block" : "none";
 }
-const userBoxes = document.querySelectorAll('.user-box');
+const userBoxes = document.querySelectorAll('.user-box-popup');
 
 userBoxes.forEach((element) => {
   const id = element.querySelector('.uid');

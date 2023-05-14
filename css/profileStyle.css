@@ -164,7 +164,6 @@
 }
 
 
-/* Adicione as seguintes classes para animar a rotação das páginas */
 .rotate-in {
     animation-name: rotateIn;
     animation-duration: 0.5s;
@@ -177,7 +176,6 @@
     animation-fill-mode: forwards;
   }
   
-  /* Defina a animação para a rotação de entrada */
   @keyframes rotateIn {
     from {
       transform: rotateY(-90deg);
@@ -189,7 +187,7 @@
     }
   }
   
-  /* Defina a animação para a rotação de saída */
+
   @keyframes rotateOut {
     from {
       transform: rotateY(0deg);

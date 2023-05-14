@@ -8,7 +8,7 @@
 
     function getSingleFAQ($db, $id) {
         $stmt = $db->prepare('SELECT * FROM FAQITEM WHERE id = ?');
-        $stmt->execute();
+        $stmt->execute(array($id));
 
         return $stmt->fetch();
     }

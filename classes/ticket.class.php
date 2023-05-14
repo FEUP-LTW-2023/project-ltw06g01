@@ -10,12 +10,14 @@ class Ticket
     public string $dateCreated;
     public string $status;
     public ?string $department;
+    public ?int $faqitem;
     public int $uid;
+    public int $priority;
     public ?int $aid;
     private ?int $prev;
     private ?int $next;
 
-    public function __construct(int $id, string $title, string $text, string $dateCreated, string $status, ?string $department, int $uid, ?int $aid, ?int $prev, ?int $next = null)
+    public function __construct(int $id, string $title, string $text, string $dateCreated, string $status, ?string $department, ?int $faqitem, int $uid, int $priority, ?int $aid, ?int $prev, ?int $next = null)
     {
         $this->id = $id;
         $this->title = $title;
@@ -23,7 +25,9 @@ class Ticket
         $this->dateCreated = $dateCreated;
         $this->status = $status;
         $this->department = $department;
+        $this->faqitem = $faqitem;
         $this->uid = $uid;
+        $this->priority = $priority;
         $this->aid = $aid;
         $this->prev = $prev;
         $this->next = $next;
@@ -35,7 +39,7 @@ class Ticket
 
         if (!$ticket) return null;
 
-        return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
+        return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
     }
 
     static function getFilteredTickets(PDO $db, ?string $filter) {
@@ -68,10 +72,21 @@ class Ticket
         return Ticket::createArray($tickets);
     }
 
+    static function getTicketsFromDepartment(PDO $db, string $department): array {
+        if ($department == "unassigned") return array();
+        else return getTicketsFromDepartment($db, $department);
+    }
+
     function updateTicket(PDO $db, int $uid, string $title, string $text, ?string $department, int $id): Ticket {
-        $newTicket = updateTicket($db, $uid, $title, $text, $department, $id);
+        $newTicket = updateTicket($db, $uid, $title, $text, $department, $id, $this->status, $this->priority);
 
         return Ticket::getTicket($db, $newTicket);
+    }
+
+    function updateDepartment(PDO $db, string $department): Ticket {
+        $newTicket = $this->updateTicket($db, $this->uid, $this->title, $this->text, $department, $this->id);
+
+        return $newTicket;
     }
 
     function hasNext(): ?int {
@@ -101,7 +116,7 @@ class Ticket
     private static function createArray(array $tickets): array {
         $res = array();
         foreach ($tickets as $ticket) {
-            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
+            $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['aID'], $ticket['history'], $ticket['future']);
         }
 
         return $res;
@@ -121,6 +136,11 @@ class Ticket
         if ($this->status == $newStatus) return;
         else changeStatus($db, $newStatus, $this->id);
     } 
+
+    function changePriority(PDO $db, int $newPriority): void {
+        if ($this->priority == $newPriority) return;
+        else changePriority($db, $newPriority, $this->id);
+    }
 
     public function __toString() {
         return strval($this->id);
