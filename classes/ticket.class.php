@@ -68,6 +68,11 @@ class Ticket
         return Ticket::createArray($tickets);
     }
 
+    static function getTicketsFromDepartment(PDO $db, string $department): array {
+        if ($department == "unassigned") return array();
+        else return getTicketsFromDepartment($db, $department);
+    }
+
     function updateTicket(PDO $db, int $uid, string $title, string $text, ?string $department, int $id): Ticket {
         $newTicket = updateTicket($db, $uid, $title, $text, $department, $id);
 
