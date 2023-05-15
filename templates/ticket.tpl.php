@@ -75,14 +75,14 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                 <?php if ($_SESSION['level'] >= 1) {
                     ?> <div class="tagsArea"> <p> Tags: </p>
 
-                        <div class="tags">
+                        <ul class="tags">
                         <?php 
                         foreach ($tags as $tag) {
                             ?>
-                                    <div class="tag"><?=$tag['tag']?> <?php if ($edit) { ?> <span class="tag-delete">X</span> <?php } ?> </div>
+                                    <li class="tag"><?=$tag['tag']?> <?php if ($edit) { ?> <span class="tag-delete">X</span> <?php } ?> </li>
                         <?php 
                         } ?>
-                        </div>
+                        </ul>
 
                         <div>
                             <input name="tagdata" list="taglist" class="tag-input">
