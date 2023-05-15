@@ -1,6 +1,6 @@
 <?php
     function isValidUser($tUID, $aUID, $uid, $level) {
-        if ($level == 2) return 2;
+        if ($level == 2) return 3;
         else if ($uid == $tUID) return 1;
         else if ($aUID == $tUID) return 2;
         else return 0;
