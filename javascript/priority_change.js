@@ -1,4 +1,4 @@
-const priorityBoxes = document.querySelectorAll('.status-box')
+const priorityBoxes = document.querySelectorAll('.priority-box')
 
 priorityBoxes.forEach((element) => {
     const tID = element.querySelector('.tid').value
