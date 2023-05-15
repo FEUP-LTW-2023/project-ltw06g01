@@ -79,7 +79,7 @@ if (!$session->isLoggedIn()) {
       $status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status']);
       $ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
-      $departmentTickts = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
+      $departmentTickets = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
       $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent, $departmentTickets); 
       echo var_dump($departmentTickets); ?>
 
