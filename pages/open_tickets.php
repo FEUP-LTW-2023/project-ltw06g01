@@ -81,7 +81,7 @@ if (!$session->isLoggedIn()) {
       $ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
       $departmentTickets = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
       $finalTickets = Ticket::joinFilters($tickets, $ticketsAgent, $departmentTickets); 
-      echo var_dump($departmentTickets); ?>
+      echo var_dump($finalTickets); ?>
 
       <div id="allTickets">
         <?php foreach ($finalTickets as $ticket) {
