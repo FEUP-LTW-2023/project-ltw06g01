@@ -19,3 +19,5 @@ if (!hasAccessToPage(1, $_SESSION['level'])) {
 $db = getDatabaseConnection();
 $ticket = Ticket::getTicket($db, $_GET['id']);
 $ticket->changePriority($db, $_GET['priority']);
+
+echo json_encode($ticket->priority);
