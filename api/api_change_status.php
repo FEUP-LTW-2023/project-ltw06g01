@@ -16,3 +16,5 @@ if (!hasAccessToPage(1, $_SESSION['level'])) {
 $db = getDatabaseConnection();
 $ticket = Ticket::getTicket($db, $_GET['id']);
 $ticket->changeStatus($db, $_GET['status']);
+
+echo json_encode($ticket->status);
