@@ -137,6 +137,7 @@ function drawAssignAgent($db, $ticket) {
             ?> <option value=<?= $agent->id ?>><?= $agent->username ?> <?php if ($ticket->aid == $agent->id) echo 'selected'; ?></option> <?php
         } ?>
         </select>
+        <button type="button" class="assign-confirm">Assign</button>
     </form> <?php     
 }
 
@@ -165,6 +166,7 @@ function drawChangeStatus($db, $ticket) {
             ?> <option value=<?= $status ?> <?php if ($ticket->status == $status) echo 'selected'; ?>><?= $status ?></option> <?php
         } ?>
         </select>
+        <button type="button" class="status-confirm">Change</button>
     </form> <?php
 }
 
