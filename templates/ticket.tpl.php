@@ -194,8 +194,8 @@ function drawTicketFAQ($db, $ticket, $edit) {
 function drawPriorityButtons($ticket) { ?>
     <form class="priority-box">
         <input type="hidden" name="csrf" class="csrf" value=<?= $_SESSION['csrf'] ?>>
-        <input type="hidden" name="tid" class="tid" value=<?= $ticket['id'] ?>>
-        <input type="hidden" name="priority" class="priority" value=<?= $ticket['priority'] ?>>
+        <input type="hidden" name="tid" class="tid" value=<?= $ticket->id ?>>
+        <input type="hidden" name="priority" class="priority" value=<?= $ticket->priority ?>>
         <button type="button" class="increment-priority">^</button>
         <button type="button" class="decrement-priority">v</button>
     </form>
