@@ -12,10 +12,10 @@ body{
   background-color: #c6c5c54a;
   display: grid;
   grid-template-areas:
-   "header header"
-   "nav nav"
-   "content content";
-   grid-template-columns: 1fr 1fr;
+   "header "
+   "nav "
+   "content ";
+   grid-template-columns: 1fr ;
    grid-template-rows: auto auto 1fr;
    max-width: 100em;
    margin: 0 auto;
@@ -45,11 +45,10 @@ header{
     justify-content: center;
     align-items: center;
     color: #cbf2fa;
-    font-size: larger;
+    font-size: 20px;
     padding: 3%;
     text-shadow: 2px 2px 8px #2b5a65;
     -webkit-text-stroke: 1px #f6f6f6;
-    text-stroke: 1px #408697;   
 }
 
 #drawHeader > #home-or-subtitle{

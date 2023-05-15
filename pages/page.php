@@ -34,9 +34,20 @@
   <form>
     <input type="hidden" id="loggedin" value=<?=$loggedin?>>
   </form>
-  <header>
-    <?php drawHeader($animation, 3,  "");?>
-  </header>
+
+  <?php if (!$loggedin) { ?>
+    <header id="not-logged-in">
+      <?php drawHeader($animation, 3,  ""); ?>
+    </header>
+  <?php } else { ?>
+    <header id="logged-in">
+      <?php drawHeader($animation, 3,  "Home"); ?>
+    </header>
+  <?php } ?>
+  
+  <div id="nav">
+          <?php drawSideBar(); ?>
+  </div>
   <div id="content">
               <div id="login-box-animated">
                 <div class ="form-box-login" id="login-box">
@@ -102,9 +113,6 @@
               </div>
             </div>
           </div> 
-        <div id="nav">
-          <?php drawSideBar(); ?>
-        </div>
   </div>
   <div id="faqs">
     <section class="FAQs">

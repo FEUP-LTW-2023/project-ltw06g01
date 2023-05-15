@@ -14,58 +14,82 @@ body{
   display: grid;
   grid-template-areas:
    "header"
+   "nav"
    "content"
    "faqs";
    grid-template-columns: 1fr;
-   grid-template-rows: auto 1fr auto ;
+   grid-template-rows: auto auto 1fr auto ;
    max-width: 100em;
+   margin: 0 auto;
 }
 
 /* header */
 header{
   grid-area: header;
-  color: #363538;
   background-color: #e8e9e9;
   border-bottom-right-radius: 90px;
 }
 
 /*dentro do drawHeader*/
-#drawHeader{
+#not-logged-in > #drawHeader{
   display: grid;
   grid-template-areas:
   "title title profile-or-logout";
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-#drawHeader > #title{  
+#not-logged-in > #drawHeader > #title{  
   grid-area: title;
   display: flex;
   justify-content: start;
+  align-items: start;
   color: #55b0c6;
+  font-size: larger;
   padding: 3%;
-  text-shadow: 2px 2px 4px #2b5a65;
-  -webkit-text-stroke: 1px #88d9e9;
-  text-stroke: 1px #f6f6f6;
-  font-size: 2em;
+  text-shadow: 2px 2px 8px #88d9e9;
+  text-stroke: 1px #408697;
+  font-size: 2.5em;
 }
 
-
-#drawHeader > #profile{
-  grid-area: logout;
-  display: flex;
-  justify-content: center;
-  padding: 9%;
-  align-items: center;
-  color: #edd3d8;
+#logged-in > #drawHeader{
+  display: grid;
+  grid-template-areas:
+  "subtitle title profile-or-logout";
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
 }
 
-#drawHeader > #profile > .profile-box{
-  display: none;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  
+#logged-in > #drawHeader > #title{  
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #55b0c6;
+    font-size: 20px;
+    padding: 3%;
+    text-shadow: 2px 2px 8px #88d9e9;
+    text-stroke: 1px #408697;
+    height: 46px;
+
+}
+
+#logged-in > #drawHeader > #home-or-subtitle{
+  display: grid;
+  grid-area: subtitle;
+  grid-template-areas: "subtitle";
+  grid-template-columns: 1fr;
+}
+
+#logged-in > #drawHeader > #home-or-subtitle > #subtitle{
+    grid-area: subtitle;
+    display: flex;
+    justify-content: center;
+    padding-left: 0%;
+    color: #55b0c6;
+    display: grid;
+    text-stroke: 1px #f6f6f6;
+    align-self: center;
+    
 }
 
 #drawHeader > #profile-or-logout{
@@ -79,7 +103,7 @@ header{
     grid-area: profile;
     display: flex;
     align-self: center;
-    color: #fff;
+    color: #55b0c6;
     font-size: 32px;
     background-color: transparent;
     border: none;
@@ -106,7 +130,7 @@ header{
     grid-area: logout;
     border: none;
     display: flex;
-    color: #fff;
+    color: #55b0c6;
     font-size: 32px;
     background: transparent;
     align-self: center;
@@ -139,9 +163,9 @@ header{
 #content{
   display: grid;
   grid-area: content;
-  grid-template-areas: "login"
-  "singup"
-  "nav";
+  grid-template-areas: 
+  "login"
+  "singup";
   justify-content: center;
   align-content: center; 
 }
@@ -515,7 +539,8 @@ a{
 }
 
 #Faqs-icon:hover{
-  color: rgba(255,255,255,0.5);
+  color: #fff;
+  cursor: pointer;
 }
 
 #Faqs-icon ion-icon{
@@ -611,16 +636,18 @@ a{
 /* Menu Bar */ /*igual ao do geralStyle*/
 
 #nav {
-  color: #fff;
+  color: #55b0c6;
   grid-area: nav;
-  background-color: #cbcccc;
+  background-color: #e8e9e9;
   border: 2px solid #55b0c6;
   transition: .2s;
   width: fit-content;
+  position: static;
+  display: inline-grid;
   justify-content: space-between;
   align-items: center;
-  align-self: top;
-  border-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
   justify-self: center;
   border-top-style: hidden;
   min-height: 100%;
@@ -641,7 +668,8 @@ ul li.item-menu {
 
 ul li.item-menu:hover{
   background: #55afc641;
-  border-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
   transition: 200ms cubic-bezier(1, 0.49, 0.09, 0.09);
 }
 
@@ -679,7 +707,7 @@ ul li.item-menu:hover{
 .item-menu a span {  /*esta parte não está a funcionar como devido*/
   white-space: nowrap;
   padding: 10px;
-  color: #fff;
+  color: #55b0c6;
 }
 
 .item-menu{
