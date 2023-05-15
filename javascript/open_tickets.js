@@ -13,14 +13,17 @@ logoutBox1.addEventListener('click', (event) => {
   }, 500)
 });
 
-const filtersToggle = document.querySelector('#filters-toggle');
-const filtersContainer = document.querySelector('#filters-container');
+const tickets = document.querySelectorAll('#ticket-display');
 
-filtersToggle.addEventListener('click', () => {
+tickets.forEach((ticket) => {
+  const filtersToggle = ticket.querySelector('#filters-toggle');
+  const filtersContainer = ticket.querySelector('#filters-container');
+
+  filtersToggle.addEventListener('click', () => {
     if (filtersContainer.style.display === 'none') {
-        filtersContainer.style.display = 'grid';
+      filtersContainer.style.display = 'grid';
     } else {
-        filtersContainer.style.display = 'none';
+      filtersContainer.style.display = 'none';
     }
+  });
 });
-

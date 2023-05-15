@@ -2,7 +2,7 @@
   require_once(__DIR__ . '/../classes/session.class.php');
 
   $session = new Session();
-
+  
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
   if (isset($_SESSION['animation'])) {
@@ -19,8 +19,6 @@
   else{
     $loggedin = 0;
   }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +111,7 @@
               </div>
             </div>
           </div> 
-  </div>
+    </div>
   <div id="faqs">
     <section class="FAQs">
       <div id="Faqs-icon">
