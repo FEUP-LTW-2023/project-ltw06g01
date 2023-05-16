@@ -549,6 +549,13 @@ a{
   color: #fff;
 }
 
+#no_tickets{
+  justify-self: center;
+  color: #ffffff88;
+  font-size: 30px;
+  align-self: start;
+}
+
 #ticket-display{
   width: 800px;
   margin: 0;

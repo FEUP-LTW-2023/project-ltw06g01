@@ -61,7 +61,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 
                 <div class="assunto">
                     <label for="title">Assunto:</label>
-                    <?php if (strpos($_SERVER['REQUEST_URI'], 'open_tickets') !== false || strpos($_SERVER['REQUEST_URI'], 'page') !== false) { ?>
+                    <?php if (strpos($_SERVER['REQUEST_URI'], 'open_page') !== false || strpos($_SERVER['REQUEST_URI'], 'page.php') !== false) { ?>
                         <ion-icon name="file-tray-full"></ion-icon>
                     <?php } ?>
                     <input type="text" class="subject" name="title" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; ?> value="<?= $ticket->title ?>">
@@ -206,4 +206,32 @@ function drawPriorityButtons($ticket) { ?>
         </button>
     </form>
 <?php }
+
+function drawOpcions($db, $ticket){ ?>
+    <div class="options">
+                        <div class="filters-toggle">
+                            <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
+                            <ion-icon class="settings-hover" name="settings"></ion-icon>
+                        </div>
+                        <div class="filters-container">
+                            <?php drawAssignAgent($db, $ticket);
+                                  drawChangeStatus($db, $ticket); 
+                                  drawPriorityButtons($ticket); ?>
+                        </div>
+
+                      <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
+                        <ion-icon class="view-not-hover" name="eye-outline"></ion-icon>
+                        <ion-icon class="view-hover" name="eye"></ion-icon>
+                      </a>
+
+                      <div class="delete-button">
+                          <button class="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
+                              <ion-icon class="delete-not-hover" name="trash-outline"></ion-icon>
+                              <ion-icon class="delete-hover" name="trash"></ion-icon>
+                          </button>
+                      </div>
+    </div>
+<?php
+}
 ?>
+

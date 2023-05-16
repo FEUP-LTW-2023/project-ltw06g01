@@ -138,43 +138,46 @@
               </div>
             </div>
           </div>
-          <?php if($loggedin){ ?>
+          <?php if($loggedin){ 
+            if (!empty($tickets)) {?>
           <div id="allTickets" > 
-            <p>My tickets:</p>
-            <?php foreach ((array)$tickets as $ticket) {
-                    $tags = getTicketTags($db, $ticket->id); ?>
-                    <div class="ticket-display">
-                    
-                      <?php drawTicketForm($ticket, false, $tags); ?>
+              <p>My tickets:</p>
+                <?php foreach ((array)$tickets as $ticket) {
+                        $tags = getTicketTags($db, $ticket->id); ?>
+                        <div class="ticket-display">
+                        
+                          <?php drawTicketForm($ticket, false, $tags); ?>
 
-                      <div class="options">
-                            <div class="filters-toggle">
-                                <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
-                                <ion-icon class="settings-hover" name="settings"></ion-icon>
-                            </div>
-                            <div class="filters-container">
-                                <?php drawAssignAgent($db, $ticket);
-                                      drawChangeStatus($db, $ticket); 
-                                      drawPriorityButtons($ticket); ?>
-                            </div>
+                          <div class="options">
+                                <div class="filters-toggle">
+                                    <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
+                                    <ion-icon class="settings-hover" name="settings"></ion-icon>
+                                </div>
+                                <div class="filters-container">
+                                    <?php drawAssignAgent($db, $ticket);
+                                          drawChangeStatus($db, $ticket); 
+                                          drawPriorityButtons($ticket); ?>
+                                </div>
 
-                          <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-                            <ion-icon class="view-not-hover" name="eye-outline"></ion-icon>
-                            <ion-icon class="view-hover" name="eye"></ion-icon>
-                          </a>
+                              <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
+                                <ion-icon class="view-not-hover" name="eye-outline"></ion-icon>
+                                <ion-icon class="view-hover" name="eye"></ion-icon>
+                              </a>
 
-                          <div class="delete-button">
-                              <button class="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
-                                  <ion-icon class="delete-not-hover" name="trash-outline"></ion-icon>
-                                  <ion-icon class="delete-hover" name="trash"></ion-icon>
-                              </button>
+                              <div class="delete-button">
+                                  <button class="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
+                                      <ion-icon class="delete-not-hover" name="trash-outline"></ion-icon>
+                                      <ion-icon class="delete-hover" name="trash"></ion-icon>
+                                  </button>
+                              </div>
                           </div>
-                      </div>
-                    </div>
-            <?php } ?>
+                        </div>
+                <?php }
+              } else { ?>
+                  <p id="no_tickets"> Ainda não tem tickets. </p>
+            <?php }
+          } ?>
            </div>
-           <?php } ?>
-
     </div>
   <div id="faqs">
     <section class="FAQs">
