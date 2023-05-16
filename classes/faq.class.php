@@ -8,7 +8,6 @@ class FAQ
     public string $answer;
     public int $id;
     public string $dateCreated;
-
     public function __construct(int $id, string $question, string $answer, string $dateCreated) {
         $this->id = $id;
         $this->question = $question;
