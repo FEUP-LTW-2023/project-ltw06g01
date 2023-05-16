@@ -124,7 +124,6 @@ class Ticket
 
     static function joinFilters(array ...$filteredTickets): array {
         if (count(array_filter($filteredTickets)) == 1) return array_filter($filteredTickets); 
-        echo var_dump(array_filter($filteredTickets));
         return array_intersect(...array_filter($filteredTickets));
     }
 

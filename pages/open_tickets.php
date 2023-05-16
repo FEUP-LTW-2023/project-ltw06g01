@@ -55,13 +55,13 @@ if (!$session->isLoggedIn()) {
   <div id="content">
     <form id="filtro" method="get" class="ticket-filter-container">
       <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>
-      <select id="ticket-filter-status" class="ticket-filter" onchange="this.form.submit()">
+      <select id="ticket-filter-status" class="ticket-filter" name="ticket-filter-status" onchange="this.form.submit()">
         <option value="all" <?php if ($_GET['ticket-filter-status'] == 'all') echo 'selected'; ?>>Todos</option>
         <option value="open" <?php if ($_GET['ticket-filter-status'] == 'open') echo 'selected'; ?>>Abertos</option>
         <option value="closed" <?php if ($_GET['ticket-filter-status'] == 'closed') echo 'selected'; ?>>Fechados</option>
       </select>
       <label id="ticket-filter-agent-title" for="ticket-filter-agent">Agent</label>
-      <select id="ticket-filter-agent" class="ticket-filter" onchange="this.form.submit()">
+      <select id="ticket-filter-agent" class="ticket-filter" name="ticket-filter-agent" onchange="this.form.submit()">
          <option value="default" <?php if ($_GET['ticket-filter-agent'] == 1) echo 'selected'; ?>>Todos</option>
       <?php foreach ($users as $user) {
         if ($user->level < 1 ) continue; ?>
