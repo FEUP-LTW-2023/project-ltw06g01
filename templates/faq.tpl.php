@@ -13,6 +13,17 @@ function getFAQ(array $faqs){  ?>
             <p class = "faq-answer"><?php echo $faq->answer; ?></p>
         </div>
     <?php endforeach; ?>
+<?php } 
+
+function drawFAQForm() { ?>
+    <form class="faq-form">
+        <h3 class="faq-questions">Adicionar novo FAQ</h3>
+        <label for="question">Pergunta:</label>
+        <input type="text" class="question" name="question">
+        <label for="answer">Resposta:</label>
+        <textarea class="answer" name="answer"></textarea>
+        <button type="submit" formmethod="post" formaction="../actions/add_faqitem.action.php">Submit</button>
+    </form>    
 <?php } ?>
 
 
