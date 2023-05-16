@@ -549,7 +549,7 @@ a{
   color: #fff;
 }
 
-#ticket-display{
+.ticket-display{
   width: 800px;
   margin: 0;
   padding: 20px;
@@ -571,7 +571,7 @@ a{
 
   color: #55b0c6;
 }
-#ticket-form {
+.ticket-form {
   grid-area: ticket-form;
   display: grid;
   grid-template-areas:
@@ -587,18 +587,18 @@ a{
   color: #55b0c6;
 }
 
-#departamento{
+.departamento{
   grid-area: departamento;
   justify-self: end;
   align-self: start;
   display: flex;
 }
 
-#departamento label{
+.departamento label{
   display: none;
 }
 
-#department{
+.department{
   background-color: transparent;
   opacity: 0.7;
   color: #55b0c6;
@@ -609,7 +609,7 @@ a{
   font-weight: bold;
 }
 
-#assunto{
+.assunto{
   grid-area: assunto;
   justify-self: start;
   display: grid;
@@ -620,10 +620,10 @@ a{
   width: 100%;
 }
 
-#assunto label{
+.assunto label{
   display: none;
 }
-#assunto ion-icon{
+.assunto ion-icon{
   grid-area: icon;
   font-size: 16px;
   margin-right: 8px;
@@ -632,7 +632,7 @@ input[type="text"] {
   width: auto;
 }
 
-#subject[readonly]{ /*não percebo pq que isto não fica centrado verticalmente*/
+.subject[readonly]{ /*não percebo pq que isto não fica centrado verticalmente*/
   grid-area: subject;
   background-color: transparent;
   color: #55b0c6;
@@ -644,16 +644,16 @@ input[type="text"] {
   align-self: center;
 }
 
-#textArea{
+.textArea{
   display: flex;
   grid-area: textArea;
 }
 
-#textArea label{
+.textArea label{
   display: none;
 }
 
-#tickettext{
+.tickettext{
   background-color: #ffffff96;
   color: #55b0c6;
   border: none;
@@ -693,16 +693,16 @@ input[type="text"] {
   display: none;
 }
 
-#title_box, #edit, .tag-input, .tag-add{
+.title_box, .edit, .tag-input, .tag-add{
   display: none;
 }
 
-#delete-button{
+.delete-button{
   grid-area: delete;
   justify-self: end;
 }
 
-#delete-button-submit {
+.delete-button-submit {
   background: transparent;
   border: none;
   padding: 5px;
@@ -711,23 +711,23 @@ input[type="text"] {
 
 }
 
-#delete-button:hover{
+.delete-button:hover{
   cursor: pointer;
 }
 
-#delete-not-hover{
+.delete-not-hover{
   display: flex;
 }
 
-#delete-hover{
+.delete-hover{
   display: none;
 }
 
-#delete-button:hover #delete-not-hover{
+.delete-button:hover #delete-not-hover{
 display: none;
 }
 
-#delete-button:hover #delete-hover{
+.delete-button:hover #delete-hover{
   display: flex;
   cursor: pointer;
 }
@@ -746,23 +746,23 @@ display: none;
   cursor: pointer;
   }
 
-#view-not-hover{
+.view-not-hover{
   display: flex;
 }
 
-#view-hover{
+.view-hover{
   display: none;
 }
 
-#allTickets a:hover #view-not-hover{
+#allTickets a:hover .view-not-hover{
   display: none;
 }
 
-#allTickets a:hover #view-hover{
+#allTickets a:hover .view-hover{
   display: flex;
 }
 
-#options{
+.options{
   grid-area: options;
   display: grid;
   grid-template-areas: 
@@ -771,7 +771,7 @@ display: none;
   grid-template-columns: 1fr auto auto;
 }
 
-#filters-toggle {
+.filters-toggle {
   width: fit-content;
   padding: 5px;
   color: #55b0c6;
@@ -783,26 +783,26 @@ display: none;
 }
 
 
-#settings-not-hover{
+.settings-not-hover{
   display: flex;
 }
 
-#settings-hover{
+.settings-hover{
   display: none;
 }
 
-#filters-toggle:hover #settings-not-hover{
+.filters-toggle:hover .settings-not-hover{
 cursor: pointer;
 display: none;
 }
 
-#filters-toggle:hover #settings-hover{
+.filters-toggle:hover .settings-hover{
   display: flex;
   cursor: pointer;
 }
 
 
-#filters-container{
+.filters-container{
   grid-area: filters-container;
   display: none;
   grid-template-areas: "priority status assign";
