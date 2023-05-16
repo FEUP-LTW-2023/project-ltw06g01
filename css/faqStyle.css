@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+
+
+html,body{
+  min-height: 100vh;
+}
+body{
+  background-color: #55b0c6;
+  display: grid;
+  grid-template-areas:
+   "header"
+   "nav"
+   "content"
+   "faqs";
+   grid-template-columns: 1fr;
+   grid-template-rows: auto auto 1fr auto ;
+   max-width: 100em;
+   margin: 0 auto;
+}
+
+/* header */
+header{
+  grid-area: header;
+  background-color: #e8e9e9;
+  border-bottom-right-radius: 90px;
+}
+
+
+#header > #drawHeader{
+  display: grid;
+  grid-template-areas:
+  "subtitle title profile-or-logout";
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
+}
+
+#header > #drawHeader > #title{  
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #55b0c6;
+    font-size: 20px;
+    padding: 3%;
+    text-shadow: 2px 2px 8px #88d9e9;
+    text-stroke: 1px #408697;
+    height: 46px;
+
+}
+
+#header > #drawHeader > #home-or-subtitle{
+  display: grid;
+  grid-area: subtitle;
+  grid-template-areas: "subtitle";
+  grid-template-columns: 1fr;
+}
+
+#header > #drawHeader > #home-or-subtitle > #subtitle{
+    grid-area: subtitle;
+    display: flex;
+    justify-content: center;
+    padding-left: 0%;
+    color: #55b0c6;
+    display: grid;
+    text-stroke: 1px #f6f6f6;
+    align-self: center;
+    
+}
+
+#drawHeader > #profile-or-logout{
+  grid-area: profile-or-logout;
+  display: grid;
+  grid-template-areas: "profile logout";
+  grid-template-columns: 1fr auto;
+}
+
+#profile-or-logout > .profile-box{
+    grid-area: profile;
+    display: flex;
+    align-self: center;
+    color: #55b0c6;
+    font-size: 32px;
+    background-color: transparent;
+    border: none;
+    justify-self: end;
+    margin-right: 70px;
+}
+
+#profile-button-hover{
+  display: none;
+}
+.profile-box:hover #profile-button-hover{
+  display: flex;
+}
+
+.profile-box #profile-button{
+  display: flex;
+}
+
+.profile-box:hover #profile-button{
+  display: none;
+}
+
+#profile-or-logout > .logout-box{
+    grid-area: logout;
+    border: none;
+    display: flex;
+    color: #55b0c6;
+    font-size: 32px;
+    background: transparent;
+    align-self: center;
+    margin-right: 60px;
+
+  }
+  
+  #profile-or-logout > .logout-box:hover{
+    cursor: pointer;
+  }
+
+.logout-box > #logout-icon-hover{
+  display: none;
+  }
+
+ .logout-box:hover > #logout-icon{
+  display: none;
+  }
+
+.logout-box:hover > #logout-icon-hover{
+  display: flex;
+  }
+
+#home {
+  display: none;
+}
+
+/* content */
+
+#content{
+  display: grid;
+  grid-area: content;
+  grid-template-areas: 
+  "login"
+  "singup";
+  justify-content: center;
+  align-content: center; 
+  margin-top: 30px;
+}
+
+
+#content h2{
+  font-size: 2em;
+  color: #55b0c6;
+  text-align: center;
+
+}
+
+
+
+/* faqs */
+
+#faqs{
+  grid-area: faqs;
+}
+
+.FAQs{
+  display: grid;
+  align-items: end;
+  justify-content: flex-end;
+  padding-right: 10%;
+  color: #e8e9e9;
+}
+
+#Faqs-icon:hover{
+  color: #fff;
+  cursor: pointer;
+}
+
+#Faqs-icon ion-icon{
+  position: relative;
+  font-size: 4em;
+  right: 10px;
+}
+
+/*footer*/
+
+#footer{
+  display: grid;
+  justify-self: center;
+  position: relative;
+  color: #f6f6f67d;
+}
+
+#footer p{
+  font-size: 15px;
+}
+
+
+
