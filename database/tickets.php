@@ -6,9 +6,29 @@
         return $stmt->fetch();
     }
 
-    function getFilteredTickets($db, $statusFilter = null) {
+    function getFilteredTickets($db, $status, $agent, $department) {
+        $query = 'SELECT * FROM ticket WHERE future is NULL';
+        $params = array();
+
+        if ($status != 'all') {
+            $query .= ' AND status = ?';
+            $params[] = $status;
+        }
+        if ($agent != -1) {
+            $query .= ' AND aID = ?';
+            $params[] = $agent;
+        }
+        if ($department != 'unassigned') {
+            $query .= 'AND department = ?';
+            $params[] = $department;
+        }
+        echo var_dump($query);
+        $stmt = $db->prepare($query);
+        $stmt->execute($params);
+        return $stmt->fetchAll();
+
         
-        if ($statusFilter === null || $statusFilter == 'all') {
+        /*if ($statusFilter === null || $statusFilter == 'all') {
             $stmt = $db->prepare('SELECT * FROM ticket WHERE future is NULL');
         } else {
             $stmt = $db->prepare('SELECT * FROM ticket WHERE status = :status AND future is NULL');
@@ -17,6 +37,7 @@
         
         $stmt->execute();
         return $stmt->fetchAll();
+        */
     }
     
 /* mostra todos os tickets só para fazer o css

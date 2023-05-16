@@ -42,8 +42,8 @@ class Ticket
         return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['priority'], $ticket['aID'], $ticket['history'], $ticket['future']);
     }
 
-    static function getFilteredTickets(PDO $db, ?string $filter) {
-        $tickets = getFilteredTickets($db, $filter);
+    static function getFilteredTickets(PDO $db, string $status, int $agent, string $department) {
+        $tickets = getFilteredTickets($db, $status, $agent, $department);
 
         return Ticket::createArray($tickets);
     }
