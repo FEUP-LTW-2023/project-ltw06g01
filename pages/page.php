@@ -50,8 +50,10 @@
 <head>
 <title>Ticket System</title>
 <script src="/../javascript/scr.js" defer></script>
+<script src="/../javascript/page.js" defer></script>
+<script src="/../javascript/priority_change.js" defer></script>
   <link rel="stylesheet" href="/../css/pageStyle.css">
-  <link rel="stylesheet" href="/../css/open_ticketsStyle.css">
+  
 </head>
 <body>
   <form>
@@ -139,7 +141,7 @@
           <?php if($loggedin){ ?>
           <div id="allTickets" > 
             <p>My tickets:</p>
-            <?php foreach ($tickets as $ticket) {
+            <?php foreach ((array)$tickets as $ticket) {
                     $tags = getTicketTags($db, $ticket->id); ?>
                     <div id="ticket-display">
                     

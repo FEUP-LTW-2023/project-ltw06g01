@@ -90,7 +90,7 @@ if (!$session->isLoggedIn()) {
                   <?php drawTicketForm($ticket, false, $tags); ?>
 
                   <div id="options">
-                        <div id="filters-toggle">
+                        <div id="filters-toggle"> <!--/*falta colocar aqui se for admin/ou agenter(?) isto aparece*/-->
                             <ion-icon id="settings-not-hover" name="settings-outline"></ion-icon>
                             <ion-icon id="settings-hover" name="settings"></ion-icon>
                         </div>

@@ -61,7 +61,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 
                 <div id="assunto">
                     <label for="title">Assunto:</label>
-                    <?php if (strpos($_SERVER['REQUEST_URI'], 'open_tickets') !== false) { ?>
+                    <?php if (strpos($_SERVER['REQUEST_URI'], 'open_tickets') !== false || strpos($_SERVER['REQUEST_URI'], 'page') !== false) { ?>
                         <ion-icon name="file-tray-full"></ion-icon>
                     <?php } ?>
                     <input type="text" id="subject" name="title" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; ?> value="<?= $ticket->title ?>">
@@ -198,8 +198,12 @@ function drawPriorityButtons($ticket) { ?>
         <input type="hidden" name="csrf" class="csrf" value=<?= $_SESSION['csrf'] ?>>
         <input type="hidden" name="tid" class="tid" value=<?= $ticket->id ?>>
         <input type="hidden" name="priority" class="priority" value=<?= $ticket->priority ?>>
-        <button type="button" class="increment-priority">^</button>
-        <button type="button" class="decrement-priority">v</button>
+        <button type="button" class="increment-priority">
+            <ion-icon name="arrow-up-outline"></ion-icon>
+        </button>
+        <button type="button" class="decrement-priority">
+            <ion-icon name="arrow-down-outline"></ion-icon>
+        </button>
     </form>
 <?php }
 ?>
