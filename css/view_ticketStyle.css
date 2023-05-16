@@ -166,7 +166,7 @@ a{
     color: rgba(255,255,255,0.5); 
 }
 
-#delete-button{
+.delete-button{
     grid-area: delete;
     justify-self: start;
 }
@@ -180,23 +180,23 @@ button[type="submit"] {
 
 }
 
-#delete-button:hover{
+.delete-button:hover{
     cursor: pointer;
   }
 
-#delete-not-hover{
+.delete-not-hover{
     display: flex;
 }
 
-#delete-hover{
+.delete-hover{
     display: none;
 }
 
-#delete-button:hover #delete-not-hover{
+.delete-button:hover .delete-not-hover{
   display: none;
   }
 
- #delete-button:hover #delete-hover{
+ .delete-button:hover .delete-hover{
     display: flex;
     }
 
