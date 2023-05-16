@@ -73,7 +73,7 @@
 
     color: #ebfcff;
 }
-#ticket-form {
+.ticket-form {
     grid-area: ticket-form;
     display: grid;
     grid-template-areas:
@@ -89,18 +89,18 @@
     color: #ebfcff;
 }
 
-#departamento{
+.departamento{
     grid-area: departamento;
     justify-self: end;
     align-self: start;
     display: flex;
 }
 
-#departamento label{
+.departamento label{
     display: none;
 }
 
-#department{
+.department{
     background-color: transparent;
     opacity: 0.7;
     color: #fff;
@@ -111,7 +111,7 @@
     font-weight: bold;
   }
 
-#assunto{
+.assunto{
     grid-area: assunto;
     justify-self: start;
     display: grid;
@@ -121,10 +121,10 @@
     justify-content: center;
 }
 
-#assunto label{
+.assunto label{
     display: none;
 }
-#assunto ion-icon{
+.assunto ion-icon{
     grid-area: icon;
     font-size: 16px;
     margin-right: 8px;
@@ -133,7 +133,7 @@ input[type="text"] {
     width: auto;
   }
 
-#subject[readonly]{ /*não percebo pq que isto não fica centrado verticalmente*/
+.subject[readonly]{ /*não percebo pq que isto não fica centrado verticalmente*/
     grid-area: subject;
     background-color: transparent;
     color: #fff;
@@ -145,16 +145,16 @@ input[type="text"] {
     align-self: center;
 }
 
-#textArea{
+.textArea{
     display: flex;
     grid-area: textArea;
 }
 
-#textArea label{
+.textArea label{
     display: none;
 }
 
-#tickettext{
+.tickettext{
     background-color: #bed9e041;
     color: #fff;
     border: none;
@@ -194,7 +194,7 @@ input[type="text"] {
     display: none;
 }
 
-#title_box, #edit, .tag-input, .tag-add{
+.title_box, .edit, .tag-input, .tag-add{
     display: none;
 }
 

@@ -25,29 +25,29 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 
     $allTags = getAllTags(getDatabaseConnection());
 ?>
-            <form id="ticket-form">
+            <form class="ticket-form">
 
 
-                <input type="hidden" name="csrf" value<?= $_SESSION['csrf'] ?>>
-                <div id="title_box">
+                <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
+                <div class="title_box">
                     <?php if ($ticket->id == -1) { ?> <h2>Novo Ticket</h2> <?php } 
                     else if ($edit) { ?> <h2>Editar:</h2> <?php } ?> 
                 </div>
                 
-                <div id="edit">
+                <div class="edit">
                     <?php
                         if (strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
                         <a href="../pages/ticket.php?id=<?= $ticket->id ?>"> 
-                            <ion-icon id="edit-not-hover" name="hammer-outline"></ion-icon> 
-                            <ion-icon id="edit-hover" name="hammer"></ion-icon>
+                            <ion-icon class="edit-not-hover" name="hammer-outline"></ion-icon> 
+                            <ion-icon class="edit-hover" name="hammer"></ion-icon>
                         </a>
                     <?php } ?>
                 </div>
 
-                <input type="hidden" name="id" id="tid" value=<?= $ticket->id ?>>
-                <div id="departamento">
+                <input type="hidden" name="id" class="tid" value=<?= $ticket->id ?>>
+                <div class="departamento">
                     <label for="department">Departamento:</label>
-                    <select id="department" name="department" <?php if (!$edit && $validity != 2) echo 'disabled'; ?>>
+                    <select class="department" name="department" <?php if (!$edit && $validity != 2) echo 'disabled'; ?>>
                         <?php if ($edit) {
                             foreach (getDepartments(getDatabaseConnection()) as $department) { ?>
                                 <option value=<?= $department ?>><?= $department ?></option>
@@ -59,17 +59,17 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                     </select>
                 </div>
 
-                <div id="assunto">
+                <div class="assunto">
                     <label for="title">Assunto:</label>
                     <?php if (strpos($_SERVER['REQUEST_URI'], 'open_tickets') !== false) { ?>
                         <ion-icon name="file-tray-full"></ion-icon>
                     <?php } ?>
-                    <input type="text" id="subject" name="title" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; ?> value="<?= $ticket->title ?>">
+                    <input type="text" class="subject" name="title" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; ?> value="<?= $ticket->title ?>">
                 </div>
 
-                <div id="textArea">
+                <div class="textArea">
                     <label for="fulltext">Mensagem:</label>
-                    <textarea id="tickettext" name="fulltext" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <textarea class="tickettext" name="fulltext" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
                 </div>
 
                 <?php if ($_SESSION['level'] >= 1) {
@@ -97,7 +97,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 
                 </div> 
                 <?php } ?>
-                <?php if ($edit) { ?> <button id="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
+                <?php if ($edit) { ?> <button class="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
             </form>
 <?php }
 
