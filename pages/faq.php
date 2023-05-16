@@ -1,9 +1,11 @@
 <?php
   require_once(__DIR__ . '/../classes/session.class.php');
-
+  require_once(__DIR__ . '/../classes/faq.class.php');
+  require_once(__DIR__ . '/../database/faq.php'); 
   $session = new Session();
-  
+  require_once(__DIR__ . '/../database/connection.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
+  include(__DIR__ . '/../templates/faq.tpl.php'); 
 
   if (isset($_SESSION['animation'])) {
     $animation = $_SESSION['animation'];
@@ -19,26 +21,27 @@
   else{
     $loggedin = 0;
   }
+  $db = getDatabaseConnection();
+  $faqs = FAQ::getAllFAQ($db);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ticket System</title>
-<script src="/../javascript/scr.js" defer></script>
+<title>FAQs</title>
+  <script src="/../javascript/faq.js" defer></script>
+  <script src="/../javascript/scr.js" defer></script>
+  <link rel="stylesheet" href="/../css/geralStyle.css">
   <link rel="stylesheet" href="/../css/faqStyle.css">
 </head>
 <body>
-    <header id="header">
-      <?php drawHeader($animation, 3,  "Home"); ?>
+    <header>
+      <?php drawHeader(0, 4,  "FAQs"); ?>
     </header>
-  <div id="faqs">
-    <section class="FAQs">
-      <div id="Faqs-icon">
-      <ion-icon name="help-circle-outline" id="icon"></ion-icon>
-      <p id="p">FAQ's</p>
-      <div>
-    </section>
+  <div id = "content">
+      <div id="faqs">
+        <?php getFAQ($faqs); ?>
+      </div>
   </div>
   <div id="footer">
       <p>Algum footer que queiramos</p>
