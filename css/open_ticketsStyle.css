@@ -203,7 +203,7 @@ input[type="text"] {
     justify-self: end;
 }
 
-button[type="submit"] {
+#delete-button-submit {
     background: transparent;
     border: none;
     padding: 5px;

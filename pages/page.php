@@ -3,7 +3,31 @@
 
   $session = new Session();
   
+  require_once(__DIR__ . '/../classes/ticket.class.php');
+  require_once(__DIR__ . '/../classes/user.class.php');
+  require_once(__DIR__ . '/../database/connection.php');
+  require_once(__DIR__ . '/../database/status.php');
+  require_once(__DIR__ . '/../database/departments.php');
+  require_once(__DIR__ . '/../templates/ticket.tpl.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
+  require_once(__DIR__ . '/../database/tags.php');
+
+  $db = getDatabaseConnection();
+
+  $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
+
+  if ($user_id !== null) {
+    $tickets = Ticket::getTicketsFromUser($db, $user_id);
+
+    if (empty($tickets)) {
+        $tickets = null;
+    }
+  } else {
+      $tickets = null;
+  }
+
+  if (empty($tickets)) {
+    $tickets = null;}
 
   if (isset($_SESSION['animation'])) {
     $animation = $_SESSION['animation'];
@@ -27,6 +51,7 @@
 <title>Ticket System</title>
 <script src="/../javascript/scr.js" defer></script>
   <link rel="stylesheet" href="/../css/pageStyle.css">
+  <link rel="stylesheet" href="/../css/open_ticketsStyle.css">
 </head>
 <body>
   <form>
@@ -46,7 +71,7 @@
   <div id="nav">
           <?php drawSideBar(); ?>
   </div>
-  <div id="content">
+  <div id="content-home">
               <div id="login-box-animated">
                 <div class ="form-box-login" id="login-box">
                   <div class="form-value">
@@ -110,7 +135,44 @@
                 </form>
               </div>
             </div>
-          </div> 
+          </div>
+          <?php if($loggedin){ ?>
+          <div id="allTickets" > 
+            <p>My tickets:</p>
+            <?php foreach ($tickets as $ticket) {
+                    $tags = getTicketTags($db, $ticket->id); ?>
+                    <div id="ticket-display">
+                    
+                      <?php drawTicketForm($ticket, false, $tags); ?>
+
+                      <div id="options">
+                            <div id="filters-toggle">
+                                <ion-icon id="settings-not-hover" name="settings-outline"></ion-icon>
+                                <ion-icon id="settings-hover" name="settings"></ion-icon>
+                            </div>
+                            <div id="filters-container">
+                                <?php drawAssignAgent($db, $ticket);
+                                      drawChangeStatus($db, $ticket); 
+                                      drawPriorityButtons($ticket); ?>
+                            </div>
+
+                          <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
+                            <ion-icon id="view-not-hover" name="eye-outline"></ion-icon>
+                            <ion-icon id="view-hover" name="eye"></ion-icon>
+                          </a>
+
+                          <div id="delete-button">
+                              <button id="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
+                                  <ion-icon id="delete-not-hover" name="trash-outline"></ion-icon>
+                                  <ion-icon id="delete-hover" name="trash"></ion-icon>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+            <?php } ?>
+           </div>
+           <?php } ?>
+
     </div>
   <div id="faqs">
     <section class="FAQs">

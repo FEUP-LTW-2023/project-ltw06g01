@@ -106,7 +106,7 @@ if (!$session->isLoggedIn()) {
                       </a>
 
                       <div id="delete-button">
-                          <button type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
+                          <button id="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
                               <ion-icon id="delete-not-hover" name="trash-outline"></ion-icon>
                               <ion-icon id="delete-hover" name="trash"></ion-icon>
                           </button>

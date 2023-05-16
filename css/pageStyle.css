@@ -18,7 +18,7 @@ body{
    "content"
    "faqs";
    grid-template-columns: 1fr;
-   grid-template-rows: auto auto 1fr auto ;
+   grid-template-rows: auto auto 1fr auto;
    max-width: 100em;
    margin: 0 auto;
 }
@@ -67,8 +67,9 @@ header{
     color: #55b0c6;
     font-size: 20px;
     padding: 3%;
-    text-shadow: 2px 2px 8px #88d9e9;
-    text-stroke: 1px #408697;
+    text-shadow: 2px 2px 8px #7dc5d5;
+        -webkit-text-stroke: 1px #5cc1da;
+
     height: 46px;
 
 }
@@ -160,7 +161,7 @@ header{
 
 /* content */
 
-#content{
+#content-home{
   display: grid;
   grid-area: content;
   grid-template-areas: 
@@ -169,14 +170,15 @@ header{
   justify-content: center;
   align-content: center; 
   margin-top: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 
-#content h2{
+#content-home h2{
   font-size: 2em;
   color: #55b0c6;
   text-align: center;
-
 }
 
 #login-box-animated::before{
@@ -523,6 +525,11 @@ a{
 #Register-button:hover, #login-button:hover {
   color: #88d9e9;
   cursor: pointer;
+}
+
+#allTickets p{
+  justify-self: start;
+  color: #fff;
 }
 
 /* faqs */
