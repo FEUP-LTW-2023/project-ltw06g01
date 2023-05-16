@@ -59,6 +59,7 @@ if (!$session->isLoggedIn()) {
         <option value="all" <?php if ($_GET['ticket-filter-status'] == 'all') echo 'selected'; ?>>Todos</option>
         <option value="open" <?php if ($_GET['ticket-filter-status'] == 'open') echo 'selected'; ?>>Abertos</option>
         <option value="closed" <?php if ($_GET['ticket-filter-status'] == 'closed') echo 'selected'; ?>>Fechados</option>
+        <option value="assigned" <?php if ($_GET['ticket-filter-status'] == 'assigned') echo 'selected'; ?>>Atribuídos</option>
       </select>
       <label id="ticket-filter-agent-title" for="ticket-filter-agent">Agent</label>
       <select id="ticket-filter-agent" class="ticket-filter" name="ticket-filter-agent" onchange="this.form.submit()">
