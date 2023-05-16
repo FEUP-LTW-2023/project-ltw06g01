@@ -13,11 +13,11 @@ logoutBox1.addEventListener('click', (event) => {
   }, 500)
 });
 
-const tickets = document.querySelectorAll('#ticket-display');
+const tickets = document.querySelectorAll('.ticket-display');
 
 tickets.forEach((ticket) => {
-  const filtersToggle = ticket.querySelector('#filters-toggle');
-  const filtersContainer = ticket.querySelector('#filters-container');
+  const filtersToggle = ticket.querySelector('.filters-toggle');
+  const filtersContainer = ticket.querySelector('.filters-container');
 
   filtersToggle.addEventListener('click', () => {
     if (filtersContainer.style.display === 'none') {
