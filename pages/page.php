@@ -82,12 +82,12 @@
                       <h2>Login</h2>
                       <div class="inputbox">
                         <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" required id="username" name="username">
+                        <input type="text" required class="username" name="username">
                         <label for="username">Username:</label>
                       </div>
                       <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required id="password" name="password">
+                        <input type="password" required class="password" name="password">
                         <label for="password">Password:</label>
                       </div>
                       <button type="submit" class="submit-login" formaction="/../actions/login.action.php" formmethod="post">Login</button>
@@ -112,7 +112,7 @@
                   <h2>Sign Up</h2>
                   <div class="inputbox">
                     <ion-icon name="person-outline"></ion-icon>
-                    <input type="text" required id="username" name="username">
+                    <input type="text" required class="username" name="username">
                     <label for="username">Username:</label>
                   </div>
                   <div class="inputbox">
@@ -122,7 +122,7 @@
                   </div>
                   <div class="inputbox">
                     <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" required id="password" name="password">
+                    <input type="password" required class="password" name="password">
                     <label for="password">Password:</label>
                   </div>
                   <div class="inputbox">
@@ -143,30 +143,30 @@
             <p>My tickets:</p>
             <?php foreach ((array)$tickets as $ticket) {
                     $tags = getTicketTags($db, $ticket->id); ?>
-                    <div id="ticket-display">
+                    <div class="ticket-display">
                     
                       <?php drawTicketForm($ticket, false, $tags); ?>
 
-                      <div id="options">
-                            <div id="filters-toggle">
-                                <ion-icon id="settings-not-hover" name="settings-outline"></ion-icon>
-                                <ion-icon id="settings-hover" name="settings"></ion-icon>
+                      <div class="options">
+                            <div class="filters-toggle">
+                                <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
+                                <ion-icon class="settings-hover" name="settings"></ion-icon>
                             </div>
-                            <div id="filters-container">
+                            <div class="filters-container">
                                 <?php drawAssignAgent($db, $ticket);
                                       drawChangeStatus($db, $ticket); 
                                       drawPriorityButtons($ticket); ?>
                             </div>
 
                           <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-                            <ion-icon id="view-not-hover" name="eye-outline"></ion-icon>
-                            <ion-icon id="view-hover" name="eye"></ion-icon>
+                            <ion-icon class="view-not-hover" name="eye-outline"></ion-icon>
+                            <ion-icon class="view-hover" name="eye"></ion-icon>
                           </a>
 
-                          <div id="delete-button">
-                              <button id="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
-                                  <ion-icon id="delete-not-hover" name="trash-outline"></ion-icon>
-                                  <ion-icon id="delete-hover" name="trash"></ion-icon>
+                          <div class="delete-button">
+                              <button class="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
+                                  <ion-icon class="delete-not-hover" name="trash-outline"></ion-icon>
+                                  <ion-icon class="delete-hover" name="trash"></ion-icon>
                               </button>
                           </div>
                       </div>
@@ -178,10 +178,10 @@
     </div>
   <div id="faqs">
     <section class="FAQs">
-      <div id="Faqs-icon">
+      <h6 id="Faqs-icon">
       <ion-icon name="help-circle-outline" id="icon"></ion-icon>
-      <p id="p">FAQ's</p>
-      <div>
+      FAQ's
+      </h6>
     </section>
   </div>
   <div id="footer">

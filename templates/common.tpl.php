@@ -13,7 +13,7 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
               <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
               <span class="icon-hover"><ion-icon name="home"></ion-icon></span>
             </a>
-            <h2 id="subtitle" ><?=$title?></h2>
+            <?php if ($title != "") { ?> <h2 id="subtitle" ><?=$title?></h2> <?php } ?>
         </div>
         <div id="profile-or-logout">
           <a class="profile-box" href="/../pages/profile.php">

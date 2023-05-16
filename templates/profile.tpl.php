@@ -27,7 +27,6 @@ function drawUserBox(PDO $db, User $user, bool $admin)
     <?php } ?>
     <?php if ($admin) { ?>
       <select name="departments" class="department-select">
-      <option value=""></option>
         <?php foreach ($allDepartments as $allDepartment) { ?>
           <option value="<?= $allDepartment ?>"><?= $allDepartment ?></option>
         <?php } ?>

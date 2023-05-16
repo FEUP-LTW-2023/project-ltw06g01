@@ -3,7 +3,7 @@ a{
     color: inherit;
     outline: none;
 }
-#ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
+.ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
@@ -31,52 +31,52 @@ a{
     color: #ebfcff;
 }
 
-#ticket-form > #title_box{
+.ticket-form > .title_box{
     grid-area: title_box;
     display: none;
 }
 
-#ticket-form > #edit{
+.ticket-form > .edit{
     grid-area: edit;
     justify-self: end;
 }
 
-#edit-not-hover{
+.edit-not-hover{
     display: flex;
 }
 
-#edit-hover{
+.edit-hover{
     display: none;
 }
 
-#edit:hover #edit-not-hover{
+.edit:hover .edit-not-hover{
     display: none;
 }
 
-#edit:hover #edit-hover{
+.edit:hover .edit-hover{
     display: flex;
 }
 
-#ticket-form > #departamento{
+.ticket-form > .departamento{
     grid-area: departamento;
 }
 
-#ticket-form > #assunto{
+.ticket-form > .assunto{
     grid-area: assunto;
 }
 
-#ticket-form > #textArea{
+.ticket-form > .textArea{
     grid-area: textArea;
 }
 
-#ticket-form label {
+.ticket-form label {
     font-size: 0.85em;
     max-width: 100%;
 }
 
-#ticket-form #tickettext,
-#ticket-form #subject,
-#ticket-form #department{
+.ticket-form .tickettext,
+.ticket-form .subject,
+.ticket-form .department{
     padding: 8px;
     font-size: 14px;
     border: 2px solid rgba(255,255,255,0.5);
@@ -86,7 +86,7 @@ a{
     color: #55b0c6;
 }
 
-#tickettext{
+.tickettext{
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
 }
@@ -146,7 +146,7 @@ a{
     padding-left: 5px;
 }
 
-#ticket-form > #enviar{
+.ticket-form > .enviar{
     grid-area: enviar;
     padding: 10px 20px; 
     font-size: 10px;
@@ -161,12 +161,12 @@ a{
     color:#ebfcff;
 }
 
-#ticket-form > #enviar:hover {
+.ticket-form > .enviar:hover {
     border-color: rgba(255,255,255,0.5);
     color: rgba(255,255,255,0.5); 
 }
 
-#delete-button{
+.delete-button{
     grid-area: delete;
     justify-self: start;
 }
@@ -180,23 +180,23 @@ button[type="submit"] {
 
 }
 
-#delete-button:hover{
+.delete-button:hover{
     cursor: pointer;
   }
 
-#delete-not-hover{
+.delete-not-hover{
     display: flex;
 }
 
-#delete-hover{
+.delete-hover{
     display: none;
 }
 
-#delete-button:hover #delete-not-hover{
+.delete-button:hover .delete-not-hover{
   display: none;
   }
 
- #delete-button:hover #delete-hover{
+ .delete-button:hover .delete-hover{
     display: flex;
     }
 
@@ -308,7 +308,7 @@ button[type="submit"] {
     padding-right: 4px;
 }
 
-#edit{
+.edit{
     display: flex;
     color: #fff;
 }

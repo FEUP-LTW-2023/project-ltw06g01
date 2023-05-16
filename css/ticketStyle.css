@@ -1,4 +1,4 @@
-#ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
+.ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
@@ -25,30 +25,30 @@
     color: #ebfcff;
 }
 
-#ticket-form > #title_box{
+.ticket-form > .title_box{
     grid-area: title_box;
 }
 
-#ticket-form > #departamento{
+.ticket-form > .departamento{
     grid-area: departamento;
 }
 
-#ticket-form > #assunto{
+.ticket-form > .assunto{
     grid-area: assunto;
 }
 
-#ticket-form > #textArea{
+.ticket-form > .textArea{
     grid-area: textArea;
 }
 
-#ticket-form label {
+.ticket-form label {
     font-size: 0.85em;
     max-width: 100%;
 }
 
-#ticket-form #tickettext,
-#ticket-form #subject,
-#ticket-form #department{
+.ticket-form .tickettext,
+.ticket-form .subject,
+.ticket-form .department{
     padding: 8px;
     font-size: 14px;
     border: 2px solid rgba(255,255,255,0.5);
@@ -58,7 +58,7 @@
     color: #55b0c6;
 }
 
-#tickettext{
+.tickettext{
     border: 2px solid rgba(255,255,255,0.5);
     resize: none;
 }
@@ -117,7 +117,7 @@
     padding-left: 5px;
 }
 
-#ticket-form > #enviar{
+.ticket-form > .enviar{
     grid-area: enviar;
     padding: 10px 20px; 
     font-size: 10px;
@@ -132,7 +132,7 @@
     color:#ebfcff;
 }
 
-#ticket-form > #enviar:hover {
+.ticket-form > .enviar:hover {
     border-color: rgba(255,255,255,0.5);
     color: rgba(255,255,255,0.5); 
 }
