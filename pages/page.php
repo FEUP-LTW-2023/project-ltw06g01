@@ -179,7 +179,7 @@
       <div id="Faqs-icon">
       <ion-icon name="help-circle-outline" id="icon"></ion-icon>
       <p id="p">FAQ's</p>
-      <div>
+      </div>
     </section>
   </div>
   <div id="footer">
