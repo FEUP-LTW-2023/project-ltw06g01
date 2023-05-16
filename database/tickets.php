@@ -22,7 +22,6 @@
             $query .= 'AND department = ?';
             $params[] = $department;
         }
-        echo var_dump($query);
         $stmt = $db->prepare($query);
         $stmt->execute($params);
         return $stmt->fetchAll();

@@ -77,7 +77,6 @@ if (!$session->isLoggedIn()) {
     </form>
     <?php
       //$status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
-      echo var_dump($_GET);
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status'], $_GET['ticket-filter-agent'], $_GET['ticket-filter-department']);
       //$ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
       //$departmentTickets = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
