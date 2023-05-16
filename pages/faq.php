@@ -40,7 +40,9 @@
     </header>
   <div id = "content">
       <div id="faqs">
+        <button id="add-faq-btn" onclick="toggleFAQForm()"><ion-icon name="add-outline"></ion-icon></button>
         <?php getFAQ($faqs); ?>
+        <?php drawFAQForm(); ?>
       </div>
   </div>
   <div id="footer">

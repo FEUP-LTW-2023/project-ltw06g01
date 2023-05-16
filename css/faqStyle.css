@@ -23,6 +23,7 @@ body{
 }
 
 #faqs{
+  position: relative;
   justify-content: center;
   align-items: center;
   min-width: 800px;
@@ -75,4 +76,58 @@ body{
     flex-basis: calc(50% - 10px); /* 2 colunas */
     margin-right: 10px;
   }
+}
+
+.faq-form{
+  display: none;
+}
+
+.faq-form.show {
+    transform: translateY(0);
+    display: grid;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr ;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.5);
+    justify-content: center;
+    gap: 10px;
+    background-color: #55b0c6;
+    height: fit-content;
+    color: #ebfcff;
+
+}
+
+.faq-form.show label {
+  grid-column: 1;
+}
+
+.faq-form.show .question,
+.faq-form.show .answer,
+.faq-form.show .submit {
+  grid-column: 1;
+  border-radius: 15px;
+}
+
+
+#add-faq-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+}
+
+#add-faq-btn ion-icon {
+  font-size: 24px;
+  color: #000;
+}
+
+#add-faq-btn:focus {
+  outline: none;
 }

@@ -28,3 +28,14 @@ document.addEventListener('DOMContentLoaded', function () {
     faqItems.css('max-width', maxWidth + 'px');
   });
   
+
+  function toggleFAQForm() {
+    var form = document.querySelector('.faq-form');
+    var faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function(item) {
+      item.style.transform = 'translateY(-100%)';
+    });
+
+    form.classList.toggle('show');
+  }
