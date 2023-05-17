@@ -12,15 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-
-  const form = document.querySelector('.faq-form');
-  const addButton = document.getElementById('add-faq-btn');
-
-  addButton.addEventListener('click', function () {
-    if (form.style.display === 'grid') {
-      form.style.display = 'none';
-    } else {
-      form.style.display = 'grid';
-    }
-  });
 });
+
+const faqForm = document.querySelector('.faq-form');
+
+if (typeof userType !== 'undefined' && userType >= 1) {
+  faqForm.style.display = 'grid';
+} else {
+  faqForm.style.display = 'none';
+}
+
+
