@@ -29,20 +29,16 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 
 
                 <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
-                <div class="title_box">
-                    <?php if ($ticket->id == -1) { ?> <h2>Novo Ticket</h2> <?php } 
-                    else if ($edit) { ?> <h2>Editar:</h2> <?php } ?> 
-                </div>
+                    <?php if ($ticket->id == -1) { ?> <h2 class="title_box">Novo Ticket</h2> <?php } 
+                    else if ($edit) { ?> <h2 class="title_box">Editar:</h2> <?php } ?> 
                 
-                <div class="edit">
                     <?php
                         if (strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
-                        <a href="../pages/ticket.php?id=<?= $ticket->id ?>"> 
+                        <a href="../pages/ticket.php?id=<?= $ticket->id ?>" class="edit"> 
                             <ion-icon class="edit-not-hover" name="hammer-outline"></ion-icon> 
                             <ion-icon class="edit-hover" name="hammer"></ion-icon>
                         </a>
                     <?php } ?>
-                </div>
 
                 <input type="hidden" name="id" class="tid" value=<?= $ticket->id ?>>
                 <div class="departamento">
@@ -73,7 +69,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                 </div>
 
                 <?php if ($_SESSION['level'] >= 1) {
-                    ?> <div class="tagsArea"> <p> Tags: </p>
+                    ?> <div class="tagsArea"> <h4> Tags: </h4>
 
                         <ul class="tags">
                         <?php 
@@ -84,7 +80,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                         } ?>
                         </ul>
 
-                        <div>
+
                             <input name="tagdata" list="taglist" class="tag-input">
                             <input type="hidden" name="tag-string" class="curr-tags" value=<?=implode(',', array_map(fn($tag) => $tag['tag'], $tags))?>>
                             <datalist id="taglist">
@@ -93,7 +89,6 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                                 <?php } ?>
                                 </datalist> 
                                 <button type="button" class="tag-add">+</button>
-                        </div>
 
                 </div> 
                 <?php } ?>
