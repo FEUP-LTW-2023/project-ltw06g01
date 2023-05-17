@@ -88,30 +88,8 @@ if (!$session->isLoggedIn()) {
                 $tags = getTicketTags($db, $ticket->id); ?>
                 <div class="ticket-display">
                 
-                  <?php drawTicketForm($ticket, false, $tags); ?>
-                  <div class="options">
-                        <div class="filters-toggle">
-                            <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
-                            <ion-icon class="settings-hover" name="settings"></ion-icon>
-                        </div>
-                        <div class="filters-container">
-                            <?php drawAssignAgent($db, $ticket);
-                                  drawChangeStatus($db, $ticket); 
-                                  drawPriorityButtons($ticket); ?>
-                        </div>
-
-                      <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-                        <ion-icon class="view-not-hover" name="eye-outline"></ion-icon>
-                        <ion-icon class="view-hover" name="eye"></ion-icon>
-                      </a>
-
-                      <div class="delete-button">
-                          <button class="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
-                              <ion-icon class="delete-not-hover" name="trash-outline"></ion-icon>
-                              <ion-icon class="delete-hover" name="trash"></ion-icon>
-                          </button>
-                      </div>
-                  </div>
+                  <?php drawTicketForm($ticket, false, $tags); 
+                        drawOpcions($db, $ticket);?>
                 </div>
         <?php } ?>
       </div>

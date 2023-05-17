@@ -220,10 +220,14 @@ function drawOpcions($db, $ticket){ ?>
                       </a>
 
                       <div class="delete-button">
-                          <button class="delete-button-submit" type="submit" onclick="window.location.href = '../actions/delete_ticket.action.php';">
+                        <form>
+                          <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
+                          <input type="hidden" name="id" value=<?= $ticket->id ?>>
+                          <button class="delete-button-submit" type="submit" formmethod="post" formaction="../actions/delete_ticket.action.php">
                               <ion-icon class="delete-not-hover" name="trash-outline"></ion-icon>
                               <ion-icon class="delete-hover" name="trash"></ion-icon>
                           </button>
+                        </form>  
                       </div>
     </div>
 <?php

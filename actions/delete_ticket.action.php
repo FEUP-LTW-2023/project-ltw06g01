@@ -3,6 +3,7 @@
 require_once(__DIR__ . '/../classes/session.class.php');
 
 $session = new Session();
+echo var_dump($_POST);
 
 if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
     $session->addMessage('error', 'Not logged in');
