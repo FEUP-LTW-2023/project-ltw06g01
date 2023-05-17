@@ -39,16 +39,13 @@
       <?php drawHeader(0, 4,  "FAQs"); ?>
     </header>
   <div id = "content">
-      <?php $user_type = $_SESSION['level'] ?? -1?>
-      <?php if (isset($user_type)): ?>
       <div id= "faqs_more_button">
+        <button id="add-faq-btn"><ion-icon name="add-outline"></ion-icon></button>
         <div id="faqs">
           <?php getFAQ($faqs); ?>
         </div>
       </div>
-      
-        <?php drawFAQForm(); ?>
-      <?php endif; ?>
+      <?php drawFAQForm(); ?>
   </div>
   <div id="footer">
       <p>Algum footer que queiramos</p>

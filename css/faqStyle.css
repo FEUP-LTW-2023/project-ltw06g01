@@ -90,9 +90,9 @@ body{
 
 .faq-form {
   border-color: #55b0c6;
-    display: grid;
+    display: none;
     grid-template-areas: 
-    "faq-questions" 
+    "back-button" "faq-questions" 
     "question"
     "answer"
     "text-answer"
