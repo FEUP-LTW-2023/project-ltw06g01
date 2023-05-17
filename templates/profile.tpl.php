@@ -14,7 +14,7 @@ function drawUserBox(PDO $db, User $user, bool $admin)
   <button type="button" class="back-button" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
     <ion-icon name="arrow-back"></ion-icon> 
   </button>
-  <?php if ($user->level >= 1) {
+  <?php {
     $departments = User::getAgentDepartments($db, $user->id);
     $allDepartments = getDepartments($db); ?>
     <ul class="user-departments">
@@ -22,18 +22,18 @@ function drawUserBox(PDO $db, User $user, bool $admin)
         <li class="department"><?= $department ?></li>
       <?php } ?>
       </ul>
-    <?php if ($admin) { ?>
-    <input name="n" type="number" class="user-promotion-button" value="<?= $user->level ?>" min="0" max="2" step="1">
-    <?php } ?>
-    <?php if ($admin) { ?>
+    <input name="n" type="number" class="user-promotion" value="<?= $user->level ?>" min="0" max="2" step="1">
       <select name="departments" class="department-select">
         <?php foreach ($allDepartments as $allDepartment) { ?>
           <option value="<?= $allDepartment ?>"><?= $allDepartment ?></option>
         <?php } ?>
       </select>
-      <button type="button" class="toggle-button">Toggle</button>
+      <button type="button" class="toggle-button" >
+        <ion-icon name="close-outline" class = "cross" >
+        <ion-icon name="add-outline"  class = "add">
+        </ion-icon>
+      </button>
     <?php } ?>
-  <?php } ?>
 </div>
 <?php } ?>
 

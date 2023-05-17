@@ -213,37 +213,16 @@ if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a se
 /* para o pop up do user box na página dops admins */
 
 function toggleUserBoxPopup(userId) {
-  var userBoxPopup = document.getElementById("userBoxPopup-" + userId);
-  var backdrop = document.getElementById("backdrop");
+  const userBoxPopup = document.getElementById("userBoxPopup-" + userId);
+  const backdrop = document.getElementById("backdrop");
 
   userBoxPopup.classList.toggle("active");
   backdrop.style.display = userBoxPopup.classList.contains("active") ? "block" : "none";
 }
-const userBoxes = document.querySelectorAll('.user-box-popup');
 
-userBoxes.forEach((element) => {
-  const id = element.querySelector('.uid');
-  const uid = id.getAttribute('value');
-
-  const button = element.querySelector('.user-promotion-button');
-  button.addEventListener('input', async function(e) {
-    console.log('../api/api_users.php?uid=' + uid + '&level=' + e.target.value);
-    const response = await fetch('../api/api_users.php?uid=' + uid + '&level=' + e.target.value);
-    const content = await response.json();
-
-    if (content.success === "0") {
-      element.style.backgroundColor = "red";
-    } else {
-      element.style.backgroundColor = "white";
-    }
-  });
-});
-
-
-
-  // Adiciona um evento de clique ao elemento
+  
   faqsSection.addEventListener('click', function() {
-    // Redireciona para a página "faq.php"
+    
     window.location.href = 'faq.php';
   });
 

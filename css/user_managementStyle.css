@@ -50,11 +50,11 @@
 .user-box-popup{
     display: none;
     grid-template: 
-    "back-button"
-    "department"
-    "department-selection"
-    "promotion"
-    "toggle";
+    "back-button "
+    "department "
+    "department-selection "
+    "promotion "
+    "toggle ";
     position: fixed;
     top: 50%;
     left: 50%;
@@ -74,25 +74,23 @@
     line-break: anywhere;
     color: aliceblue;
     transform: translate(-50%, -50%);
-    z-index: 9999;
+    z-index: 1;
     border-radius: 15px;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 0.8fr));
-  
+    
 }
 
-.user-box-popup.active{
-    user-select: none;    
-}
-
-  
+ 
 .user-box-popup.active {
+    user-select: none;  
     display: grid;
     z-index: 9999;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 10px;
 }
   
   
@@ -114,6 +112,8 @@
     padding: 7%;
     background-color: rgba(240, 248, 255, 0.288);
     text-align: center;
+    display: grid;
+    
 }
 .user-box-popup.active > .department-select{
     grid-area: department-selection;
@@ -122,7 +122,7 @@
     backdrop-filter: blur(15px);
     text-align: center;
 }
-.user-box-popup.active > .user-promotion-button{
+.user-box-popup.active > .user-promotion{
     grid-area: promotion;
     border: 2px solid #9ea4a6;
     border-radius: 23px;
@@ -130,7 +130,7 @@
     text-align: center;
 }
 
-.user-promotion-button:focus .user-box {
+.user-promotion:focus .user-box {
     background-color:#55b0c6;
 }
 
@@ -166,6 +166,23 @@
   
   .user-box-popup.active > .back-button ion-icon {
     margin-right: 5px;
+  }
+
+
+  .toggle-button .cross {
+    display: none;
+  }
+  
+  .toggle-button .add {
+    display: inline-block;
+  }
+  
+  .toggle-button.cross .cross {
+    display: inline-block;
+  }
+  
+  .toggle-button.cross .add {
+    display: none;
   }
 
   
