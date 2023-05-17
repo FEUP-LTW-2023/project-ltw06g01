@@ -15,6 +15,7 @@ require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../templates/ticket.tpl.php');
 require_once(__DIR__ . '/../templates/common.tpl.php');
 require_once(__DIR__ . '/../database/tags.php');
+require_once(__DIR__ . '/../database/status.php');
 
 
 $db = getDatabaseConnection();
@@ -38,10 +39,15 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
   <title>Visualizar Ticket</title>
   <link rel="stylesheet" href="/../css/view_ticketStyle.css">
   <link rel="stylesheet" href="/../css/geralStyle.css">
+
+  
+
+  <script src="/../javascript/ticket_options.js" defer></script>
   <script src="/../javascript/scr.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>
   <script src="/../javascript/status_change.js" defer></script>
   <script src="/../javascript/priority_change.js" defer></script>
+
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
@@ -54,11 +60,14 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
   </div>
   <div id="content">
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
+
+    <div class="ticket-display">
     <?php 
           drawTicketForm($ticket, false, $tags, true); 
           drawTicketFAQ($db, $ticket, true); 
           drawOpcions($db, $ticket);
           ?>
+    </div>
     <section id="messages">
       <?php foreach ($messages as $message) { ?>
         <div class="message">

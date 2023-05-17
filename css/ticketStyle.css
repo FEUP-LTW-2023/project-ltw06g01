@@ -71,6 +71,7 @@
     "titletags titletags"
     "tags tags"
     "lista adicionar";
+    grid-template-columns: auto 1fr;
     font-size: 13px;
     gap:6px;
 }
@@ -232,7 +233,7 @@ cursor: pointer;
 }
 
 select option{
-    text-align: center;
+    text-align: start;
 }
 
 .increment-priority{

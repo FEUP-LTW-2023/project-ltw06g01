@@ -51,6 +51,7 @@
 <title>Ticket System</title>
 <script src="/../javascript/scr.js" defer></script>
 <script src="/../javascript/page.js" defer></script>
+<script src="/../javascript/ticket_options.js" defer></script>
 <script src="/../javascript/priority_change.js" defer></script>
   <link rel="stylesheet" href="/../css/pageStyle.css">
   
@@ -147,17 +148,19 @@
                         <div class="ticket-display">
                         
                           <?php drawTicketForm($ticket, false, $tags); ?>
-
                           <div class="options">
-                                <div class="filters-toggle">
-                                    <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
-                                    <ion-icon class="settings-hover" name="settings"></ion-icon>
-                                </div>
-                                <div class="filters-container">
-                                    <?php drawAssignAgent($db, $ticket);
-                                          drawChangeStatus($db, $ticket); 
-                                          drawPriorityButtons($ticket); ?>
-                                </div>
+                            
+                          <?php if ($_SESSION['level'] >= 1 ) { ?>
+                                  <div class="filters-toggle">
+                                      <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
+                                      <ion-icon class="settings-hover" name="settings"></ion-icon>
+                                  </div>
+                                  <div class="filters-container">
+                                      <?php drawAssignAgent($db, $ticket);
+                                            drawChangeStatus($db, $ticket); 
+                                            drawPriorityButtons($ticket); ?>
+                                  </div>
+                            <?php } ?>
 
                               <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
                                 <ion-icon class="view-not-hover" name="eye-outline"></ion-icon>
@@ -170,7 +173,7 @@
                                       <ion-icon class="delete-hover" name="trash"></ion-icon>
                                   </button>
                               </div>
-                          </div>
+                           </div>
                         </div>
                 <?php }
               } else { ?>
