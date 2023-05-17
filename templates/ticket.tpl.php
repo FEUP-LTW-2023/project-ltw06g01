@@ -32,8 +32,8 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                     <?php if ($ticket->id == -1) { ?> <h2 class="title_box">Novo Ticket</h2> <?php } 
                     else if ($edit) { ?> <h2 class="title_box">Editar:</h2> <?php } ?> 
                 
-                    <?php
-                        if (strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
+                     <?php
+                        if (($ticket->hasNext() == null) && strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
                         <a href="../pages/ticket.php?id=<?= $ticket->id ?>" class="edit"> 
                             <ion-icon class="edit-not-hover" name="hammer-outline"></ion-icon> 
                             <ion-icon class="edit-hover" name="hammer"></ion-icon>
