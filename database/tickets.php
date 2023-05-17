@@ -114,7 +114,7 @@
         else return $db->lastInsertId();
     }
 
-    function deleteTicket($db, $id, $prev) {
+    function deleteTicket($db, $id) {
         $stmt = $db->prepare('DELETE FROM TICKET WHERE id = ? AND future is NULL');
         $stmt->execute(array($id));
         /*echo "ID" . $id . "ID";

@@ -128,7 +128,7 @@ class Ticket
     }
 
     function deleteTicket(PDO $db): void {
-        deleteTicket($db, $this->id, $this->prev);
+        deleteTicket($db, $this->id);
     }
 
     function changeStatus(PDO $db, string $newStatus): void {
