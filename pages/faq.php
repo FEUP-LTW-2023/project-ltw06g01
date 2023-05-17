@@ -22,6 +22,7 @@
     $loggedin = 0;
   }
   $db = getDatabaseConnection();
+  $user_type = $_SESSION['level'] ?? -1;
   $faqs = FAQ::getAllFAQ($db);
 ?>
 
@@ -40,12 +41,19 @@
     </header>
   <div id = "content">
       <div id= "faqs_more_button">
-        <button id="add-faq-btn"><ion-icon name="add-outline"></ion-icon></button>
+
+        <?php if ($user_type >= 1){?>
+          <button id="add-faq-btn"><ion-icon name="add-outline"></ion-icon></button>
+        <?php } ?>
+
         <div id="faqs">
           <?php getFAQ($faqs); ?>
         </div>
+
       </div>
-      <?php drawFAQForm(); ?>
+
+      <?php if ($user_type >= 1){drawFAQForm();}?>
+
   </div>
   <div id="footer">
       <p>Algum footer que queiramos</p>
