@@ -45,7 +45,7 @@ if (!$session->isLoggedIn()) {
     <?php drawSideBar(); ?>
   </div>
   <div id="content">
-    <?php drawTicketForm($ticket, true, $tags); ?>
+    <?php drawTicketForm($ticket, true, $tags, true); ?>
   </div>
   <div id="footer">
     <p>Algum footer que queiramos</p>

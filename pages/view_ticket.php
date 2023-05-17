@@ -55,7 +55,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
   <div id="content">
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
     <?php 
-          drawTicketForm($ticket, false, $tags); 
+          drawTicketForm($ticket, false, $tags, true); 
           drawTicketFAQ($db, $ticket, true); 
           drawOpcions($db, $ticket);
           ?>

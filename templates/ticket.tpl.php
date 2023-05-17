@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../classes/user.class.php');
 require_once(__DIR__ . '/../classes/faq.class.php');
 
-function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
+function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool $single = false)
 {
     $validity = isValidUser($ticket->uid ?? -1, $ticket->aid ?? -1, $_SESSION['uid'], $_SESSION['level']);
     
@@ -42,8 +42,8 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
 
                 <input type="hidden" name="id" class="tid" value=<?= $ticket->id ?>>
                 <div class="departamento">
-                    <label for="department">Departamento:</label>
-                    <select class="department" name="department" <?php if (!$edit && $validity != 2) echo 'disabled'; ?>>
+                    <?php if ($single) { ?><label for="department">Departamento:</label> <?php } ?>
+                    <select class="department" name="department" <?php if (!$edit && $validity != 2) echo 'disabled'; if ($single) echo "id=\"department\"";?>>
                         <?php if ($edit) {
                             foreach (getDepartments(getDatabaseConnection()) as $department) { ?>
                                 <option value=<?= $department ?>><?= $department ?></option>
@@ -56,16 +56,16 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array())
                 </div>
 
                 <div class="assunto">
-                    <label for="title">Assunto:</label>
+                    <?php if ($single) { ?><label for="title">Assunto:</label> <?php } ?>
                     <?php if (strpos($_SERVER['REQUEST_URI'], 'open_page') !== false || strpos($_SERVER['REQUEST_URI'], 'page.php') !== false) { ?>
                         <ion-icon name="file-tray-full"></ion-icon>
                     <?php } ?>
-                    <input type="text" class="subject" name="title" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; ?> value="<?= $ticket->title ?>">
+                    <input type="text" class="subject" name="title" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; if ($single) echo "id=\"title\"";?> value="<?= $ticket->title ?>">
                 </div>
 
                 <div class="textArea">
-                    <label for="fulltext">Mensagem:</label>
-                    <textarea class="tickettext" name="fulltext" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; ?>><?= $ticket->text ?></textarea>
+                    <?php if ($single) { ?><label for="fulltext">Mensagem:</label><?php } ?>
+                    <textarea class="tickettext" name="fulltext" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; if ($single) echo "id=\"fulltext\"";?>><?= $ticket->text ?></textarea>
                 </div>
 
                 <?php if ($_SESSION['level'] >= 1) {
