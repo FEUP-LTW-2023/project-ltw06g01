@@ -17,11 +17,11 @@ function drawUserBox(PDO $db, User $user, bool $admin)
   <?php if ($user->level >= 1) {
     $departments = User::getAgentDepartments($db, $user->id);
     $allDepartments = getDepartments($db); ?>
-    <div class="user-departments">
+    <ul class="user-departments">
       <?php foreach ($departments as $department) { ?>
-        <p class="department"><?= $department ?></p>
+        <li class="department"><?= $department ?></li>
       <?php } ?>
-    </div>
+      </ul>
     <?php if ($admin) { ?>
     <input name="n" type="number" class="user-promotion-button" value="<?= $user->level ?>" min="0" max="2" step="1">
     <?php } ?>
