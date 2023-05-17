@@ -3,7 +3,53 @@ a{
     color: inherit;
     outline: none;
 }
-.ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
+
+.ticket-display{
+
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+
+    display: grid;
+    grid-template-areas:
+    "ticket-form"
+    "options";
+    grid-template-columns: 1fr;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.5);
+
+    gap: 10px;
+    background-color: #55b0c6;
+    height: fit-content;
+
+    color: #ebfcff;
+}
+
+
+.ticket-form {
+    grid-area: ticket-form;
+    display: grid;
+    grid-template-areas:
+    "edit edit"
+    "departamento assunto"
+    "textArea textArea"
+    "tags tags"
+    "tagsArea tagsArea"
+    "enviar enviar";
+
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 5px;
+    background-color: #55b0c6;
+    height: fit-content;
+    grid-column-gap: 20px;
+    color: #ebfcff;
+}
+/*
+.ticket-form {   
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
@@ -30,7 +76,7 @@ a{
 
     color: #ebfcff;
 }
-
+*/
 .ticket-form > .title_box{
     grid-area: title_box;
     display: none;
@@ -99,6 +145,7 @@ a{
     "titletags titletags"
     "tags tags"
     "lista adicionar";
+    grid-template-columns: auto 1fr;
     font-size: 13px;
     gap:6px;
 }
@@ -145,6 +192,7 @@ a{
     padding-right: 5px;
     padding-left: 5px;
 }
+
 
 .ticket-form > .enviar{
     grid-area: enviar;
@@ -199,6 +247,149 @@ button[type="submit"] {
  .delete-button:hover .delete-hover{
     display: flex;
     }
+
+
+
+.options{
+    grid-area: options;
+    display: grid;
+    grid-template-areas: 
+    "filters-toggle view delete"
+    "filters-container filters-container filters-container";
+    grid-template-columns: 1fr auto auto;
+}
+
+.filters-toggle {
+    width: fit-content;
+    padding: 5px;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    justify-self: end;
+    margin-right:0;
+    margin-left: auto;
+}
+
+
+.settings-not-hover{
+    display: flex;
+}
+
+.settings-hover{
+    display: none;
+}
+
+.filters-toggle:hover .settings-not-hover{
+cursor: pointer;
+  display: none;
+  }
+
+  .filters-toggle:hover .settings-hover{
+    display: flex;
+    cursor: pointer;
+}
+
+
+.filters-container{
+    grid-area: filters-container;
+    display: none;
+    grid-template-areas: "priority status assign";
+    grid-template-columns: 1fr auto auto;
+    column-gap: 5px;
+    justify-content: end;
+    grid-column: 1 / span 3;
+}
+
+.priority-box {
+    grid-area: priority;
+    display: flex;
+    justify-content: start;
+}
+
+.priority-box ion-icon{
+    font-weight: bold;
+    color: #fff;
+}
+
+.assign-box{
+    grid-area: assign;
+    display: flex;
+    justify-content: end;
+}
+
+.status-box{
+    grid-area: status;
+    display: flex;
+    justify-content: end;
+}
+
+.agent-list,.status-list{
+    padding: 0px 5px;
+    background: #bed9e041;
+    border: 1px solid #6bdcf8;
+    border-radius: 15px;
+    color: #fff;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: auto;
+    font-size: 13px;
+}
+
+.status-confirm, .assign-confirm{
+    display: block;
+    padding: 0px 5px;
+    background: #bed9e041;
+    border: 1px solid #6bdcf8;
+    border-radius: 15px;
+    color: #fff;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: auto;
+    font-size: 13px;
+}
+
+.status-confirm:hover, .assign-confirm:hover{
+    background: #ffffff84;
+    border: 1px solid #fff;   
+    cursor: pointer;
+}
+
+select option{
+    text-align: start;
+}
+
+.increment-priority{
+    padding: 0px 5px;
+    background: #ffffff96;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    color: #55b0c6;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: auto;
+    font-size: 13px;
+    display: grid;
+    align-content: center;
+  }
+  
+  .decrement-priority{
+    padding: 0px 5px;
+    background: #ffffff96;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    color: #55b0c6;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: auto;
+    font-size: 13px;
+    display: grid;
+    align-content: center;
+  }
+  
+  .increment-priority:hover, .decrement-priority:hover{
+    cursor: pointer;
+    border-color: #55b0c6;
+  }
 
 /*chat*/
 

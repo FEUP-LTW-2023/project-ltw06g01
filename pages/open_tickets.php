@@ -27,6 +27,11 @@ if (!$session->isLoggedIn()) {
   $users = User::getUsersAdmin($db);
   $departments = getDepartments($db);
 
+  if (!hasAccessToPage(1, $_SESSION['level'])) {
+    $session->addMessage('error', 'Insufficient permissions');
+    header('Location: /../pages/page.php');
+}
+
   if (empty($tickets)) {
     $tickets = null;}
 ?>
@@ -36,6 +41,7 @@ if (!$session->isLoggedIn()) {
 <head>
 <title>All Tickets</title>
   <script src="/../javascript/scr.js" defer></script>
+  <script src="/../javascript/ticket_options.js" defer></script>
   <script src="/../javascript/open_tickets.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>
   <script src="/../javascript/status_change.js" defer></script>

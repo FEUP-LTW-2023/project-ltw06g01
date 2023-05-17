@@ -68,8 +68,8 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                     <textarea class="tickettext" name="fulltext" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; if ($single) echo "id=\"fulltext\"";?>><?= $ticket->text ?></textarea>
                 </div>
 
-                <?php if ($_SESSION['level'] >= 1) {
-                    ?> <div class="tagsArea"> <h4> Tags: </h4>
+                <?php if ($_SESSION['level'] >= 1 ) {
+                    ?> <div class="tagsArea"> <?php if( $tags != null || strpos($_SERVER['REQUEST_URI'], 'ticket.php') !== false ) { ?> <h4> Tags: </h4> <?php } ?>
 
                         <ul class="tags">
                         <?php 
@@ -204,31 +204,38 @@ function drawPriorityButtons($ticket) { ?>
 
 function drawOpcions($db, $ticket){ ?>
     <div class="options">
-                        <div class="filters-toggle">
-                            <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
-                            <ion-icon class="settings-hover" name="settings"></ion-icon>
-                        </div>
-                        <div class="filters-container">
-                            <?php drawAssignAgent($db, $ticket);
-                                  drawChangeStatus($db, $ticket); 
-                                  drawPriorityButtons($ticket); ?>
-                        </div>
 
-                      <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
-                        <ion-icon class="view-not-hover" name="eye-outline"></ion-icon>
-                        <ion-icon class="view-hover" name="eye"></ion-icon>
-                      </a>
+        <?php if ($_SESSION['level'] >= 1 ) { ?>
+            <div class="filters-toggle">
+                <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
+                <ion-icon class="settings-hover" name="settings"></ion-icon>
+            </div>
 
-                      <div class="delete-button">
-                        <form>
-                          <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
-                          <input type="hidden" name="id" value=<?= $ticket->id ?>>
-                          <button class="delete-button-submit" type="submit" formmethod="post" formaction="../actions/delete_ticket.action.php">
-                              <ion-icon class="delete-not-hover" name="trash-outline"></ion-icon>
-                              <ion-icon class="delete-hover" name="trash"></ion-icon>
-                          </button>
-                        </form>  
-                      </div>
+            <div class="filters-container">
+                <?php drawAssignAgent($db, $ticket);
+                        drawChangeStatus($db, $ticket); 
+                        drawPriorityButtons($ticket); ?>
+            </div>
+        <?php } ?>
+
+        
+        <?php if( !strpos($_SERVER['REQUEST_URI'], 'view_ticket.php') !== false) { ?>
+            <a href="/../pages/view_ticket.php?id=<?php echo $ticket->id ?>">
+                <ion-icon class="view-not-hover" name="eye-outline"></ion-icon>
+                <ion-icon class="view-hover" name="eye"></ion-icon>
+            </a>
+        <?php }?>
+
+        <div class="delete-button">
+        <form>
+            <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
+            <input type="hidden" name="id" value=<?= $ticket->id ?>>
+            <button class="delete-button-submit" type="submit" formmethod="post" formaction="../actions/delete_ticket.action.php">
+                <ion-icon class="delete-not-hover" name="trash-outline"></ion-icon>
+                <ion-icon class="delete-hover" name="trash"></ion-icon>
+            </button>
+        </form>  
+        </div>
     </div>
 <?php
 }

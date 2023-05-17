@@ -43,21 +43,13 @@ function drawSideBar(){
               <span class = "txt-link">Create Ticket</span>
             </a>
           </li>
+        <?php endif; if ($user_type >= 1): ?>
           <li class="item-menu">
             <a href = "open_tickets.php">
               <span class = "icon"><ion-icon name="file-tray-stacked-outline"></ion-icon></span>
               <span class = "txt-link">All Tickets</span>
             </a>
         </li>
-        <!--  Podemos colocar este filtro dentro da página com todos os tickets
-                <li class="item-menu">
-          <a href = "open_tickets.php">
-            <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-            <span class = "txt-link">Tickets do Departamento</span>
-          </a>
-        </li>
-        -->
-        <?php endif; if ($user_type >= 1): ?>
         <?php endif; if ($user_type == 2): ?>
         <li class="item-menu">
           <a href = "user_management.php">
