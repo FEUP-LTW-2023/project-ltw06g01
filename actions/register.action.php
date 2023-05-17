@@ -28,6 +28,7 @@
         $_SESSION['uid'] = $userCreated[1];
         $_SESSION['level'] = 0;
         $_SESSION['animation'] = 2;
+        $_SESSION['loggedin'] = 1;
     }
 
     $session->addMessage('success', 'Account created');
