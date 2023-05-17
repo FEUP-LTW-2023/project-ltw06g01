@@ -140,7 +140,7 @@
           </div>
           <?php if($loggedin){ 
             if (!empty($tickets)) {?>
-          <div id="allTickets" > 
+          <div id="allTickets" style="display: none;"> 
               <p>My tickets:</p>
                 <?php foreach ((array)$tickets as $ticket) {
                         $tags = getTicketTags($db, $ticket->id); ?>

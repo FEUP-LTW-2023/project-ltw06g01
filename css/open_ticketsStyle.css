@@ -313,6 +313,17 @@ cursor: pointer;
     grid-column: 1 / span 3;
 }
 
+.priority-box {
+    grid-area: priority;
+    display: flex;
+    justify-content: start;
+}
+
+.priority-box ion-icon{
+    font-weight: bold;
+    color: #fff;
+}
+
 .assign-box{
     grid-area: assign;
     display: flex;

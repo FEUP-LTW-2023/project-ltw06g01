@@ -836,6 +836,11 @@ display: none;
   justify-content: start;
 }
 
+.priority-box ion-icon{
+  font-weight: bold;
+  color: #fff;
+}
+
 .agent-list,.status-list{
   padding: 0px 5px;
   background: #ffffff96;

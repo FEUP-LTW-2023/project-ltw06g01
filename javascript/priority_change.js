@@ -37,8 +37,8 @@ function updatePriorityColor(button) {
         incrementButton.style.backgroundColor = '#008000bf';
         decrementButton.style.backgroundColor = '#008000bf';
     } else if (priority === 1) {
-        incrementButton.style.backgroundColor = '#ffff00b3';
-        decrementButton.style.backgroundColor = '#ffff00b3';
+        incrementButton.style.backgroundColor = 'rgb(255 255 0 / 86%)';
+        decrementButton.style.backgroundColor = 'rgb(255 255 0 / 86%)';
     } else if (priority === 2) {
         incrementButton.style.backgroundColor = '#ffa500ba';
         decrementButton.style.backgroundColor = '#ffa500ba';

@@ -32,6 +32,9 @@ const afterLoginBox = document.querySelector('.after-login');
 const playAnimation = document.querySelector('#animation');
 const playLogin = document.querySelector('#loggedin');
 
+const allTicketsDiv = document.querySelector('#allTickets');
+
+
 const animationFlag = playAnimation.getAttribute('value');
 
 const loggedinFlag = playLogin.getAttribute('value');  //para verificar a sessão iniciada ou não
@@ -109,7 +112,13 @@ if (animationFlag == "1") {
   profileBox.style.animation = "slideInLogout 2s ease-in-out"
   menuBox.style.display = "block";
   menuBox.style.animation = "slideInButtons 2s ease-in-out";
-  
+
+  setTimeout(() => {
+  allTicketsDiv.style.display = 'grid';
+  allTicketsDiv.style.animation = "slideInButtons 2s ease-in-out";
+}, 500)
+
+
   setTimeout(() => {
     loginBox.style.display = 'none';
     loginBox2.style.display = 'none';
@@ -139,11 +148,12 @@ if (animationFlag == "2") {
 
 if (animationFlag == "3") {
 
-  setTimeout(() => {
+  loginBox.style.display = "none";
+  loginBox2.style.display = "none";
   menuBox.style.animation = 'slideOutButtons 2s ease-in-out';
+  /*allTicketsDiv.style.animation = 'slideOutButtons 2s ease-in-out';*/ 
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
   profileBox.style.animation = "slideOutLoginToLogout 2s ease-in-out";
-}, 200)
 
   setTimeout(() => {
     loginBox.style.display = "grid";
@@ -174,24 +184,29 @@ if (animationFlag == "4"){
 }
 
 
+console.log(loggedinFlag);
 
-if (loggedinFlag && animationFlag !=1 ) { ///quando se está com sessão iniciada e se dá refresh
+if (loggedinFlag != 0 && animationFlag !=1 ) { ///quando se está com sessão iniciada e se dá refresh
   loginBox.style.display = "none";
   loginBox2.style.display = "none";
   logoutBox.style.display = "flex";
   profileBox.style.display = "flex";
   menuBox.style.display = "flex";
   menuBox.style.animation = "slideInButtons 0s ease-in-out"; //pode-se alterar isto para chegar um pouco mais suave, tipo apareceer ja a meio da tela e subir somente um pouco
+  allTicketsDiv.style.display = 'grid';
+
 }
 
 
 if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a sessão iniciada
-  loginBox.style.display = "grid";
   loginBox2.style.display = "flex";
+  loginBox.style.display = "grid";
   logoutBox.style.display = "none";
   profileBox.style.display = "none";
   menuBox.style.display = "none";
+
 }
+
 
 
 
