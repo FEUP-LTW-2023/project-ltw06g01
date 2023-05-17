@@ -19,6 +19,7 @@ function getFAQ(array $faqs){  ?>
 
 function drawFAQForm() { ?>
     <form class="faq-form">
+        <div class = "back-button"><ion-icon name="close-outline"></ion-icon></div>
         <h3 class="faq-questions">Adicionar novo FAQ</h3>
         <label for="question">Pergunta:</label>
         <input type="text" class="question" name="question">

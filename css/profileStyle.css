@@ -54,6 +54,7 @@
 
 #save{
     margin: 23px 0;
+    cursor: pointer;
 }
 
 #profile-edit{
@@ -64,6 +65,10 @@
 .edit{
     display: grid;
     justify-content: end;
+    cursor: pointer;
+}
+
+#edit{
     cursor: pointer;
 }
 

@@ -89,7 +89,14 @@ body{
 }
 
 .faq-form {
+  border-color: #55b0c6;
     display: none;
+    grid-template-areas: 
+    "back-button" "faq-questions" 
+    "question"
+    "answer"
+    "text-answer"
+    "submit";
     min-width: 800px;
     margin: 40px auto;
     padding: 20px;
@@ -101,12 +108,19 @@ body{
     border: 2px solid rgba(255,255,255,0.5);
     justify-content: center;
     gap: 10px;
-    background-color: #2d3436;
+    background-color: #fff;
     height: fit-content;
-    color: #ebfcff;
+    color: #55b0c6;
 
 }
 
+.faq-questions{
+  grid-area: faq-questions;
+}
+
+.back-button{
+  grid-area: back-button;
+}
 
 #add-faq-btn {
   grid-area: button;
@@ -147,4 +161,16 @@ body{
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.question,
+.answer,
+.faq-form button {
+  border: 1px solid #55b0c6;
+  border-radius: 15px;
+}
+
+.faq-form button{
+  background-color: #fff;
+  color: #55b0c6;
 }

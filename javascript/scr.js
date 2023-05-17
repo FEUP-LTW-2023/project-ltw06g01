@@ -38,7 +38,7 @@ const allTicketsDiv = document.querySelector('#allTickets');
 const animationFlag = playAnimation.getAttribute('value');
 
 const loggedinFlag = playLogin.getAttribute('value');  //para verificar a sessão iniciada ou não
-
+const faqsSection = document.querySelector('.FAQs');
 
 
 
@@ -238,4 +238,12 @@ userBoxes.forEach((element) => {
     }
   });
 });
+
+
+
+  // Adiciona um evento de clique ao elemento
+  faqsSection.addEventListener('click', function() {
+    // Redireciona para a página "faq.php"
+    window.location.href = 'faq.php';
+  });
 
