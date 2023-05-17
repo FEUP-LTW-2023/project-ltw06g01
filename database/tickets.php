@@ -116,6 +116,7 @@
 
     function deleteTicket($db, $id, $prev) {
         $stmt = $db->prepare('DELETE FROM TICKET WHERE id = ? AND future is NULL');
+        $stmt->execute(array($id));
         /*echo "ID" . $id . "ID";
         if (!isset($prev)) {
             $stmt = $db->prepare('DELETE FROM TICKET WHERE id = ?');
