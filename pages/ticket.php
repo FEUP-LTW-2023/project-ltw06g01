@@ -18,6 +18,7 @@ if (!$session->isLoggedIn()) {
 
   if (isset($_GET['id'])) {
     $ticket = Ticket::getTicket($db, $_GET['id']);
+    if ($ticket->hasNext()) header("Location: ../pages/view_ticket.php?id=$tiket->id");
     $tags = getTicketTags($db, $ticket->id);
   }
   else {
