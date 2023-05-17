@@ -114,15 +114,18 @@
         else return $db->lastInsertId();
     }
 
-    function deleteTicket($db, $id, $prev = null) {
-        if (!isset($hasPrev)) {
+    function deleteTicket($db, $id, $prev) {
+        $stmt = $db->prepare('DELETE FROM TICKET WHERE id = ? AND future is NULL');
+        /*echo "ID" . $id . "ID";
+        if (!isset($prev)) {
             $stmt = $db->prepare('DELETE FROM TICKET WHERE id = ?');
             $stmt->execute(array($id));
         }
         else {
             $prev = getTicket($db, $prev);
-            deleteTicket($db, $prev, $prev['history']);
-        }
+            $stmt = $db->prepare('DELETE FROM TICKET WHERE id = ?');
+            deleteTicket($db, $prev['id'], $prev['history']);
+        }*/
     }
 
     function updateTicket($db, $uid, $title, $text, $department, $id, $status, $priority) {
