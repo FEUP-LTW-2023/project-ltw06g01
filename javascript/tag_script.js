@@ -26,7 +26,7 @@ addButton.addEventListener('click', (e) => {
     const newTag = tagInput.value 
 
     const currTags = Array.from(tagBox.querySelectorAll('.tag')).map(node => node.textContent.slice(0, -2))
-    if (tagList.includes(newTag) && !currTags.includes(newTag)) {
+    if (!currTags.includes(newTag)) {
         const tagNode = document.createElement('div')
         const newButton = document.createElement('span')
 
@@ -43,5 +43,10 @@ addButton.addEventListener('click', (e) => {
         tagString.value = tagString.value.replace(/^,/, '')
         
         tagBox.appendChild(tagNode)
+    }
+    if (!tagList.includes(newTag)) {
+        const createdTag = document.createElement('option')
+        createdTag.textContent = newTag
+        allTags.appendChild(createdTag)
     }
 })
