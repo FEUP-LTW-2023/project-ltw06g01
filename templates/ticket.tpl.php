@@ -166,6 +166,7 @@ function drawChangeStatus($db, $ticket) {
 }
 
 function drawTicketFAQ($db, $ticket, $edit) {
+
     if (!isset($ticket->faqitem) && $_SESSION['uid'] == $ticket->aid && $edit) { 
         $faqs = FAQ::getAllFAQ($db); ?>
         <form class="faq-box">

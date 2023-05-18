@@ -45,7 +45,7 @@ function drawSideBar(){
           </li>
         <?php endif; if ($user_type >= 1): ?>
           <li class="item-menu">
-            <a href = "open_tickets.php">
+            <a href = "all_tickets.php">
               <span class = "icon"><ion-icon name="file-tray-stacked-outline"></ion-icon></span>
               <span class = "txt-link">All Tickets</span>
             </a>
