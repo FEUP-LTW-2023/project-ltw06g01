@@ -65,7 +65,8 @@
     </header>
   <?php } else { ?>
     <header id="logged-in">
-      <?php drawHeader($animation, 3,  "Home"); ?>
+      <?php drawHeader($animation, 3,  "Home"); 
+      drawMessages($session); ?>
     </header>
   <?php } ?>
   

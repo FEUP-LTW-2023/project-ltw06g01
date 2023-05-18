@@ -41,7 +41,8 @@ if (!$session->isLoggedIn()) {
 </head>
 <body>
   <header>
-    <?php drawHeader(0, 4, "Create Ticket"); ?>
+    <?php drawHeader(0, 4, "Create Ticket"); 
+    drawMessages($session);?>
   </header>
   <div id="nav">
     <?php drawNav(); ?>

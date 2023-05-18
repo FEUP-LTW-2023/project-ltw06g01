@@ -51,7 +51,8 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 </head>
 <body>
   <header>
-    <?php drawHeader(0, 4, "Ticket history"); ?>
+    <?php drawHeader(0, 4, "Ticket history"); 
+    drawMessages($session);?>
   </header>
   <div id="nav">
     <?php drawNav(); ?>
