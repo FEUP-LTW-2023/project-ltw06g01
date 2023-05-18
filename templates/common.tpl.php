@@ -7,6 +7,7 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
     $loggedin = 0;
   } 
 ?>
+  <script src="/../javascript/header.js" defer></script>
     <form>
       <input type="hidden" id="loggedin" value=<?=$loggedin?>>
     </form>
