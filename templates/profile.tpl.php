@@ -77,6 +77,7 @@ function drawProfileEdit($curr_user)
 {
 ?>
   <form class="form-box-edit-profile" id = "profile-edit">
+    <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
     <div id ="back">
       <ion-icon name="close-outline"></ion-icon>
     </div>
