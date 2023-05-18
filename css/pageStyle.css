@@ -924,28 +924,36 @@ select option{
 
 /* faqs */
 
-#faqs{
-  grid-area: faqs;
-}
 
 .FAQs{
+  grid-area: faqs;
   display: grid;
+  grid-template-areas: 
+  "icon" 
+  "h6";
   align-items: end;
-  justify-content: flex-end;
+  justify-content: end;
   padding-right: 10%;
   color: #e8e9e9;
 }
 
-#Faqs-icon:hover{
+#faqs-icon:hover, #faqs-icon:hover + h6, h6:hover{
   color: #fff;
   cursor: pointer;
 }
 
-#Faqs-icon ion-icon{
-  position: relative;
-  font-size: 4em;
-  right: 10px;
+#faqs-icon{
+  grid-area: icon;
+  font-size: 65px;
 }
+
+h6{
+  grid-area: h6;
+  justify-self: center;
+  font-size: 15px;
+
+}
+
 
 /*footer*/
 

@@ -182,14 +182,10 @@
           } ?>
            </div>
     </div>
-  <div id="faqs">
     <section class="FAQs">
-      <h6 id="Faqs-icon">
-      <ion-icon name="help-circle-outline" id="icon"></ion-icon>
-      FAQ's
-      </h6>
+      <ion-icon name="help-circle-outline" id="faqs-icon"></ion-icon>
+      <h6>FAQ's</h6>
     </section>
-  </div>
   <div id="footer">
       <p>Algum footer que queiramos</p>
   </div>
