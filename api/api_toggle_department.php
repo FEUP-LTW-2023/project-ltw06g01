@@ -1,8 +1,10 @@
 <?php
-session_start();
+require_once(__DIR__ . '/../classes/session.class.php');
 
-if (!isset($_SESSION['uid'])) {
-    header('Location: /../pages/page.php');
+$session = new Session();
+
+if (!$session->isLoggedIn() || !$session->isValidSession($_GET['csrf'])) {
+    header('Location: page.php');
 }
 
 require_once(__DIR__ . '/../utils/validations.php');
