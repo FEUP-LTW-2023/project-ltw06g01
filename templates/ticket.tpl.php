@@ -127,7 +127,7 @@ function drawAssignAgent($db, $ticket) {
     $agents = User::getAgentsFromDepartment($db, $ticket->department);
     ?> <form class="assign-box">
         <input type="hidden" class="assign-id" value=<?= $ticket->id ?>>
-        <input type="hideen" class="csrf" value=<?= $_SESSION['csrf'] ?>>
+        <input type="hiden" class="csrf" value=<?= $_SESSION['csrf'] ?>>
         <select name="agents" class="agent-list" onchange="this.form.submit()"> <?php 
         foreach($agents as $agent) {
             ?> <option value=<?= $agent->id ?> <?php if ($ticket->aid == $agent->id) echo 'selected'; ?>><?= $agent->username ?></option> <?php
