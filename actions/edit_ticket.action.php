@@ -4,7 +4,7 @@ require_once(__DIR__ . '/../classes/session.class.php');
 
 $session = new Session();
 
-array_map(fn($value) => preg_replace("/[^a-zA-Z0-9\s]/", "", "value"), $_GET, $_POST);
+array_map(fn($value) => preg_replace("/[^a-zA-Z0-9,\s]/", "", "value"), $_GET, $_POST);
 
 if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
   $session->addMessage('error', 'Not logged in');
@@ -37,7 +37,7 @@ if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
     
     if (!$status) header('Location: ../pages/page.php');
 
-    setTicketTags($db, $status->id, explode(',', $_POST['tag-string']));
+    setTicketTags($db, $status->id, explode(',', htmlentities($_POST['tag-string'])));
     $session->addMessage('success', 'Ticket edited');
     header("Location: ../pages/view_ticket.php?id=$status->id");
 ?>    
