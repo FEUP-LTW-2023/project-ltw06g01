@@ -13,7 +13,7 @@ allTags.querySelectorAll('option').forEach((option) => {
 function tagSetup(tag) {
     const x = tag.querySelector('.tag-delete')
     x.addEventListener('click', (e) => {
-        const tagName = tag.textContent.slice(0, -2)
+        const tagName = tag.textContent.slice(0, -5)
         tagString.value = tagString.value.replace(tagName, '').replace(/^,/, '').replace(/,,/, ',').replace(/,$/, '')
         
         tag.remove()
