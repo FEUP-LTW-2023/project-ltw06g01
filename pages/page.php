@@ -50,6 +50,7 @@
 <head>
 <title>Ticket System</title>
 <script src="/../javascript/all_variables.js" defer></script>
+<script src="/../javascript/page.js" defer></script>
 <script src="/../javascript/login_logout_transitions.js" defer></script>
 <script src="/../javascript/ticket_options.js" defer></script>
 <script src="/../javascript/priority_change.js" defer></script>

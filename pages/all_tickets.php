@@ -34,12 +34,14 @@ if (!$session->isLoggedIn()) {
 
   if (empty($tickets)) {
     $tickets = null;}
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 <title>All Tickets</title>
+  <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/ticket_options.js" defer></script>
   <script src="/../javascript/all_tickets.js" defer></script>

@@ -108,7 +108,7 @@ function drawNavigationButtons($prev, $next)
     </nav>
 <?php } 
 
-/*
+
 function drawAssignAgent($db, $ticket) {
     $agents = User::getAgentsFromDepartment($db, $ticket->department);
     ?> <form class="assign-box">
@@ -121,44 +121,14 @@ function drawAssignAgent($db, $ticket) {
         <button type="button" class="assign-confirm">Assign</button>
     </form> <?php     
 }
-*/
 
-function drawAssignAgent($db, $ticket) {
-    $agents = User::getAgentsFromDepartment($db, $ticket->department);
-    ?> <form class="assign-box">
-        <input type="hidden" class="assign-id" value=<?= $ticket->id ?>>
-        <input type="hidden" class="csrf" value=<?= $_SESSION['csrf'] ?>>
-        <select name="agents" class="agent-list" onchange="this.form.submit()"> <?php 
-        foreach($agents as $agent) {
-            ?> <option value=<?= $agent->id ?> <?php if ($ticket->aid == $agent->id) echo 'selected'; ?>><?= $agent->username ?></option> <?php
-        } ?>
-        </select>
-        <button type="button" class="assign-confirm">Assign</button>
-    </form> <?php     
-}
 
-/*
 function drawChangeStatus($db, $ticket) { 
     $statuses = getAllStatuses($db);
     $statuses = array_map(fn($value) => $value['name'], $statuses); ?>
     <form class="status-box">
         <input type="hidden" class="status-id" value=<?= $ticket->id ?>>
         <select name="statuses" class="status-list"> <?php
-        foreach ($statuses as $status) {
-            ?> <option value=<?= $status ?> <?php if ($ticket->status == $status) echo 'selected'; ?>><?= $status ?></option> <?php
-        } ?>
-        </select>
-        <button type="button" class="status-confirm">Change</button>
-    </form> <?php
-}
-*/
-function drawChangeStatus($db, $ticket) { 
-    $statuses = getAllStatuses($db);
-    $statuses = array_map(fn($value) => $value['name'], $statuses); ?>
-    <form class="status-box">
-        <input type="hidden" class="status-id" value=<?= $ticket->id ?>>
-        <input type="hidden" class="csrf" value=<?= $_SESSION['csrf'] ?>>
-        <select name="statuses" class="status-list" onchange="this.form.submit()"> <?php
         foreach ($statuses as $status) {
             ?> <option value=<?= $status ?> <?php if ($ticket->status == $status) echo 'selected'; ?>><?= $status ?></option> <?php
         } ?>
