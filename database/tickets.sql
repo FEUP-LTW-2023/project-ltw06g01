@@ -101,7 +101,7 @@ VALUES (25, 'onso', '$2y$10$elfuu1AexoMbccFQaG28Pu9GdtfHhH2bGfchrSVOn6OiYWg6.Pw/
 INSERT INTO DEPARTMENT (name) VALUES ('Vendas'), ('Suporte'), ('Financeiro');
 
 -- Inserting data into TAG table
-INSERT INTO TAG (name) VALUES ('potato'), ('tomato'), ('banana'), ('apple');
+/*INSERT INTO TAG (name) VALUES ('potato'), ('tomato'), ('banana'), ('apple');*/
 
 -- Inserting data into STATUS table
 INSERT INTO STATUS (name) VALUES ('open'), ('assigned'), ('closed');
