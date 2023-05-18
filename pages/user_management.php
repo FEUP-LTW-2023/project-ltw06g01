@@ -37,7 +37,8 @@ $users = User::getUsersAdmin($db);
   </head>
   <body>
     <header>
-        <?php drawHeader(0, 4, "Manage users"); ?>
+        <?php drawHeader(0, 4, "Manage users"); 
+        drawMessages($session);?>
     </header>
     <div id="nav">
       <?php drawNav(); ?>

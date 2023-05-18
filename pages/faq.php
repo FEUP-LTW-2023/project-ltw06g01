@@ -37,7 +37,8 @@
 </head>
 <body>
     <header>
-      <?php drawHeader(0, 4,  "FAQs"); ?>
+      <?php drawHeader(0, 4,  "FAQs"); 
+      drawMessages($session);?>
     </header>
   <div id = "content">
       <div id= "faqs_more_button">
