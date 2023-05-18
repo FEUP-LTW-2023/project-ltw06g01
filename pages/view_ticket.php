@@ -39,9 +39,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
   <title>Visualizar Ticket</title>
   <link rel="stylesheet" href="/../css/view_ticketStyle.css">
   <link rel="stylesheet" href="/../css/geralStyle.css">
-
-  
-
+  <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/ticket_options.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>

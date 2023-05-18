@@ -58,9 +58,6 @@
   
 </head>
 <body>
-  <form>
-    <input type="hidden" id="loggedin" value=<?=$loggedin?>>
-  </form>
 
   <?php if (!$loggedin) { ?>
     <header id="not-logged-in">

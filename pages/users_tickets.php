@@ -37,6 +37,7 @@ if (!$session->isLoggedIn()) {
 <html>
 <head>
 <title>All Tickets</title>
+  <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/open_tickets.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>

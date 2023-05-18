@@ -31,6 +31,7 @@ if (!$session->isLoggedIn()) {
 <html>
 <head>
   <title>Enviar Ticket</title>
+  <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/tag_script.js" defer ></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
