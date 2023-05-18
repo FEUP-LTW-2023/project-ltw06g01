@@ -39,11 +39,12 @@
     background-color: #fff;
     border-radius: 15px;
     padding: 10px;
-    column-gap: 10px;
-    row-gap: 5px;
+    column-gap: 15px;
+    row-gap: 10px;
     grid-template-areas:
         "ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title"
         "ticket-filter-status ticket-filter-agent ticket-filter-department";
+    grid-auto-columns: 1fr 1fr 1fr;
     justify-content: center;
 }
 #filtro #ticket-filter-status-title{
@@ -69,6 +70,7 @@
 }
 
 #filtro select{
+    font-size: 13px;
     color:#a4a4a5;
     background-color: #55afc641;
     padding: 0.5%;
