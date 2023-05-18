@@ -135,4 +135,12 @@ function drawEnterBoxes(){
           </div>
 <?php 
 }
-?>
+
+function drawMessages($session) {
+  foreach ($session->getMessages() as $message) { ?>
+  <div class="message-category">
+    <input type="hidden" class="message-type" value=<?= $message['type'] ?>>
+    <p><?= $message['text'] ?></p>
+  </div>  
+  <?php }
+}
