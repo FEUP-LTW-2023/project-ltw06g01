@@ -161,6 +161,23 @@ header{
   display: flex;
   }
 
+  .message-category {
+    font-size: 15px;
+    color: #e8e9e9;
+    opacity: 0; /* Inicia com opacidade 0 para estar oculto */
+    transform: translateY(100%); /* Desloca o elemento para baixo */
+    transition: transform 1s ease, opacity 0.5s ease; /* Define a transição para transform e opacidade */
+  }
+  
+  .message-category.show {
+    opacity: 1; /* Define a opacidade 1 para mostrar o elemento */
+    transform: translateY(0); /* Desloca o elemento de volta para a posição inicial */
+  }
+  
+  .message-category.hide {
+    opacity: 0; /* Define a opacidade 0 para ocultar o elemento */
+    transform: translateY(100%); /* Desloca o elemento para baixo novamente */
+  }
 
 /* Menu Bar */
 

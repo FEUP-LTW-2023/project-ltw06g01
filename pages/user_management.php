@@ -28,10 +28,12 @@ $users = User::getUsersAdmin($db);
   <title>All Tickets</title>
     <link rel="stylesheet" href="/../css/geralStyle.css">
     <link rel="stylesheet" href="/../css/user_managementStyle.css">
+    <script src="/../javascript/all_variables.js" defer></script>
     <script src="/../javascript/login_logout_transitions.js" defer></script>
     <script src="/../javascript/department_toggle.js" defer></script>
     <script src="/../javascript/user_management.js" defer></script>
     <script src="/../javascript/user_promotion.js" defer></script>
+    <script src="/../javascript/popup.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>

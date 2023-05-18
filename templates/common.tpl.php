@@ -1,6 +1,16 @@
 <?php 
 function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento title devia ser subtitle*/
+  if (isset($_SESSION['loggedin'])){
+    $loggedin = $_SESSION['loggedin'];
+  }
+  else{
+    $loggedin = 0;
+  } 
 ?>
+  <script src="/../javascript/header.js" defer></script>
+    <form>
+      <input type="hidden" id="loggedin" value=<?=$loggedin?>>
+    </form>
     <form id="drawHeader" action="/../actions/logout.action.php" method="get">
       <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
         <input name= "next-logout" type="hidden" id="next-animation" value=<?=$nextAnimation?>>

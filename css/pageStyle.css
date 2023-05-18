@@ -16,7 +16,8 @@ body{
    "header"
    "nav"
    "content"
-   "faqs";
+   "faqs"
+   "footer";
    grid-template-columns: 1fr;
    grid-template-rows: auto auto 1fr auto;
    max-width: 100em;
@@ -157,6 +158,23 @@ header{
 
 #home {
   display: none;
+}
+
+.message-category {
+  color: #55b0c6;
+  opacity: 0; /* Inicia com opacidade 0 para estar oculto */
+  transform: translateY(100%); /* Desloca o elemento para baixo */
+  transition: transform 3s ease, opacity 3s ease; /* Define a transição para transform e opacidade */
+}
+
+.message-category.show {
+  opacity: 1; /* Define a opacidade 1 para mostrar o elemento */
+  transform: translateY(0%); /* Desloca o elemento de volta para a posição inicial */
+}
+
+.message-category.hide {
+  opacity: 0; /* Define a opacidade 0 para ocultar o elemento */
+  transform: translateY(100%); /* Desloca o elemento para baixo novamente */
 }
 
 /* content */
@@ -960,7 +978,7 @@ h6{
 #footer{
   display: grid;
   justify-self: center;
-  position: relative;
+  grid-area: footer;
   color: #f6f6f67d;
 }
 

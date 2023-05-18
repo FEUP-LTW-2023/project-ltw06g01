@@ -5,15 +5,47 @@
     "allTickets";
     grid-template-rows: auto 1fr;
 }
+#filters-box{
+    grid-area: filtro;
+    padding-bottom: 3%;
+    display: grid;
+}
+
+#filters-button{
+    font-size: 15px;
+    display: grid;
+    justify-self: center;
+    color: #fff;
+    background-color: #55afc699;
+    padding: 0.5% 10px;
+    border: 2px solid rgba(255, 255, 255, 0.671);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+#filters-button:hover{
+    border: 2px solid #fff;
+
+}
 
 #filtro{
-    grid-area: filtro;
-    display: grid;
-    grid-template-areas: 
-    "ticket-filter-status-title ticket-filter-agent-title"
-    "ticket-filter-status ticket-filter-agent";
+    display: none;
+    width: fit-content;
+    height: fit-content;
+    justify-self: center;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    column-gap: 15px;
+    row-gap: 10px;
+    grid-template-areas:
+        "ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title"
+        "ticket-filter-status ticket-filter-agent ticket-filter-department";
+    grid-auto-columns: 1fr 1fr 1fr;
     justify-content: center;
-    padding-bottom: 3%;
 }
 #filtro #ticket-filter-status-title{
     grid-area: ticket-filter-status-title;
@@ -30,8 +62,16 @@
 
 }
 
+#filtro #ticket-filter-department-title{
+    grid-area:ticket-filter-department-title;
+    display: flex; /*ver como preferem*/
+    color:#a4a4a5;
+    justify-self: center;
+}
+
 #filtro select{
-    color:#fff;
+    font-size: 13px;
+    color:#a4a4a5;
     background-color: #55afc641;
     padding: 0.5%;
     border: 2px solid rgba(255,255,255,0.5);
