@@ -24,3 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+faqsSection.addEventListener('click', function() {
+    
+  window.location.href = 'faq.php';
+});

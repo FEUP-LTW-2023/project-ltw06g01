@@ -32,6 +32,7 @@ $users = User::getUsersAdmin($db);
     <script src="/../javascript/department_toggle.js" defer></script>
     <script src="/../javascript/user_management.js" defer></script>
     <script src="/../javascript/user_promotion.js" defer></script>
+    <script src="/../javascript/popup.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
