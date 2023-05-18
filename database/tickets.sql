@@ -86,6 +86,13 @@ CREATE TRIGGER tag_insert
         INSERT INTO TAG (name) VALUES (NEW.tag);
     END; 
 
+CREATE TRIGGER tag_delete
+    AFTER DELETE ON TICKETTAG
+    WHEN NOT EXISTS (SELECT * FROM TICKETTAG WHERE tag = OLD.tag)
+    BEGIN
+        DELETE FROM TAG WHERE name = OLD.tag;
+    END;        
+
 -- Inserting data into CLIENT table
 INSERT INTO CLIENT (uid, username, passHash, email, permissionLevel)
 VALUES (25, 'onso', '$2y$10$elfuu1AexoMbccFQaG28Pu9GdtfHhH2bGfchrSVOn6OiYWg6.Pw/y', 'afonso.vo@gmail.com', 2);
