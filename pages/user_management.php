@@ -28,7 +28,7 @@ $users = User::getUsersAdmin($db);
   <title>All Tickets</title>
     <link rel="stylesheet" href="/../css/geralStyle.css">
     <link rel="stylesheet" href="/../css/user_managementStyle.css">
-    <script src="/../javascript/scr.js" defer></script>
+    <script src="/../javascript/login_logout_transitions.js" defer></script>
     <script src="/../javascript/department_toggle.js" defer></script>
     <script src="/../javascript/user_management.js" defer></script>
     <script src="/../javascript/user_promotion.js" defer></script>
@@ -40,7 +40,7 @@ $users = User::getUsersAdmin($db);
         <?php drawHeader(0, 4, "Manage users"); ?>
     </header>
     <div id="nav">
-      <?php drawSideBar(); ?>
+      <?php drawNav(); ?>
     </div>
     <div id="content">
       <div id="all-users">

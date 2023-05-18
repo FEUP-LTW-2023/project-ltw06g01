@@ -43,7 +43,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
   
 
   <script src="/../javascript/ticket_options.js" defer></script>
-  <script src="/../javascript/scr.js" defer></script>
+  <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>
   <script src="/../javascript/status_change.js" defer></script>
   <script src="/../javascript/priority_change.js" defer></script>
@@ -56,7 +56,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     <?php drawHeader(0, 4, "Ticket history"); ?>
   </header>
   <div id="nav">
-    <?php drawSideBar(); ?>
+    <?php drawNav(); ?>
   </div>
   <div id="content">
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>

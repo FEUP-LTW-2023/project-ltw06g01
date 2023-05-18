@@ -49,8 +49,8 @@
 <html>
 <head>
 <title>Ticket System</title>
-<script src="/../javascript/scr.js" defer></script>
-<script src="/../javascript/page.js" defer></script>
+<script src="/../javascript/all_variables.js" defer></script>
+<script src="/../javascript/login_logout_transitions.js" defer></script>
 <script src="/../javascript/ticket_options.js" defer></script>
 <script src="/../javascript/priority_change.js" defer></script>
   <link rel="stylesheet" href="/../css/pageStyle.css">
@@ -72,73 +72,11 @@
   <?php } ?>
   
   <div id="nav">
-          <?php drawSideBar(); ?>
+          <?php drawNav(); ?>
   </div>
   <div id="content-home">
-              <div id="login-box-animated">
-                <div class ="form-box-login" id="login-box">
-                  <div class="form-value">
-                    <form>
-                      <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
-                      <h2>Login</h2>
-                      <div class="inputbox">
-                        <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" required class="username" name="username">
-                        <label for="username">Username:</label>
-                      </div>
-                      <div class="inputbox">
-                        <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required class="password" name="password">
-                        <label for="password">Password:</label>
-                      </div>
-                      <button type="submit" class="submit-login" formaction="/../actions/login.action.php" formmethod="post">Login</button>
-                      <div class="Reg-forget">
-                        <div class="Register" id="Register-button">
-                          <p>New account?</p>
-                        </div>
-                        <div class="forget">
-                          <a href="#">Forget Password?</a>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-          
-          <div id="signup-box-animated" style="display: none;">
-            <div class ="form-box-signup" id="signup-box">
-              <div class="form-value">
-                <form action='/../actions/register.action.php' method = "post">
-                  <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
-                  <h2>Sign Up</h2>
-                  <div class="inputbox">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <input type="text" required class="username" name="username">
-                    <label for="username">Username:</label>
-                  </div>
-                  <div class="inputbox">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <input type="text" required id="email" name="email">
-                    <label for="email">Email:</label>
-                  </div>
-                  <div class="inputbox">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" required class="password" name="password">
-                    <label for="password">Password:</label>
-                  </div>
-                  <div class="inputbox">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" required id="confirm-password" name="confirm-password">
-                    <label for="confirm-password">Confirm Password:</label>
-                  </div>
-                  <button type="submit" class="submit-signup">Sign Up</button>
-                  <div class="Enter" id="login-button">
-                    <p>Already have an account? </p>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+          <?php drawEnterBoxes(); ?>
+
           <?php if($loggedin){ 
             if (!empty($tickets)) {?>
           <div id="allTickets" style="display: none;"> 

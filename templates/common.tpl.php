@@ -31,9 +31,10 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
 ?>
 
 <?php 
-function drawSideBar(){ 
+function drawNav(){ 
 ?>
-    <nav id="drawSideBar">
+    <script src="/../javascript/nav.js" defer></script>
+    <nav id="drawNav">
       <ul>
         <?php $user_type = $_SESSION['level'] ?? -1?>
         <?php if (isset($user_type)): ?>
@@ -60,6 +61,78 @@ function drawSideBar(){
         <?php endif; ?>
       </ul>
     </nav>
+<?php 
+}
+?>
+
+<?php 
+function drawEnterBoxes(){ 
+?>
+<script src="/../javascript/enter_boxes_transitions.js" defer></script>
+            <div id="login-box-animated">
+              <div class ="form-box-login" id="login-box">
+                <div class="form-value">
+                  <form>
+                    <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
+                    <h2>Login</h2>
+                    <div class="inputbox">
+                      <ion-icon name="person-outline"></ion-icon>
+                      <input type="text" required class="username" name="username">
+                      <label for="username">Username:</label>
+                    </div>
+                    <div class="inputbox">
+                      <ion-icon name="lock-closed-outline"></ion-icon>
+                      <input type="password" required class="password" name="password">
+                      <label for="password">Password:</label>
+                    </div>
+                    <button type="submit" class="submit-login" formaction="/../actions/login.action.php" formmethod="post">Login</button>
+                    <div class="Reg-forget">
+                      <div class="Register" id="Register-button">
+                        <p>New account?</p>
+                      </div>
+                      <div class="forget">
+                        <a href="#">Forget Password?</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          
+          <div id="signup-box-animated" style="display: none;">
+            <div class ="form-box-signup" id="signup-box">
+              <div class="form-value">
+                <form action='/../actions/register.action.php' method = "post">
+                  <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
+                  <h2>Sign Up</h2>
+                  <div class="inputbox">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input type="text" required class="username" name="username">
+                    <label for="username">Username:</label>
+                  </div>
+                  <div class="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="text" required id="email" name="email">
+                    <label for="email">Email:</label>
+                  </div>
+                  <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" required class="password" name="password">
+                    <label for="password">Password:</label>
+                  </div>
+                  <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" required id="confirm-password" name="confirm-password">
+                    <label for="confirm-password">Confirm Password:</label>
+                  </div>
+                  <button type="submit" class="submit-signup">Sign Up</button>
+                  <div class="Enter" id="login-button">
+                    <p>Already have an account? </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
 <?php 
 }
 ?>

@@ -22,7 +22,7 @@ if (!$session->isLoggedIn()) {
 <html>
 <head>
   <title>Profile Page</title>
-  <script src="/../javascript/scr.js" defer></script>
+  <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/profile.js" defer></script>
   <link rel="stylesheet" href="/../css/geralStyle.css">
   <link rel="stylesheet" href="/../css/profileStyle.css">
@@ -37,7 +37,7 @@ if (!$session->isLoggedIn()) {
     <?php drawHeader(0, 4, "Profile"); ?>
   </header>
   <div id="nav">
-    <?php drawSideBar(); ?>
+    <?php drawNav(); ?>
   </div>
   <div id="content">
     <?php drawProfile($curr_user); ?>

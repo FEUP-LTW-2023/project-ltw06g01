@@ -1009,11 +1009,11 @@ ul li.item-menu:hover{
   transition: 200ms cubic-bezier(1, 0.49, 0.09, 0.09);
 }
 
-#drawSideBar{
+#drawNav{
   display: flex; 
 }
 
-#drawSideBar .txt-link{
+#drawNav .txt-link{
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out;

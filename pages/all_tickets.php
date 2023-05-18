@@ -40,7 +40,7 @@ if (!$session->isLoggedIn()) {
 <html>
 <head>
 <title>All Tickets</title>
-  <script src="/../javascript/scr.js" defer></script>
+  <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/ticket_options.js" defer></script>
   <script src="/../javascript/all_tickets.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>
@@ -56,7 +56,7 @@ if (!$session->isLoggedIn()) {
     <?php drawHeader(0, 4, "All Tickets"); ?>
   </header>
   <div id="nav">
-    <?php drawSideBar(); ?>
+    <?php drawNav(); ?>
   </div>
   <div id="content">
     <form id="filtro" method="get" class="ticket-filter-container">

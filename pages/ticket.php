@@ -31,7 +31,7 @@ if (!$session->isLoggedIn()) {
 <html>
 <head>
   <title>Enviar Ticket</title>
-  <script src="/../javascript/scr.js" defer></script>
+  <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/tag_script.js" defer ></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -43,7 +43,7 @@ if (!$session->isLoggedIn()) {
     <?php drawHeader(0, 4, "Create Ticket"); ?>
   </header>
   <div id="nav">
-    <?php drawSideBar(); ?>
+    <?php drawNav(); ?>
   </div>
   <div id="content">
     <?php drawTicketForm($ticket, true, $tags, true); ?>
