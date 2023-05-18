@@ -11,6 +11,7 @@ function drawUserBox(PDO $db, User $user, bool $admin)
 </div>
 <div class="user-box-popup" id="userBoxPopup-<?= $user->id ?>">
   <input type="hidden" name="id" class="uid" value=<?= $user->id ?>>
+  <input type="hidden" class="csrf" value=<?= $_SESSION['csrf'] ?>>
   <button type="button" class="back-button" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
     <ion-icon name="arrow-back"></ion-icon> 
   </button>
