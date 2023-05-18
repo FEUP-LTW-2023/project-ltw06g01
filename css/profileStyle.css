@@ -9,20 +9,16 @@
     "image"
     "email"
     "type";
-    min-width: 300px;
-    min-height: 340px;
-    height: fit-content;
-    width: fit-content;
+    width: 290px;
+    height: 320px;
     background: #55b0c6;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
-    backdrop-filter: blur(15px);
     justify-content: inherit;
     align-items: center;
     justify-self: center;
     align-content: center;
-    padding: 2%;
-    grid-gap: 10px;
+    padding: 17px;
 }
 
 .form-box-edit-profile{
@@ -36,24 +32,27 @@
     "type"
     "save";
     background-color: rgba(0,0,0,0.5);
-    min-width: 300px;
-    min-height: 340px;
-    height: fit-content;
-    width: fit-content;
+    width: 290px;
+    height: 320px;
     background: #55b0c6;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
-    backdrop-filter: blur(15px);
     justify-content: inherit;
     align-items: center;
     justify-self: center;
     align-content: center;
-    padding: 2%;
-    padding-bottom: 0;
+    padding: 17px;
 }
 
 #save{
-    margin: 23px 0;
+    margin-bottom: 23px;
+    cursor: pointer;
+    border-color: #fff;
+    color: ;
+}
+
+#save:hover{
+    border-color: #fff;
     cursor: pointer;
 }
 
@@ -69,13 +68,33 @@
 }
 
 #edit{
+    display: grid;
+    grid-area: edit;
+    justify-content: end;
+    align-self: start;
+    font-size: 20px;
+}
+
+#edit ion-icon{
     cursor: pointer;
 }
 
 #back{
-    cursor: pointer;
+    grid-area: back;
     display: grid;
+    font-size: 25px;
     justify-content: end;
+}
+
+#back ion-icon{
+    cursor: pointer;
+}
+
+
+
+.form-box-edit-profile #image {
+    padding-top: 0;
+    padding-bottom: 8%;
 }
 
 #image {
@@ -85,7 +104,7 @@
     align-items: center;
     height: fit-content;
     margin: 0%;
-    padding: 15%;
+    padding: 10%;
 }
 
 #image ion-icon{
@@ -97,6 +116,14 @@
 #name{
     grid-area: name;
     font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+#profile-edit #name{
+    grid-area: name;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,18 +160,23 @@
 
 
 .submit-update{
-    width: 100%;
-    height: 30px;
+    width: fit-content;
+    height: fit-content;
     display: flex;
-    color: #f6f6f6;
+    color: #e8e9e9;
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 23px;
     backdrop-filter: blur(15px);
-    padding: 2%;
+    padding: 2% 5%;
     font-size: 14px;
     justify-content: center;
-    
+    cursor: pointer;
+}
+
+.submit-update:hover{
+    color: #fff;
+    border-color: #fff;
 }
 
 #username{
@@ -155,8 +187,23 @@
     width: 100%;
     box-sizing: border-box;
     background-color: #ffffffe9;
-    margin: 23px 0;
+    margin-bottom: 23px;
+    text-align: center;
 }
+
+#profile-edit #username {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 23px;
+    text-align: center;
+    background-color: #bed9e041;
+    border: 2px solid #bed9e041;
+    color: #fff;
+}
+
 
 #email-text{
     padding: 8px;
@@ -166,6 +213,19 @@
     width: 100%;
     box-sizing: border-box;
     background-color: #ffffffe9;
+}
+
+#profile-edit #email-text {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 23px;
+    text-align: center;
+    background-color: #bed9e041;
+    border: 2px solid #bed9e041;
+    color: #fff;
 }
 
 
