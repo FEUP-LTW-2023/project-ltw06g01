@@ -63,7 +63,7 @@ if (!$session->isLoggedIn()) {
   </div>
   <div id="content">
     <div id="filters-box">
-      <p> Filters </p>
+      <button id="filters-button"> Filters </button>
       <form id="filtro" method="get" class="ticket-filter-container">
 
         <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>

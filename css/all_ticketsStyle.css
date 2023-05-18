@@ -11,28 +11,28 @@
     display: grid;
 }
 
-#filters-box p{
+#filters-button{
+    font-size: 15px;
     display: grid;
     justify-self: center;
     color: #fff;
     background-color: #55afc699;
     padding: 0.5% 10px;
     border: 2px solid rgba(255, 255, 255, 0.671);
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-radius: 15px;
     backdrop-filter: blur(15px);
     justify-content: center;
     text-align: center;
     cursor: pointer;
 }
 
-#filters-box p:hover{
+#filters-button:hover{
     border: 2px solid #fff;
 
 }
 
 #filtro{
-    display: grid;
+    display: none;
     width: fit-content;
     height: fit-content;
     justify-self: center;
@@ -69,7 +69,7 @@
 }
 
 #filtro select{
-    color:#fff;
+    color:#a4a4a5;
     background-color: #55afc641;
     padding: 0.5%;
     border: 2px solid rgba(255,255,255,0.5);
