@@ -19,7 +19,7 @@
             $params[] = $agent;
         }
         if ($department != 'unassigned') {
-            $query .= 'AND department = ?';
+            $query .= ' AND department = ?';
             $params[] = $department;
         }
         $stmt = $db->prepare($query);
