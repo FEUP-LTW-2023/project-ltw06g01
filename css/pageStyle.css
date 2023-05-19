@@ -975,14 +975,14 @@ h6{
 
 /*footer*/
 
-#footer{
+footer{
   display: grid;
   justify-self: center;
   grid-area: footer;
   color: #f6f6f67d;
 }
 
-#footer p{
+footer p{
   font-size: 15px;
 }
 

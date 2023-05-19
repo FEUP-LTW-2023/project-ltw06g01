@@ -275,7 +275,7 @@ a{
 
 /*footer*/
 
-#footer{
+footer{
     display: grid;
     justify-self: center;
     position: relative;
@@ -284,7 +284,7 @@ a{
 
 
 }
-#footer p{
+footer p{
     font-size: 15px;
   }
 

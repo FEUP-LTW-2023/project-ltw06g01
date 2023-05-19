@@ -48,8 +48,8 @@ if (!$session->isLoggedIn()) {
   <div id="content">
     <?php drawTicketForm($ticket, true, $tags, true); ?>
   </div>
-  <div id="footer">
+  <footer>
     <p>Algum footer que queiramos</p>
-  </div>
+  </footer>
 </body>
 </html>

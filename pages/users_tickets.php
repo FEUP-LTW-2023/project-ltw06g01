@@ -112,10 +112,8 @@ if (!$session->isLoggedIn()) {
       </div>
 
   </div>
-  <div id="footer">
     <footer>
       <p>Algum footer que queiramos</p>
     </footer>
-  </div>
 </body>
 </html>

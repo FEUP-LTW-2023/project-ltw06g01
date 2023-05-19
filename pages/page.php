@@ -121,9 +121,9 @@
       <ion-icon name="help-circle-outline" id="faqs-icon"></ion-icon>
       <h6>FAQ's</h6>
     </section>
-  <div id="footer">
+  <footer>
       <p>Algum footer que queiramos</p>
-  </div>
+  </footer>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

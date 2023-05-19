@@ -43,11 +43,9 @@ if (!$session->isLoggedIn()) {
     <?php drawProfile($curr_user); ?>
     <?php drawProfileEdit($curr_user); ?>
   </div>
-  <div id="footer">
     <footer>
       <p>Algum footer que queiramos</p>
     </footer>
-  </div>
 </body>
 </html>
 
