@@ -181,7 +181,7 @@ header{
 
 /* Menu Bar */
 
-#nav {
+nav {
     color: #fff;
     grid-area: nav;
     background-color: #cbcccc;
@@ -219,18 +219,18 @@ header{
     transition: 200ms cubic-bezier(1, 0.49, 0.09, 0.09);
   }
   
-  #drawNav{
+  nav{
     display: flex; 
   }
   
-  #drawNav .txt-link{
+  nav .txt-link{
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out;
     width: auto;
   }
   
-  #nav:hover .item-menu .txt-link{
+  nav:hover .item-menu .txt-link{
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease-in-out;

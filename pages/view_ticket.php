@@ -54,9 +54,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     <?php drawHeader(0, 4, "Ticket history"); 
     drawMessages($session);?>
   </header>
-  <div id="nav">
     <?php drawNav(); ?>
-  </div>
   <div id="content">
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
 

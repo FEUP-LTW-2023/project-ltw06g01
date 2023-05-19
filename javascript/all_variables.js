@@ -6,7 +6,7 @@ const loginButton = document.querySelector('#login-button');
 const signupButton = document.querySelector('#Register-button');
 const logoutBox = document.querySelector('.logout-box');
 const profileBox = document.querySelector('.profile-box');
-const menuBox = document.querySelector('#nav');
+const menuBox = document.querySelector('nav');
 const playAnimation = document.querySelector('#animation');
 const playLogin = document.querySelector('#loggedin');
 

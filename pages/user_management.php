@@ -42,9 +42,7 @@ $users = User::getUsersAdmin($db);
         <?php drawHeader(0, 4, "Manage users"); 
         drawMessages($session);?>
     </header>
-    <div id="nav">
       <?php drawNav(); ?>
-    </div>
     <div id="content">
       <div id="all-users">
         <?php

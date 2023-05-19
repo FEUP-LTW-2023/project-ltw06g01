@@ -70,9 +70,7 @@
     </header>
   <?php } ?>
   
-  <div id="nav">
           <?php drawNav(); ?>
-  </div>
   <div id="content-home">
           <?php drawEnterBoxes(); ?>
 

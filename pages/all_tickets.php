@@ -58,9 +58,7 @@ if (!$session->isLoggedIn()) {
     <?php drawHeader(0, 4, "All Tickets"); 
     drawMessages($session);?>
   </header>
-  <div id="nav">
     <?php drawNav(); ?>
-  </div>
   <div id="content">
     <div id="filters-box">
       <button id="filters-button"> Filters </button>

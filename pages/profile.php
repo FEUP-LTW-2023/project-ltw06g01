@@ -38,9 +38,7 @@ if (!$session->isLoggedIn()) {
     <?php drawHeader(0, 4, "Profile"); 
     drawMessages($session);?>
   </header>
-  <div id="nav">
     <?php drawNav(); ?>
-  </div>
   <div id="content">
     <?php drawProfile($curr_user); ?>
     <?php drawProfileEdit($curr_user); ?>

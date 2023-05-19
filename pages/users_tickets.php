@@ -53,9 +53,7 @@ if (!$session->isLoggedIn()) {
     <?php drawHeader(0, 4, "Your Tickets"); 
     drawMessages($session);?>
   </header>
-  <div id="nav">
     <?php drawNav(); ?>
-  </div>
   <div id="content">
     <form id="filtro" method="get" class="ticket-filter-container">
       <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>
