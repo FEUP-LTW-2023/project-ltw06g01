@@ -59,7 +59,7 @@ if (!$session->isLoggedIn()) {
     drawMessages($session);?>
   </header>
     <?php drawNav(); ?>
-  <div id="content">
+  <main>
     <div id="filters-box">
       <button id="filters-button"> Filters </button>
       <form id="filtro" method="get" class="ticket-filter-container">
@@ -109,7 +109,7 @@ if (!$session->isLoggedIn()) {
         <?php } ?>
       </div>
 
-  </div>
+  </main>
     <footer>
       <p>Algum footer que queiramos</p>
     </footer>

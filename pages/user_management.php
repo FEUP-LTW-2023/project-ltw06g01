@@ -43,7 +43,7 @@ $users = User::getUsersAdmin($db);
         drawMessages($session);?>
     </header>
       <?php drawNav(); ?>
-    <div id="content">
+    <main>
       <div id="all-users">
         <?php
           foreach ($users as $user) {
@@ -51,7 +51,7 @@ $users = User::getUsersAdmin($db);
           }
           ?>
       </div>
-    </div>
+    </main>
   </body>
 </html>
 

@@ -55,7 +55,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     drawMessages($session);?>
   </header>
     <?php drawNav(); ?>
-  <div id="content">
+  <main>
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
 
     <div class="ticket-display">
@@ -86,7 +86,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
         </form>
       </section>
     <?php } ?>
-  </div>
+  </main>
   <footer>
     <p>Algum footer que queiramos</p>
   </footer>

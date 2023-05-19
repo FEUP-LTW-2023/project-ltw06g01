@@ -54,7 +54,7 @@ if (!$session->isLoggedIn()) {
     drawMessages($session);?>
   </header>
     <?php drawNav(); ?>
-  <div id="content">
+  <main>
     <form id="filtro" method="get" class="ticket-filter-container">
       <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>
       <select id="ticket-filter-status" class="ticket-filter" onchange="this.form.submit()">
@@ -111,7 +111,7 @@ if (!$session->isLoggedIn()) {
         <?php } ?>
       </div>
 
-  </div>
+  </main>
     <footer>
       <p>Algum footer que queiramos</p>
     </footer>

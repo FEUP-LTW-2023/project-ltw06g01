@@ -1,4 +1,4 @@
-#content{
+main{
     display: grid;
     grid-template-areas: 
     "filtro"

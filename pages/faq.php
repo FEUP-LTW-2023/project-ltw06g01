@@ -41,7 +41,7 @@
       <?php drawHeader(0, 4,  "FAQs"); 
       drawMessages($session);?>
     </header>
-  <div id = "content">
+  <main>
       <div id= "faqs_more_button">
 
         <?php if ($user_type >= 1){?>
@@ -56,7 +56,7 @@
 
       <?php if ($user_type >= 1){drawFAQForm();}?>
 
-  </div>
+  </main>
   <footer>
       <p>Algum footer que queiramos</p>
   </footer>

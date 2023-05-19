@@ -39,10 +39,10 @@ if (!$session->isLoggedIn()) {
     drawMessages($session);?>
   </header>
     <?php drawNav(); ?>
-  <div id="content">
+  <main>
     <?php drawProfile($curr_user); ?>
     <?php drawProfileEdit($curr_user); ?>
-  </div>
+  </main>
     <footer>
       <p>Algum footer que queiramos</p>
     </footer>

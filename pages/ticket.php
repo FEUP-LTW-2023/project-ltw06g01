@@ -45,9 +45,9 @@ if (!$session->isLoggedIn()) {
     drawMessages($session);?>
   </header>
     <?php drawNav(); ?>
-  <div id="content">
+  <main>
     <?php drawTicketForm($ticket, true, $tags, true); ?>
-  </div>
+  </main>
   <footer>
     <p>Algum footer que queiramos</p>
   </footer>
