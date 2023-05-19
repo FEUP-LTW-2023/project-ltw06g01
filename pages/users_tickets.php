@@ -77,7 +77,7 @@ if (!$session->isLoggedIn()) {
       $departmentTickets = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
       $finalTickets = Ticket::joinFilters($tickets, $ticketsUser, $departmentTickets); ?>
     
-      <div id="allTickets">
+      <section id="allTickets">
         <?php foreach ($finalTickets[0] as $ticket) {
                 $tags = getTicketTags($db, $ticket->id); ?>
                 <div id="ticket-display">
@@ -109,7 +109,7 @@ if (!$session->isLoggedIn()) {
                   </div>
                 </div>
         <?php } ?>
-      </div>
+      </section>
 
   </main>
     <footer>

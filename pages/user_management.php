@@ -44,13 +44,13 @@ $users = User::getUsersAdmin($db);
     </header>
       <?php drawNav(); ?>
     <main>
-      <div id="all-users">
+      <section id="all-users">
         <?php
           foreach ($users as $user) {
             drawUserBox($db, $user, true);
           }
           ?>
-      </div>
+      </section>
     </main>
   </body>
 </html>

@@ -76,7 +76,7 @@
 
           <?php if($loggedin){ 
             if (!empty($tickets)) {?>
-          <div id="allTickets" style="display: none;"> 
+          <section id="allTickets" style="display: none;"> 
               <p>My tickets:</p>
                 <?php foreach ((array)$tickets as $ticket) {
                         $tags = getTicketTags($db, $ticket->id); ?>
@@ -115,7 +115,7 @@
                   <p id="no_tickets"> Ainda não tem tickets. </p>
             <?php }
           } ?>
-           </div>
+           </section>
     </div>
     <section class="FAQs">
       <ion-icon name="help-circle-outline" id="faqs-icon"></ion-icon>
