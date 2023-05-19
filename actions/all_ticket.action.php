@@ -3,7 +3,7 @@
 
     $session = new Session();
 
-    array_map(fn($value) => preg_replace("/[^a-zA-Z0-9\s]/", "", "value"), $_GET, $_POST);
+    array_map(fn($value) => preg_replace("/[^a-zA-Z0-9.,!?\s]/", "", "value"), $_GET, $_POST);
     
     if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
         $session->addMessage('error', 'Not logged in');
