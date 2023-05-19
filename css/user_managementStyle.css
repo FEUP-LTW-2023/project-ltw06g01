@@ -1,188 +1,206 @@
-/* dentro da pagina user_management*/
-
+/* dentro da pagina user_management */
 
 #all-users {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 10px;
-    
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 10px;
+}
 
 .backdrop {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(10px);
-    z-index: 9998;
-    display: none;
-    justify-self: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  display: none;
+  justify-self: center;
 }
-
 
 .user-box-popup.active + .backdrop {
-    display: block;
+  display: block;
 }
 
-.user-box{
-    display: grid;
-    grid-template: 
+.user-box {
+  display: grid;
+  grid-template:
     "name"
     "email";
-    min-width: 300px;
-    min-height: 340px;
-    height: fit-content;
-    width: fit-content;
-    background: #55b0c6;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    align-content: center;
-    line-break: anywhere;
-    color: aliceblue;
-    padding: 2%;
-    grid-gap: 20px;
+  min-width: 300px;
+  min-height: 340px;
+  height: fit-content;
+  width: fit-content;
+  background: #55b0c6;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  align-content: center;
+  line-break: anywhere;
+  color: aliceblue;
+  padding: 2%;
+  grid-gap: 20px;
 }
 
-.user-box-popup{
-    display: none;
-    grid-template: 
-    "back-button "
-    "department "
-    "department-selection "
-    "promotion "
-    "toggle ";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 300px;
-    min-height: 340px;
-    height: fit-content;
-    width: fit-content;
-    background-color: #55b0c6;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 5px;
-    backdrop-filter: blur(15px);
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    margin-top: 10%;
-    align-content: center;
-    line-break: anywhere;
-    color: aliceblue;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    border-radius: 15px;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 0.8fr));
-    
+.user-box-popup {
+  display: none;
+  grid-template:
+    "back-button"
+    "department"
+    "department-selection"
+    "promotion"
+    "toggle";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 300px;
+  min-height: 340px;
+  height: fit-content;
+  width: fit-content;
+  background-color: #55b0c6;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  margin-top: 10%;
+  align-content: center;
+  line-break: anywhere;
+  color: aliceblue;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 15px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 0.8fr));
 }
 
- 
 .user-box-popup.active {
-    user-select: none;  
-    display: grid;
-    z-index: 9999;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
+  user-select: none;
+  display: grid;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
 }
-  
-  
 
+.user-box>#name {
+  grid-area: name;
+  font-size: 30px;
+  justify-self: center;
+}
 
-.user-box > #name{
-    grid-area: name;
-    font-size: 30px;
-    justify-self: center;
+.user-box>#email {
+  grid-area: email;
 }
-.user-box > #email{
-    grid-area: email;
+
+.user-box-popup.active>.user-departments {
+  grid-area: department;
+  border: 2px solid #9ea4a6;
+  border-radius: 23px;
+  backdrop-filter: blur(15px);
+  padding: 7%;
+  background-color: rgba(240, 248, 255, 0.288);
+  text-align: center;
+  display: grid;
 }
-.user-box-popup.active > .user-departments{
-    grid-area: department;
-    border: 2px solid #9ea4a6;
-    border-radius: 23px;
-    backdrop-filter: blur(15px);
-    padding: 7%;
-    background-color: rgba(240, 248, 255, 0.288);
-    text-align: center;
-    display: grid;
-    
+
+.user-box-popup.active>.department-select {
+  grid-area: department-selection;
+  border: 2px solid #9ea4a6;
+  border-radius: 23px;
+  backdrop-filter: blur(15px);
+  text-align: center;
 }
-.user-box-popup.active > .department-select{
-    grid-area: department-selection;
-    border: 2px solid #9ea4a6;
-    border-radius: 23px;
-    backdrop-filter: blur(15px);
-    text-align: center;
-}
-.user-box-popup.active > .user-promotion{
-    grid-area: promotion;
-    border: 2px solid #9ea4a6;
-    border-radius: 23px;
-    backdrop-filter: blur(15px);
-    text-align: center;
+
+.user-box-popup.active>.user-promotion {
+  grid-area: promotion;
+  border: 2px solid #9ea4a6;
+  border-radius: 23px;
+  backdrop-filter: blur(15px);
+  text-align: center;
 }
 
 .user-promotion:focus .user-box {
-    background-color:#55b0c6;
+  background-color: #55b0c6;
 }
 
-.user-box-popup.active > .toggle-button {
-    grid-area: toggle;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    width: 100%;
-    height: 30px;
-    display: flex;
-    color: #f6f6f6;
-    background: transparent;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 23px;
-    padding: 2%;
-    font-size: 14px;
-    cursor: pointer;
+.user-box-popup.active>.toggle-button {
+  grid-area: toggle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  color: #f6f6f6;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 23px;
+  padding: 2%;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.user-box-popup.active>.back-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.user-box-popup.active>.back-button ion-icon {
+  margin-right: 5px;
+}
+
+.toggle-button .cross {
+  display: none;
+}
+
+.toggle-button .add {
+  display: inline-block;
+}
+
+.toggle-button.cross .cross {
+  display: inline-block;
+}
+
+.toggle-button.cross .add {
+  display: none;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 600px) {
+  /* Adjust the styles for screens up to 600px wide */
+  #all-users {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 
-.user-box-popup.active > .back-button {
-    
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  .user-box-popup.active > .back-button ion-icon {
-    margin-right: 5px;
+  .user-box,
+  .user-box-popup {
+    min-width: 100%;
+    min-height: auto;
   }
 
+  .user-box-popup.active>.backdrop {
+    top: 0;
+    left: 0;
+  }
+}
 
-  .toggle-button .cross {
-    display: none;
+@media screen and (max-width: 400px) {
+  /* Adjust the styles for screens up to 400px wide */
+  .user-box-popup,
+  .user-box-popup.active {
+    min-width: 90%;
   }
-  
-  .toggle-button .add {
-    display: inline-block;
-  }
-  
-  .toggle-button.cross .cross {
-    display: inline-block;
-  }
-  
-  .toggle-button.cross .add {
-    display: none;
-  }
-
-  
-  
+}

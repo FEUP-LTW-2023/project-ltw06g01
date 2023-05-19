@@ -9,8 +9,10 @@
     "image"
     "email"
     "type";
-    width: 290px;
-    height: 320px;
+    width: 100%; /* Alterado para largura em porcentagem */
+    max-width: 290px; /* Adicionado limite máximo de largura */
+    height: 100%; /* Alterado para altura automática */
+    max-height:320px;
     background: #55b0c6;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
@@ -32,8 +34,10 @@
     "type"
     "save";
     background-color: rgba(0,0,0,0.5);
-    width: 290px;
-    height: 320px;
+    width: 100%; /* Alterado para largura em porcentagem */
+    max-width: 290px; /* Adicionado limite máximo de largura */
+    height: 100%; /* Alterado para altura automática */
+    max-height:320px;
     background: #55b0c6;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
@@ -48,7 +52,7 @@
     margin-bottom: 23px;
     cursor: pointer;
     border-color: #fff;
-    color: ;
+    /*color: ;*/
 }
 
 #save:hover{
@@ -133,7 +137,6 @@
 
 #email{
     grid-area: email;
-
     display: flex;
     justify-content: center;
     align-items: center;
