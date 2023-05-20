@@ -29,7 +29,7 @@ $statuses = array_map(fn($value) => $value['name'],getAllStatuses($db)); ?>
 <title>Ticket System</title>
 <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
 <script src="/../javascript/all_variables.js" defer></script>
-<link rel="stylesheet" href="../css/manage_entities.css">
+<link rel="stylesheet" href="../css/manage_entitiesStyle.css">
 <link rel="stylesheet" href="../css/geralStyle.css">
 </head>
 <body>
