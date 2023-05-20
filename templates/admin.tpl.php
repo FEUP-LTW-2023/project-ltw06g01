@@ -2,13 +2,19 @@
 
 function drawRemoveDepartment($department) { ?>
     <li>
-        <?= $department ?> <button type="submit" formmethod="post" formaction="../actions/delete_department.action.php">Delete</button>
+        <form>
+          <input type="hidden" name="department" value=<?= $department ?>>
+          <?= $department ?> <button type="submit" formmethod="post" formaction="../actions/delete_department.action.php">Delete</button>
+        </form>
     </li>
 <?php }
 
 function drawRemoveStatus($status) { ?>
     <li>
-        <?= $status ?> <button type="submit" formmethod="post" formaction="../actions/delete_status.action.php">Delete</button>
+        <form>
+          <input type="hidden" name="status" value=<?= $status ?>>
+          <?= $status ?> <button type="submit" formmethod="post" formaction="../actions/delete_status.action.php">Delete</button>
+        </form>
     </li>
 <?php }
 
