@@ -177,5 +177,26 @@
   display: none;
 }
 
-/* Responsive Styles */
+#all-users-title{
+justify-self: start;
+color: #55b0c6;
+width: 100%;
+padding-left: 3%;
+}
 
+#manage_entities{
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+}
+
+#manage_entities a {
+  text-decoration: underline;
+  color: #55afc69e;
+  width: fit-content;
+  font-size: 30px;
+  padding-left: 10%;
+}
+#manage_entities a:hover {
+  text-decoration-color: #55b0c6;
+  color: #55b0c6;
+}

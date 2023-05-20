@@ -1,0 +1,68 @@
+#department-delete,#status-delete {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+  }
+
+  #department-delete li, #status-delete li{
+    display: inline-flex;
+    background-color: #55afc6b6;
+    padding: 1%;
+    width: fit-content;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 23px;
+    text-align: center;
+  }
+
+  #department-delete li button, #status-delete li button{
+    border-radius: 15px;
+    padding: 2%;
+    background-color: #cbcccc;
+    cursor: pointer;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+#department-delete li button:hover, #status-delete li button:hover{
+    color: #fff;
+    border-color: #fff;
+}
+
+.AddDepartment, .AddStatus{
+    justify-self: center;
+    width: fit-content;
+    height: fit-content;
+    display: inline-flex;
+    margin: 2%;
+}
+
+.AddDepartment input,.AddStatus input{
+    border-radius: 15px;
+    padding: 2%;
+    color: #55b0c6;
+    border:2px solid #55b0c6;
+
+}
+
+.AddDepartment button,.AddStatus button{
+    border-radius: 15px;
+    padding: 3%;
+    color: #ebfcff;
+    background-color: #55afc69b;
+    border:2px solid #fff;
+}
+
+.AddDepartment button:hover,.AddStatus button:hover{
+    border-color: #55b0c6;
+    cursor: pointer;
+    color: #fff;
+}
+
+main p{
+    color: #55b0c6;
+    font-size: 20px;
+    margin-left: 5%;
+}

@@ -24,7 +24,7 @@ function drawRemoveStatus($status)
 
 function drawAddDepartment()
 { ?>
-    <form>
+    <form class="AddDepartment">
         <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
         <input type="text" name="department">
         <button type="submit" formmethod="post" formaction="../actions/add_department.action.php">Add</button>
@@ -33,7 +33,7 @@ function drawAddDepartment()
 
 function drawAddStatus()
 { ?>
-    <form>
+    <form class="AddStatus">
         <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
         <input type="text" name="status">
         <button type="submit" formmethod="post" formaction="../actions/add_status.action.php">Add</button>
