@@ -8,7 +8,7 @@ class Ticket
     public string $title;
     public string $text;
     public string $dateCreated;
-    public string $status;
+    public ?string $status;
     public ?string $department;
     public ?int $faqitem;
     public int $uid;
@@ -17,13 +17,13 @@ class Ticket
     private ?int $prev;
     private ?int $next;
 
-    public function __construct(int $id, string $title, string $text, string $dateCreated, string $status, ?string $department, ?int $faqitem, int $uid, int $priority, ?int $aid, ?int $prev, ?int $next = null)
+    public function __construct(int $id, string $title, string $text, string $dateCreated, ?string $status, ?string $department, ?int $faqitem, int $uid, int $priority, ?int $aid, ?int $prev, ?int $next = null)
     {
         $this->id = $id;
         $this->title = $title;
         $this->text = $text;
         $this->dateCreated = $dateCreated;
-        $this->status = $status;
+        $this->status = $status ?? 'open';
         $this->department = $department;
         $this->faqitem = $faqitem;
         $this->uid = $uid;

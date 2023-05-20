@@ -25,6 +25,11 @@ if (!isset($_POST['status'])) {
     header('Location: /../pages/page.php');
 }
 
+if ($_POST['status'] == 'open' || $_POST['status'] == 'assigned' || $_POST['status'] == 'closed') {
+    $session->addMessage('error', "Can't delete that status");
+    header('Location: /../pages/manage_entities.php');
+}
+
 $db = getDatabaseConnection();
 
 $status = deleteStatus($db, $_POST['status']);

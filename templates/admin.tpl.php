@@ -17,7 +17,7 @@ function drawRemoveStatus($status)
         <form>
             <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
             <input type="hidden" name="status" value=<?= $status ?>>
-            <?= $status ?> <button type="submit" formmethod="post" formaction="../actions/delete_status.action.php">Delete</button>
+            <?= $status ?> <button type="submit" formmethod="post" formaction="../actions/delete_status.action.php" <?php if ($status == 'open' || $status == 'assigned' || $status == 'cloesd') echo 'disabled'; ?>>Delete</button>
         </form>
     </li>
 <?php }
