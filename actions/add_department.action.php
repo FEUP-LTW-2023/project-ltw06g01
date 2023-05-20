@@ -29,6 +29,6 @@ $db = getDatabaseConnection();
 
 addDepartment($db, $_POST['department']);
 $session->addMessage('success', 'Department created');
-header('Location : /../pages/manage_entities.php');
+header('Location: /../pages/manage_entities.php');
 ?>
 
