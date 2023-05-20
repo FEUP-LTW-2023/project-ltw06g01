@@ -271,6 +271,11 @@ main{
     grid-area: content;
     display: grid;
     margin-top: 30px;
+    grid-template-areas:
+"ticket  " 
+"nav     "
+"message   " 
+"addmessage" ;
 }
 
 /*footer*/
