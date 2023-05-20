@@ -69,7 +69,6 @@ if (!$session->isLoggedIn()) {
       //$status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status'], $_GET['ticket-filter-agent'], $_GET['ticket-filter-department']);
       $tagTickets = Ticket::getTicketsByTags($db, $_GET['ticket-filter-tag'] == "" ? array() : explode(",", $_GET['ticket-filter-tag']));
-      var_dump($tagTickets);
       $tickets = array_intersect($tickets, $tagTickets);
       //$ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
       //$departmentTickets = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);

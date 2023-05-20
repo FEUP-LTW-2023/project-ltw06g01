@@ -67,10 +67,10 @@
         for ($i = 0; $i < count($tags) - 1; $i++) {
             $query = $query . ' OR tt.tag = ?';
         }
-        $query = $query . ' GROUP BY t.id HAVING count(tt.tag) = ?';
-        
+        $query = $query . ' GROUP BY t.id HAVING count(tt.tag) = ' . count($tags);
+
         $stmt = $db->prepare($query);
-        $stmt->execute(array_merge($tags, array(count($tags) - 1)));
+        $stmt->execute($tags);
 
         return $stmt->fetchAll();
     }
