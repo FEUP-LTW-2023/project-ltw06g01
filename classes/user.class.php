@@ -50,7 +50,8 @@ class User
         return $result;
     }
 
-    static function getAgentsFromDepartment(PDO $db, string $department): array {
+    static function getAgentsFromDepartment(PDO $db, ?string $department): array {
+        if (!isset($department)) return array();
         $agents = getAgentsByDepartment($db, $department);
 
         $res = array();
