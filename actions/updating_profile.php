@@ -3,6 +3,8 @@
 
     $session = new Session();
 
+    $oldPassword = $_POST['old-password'];
+    $newPassword = $_POST['new-password'];
     array_map(fn($value) => preg_replace("/[^a-zA-Z0-9.,!?\s]/", "", $value), $_GET, $_POST);
     
     if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf']) || $_POST['uid'] != $_SESSION['uid']) {
@@ -33,12 +35,13 @@
         $session->addMessage('error', 'Invalid login');
     }
     else {
-        if (password_verify($_POST['old-password'], $user['passHash'])) {
-            if (!isValidPassword($_POST['new-password'], $session)) {
+        if (password_verify($oldPassword, $user['passHash'])) {
+            if (!isValidPassword($newPassword, $session)) {
                 header('Location: ../pages/profile.php');
             }
             else {
-                updatePassword($db, $id, $password);
+                echo "I AM ABOUT TO CHANGE IT";
+                updatePassword($db, $_POST['uid'], $newPassword);
             }
         }
     }
@@ -46,5 +49,5 @@
     $updated = updateProfile($db, $user_id, $username, $email);
 
     $session->addMessage('success', 'Profile updated');
-    header('Location: ../pages/profile.php');
+    //header('Location: ../pages/profile.php');
 ?>    
