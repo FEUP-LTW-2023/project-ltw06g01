@@ -42,20 +42,13 @@ main{
     column-gap: 15px;
     row-gap: 10px;
     grid-template-areas:
-        "ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title ticket-filter-tag-title ticket-filter-tag-title"
-        "ticket-filter-status ticket-filter-agent ticket-filter-department ticket-filter-tag tag-toggle";
+        "ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title"
+        "ticket-filter-status ticket-filter-agent ticket-filter-department";
     grid-auto-columns: 1fr 1fr 1fr;
     justify-content: center;
 }
 #filtro #ticket-filter-status-title{
     grid-area: ticket-filter-status-title;
-    display: flex; /*ver como preferem*/
-    color:#a4a4a5;
-    justify-self: center;
-}
-
-#filtro #ticket-filter-tag-title{
-    grid-area: ticket-filter-tag-title;
     display: flex; /*ver como preferem*/
     color:#a4a4a5;
     justify-self: center;
