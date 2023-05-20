@@ -5,14 +5,14 @@ require_once(__DIR__ . '/../database/departments.php');
 function drawUserBox(PDO $db, User $user)
 { ?>
   <div class="backdrop"></div>
-  <div class="user-box" id="userBox-<?= $user->id ?>" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
+  <div class="user-box" id="userBox-<?= $user->id ?>" data-user-id="<?= $user->id ?>">
   <h3 class="name"><?= $user->username ?></h3>
   <p class="email"><?= $user->email ?></p>
 </div>
 <div class="user-box-popup" id="userBoxPopup-<?= $user->id ?>">
   <input type="hidden" name="id" class="uid" value=<?= $user->id ?>>
   <input type="hidden" class="csrf" value=<?= $_SESSION['csrf'] ?>>
-  <button type="button" class="back-button" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
+  <button type="button" class="back-button">
     <ion-icon name="arrow-back"></ion-icon> 
   </button>
   <?php {
