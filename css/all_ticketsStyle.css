@@ -459,3 +459,9 @@ select option{
         font-size: 14px;
       }
 }
+
+@media screen and (max-width: 480px) {
+    #allTickets {
+        margin: 0;
+    }
+}

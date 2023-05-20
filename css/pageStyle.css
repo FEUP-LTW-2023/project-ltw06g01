@@ -68,8 +68,8 @@ header{
     font-size: 100%;
     padding: 3%;
     text-shadow: 2px 2px 8px #7dc5d5;
-        -webkit-text-stroke: 1px #5cc1da;
-
+    -webkit-text-stroke: 1px #5cc1da;
+    font-size: 2vw;
     height: 46px;
 
 }
@@ -1091,9 +1091,10 @@ a{
     grid-template-columns: 1fr 1fr 1fr;
     padding: 20px;
 }
-  #logged-in > #drawHeader > #title{
-    font-size: 100%;
+  #drawHeader > #title{
+    font-size: 2vw;
   }
+
   #logged-in > #drawHeader > #home-or-subtitle > #subtitle{
     font-size: 3vw;
   }
