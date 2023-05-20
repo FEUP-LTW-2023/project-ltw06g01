@@ -29,7 +29,7 @@ $db = getDatabaseConnection();
 
 addStatus($db, $_POST['status']);
 $session->addMessage('success', 'Status created');
-
+header('Location : /../pages/manage_entities.php');
 
 ?>
 
