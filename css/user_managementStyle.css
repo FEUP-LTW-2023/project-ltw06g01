@@ -50,10 +50,7 @@
     "department"
     "department-selection"
     "promotion"
-    "toggle";
-  position: fixed;
-  top: 50%;
-  left: 50%;
+    "toggle";  
   min-width: 300px;
   min-height: 340px;
   height: fit-content;
@@ -65,26 +62,13 @@
   justify-content: center;
   align-items: center;
   justify-self: center;
-  margin-top: 10%;
   align-content: center;
   line-break: anywhere;
   color: aliceblue;
-  transform: translate(-50%, -50%);
   z-index: 1;
   border-radius: 15px;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 0.8fr));
-}
-
-.user-box-popup.active {
-  user-select: none;
-  display: grid;
-  z-index: 1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px;
 }
 
 .user-box>.name {
@@ -97,69 +81,11 @@
   grid-area: email;
 }
 
-.user-box-popup.active>.user-departments {
-  grid-area: department;
-  border: 2px solid #9ea4a6;
-  border-radius: 23px;
-  backdrop-filter: blur(15px);
-  padding: 7%;
-  background-color: rgba(240, 248, 255, 0.288);
-  text-align: center;
-  display: grid;
-}
-
-.user-box-popup.active>.department-select {
-  grid-area: department-selection;
-  border: 2px solid #9ea4a6;
-  border-radius: 23px;
-  backdrop-filter: blur(15px);
-  text-align: center;
-}
-
-.user-box-popup.active>.user-promotion {
-  grid-area: promotion;
-  border: 2px solid #9ea4a6;
-  border-radius: 23px;
-  backdrop-filter: blur(15px);
-  text-align: center;
-}
 
 .user-promotion:focus .user-box {
   background-color: #55b0c6;
 }
 
-.user-box-popup.active>.toggle-button {
-  grid-area: toggle;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: fit-content;
-  width: 100%;
-  height: 30px;
-  display: flex;
-  color: #f6f6f6;
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 23px;
-  padding: 2%;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.user-box-popup.active>.back-button {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-.user-box-popup.active>.back-button ion-icon {
-  margin-right: 5px;
-}
 
 .toggle-button .cross {
   display: none;
@@ -177,17 +103,7 @@
   display: none;
 }
 
-#all-users-title{
-justify-self: start;
-color: #55b0c6;
-width: 100%;
-padding-left: 3%;
-}
-
-#manage_entities{
-  padding-top: 5vh;
-  padding-bottom: 10vh;
-}
+/* Responsive Styles */
 
 #manage_entities a {
   text-decoration: underline;
@@ -199,4 +115,15 @@ padding-left: 3%;
 #manage_entities a:hover {
   text-decoration-color: #55b0c6;
   color: #55b0c6;
+}
+
+@keyframes rotateOut {
+  from {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
 }

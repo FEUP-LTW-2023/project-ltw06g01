@@ -50,6 +50,7 @@ if (!$session->isLoggedIn()) {
   <script src="/../javascript/all_tickets.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>
   <script src="/../javascript/status_change.js" defer></script>
+  <script src="/../javascript/tag_filter.js" defer></script>
   <script src="/../javascript/priority_change.js" defer></script>
   <link rel="stylesheet" href="/../css/geralStyle.css">
   <link rel="stylesheet" href="/../css/all_ticketsStyle.css">
