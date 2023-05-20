@@ -37,8 +37,8 @@
     $animation = 0;
   }
 
-  if (isset($_SESSION['loggedin'])){
-    $loggedin = $_SESSION['loggedin'];
+  if ($session->isLoggedIn()){
+    $loggedin = 1;
   }
   else{
     $loggedin = 0;
@@ -63,7 +63,8 @@
 
   <?php if (!$loggedin) { ?>
     <header id="not-logged-in">
-      <?php drawHeader($animation, 3,  ""); ?>
+      <?php drawHeader($animation, 3,  ""); 
+      drawMessages($session);?>
     </header>
   <?php } else { ?>
     <header id="logged-in">
