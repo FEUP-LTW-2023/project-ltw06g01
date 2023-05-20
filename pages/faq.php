@@ -34,8 +34,8 @@
   <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/faq.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
-  <link rel="stylesheet" href="/../css/faqStyle.css">
   <link rel="stylesheet" href="/../css/geralStyle.css">
+  <link rel="stylesheet" href="/../css/faqStyle.css">
 </head>
 <body>
     <header>

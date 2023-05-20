@@ -17,10 +17,6 @@ body{
   max-width: 800px;
 }
 
-main {
-  display: grid;
-  justify-content: center;
-}
 
 #faqs_more_button{
   display: grid;
@@ -28,20 +24,21 @@ main {
   "button"
   "faqs";
   grid-template-rows: auto 1fr;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 
 
 #faqs{
   grid-area: faqs;
   position: relative;
-  justify-content: center;
   align-items: center;
-  min-width: 800px;
 }
 
 .faq-answer{
   display: none;
   align-content: center;
+  color: #55afc6a5;
 }
 
 .faq-item{
@@ -50,12 +47,13 @@ main {
   cursor: pointer;
   padding-bottom: 20px;
   align-items: center;
-  max-width: 800px;
   margin-top: 2rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid #fff;
   margin-bottom: 10px;
   cursor: pointer;
+  font-weight: bold;
+
 }
 
 .faq-item:before {
@@ -63,7 +61,7 @@ main {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 400px;
+  width: 50%;
   height: 3px;
   background-color: #55b0c6;
   transform: translateX(-50%);
@@ -71,7 +69,7 @@ main {
 }
 
 .faq-item.active:before {
-  width: 800px;
+  width: 100%;
 }
 
 .faq-item h3 {
@@ -84,7 +82,6 @@ main {
 @media screen and (min-width: 800px) {
   .faq-item {
     flex-basis: calc(50% - 10px); /* 2 colunas */
-    margin-right: 10px;
   }
 }
 
