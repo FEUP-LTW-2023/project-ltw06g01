@@ -3,6 +3,8 @@
 
     $session = new Session();
 
+    $password = $_POST['password'];
+    $confirm = $_POST['confirm-password'];
     array_map(fn($value) => preg_replace("/[^a-zA-Z0-9.,!?\s]/", "", $value), $_GET, $_POST);
     
     if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
@@ -16,12 +18,16 @@
 
     $db = getDatabaseConnection();
 
-    if (($_POST['password'] != $_POST['confirm-password']) || !isValidName($_POST['username']) || !isValidEmail($_POST['email'])) {
+    if (($password != $confirm) || !isValidName($_POST['username']) || !isValidEmail($_POST['email'])) {
         $session->addMessage('error', "Passwords don't match / invalid name and/or email");
         header('Location: ../pages/page.php');
     }
 
-    $userCreated = createNewUser($db, $_POST['username'], $_POST['email'], $_POST['password']);
+    if (!isValidPassword($password, $session)) {
+        header('Location: ../pages/page.php');
+    }
+
+    $userCreated = createNewUser($db, $_POST['username'], $_POST['email'], $password);
     if (!$userCreated[0]) {
         $session->addMessage('error', 'Error creating account');
         header('Location: ../pages/page.php');
