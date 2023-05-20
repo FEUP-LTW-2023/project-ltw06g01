@@ -41,9 +41,10 @@
         $stmt->execute(array($username, $email, $id));
     }
 
-    function change_animationFlag($newFlag) {
+    function change_animationFlag($newFlag, $oldLevel) {
         session_start();
         $_SESSION['animation'] = $newFlag;
+        $_SESSION['oldLevel'] = $oldLevel;
         //session_write_close();
     }
 
