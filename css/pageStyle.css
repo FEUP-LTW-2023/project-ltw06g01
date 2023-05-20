@@ -1071,3 +1071,86 @@ nav:hover .item-menu .txt-link{
 a{
  text-decoration: none; 
 }
+
+@media screen and (max-width: 768px) {
+  #drawHeader {
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  #title {
+    margin-bottom: 10px;
+  }
+
+  #home-or-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  #home {
+    margin-right: 10px;
+  }
+
+  #subtitle {
+    display: none;
+  }
+
+  #profile-or-logout {
+    display: flex;
+    justify-content: center;
+  }
+
+  #allTickets {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    overflow-x: auto;
+  }
+
+  .ticket-form {
+    width: 100vw;
+    /* Outros estilos para o ticket-form em dispositivos móveis */
+  }
+
+  .ticket-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    font-size: 14px;
+    /* Outros estilos que você deseja aplicar */
+  }
+  
+  .ticket-display .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Ajuste os estilos conforme necessário */
+  }
+  
+  .ticket-display .options > * {
+    margin-top: 1rem;
+    /* Ajuste os estilos conforme necessário */
+  }
+  .options ion-icon {
+    font-size: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+  }
+
+  .ticket-display .ticket-form .subject,
+  .ticket-display .ticket-form .department,
+  
+  .ticket-display .ticket-form .tagsArea {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
