@@ -249,9 +249,14 @@ function drawFilters($get, $departments, $users, $statuses) {
         </select>
 
         <label id="ticket-filter-tag-title" for="ticket-filter-tag">Tags</label>
-        <input type="text" name="ticket-filter-tag" id="ticket-filter-tag">
+        <input type="text" name="ticket-filter-tag" list="taglist" id="ticket-filter-tag">
         <button type="button" id="tag-toggle">Toggle</button>
-        <input type="hidden" name="tag-string" value=<?= $_GET['ticket-filter-tag'] ?>>
+        <datalist id="taglist">
+            <?php foreach ($allTags as $tag) { ?>
+                <option><?= $tag['name'] ?></option>
+            <?php } ?>
+        </datalist>
+        <input type="hidden" name="tag-string" id="tag-string" value=<?= $get['ticket-filter-tag'] ?>>
       </form>
     </div>
 <?php }
