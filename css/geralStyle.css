@@ -46,7 +46,7 @@ header{
     justify-content: center;
     align-items: center;
     color: #cbf2fa;
-    font-size: 20px;
+    font-size: 2vw;
     padding: 3%;
     text-shadow: 2px 2px 8px #2b5a65;
     -webkit-text-stroke: 1px #f6f6f6;
@@ -290,8 +290,37 @@ footer p{
 
 
 @media screen and (max-width: 800px) {
-  
+  .item-menu .txt-link{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+    width: auto;
+    display: flex;
+  }
+  #home-or-subtitle > #subtitle{
+    font-size: 2.5vw;
+  }
+
+  #drawHeader > #title{
+    font-size: 2vw;
+  }
+
+  #profile-or-logout > .profile-box{
+    margin-right: 6vw;
+  }
+  #profile-or-logout > .logout-box{
+    margin-right: 3vw;
+  }
+  #home {
+    padding-left: 3vw;
+
+  }
 }
+
+@media screen and (max-width: 500px) {
+
+}
+
 /*
   @media screen and (max-width: 768px) {
 
