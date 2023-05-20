@@ -31,6 +31,7 @@ if (!$session->isLoggedIn()) {
 <html>
 <head>
   <title>Enviar Ticket</title>
+  <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
   <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/tag_script.js" defer ></script>

@@ -37,8 +37,9 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 
 <head>
   <title>Visualizar Ticket</title>
-  <link rel="stylesheet" href="/../css/view_ticketStyle.css">
+  <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
   <link rel="stylesheet" href="/../css/geralStyle.css">
+  <link rel="stylesheet" href="/../css/view_ticketStyle.css">
   <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/ticket_options.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
