@@ -69,8 +69,6 @@ header{
     text-shadow: 2px 2px 8px #7dc5d5;
     -webkit-text-stroke: 1px #5cc1da;
     font-size: 23px;
-    height: 46px;
-
 }
 
 #logged-in > #drawHeader > #home-or-subtitle{
@@ -180,10 +178,6 @@ header{
 #content-home{
   display: grid;
   grid-area: content;
-  grid-template-areas: 
-  "login"
-  "singup"
-  "allTickets";
   align-content: center; 
   margin-top: 30px;
 }
@@ -238,13 +232,13 @@ transform: rotate(360deg);
   overflow: hidden;
   position: relative;
   display: grid;
+  justify-self: center;
   justify-content: center;
   align-content: center;
   border-radius: 15px;
 }
 
 .form-box-login{
-  grid-area: login;
   justify-self: center;
   width: 300px;
   height: 340px;
@@ -267,6 +261,7 @@ transform: rotate(360deg);
   z-index: 1;
   animation: animate-arround 6s linear infinite;
   transform-origin: bottom right;
+  justify-self: center;
 }
 
 #signup-box-animated::after{
@@ -296,7 +291,6 @@ transform: rotate(360deg);
 }
 
 .form-box-signup{
-  grid-area: signup;
   display: none;
   justify-self: center;
   width: 300px;
@@ -551,7 +545,6 @@ a{
 #allTickets{
   margin-right: 10%;
   margin-left: 10%;
-  grid-area: allTickets;
   display: grid;
   grid-template-columns: 1fr;
   gap: 35px; 
@@ -703,7 +696,7 @@ input[type="text"] {
   padding: 2px 5px;
   margin-right: 5px;
   margin-left: 5px;
-  background: #55b0c6;
+  background: #fff;
   border: 1px solid #e8e9e9;
   border-radius: 15px;
   color: #55b0c6;
