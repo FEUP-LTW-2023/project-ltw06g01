@@ -69,8 +69,6 @@ header{
     text-shadow: 2px 2px 8px #7dc5d5;
     -webkit-text-stroke: 1px #5cc1da;
     font-size: 23px;
-    height: 46px;
-
 }
 
 #logged-in > #drawHeader > #home-or-subtitle{
@@ -703,7 +701,7 @@ input[type="text"] {
   padding: 2px 5px;
   margin-right: 5px;
   margin-left: 5px;
-  background: #55b0c6;
+  background: #fff;
   border: 1px solid #e8e9e9;
   border-radius: 15px;
   color: #55b0c6;
