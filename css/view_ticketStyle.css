@@ -3,6 +3,9 @@ a{
     color: inherit;
     outline: none;
 }
+main{
+    margin-top: 0;
+}
 
 .ticket-display{
 

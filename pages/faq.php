@@ -30,6 +30,7 @@
 <html>
 <head>
 <title>FAQs</title>
+<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
   <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/faq.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>

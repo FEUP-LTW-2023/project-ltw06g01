@@ -26,6 +26,7 @@ $users = User::getUsersAdmin($db);
 <html>
   <head>
   <title>All Tickets</title>
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
     <link rel="stylesheet" href="/../css/geralStyle.css">
     <link rel="stylesheet" href="/../css/user_managementStyle.css">
     <script src="/../javascript/all_variables.js" defer></script>
