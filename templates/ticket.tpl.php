@@ -114,7 +114,7 @@ function drawAssignAgent($db, $ticket) {
     ?> <form class="assign-box">
         <input type="hidden" class="assign-id" value=<?= $ticket->id ?>>
         <input type="hidden" class="csrf" value=<?= $_SESSION['csrf'] ?>>
-        <select name="agents" class="agent-list"> <?php 
+        <select name="agents" class="agent-list" <?php if ($ticket->hasNext()) echo 'disabled';?>> <?php 
         foreach($agents as $agent) {
             ?> <option value=<?= $agent->id ?>><?= $agent->username ?></option> <?php
         } ?>
@@ -130,7 +130,7 @@ function drawChangeStatus($db, $ticket) {
     <form class="status-box">
         <input type="hidden" class="status-id" value=<?= $ticket->id ?>>
         <input type="hidden" class="csrf" value=<?= $_SESSION['csrf'] ?>>
-        <select name="statuses" class="status-list"> <?php
+        <select name="statuses" class="status-list" <?php if ($ticket->hasNext()) echo 'disabled';?>> <?php
         foreach ($statuses as $status) {
             ?> <option value=<?= $status ?> <?php if ($ticket->status == $status) echo 'selected'; ?>><?= $status ?></option> <?php
         } ?>
@@ -168,10 +168,10 @@ function drawPriorityButtons($ticket) { ?>
         <input type="hidden" name="csrf" class="csrf" value=<?= $_SESSION['csrf'] ?>>
         <input type="hidden" name="tid" class="tid" value=<?= $ticket->id ?>>
         <input type="hidden" name="priority" class="priority" value=<?= $ticket->priority ?>>
-        <button type="button" class="increment-priority">
+        <button type="button" class="increment-priority" <?php if ($ticket->hasNext()) echo 'disabled';?>>
             <ion-icon name="arrow-up-outline"></ion-icon>
         </button>
-        <button type="button" class="decrement-priority">
+        <button type="button" class="decrement-priority" <?php if ($ticket->hasNext()) echo 'disabled';?>>
             <ion-icon name="arrow-down-outline"></ion-icon>
         </button>
     </form>
