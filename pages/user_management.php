@@ -48,7 +48,7 @@ $users = User::getUsersAdmin($db);
       <section id="all-users">
         <?php
           foreach ($users as $user) {
-            drawUserBox($db, $user, true);
+            drawUserBox($db, $user);
           }
           ?>
       </section>
