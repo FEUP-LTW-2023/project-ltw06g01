@@ -103,30 +103,19 @@
   display: none;
 }
 
+/* Responsive Styles */
 
-.rotate-in {
-  animation-name: rotateIn;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
+#manage_entities a {
+  text-decoration: underline;
+  color: #55afc69e;
+  width: fit-content;
+  font-size: 30px;
+  padding-left: 10%;
 }
-
-.rotate-out {
-  animation-name: rotateOut;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
+#manage_entities a:hover {
+  text-decoration-color: #55b0c6;
+  color: #55b0c6;
 }
-
-@keyframes rotateIn {
-  from {
-    transform: rotateY(-90deg);
-    opacity: 0;
-  }
-  to {
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-
 
 @keyframes rotateOut {
   from {

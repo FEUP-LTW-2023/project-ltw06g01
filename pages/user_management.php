@@ -45,6 +45,10 @@ $users = User::getUsersAdmin($db);
     </header>
       <?php drawNav(); ?>
     <main>
+      <section id="manage_entities"> 
+        <a href= "/../pages/manage_entities.php"><span>Wanna manage entities?</span></a>
+      </section>
+      <p id="all-users-title">All users:</p>
       <section id="all-users">
         <?php
           foreach ($users as $user) {

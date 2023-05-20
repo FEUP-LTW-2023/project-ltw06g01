@@ -29,6 +29,7 @@ $statuses = array_map(fn($value) => $value['name'],getAllStatuses($db)); ?>
 <title>Ticket System</title>
 <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
 <script src="/../javascript/all_variables.js" defer></script>
+<link rel="stylesheet" href="../css/manage_entities.css">
 <link rel="stylesheet" href="../css/geralStyle.css">
 </head>
 <body>
@@ -37,13 +38,16 @@ $statuses = array_map(fn($value) => $value['name'],getAllStatuses($db)); ?>
     drawMessages($session);?>
   </header>
     <?php drawNav(); ?>
-  <main>  
+  <main>
+    <p> Create or Delete Departments: </p>
     <ul id="department-delete">
         <?php foreach ($departments as $department) {
             drawRemoveDepartment($department);
         } ?>
     </ul>
     <?php drawAddDepartment(); ?>
+
+    <p> Create or Delete status: </p>
     <ul id="status-delete">
         <?php foreach ($statuses as $status) {
             drawRemoveStatus($status);
