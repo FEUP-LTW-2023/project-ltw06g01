@@ -45,7 +45,6 @@ header{
   justify-content: start;
   align-items: start;
   color: #55b0c6;
-  font-size: larger;
   padding: 3%;
   text-shadow: 2px 2px 8px #88d9e9;
   text-stroke: 1px #408697;
@@ -66,7 +65,7 @@ header{
     justify-content: center;
     align-items: center;
     color: #55b0c6;
-    font-size: 20px;
+    font-size: 100%;
     padding: 3%;
     text-shadow: 2px 2px 8px #7dc5d5;
         -webkit-text-stroke: 1px #5cc1da;
@@ -106,11 +105,11 @@ header{
     display: flex;
     align-self: center;
     color: #55b0c6;
-    font-size: 32px;
+    font-size: 27px;
     background-color: transparent;
     border: none;
     justify-self: end;
-    margin-right: 70px;
+    margin-right: 8vw;
 }
 
 #profile-button-hover{
@@ -133,10 +132,10 @@ header{
     border: none;
     display: flex;
     color: #55b0c6;
-    font-size: 32px;
+    font-size: 27px;
     background: transparent;
     align-self: center;
-    margin-right: 60px;
+    margin-right: 7vw;
 
   }
   
@@ -184,12 +183,11 @@ header{
   grid-area: content;
   grid-template-areas: 
   "login"
-  "singup";
+  "singup"
+  "allTickets";
   justify-content: center;
   align-content: center; 
   margin-top: 30px;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 
@@ -553,12 +551,12 @@ a{
 }
 
 #allTickets{
+  margin-right: 10%;
+  margin-left: 10%;
   grid-area: allTickets;
   display: grid;
   grid-template-columns: 1fr;
   gap: 35px; 
-  max-height: 400px;
-  overflow: auto;
   justify-items: center;
 }
 
@@ -574,7 +572,7 @@ a{
   align-self: start;
 }
 .ticket-display{
-  width: 800px;
+  width: 100%;
   margin: 0;
   padding: 20px;
   box-sizing: border-box;
@@ -993,7 +991,6 @@ nav {
   color: #55b0c6;
   grid-area: nav;
   background-color: #e8e9e9;
-  border: 2px solid #55b0c6;
   transition: .2s;
   width: fit-content;
   position: static;
@@ -1072,85 +1069,44 @@ a{
  text-decoration: none; 
 }
 
-@media screen and (max-width: 768px) {
-  #drawHeader {
-    width: 100vw;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
 
-  #title {
-    margin-bottom: 10px;
-  }
+/*resposive design*/
 
-  #home-or-subtitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+@media screen and (max-width: 800px) {
 
-  #home {
-    margin-right: 10px;
-  }
-
-  #subtitle {
-    display: none;
-  }
-
-  #profile-or-logout {
-    display: flex;
-    justify-content: center;
-  }
-
-  #allTickets {
-    width: 100vw;
+  #not-logged-in > #drawHeader {
     display: grid;
+    grid-template-areas: "title";
     grid-template-columns: 1fr;
-    grid-gap: 10px;
-    overflow-x: auto;
+}
+
+  #not-logged-in > #drawHeader > #title{
+    font-size: 6vw;
+
   }
 
-  .ticket-form {
-    width: 100vw;
-    /* Outros estilos para o ticket-form em dispositivos móveis */
+  #logged-in > #drawHeader {
+    display: grid;
+    grid-template-areas: "subtitle title profile-or-logout";
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+}
+  #logged-in > #drawHeader > #title{
+    font-size: 100%;
   }
-
+  #logged-in > #drawHeader > #home-or-subtitle > #subtitle{
+    font-size: 3vw;
+  }
+  #profile-or-logout > .profile-box{
+    font-size: 4.5vw;
+    margin-right: 6vw;
+  }
+  #profile-or-logout > .logout-box{
+    font-size: 4.5vw;
+    margin-right: 3vw;
+  }
   .ticket-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    font-size: 14px;
-    /* Outros estilos que você deseja aplicar */
-  }
-  
-  .ticket-display .options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* Ajuste os estilos conforme necessário */
-  }
-  
-  .ticket-display .options > * {
-    margin-top: 1rem;
-    /* Ajuste os estilos conforme necessário */
-  }
-  .options ion-icon {
-    font-size: 20px; /* Ajuste o tamanho do ícone conforme necessário */
-  }
-
-  .ticket-display .ticket-form .subject,
-  .ticket-display .ticket-form .department,
-  
-  .ticket-display .ticket-form .tagsArea {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
   }
 }
 

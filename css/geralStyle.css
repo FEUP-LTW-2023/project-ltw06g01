@@ -183,9 +183,9 @@ header{
 
 nav {
     color: #fff;
-    grid-area: nav;
     background-color: #cbcccc;
     border: 2px solid #55b0c6;
+    grid-area: nav;
     transition: .2s;
     width: fit-content;
     position: static;
@@ -289,6 +289,10 @@ footer p{
   }
 
 
+@media screen and (max-width: 800px) {
+  
+}
+/*
   @media screen and (max-width: 768px) {
 
     #drawHeader > #title {
@@ -357,7 +361,7 @@ footer p{
     .item-menu a span {
       font-size: 12px;
     }
-}
+}*/
 
 
 

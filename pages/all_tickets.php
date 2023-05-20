@@ -41,7 +41,9 @@ if (!$session->isLoggedIn()) {
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset = "utf-8">
 <title>All Tickets</title>
+<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
   <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/ticket_options.js" defer></script>

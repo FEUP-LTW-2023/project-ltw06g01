@@ -74,7 +74,7 @@
   <?php } ?>
   
           <?php drawNav(); ?>
-  <div id="content-home">
+  <main id="content-home">
           <?php drawEnterBoxes(); ?>
 
           <?php if($loggedin){ 
@@ -119,7 +119,7 @@
             <?php }
           } ?>
            </section>
-    </div>
+    </main>
     <section class="FAQs">
       <ion-icon name="help-circle-outline" id="faqs-icon"></ion-icon>
       <h6>FAQ's</h6>

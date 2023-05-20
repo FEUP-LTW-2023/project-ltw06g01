@@ -83,6 +83,8 @@ main{
 
 
 #allTickets{
+    margin-right: 10%;
+    margin-left: 10%;
     grid-area: allTickets;
     display: grid;
     grid-template-columns: 1fr;
@@ -91,7 +93,7 @@ main{
 }
 
 .ticket-display{
-    width: 70vw;
+    width: 100%;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
@@ -109,7 +111,7 @@ main{
     row-gap: 5px;
     background-color: #55b0c6;
     height: fit-content;
-
+    
     color: #ebfcff;
 }
 .ticket-form {
@@ -444,3 +446,16 @@ select option{
     border-color: #55b0c6;
   }
 
+@media screen and (max-width: 600px){
+    .ticket-form{
+        width: 100%; 
+    }
+
+    .ticket-display .ticket-form {
+        font-size: 12px;
+      }
+    
+      .ticket-form ion-icon {
+        font-size: 14px;
+      }
+}
