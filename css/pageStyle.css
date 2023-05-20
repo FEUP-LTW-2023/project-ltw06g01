@@ -178,10 +178,6 @@ header{
 #content-home{
   display: grid;
   grid-area: content;
-  grid-template-areas: 
-  "login"
-  "singup"
-  "allTickets";
   align-content: center; 
   margin-top: 30px;
 }
@@ -236,13 +232,13 @@ transform: rotate(360deg);
   overflow: hidden;
   position: relative;
   display: grid;
+  justify-self: center;
   justify-content: center;
   align-content: center;
   border-radius: 15px;
 }
 
 .form-box-login{
-  grid-area: login;
   justify-self: center;
   width: 300px;
   height: 340px;
@@ -265,6 +261,7 @@ transform: rotate(360deg);
   z-index: 1;
   animation: animate-arround 6s linear infinite;
   transform-origin: bottom right;
+  justify-self: center;
 }
 
 #signup-box-animated::after{
@@ -294,7 +291,6 @@ transform: rotate(360deg);
 }
 
 .form-box-signup{
-  grid-area: signup;
   display: none;
   justify-self: center;
   width: 300px;
@@ -549,7 +545,6 @@ a{
 #allTickets{
   margin-right: 10%;
   margin-left: 10%;
-  grid-area: allTickets;
   display: grid;
   grid-template-columns: 1fr;
   gap: 35px; 
