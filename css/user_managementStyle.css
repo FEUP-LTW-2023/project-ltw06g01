@@ -179,28 +179,3 @@
 
 /* Responsive Styles */
 
-@media screen and (max-width: 600px) {
-  /* Adjust the styles for screens up to 600px wide */
-  #all-users {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-
-  .user-box,
-  .user-box-popup {
-    min-width: 100%;
-    min-height: auto;
-  }
-
-  .user-box-popup.active>.backdrop {
-    top: 0;
-    left: 0;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  /* Adjust the styles for screens up to 400px wide */
-  .user-box-popup,
-  .user-box-popup.active {
-    min-width: 90%;
-  }
-}

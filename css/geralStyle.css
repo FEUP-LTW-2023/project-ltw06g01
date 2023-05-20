@@ -321,6 +321,11 @@ footer p{
 
   }
 }
+@media screen and (max-width: 560px) {
+  header{
+  border-bottom-right-radius: 0px;}
+}
+
 
 @media screen and (max-width: 435px) {
   #home-or-subtitle > #subtitle{

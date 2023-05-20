@@ -27,8 +27,8 @@ $users = User::getUsersAdmin($db);
   <head>
   <title>All Tickets</title>
     <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
-    <link rel="stylesheet" href="/../css/geralStyle.css">
     <link rel="stylesheet" href="/../css/user_managementStyle.css">
+    <link rel="stylesheet" href="/../css/geralStyle.css">
     <script src="/../javascript/all_variables.js" defer></script>
     <script src="/../javascript/login_logout_transitions.js" defer></script>
     <script src="/../javascript/department_toggle.js" defer></script>
@@ -40,7 +40,7 @@ $users = User::getUsersAdmin($db);
   </head>
   <body>
     <header>
-        <?php drawHeader(0, 4, "Manage users"); 
+        <?php drawHeader(0, 4, "Manage"); 
         drawMessages($session);?>
     </header>
       <?php drawNav(); ?>
