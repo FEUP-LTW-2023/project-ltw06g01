@@ -11,3 +11,11 @@ function addStatus($db, $status) {
     $stmt = $db->prepare('INSERT INTO STATUS VALUES (?)');
     $stmt->execute(array($status));
 }
+
+function deleteStatus($db, $status) {
+    $stmt = $db->prepare('DELETE FROM STATUS WHERE name = ?');
+    $stmt->execute($status);
+
+    if ($stmt->rowCount() == 0) return false;
+    else return true;
+}

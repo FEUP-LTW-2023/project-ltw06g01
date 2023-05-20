@@ -48,4 +48,12 @@
         $stmt = $db->prepare('INSERT INTO DEPARTMENT VALUES (?)');
         $stmt->execute(array($department));
     }
+
+    function deleteDepartment($db, $department) {
+        $stmt = $db->prepare('DELETE FROM DEPARTMENT WHERE name = ?');
+        $stmt->execute($department);
+
+        if ($stmt->rowCount() == 0) return false;
+        else return true;
+    }
 ?>    
