@@ -317,8 +317,14 @@ footer p{
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 435px) {
+  #home-or-subtitle > #subtitle{
+    font-size: 100%;
+  }
 
+  #drawHeader > #title{
+    font-size: 100%;
+  }
 }
 
 /*
