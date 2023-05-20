@@ -21,13 +21,13 @@ function drawRemoveStatus($status) { ?>
 function drawAddDepartment() { ?>
     <form>
         <input type="text" name="department">
-        <button type="submit" formmethod="post" formaction="../actions/add_department.php">Add</button>
+        <button type="submit" formmethod="post" formaction="../actions/add_department.action.php">Add</button>
     </form>
 <?php }
 
 function drawAddStatus() { ?>
     <form>
         <input type="text" name="status">
-        <button type="submit" formmethod="post" formaction="../actions/add_status.php">Add</button>
+        <button type="submit" formmethod="post" formaction="../actions/add_status.action.php">Add</button>
     </form>
 <?php }
