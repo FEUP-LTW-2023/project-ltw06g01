@@ -12,6 +12,7 @@ require_once(__DIR__ . '/../database/connection.php');
 require_once(__DIR__ . '/../database/departments.php');
 require_once(__DIR__ . '/../database/status.php');
 require_once(__DIR__ . '/../templates/admin.tpl.php');
+require_once(__DIR__ . '/../templates/common.tpl.php');
 
 if (!hasAccessToPage(2, $_SESSION['level'])) {
     header('Location: page.php');
@@ -28,7 +29,7 @@ $statuses = array_map(fn($value) => $value['name'],getAllStatuses($db)); ?>
 <title>Ticket System</title>
 <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
 <script src="/../javascript/all_variables.js" defer></script>
-<link rel="stylehseet" href="../css/geralStyle.css">
+<link rel="stylesheet" href="../css/geralStyle.css">
 </head>
 <body>
   <header>
@@ -48,6 +49,7 @@ $statuses = array_map(fn($value) => $value['name'],getAllStatuses($db)); ?>
             drawRemoveStatus($status);
         } ?>
     </ul>
+    <?php drawAddStatus(); ?>
   </main>
     <footer>
       <p>Algum footer que queiramos</p>
