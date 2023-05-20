@@ -56,11 +56,11 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                 </div>
 
                 <div class="assunto">
-                    <?php if ($single) { ?><label for="title">Assunto:</label> <?php } ?>
+                    <?php if ($single) { ?><label for="ticket-title">Assunto:</label> <?php } ?>
                     <?php if (strpos($_SERVER['REQUEST_URI'], 'open_page') !== false || strpos($_SERVER['REQUEST_URI'], 'page.php') !== false) { ?>
                         <ion-icon name="file-tray-full"></ion-icon>
                     <?php } ?>
-                    <input type="text" class="subject" name="title" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; if ($single) echo "id=\"title\"";?> value="<?= $ticket->title ?>">
+                    <input type="text" class="subject" name="title" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; if ($single) echo "id=\"ticket-title\"";?> value="<?= $ticket->title ?>">
                 </div>
 
                 <div class="textArea">
@@ -81,9 +81,11 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                         </ul>
 
 
-                            <input name="tagdata" list="taglist" class="tag-input">
-                            <input type="hidden" name="tag-string" class="curr-tags" value=<?=implode(',', array_map(fn($tag) => $tag['tag'], $tags))?>>
-                            <datalist id="taglist">
+                            <input name="tagdata" list=<?= $single ? "taglist" : "taglist" . $ticket->id?> class="tag-input">
+                            <input type="hidden" name="tag-string" class="curr-tags" value=<?php $string = implode(',', array_map(fn($tag) => $tag['tag'], $tags));
+                                                                                                            if (empty($string)) echo "\"\"";
+                                                                                                            else echo $string; ?>>
+                            <datalist id=<?= $single ? "taglist" : "taglist" . $ticket->id ?>>
                                 <?php foreach ($allTags as $allTag) { ?>
                                     <option><?=$allTag['name']?></option>
                                 <?php } ?>

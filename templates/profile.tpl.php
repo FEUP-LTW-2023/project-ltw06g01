@@ -2,12 +2,12 @@
 require_once(__DIR__ . '/../classes/user.class.php');
 require_once(__DIR__ . '/../database/departments.php');
 
-function drawUserBox(PDO $db, User $user, bool $admin)
+function drawUserBox(PDO $db, User $user)
 { ?>
-  <div class="backdrop" id="backdrop"></div>
+  <div class="backdrop"></div>
   <div class="user-box" id="userBox-<?= $user->id ?>" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
-  <h3 id="name"><?= $user->username ?></h3>
-  <p id="email"><?= $user->email ?></p>
+  <h3 class="name"><?= $user->username ?></h3>
+  <p class="email"><?= $user->email ?></p>
 </div>
 <div class="user-box-popup" id="userBoxPopup-<?= $user->id ?>">
   <input type="hidden" name="id" class="uid" value=<?= $user->id ?>>
@@ -31,6 +31,7 @@ function drawUserBox(PDO $db, User $user, bool $admin)
       </select>
       <button type="button" class="toggle-button" >
         <ion-icon name="close-outline" class = "cross" >
+        </ion-icon>
         <ion-icon name="add-outline"  class = "add">
         </ion-icon>
       </button>
@@ -48,22 +49,22 @@ function drawProfile($curr_user)
     <div id="edit">
       <ion-icon name="hammer-outline"></ion-icon>
     </div> 
-    <div id="name">
+    <div class="name">
       <label> <?php echo $curr_user['username']; ?> </label>
     </div>   
-    <div id="image">
+    <div class="image">
       <ion-icon name="person-circle-outline"></ion-icon>
     </div>
-    <div id="email">
+    <div class="email">
       <label> <?php echo $curr_user['email']; ?></label>
     </div>
     <div id="type">
       <?php if ($curr_user['permissionLevel'] == 1) : ?>
-        <label for="level">Type: Agent</label>
+        <label>Type: Agent</label>
       <?php elseif ($curr_user['permissionLevel'] == 2) : ?>
-        <label for="level">Type: Admin</label>
+        <label>Type: Admin</label>
       <?php else : ?>
-        <label for="level">Type: Client</label>
+        <label>Type: Client</label>
       <?php endif; ?>
     </div>
     
@@ -82,13 +83,13 @@ function drawProfileEdit($curr_user)
     <div id ="back">
       <ion-icon name="close-outline"></ion-icon>
     </div>
-    <div id="image">
+    <div class="image">
       <ion-icon name="person-circle-outline"></ion-icon>
     </div>
-    <div id="name">
+    <div class="name">
       <input type="text"  required id = "username" name="username" value="<?php echo $curr_user['username']; ?>" />
     </div>
-    <div id="email">
+    <div class="email">
       <input type="email" required id = "email-text" name="email" value="<?php echo $curr_user['email']; ?>" />
     </div>
     <div id="old-password">
