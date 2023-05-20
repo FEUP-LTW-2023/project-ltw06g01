@@ -217,13 +217,14 @@ function drawOpcions($db, $ticket){ ?>
 <?php
 }
 
-function drawFilters($get, $departments, $users, $statuses) { ?>
+function drawFilters($get, $departments, $users, $statuses) { 
+    $allTags = getAllTags(getDatabaseConnection()); ?>
 <div id="filters-box">
       <button id="filters-button"> Filters </button>
       <form id="filtro" method="get" class="ticket-filter-container">
 
         <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>
-        <select id="ticket-filter-status" class="ticket-filter" name="ticket-filter-status" onchange="this.form.submit()">
+        <select id="ticket-filter-status" class="ticket-filter" name="ticket-filter-status" id="ticket-filter-status" onchange="this.form.submit()">
           <option value="all" <?php if ($get['ticket-filter-status'] == 'all') echo 'selected'; ?>>Todos</option>
           <?php foreach ($statuses as $status) { ?>
             <option value=<?= $status ?> <?php if ($get['ticket-filter-status'] == $status) echo 'selected'; ?>><?= ucfirst($status) ?></option>
@@ -231,7 +232,7 @@ function drawFilters($get, $departments, $users, $statuses) { ?>
         </select>
 
         <label id="ticket-filter-agent-title" for="ticket-filter-agent">Agent</label>
-        <select id="ticket-filter-agent" class="ticket-filter" name="ticket-filter-agent" onchange="this.form.submit()">
+        <select id="ticket-filter-agent" class="ticket-filter" name="ticket-filter-agent" id="ficket-filter-agent" onchange="this.form.submit()">
           <option value="default" <?php if ($get['ticket-filter-agent'] == 1) echo 'selected'; ?>>Todos</option>
           <?php foreach ($users as $user) {
             if ($user->level < 1 ) continue; ?>
@@ -240,13 +241,17 @@ function drawFilters($get, $departments, $users, $statuses) { ?>
         </select>
 
         <label id="ticket-filter-department-title" for="ticket-filter-department">Department</label>
-        <select name="ticket-filter-department" class="ticket-filter" onchange="this.form.submit()">
+        <select name="ticket-filter-department" class="ticket-filter" id="ticket-filter-department" onchange="this.form.submit()">
           <option value="unassigned" <?php if ($get['ticket-filter-department'] == 'unassigned') echo 'selected'; ?>>Unassigned</option>
           <?php foreach ($departments as $department) { ?>
             <option value=<?= $department ?> <?php if ($get['ticket-filter-department'] == $department) echo 'selected'; ?>><?= $department ?></option>
           <?php } ?>
         </select>
 
+        <label id="ticket-filter-tag-title" for="ticket-filter-tag">Tags</label>
+        <input type="text" name="ticket-filter-tag" id="ticket-filter-tag">
+        <button type="button" id="tag-toggle">Toggle</button>
+        <input type="hidden" name="tag-string" value=<?= $_GET['ticket-filter-tag'] ?>>
       </form>
     </div>
 <?php }
