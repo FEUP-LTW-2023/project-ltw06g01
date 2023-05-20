@@ -96,12 +96,12 @@
 
 
 
-.form-box-edit-profile #image {
+.form-box-edit-profile .image {
     padding-top: 0;
     padding-bottom: 8%;
 }
 
-#image {
+.image {
     grid-area: image;
     display: flex;
     justify-content: center;
@@ -111,13 +111,13 @@
     padding: 10%;
 }
 
-#image ion-icon{
+.image ion-icon{
     font-size: 100px;
     align-self: center;
     justify-self: center;
 }
 
-#name{
+.name{
     grid-area: name;
     font-size: 40px;
     display: flex;
@@ -126,7 +126,7 @@
     height: fit-content;
 }
 
-#profile-edit #name{
+#profile-edit .name{
     grid-area: name;
     display: flex;
     justify-content: center;
@@ -135,7 +135,7 @@
 }
 
 
-#email{
+.email{
     grid-area: email;
     display: flex;
     justify-content: center;

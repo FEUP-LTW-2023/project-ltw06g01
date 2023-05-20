@@ -49,13 +49,13 @@ function drawProfile($curr_user)
     <div id="edit">
       <ion-icon name="hammer-outline"></ion-icon>
     </div> 
-    <div id="name">
+    <div class="name">
       <label> <?php echo $curr_user['username']; ?> </label>
     </div>   
-    <div id="image">
+    <div class="image">
       <ion-icon name="person-circle-outline"></ion-icon>
     </div>
-    <div id="email">
+    <div class="email">
       <label> <?php echo $curr_user['email']; ?></label>
     </div>
     <div id="type">
@@ -83,13 +83,13 @@ function drawProfileEdit($curr_user)
     <div id ="back">
       <ion-icon name="close-outline"></ion-icon>
     </div>
-    <div id="image">
+    <div class="image">
       <ion-icon name="person-circle-outline"></ion-icon>
     </div>
-    <div id="name">
+    <div class="name">
       <input type="text"  required id = "username" name="username" value="<?php echo $curr_user['username']; ?>" />
     </div>
-    <div id="email">
+    <div class="email">
       <input type="email" required id = "email-text" name="email" value="<?php echo $curr_user['email']; ?>" />
     </div>
     <div id="old-password">
