@@ -41,7 +41,7 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
 ?>
 
 <?php 
-function drawNav($forceLevel) { 
+function drawNav($forceLevel = null) { 
 ?> 
     <script src="/../javascript/nav.js" defer></script>
     <nav id="drawNav">
