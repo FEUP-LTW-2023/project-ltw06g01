@@ -41,6 +41,11 @@
         $stmt->execute(array($username, $email, $id));
     }
 
+    function updatePassword($db, $id, $password) {
+        $stmt = $db->prepare('UPDATE CLIENT SET passHash = ? WHERE uid = ?');
+        $stmt->execute(array(password_hash($password, PASSWORD_DEFAULT), $id));
+    }
+
     function change_animationFlag($newFlag, $oldLevel) {
         session_start();
         $_SESSION['animation'] = $newFlag;
