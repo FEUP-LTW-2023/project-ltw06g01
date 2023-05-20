@@ -14,7 +14,7 @@ function addStatus($db, $status) {
 
 function deleteStatus($db, $status) {
     $stmt = $db->prepare('DELETE FROM STATUS WHERE name = ?');
-    $stmt->execute($status);
+    $stmt->execute(array($status));
 
     if ($stmt->rowCount() == 0) return false;
     else return true;

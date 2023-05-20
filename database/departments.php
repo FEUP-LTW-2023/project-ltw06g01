@@ -51,7 +51,7 @@
 
     function deleteDepartment($db, $department) {
         $stmt = $db->prepare('DELETE FROM DEPARTMENT WHERE name = ?');
-        $stmt->execute($department);
+        $stmt->execute(array($department));
 
         if ($stmt->rowCount() == 0) return false;
         else return true;
