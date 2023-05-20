@@ -41,12 +41,13 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
 ?>
 
 <?php 
-function drawNav(){ 
-?>
+function drawNav($forceLevel) { 
+?> 
     <script src="/../javascript/nav.js" defer></script>
     <nav id="drawNav">
       <ul>
-        <?php $user_type = $_SESSION['level'] ?? -1?>
+        <?php $user_type = $_SESSION['level'] ?? -1;
+        if (isset($forceLevel)) $user_type = $forceLevel; ?>
         <?php if (isset($user_type)): ?>
           <li class="item-menu">
             <a href = "ticket.php">

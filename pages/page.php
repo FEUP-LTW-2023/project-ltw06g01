@@ -15,6 +15,10 @@
   $db = getDatabaseConnection();
 
   $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
+  $oldLevel = $_SESSION['oldLevel'];
+  if (isset($oldLevel)) {
+    unset($_SESSION['oldLevel']);
+  }
 
   if ($user_id !== null) {
     $tickets = Ticket::getTicketsFromUser($db, $user_id);
@@ -73,7 +77,8 @@
     </header>
   <?php } ?>
   
-          <?php drawNav(); ?>
+          <?php if (isset($oldLevel)) drawNav($oldLevel);
+                else drawNav(null); ?>
   <div id="content-home">
           <?php drawEnterBoxes(); ?>
 
