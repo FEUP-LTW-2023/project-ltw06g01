@@ -26,6 +26,7 @@ if (!$session->isLoggedIn()) {
 
   $users = User::getUsersAdmin($db);
   $departments = getDepartments($db);
+  $statuses = getAllStatuses($db);
 
   if (!hasAccessToPage(1, $_SESSION['level'])) {
     $session->addMessage('error', 'Insufficient permissions');
@@ -60,7 +61,7 @@ if (!$session->isLoggedIn()) {
   </header>
     <?php drawNav(); ?>
   <main>
-    <?php drawFilters($_GET, $departments, $users); 
+    <?php drawFilters($_GET, $departments, $users, array_map(fn($value) => $value['name'], $statuses)); 
       //$status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status'], $_GET['ticket-filter-agent'], $_GET['ticket-filter-department']);
       //$ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
