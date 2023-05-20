@@ -35,8 +35,8 @@ header{
 #not-logged-in > #drawHeader{
   display: grid;
   grid-template-areas:
-  "title title profile-or-logout";
-  grid-template-columns: 1fr 1fr 1fr;
+  "title";
+  grid-template-columns: 1fr ;
 }
 
 #not-logged-in > #drawHeader > #title{  
@@ -48,7 +48,7 @@ header{
   padding: 3%;
   text-shadow: 2px 2px 8px #88d9e9;
   text-stroke: 1px #408697;
-  font-size: 2.5em;
+  font-size: 40px;
 }
 
 #logged-in > #drawHeader{
@@ -65,11 +65,10 @@ header{
     justify-content: center;
     align-items: center;
     color: #55b0c6;
-    font-size: 100%;
     padding: 3%;
     text-shadow: 2px 2px 8px #7dc5d5;
     -webkit-text-stroke: 1px #5cc1da;
-    font-size: 2vw;
+    font-size: 23px;
     height: 46px;
 
 }
@@ -135,7 +134,7 @@ header{
     font-size: 27px;
     background: transparent;
     align-self: center;
-    margin-right: 7vw;
+    margin-right: 70px;
 
   }
   
@@ -185,7 +184,6 @@ header{
   "login"
   "singup"
   "allTickets";
-  justify-content: center;
   align-content: center; 
   margin-top: 30px;
 }
@@ -1072,17 +1070,17 @@ a{
 
 /*resposive design*/
 
-@media screen and (max-width: 800px) {
-
-  #not-logged-in > #drawHeader {
-    display: grid;
-    grid-template-areas: "title";
-    grid-template-columns: 1fr;
-}
+  @media screen and (max-width: 800px) {
+    .item-menu .txt-link{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+    width: auto;
+    display: flex;
+  }
 
   #not-logged-in > #drawHeader > #title{
     font-size: 6vw;
-
   }
 
   #logged-in > #drawHeader {
@@ -1096,18 +1094,52 @@ a{
   }
 
   #logged-in > #drawHeader > #home-or-subtitle > #subtitle{
-    font-size: 3vw;
+    font-size: 20px;
   }
   #profile-or-logout > .profile-box{
-    font-size: 4.5vw;
     margin-right: 6vw;
   }
   #profile-or-logout > .logout-box{
-    font-size: 4.5vw;
-    margin-right: 3vw;
-  }
-  .ticket-display {
-    width: 100%;
+     margin-right: 3vw;
   }
 }
+
+@media screen and (max-width: 560px) {
+  header{
+  border-bottom-right-radius: 0px;}
+}
+
+
+@media screen and (max-width: 435px) {
+  #home-or-subtitle > #subtitle{
+    font-size: 100%;
+  }
+
+  #drawHeader > #title{
+    font-size: 100%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .ticket-form{
+      width: 100%; 
+  }
+
+  .ticket-display .ticket-form {
+      font-size: 12px;
+    }
+  
+    .ticket-form ion-icon {
+      font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+  #allTickets {
+      margin: 0;
+  }
+}
+
+
+
 

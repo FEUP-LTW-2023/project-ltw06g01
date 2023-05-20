@@ -46,7 +46,7 @@ header{
     justify-content: center;
     align-items: center;
     color: #cbf2fa;
-    font-size: 2vw;
+    font-size: 23px;
     padding: 3%;
     text-shadow: 2px 2px 8px #2b5a65;
     -webkit-text-stroke: 1px #f6f6f6;
@@ -303,7 +303,7 @@ footer p{
     display: flex;
   }
   #home-or-subtitle > #subtitle{
-    font-size: 2.5vw;
+    font-size: 20px;
   }
 
   #drawHeader > #title{
@@ -318,7 +318,6 @@ footer p{
   }
   #home {
     padding-left: 3vw;
-
   }
 }
 @media screen and (max-width: 560px) {
