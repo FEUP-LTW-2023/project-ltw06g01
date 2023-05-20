@@ -19,6 +19,14 @@
     $email = $_POST['email'];
     $username = $_POST['username'];
 
+    if (!isValidName($username)) {
+        $session->addMessage('error', 'Invalid name');
+        header('Location: ../pages/profile.php');
+    }
+    if (!isValidEmail($_POST['email'])) {
+        header('Location: ../pages/profile.php');
+    }
+
     $user = getUser($db, $_POST['uid']);
 
     if (empty($user)) {
