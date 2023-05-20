@@ -15,7 +15,7 @@
   $db = getDatabaseConnection();
 
   $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
-  $oldLevel = $_SESSION['oldLevel'];
+  $oldLevel = isset($_SESSION['oldLevel']) ? $_SESSION['oldLevel'] : null;
   if (isset($oldLevel)) {
     unset($_SESSION['oldLevel']);
   }
