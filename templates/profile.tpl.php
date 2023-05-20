@@ -60,11 +60,11 @@ function drawProfile($curr_user)
     </div>
     <div id="type">
       <?php if ($curr_user['permissionLevel'] == 1) : ?>
-        <label for="level">Type: Agent</label>
+        <label>Type: Agent</label>
       <?php elseif ($curr_user['permissionLevel'] == 2) : ?>
-        <label for="level">Type: Admin</label>
+        <label>Type: Admin</label>
       <?php else : ?>
-        <label for="level">Type: Client</label>
+        <label>Type: Client</label>
       <?php endif; ?>
     </div>
     
