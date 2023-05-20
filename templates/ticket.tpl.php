@@ -215,7 +215,7 @@ function drawOpcions($db, $ticket){ ?>
 <?php
 }
 
-function drawFilters($get, $departments, $users) { ?>
+function drawFilters($get, $departments, $users, $statuses) { ?>
 <div id="filters-box">
       <button id="filters-button"> Filters </button>
       <form id="filtro" method="get" class="ticket-filter-container">
@@ -223,9 +223,9 @@ function drawFilters($get, $departments, $users) { ?>
         <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>
         <select id="ticket-filter-status" class="ticket-filter" name="ticket-filter-status" onchange="this.form.submit()">
           <option value="all" <?php if ($get['ticket-filter-status'] == 'all') echo 'selected'; ?>>Todos</option>
-          <option value="open" <?php if ($get['ticket-filter-status'] == 'open') echo 'selected'; ?>>Abertos</option>
-          <option value="closed" <?php if ($get['ticket-filter-status'] == 'closed') echo 'selected'; ?>>Fechados</option>
-          <option value="assigned" <?php if ($get['ticket-filter-status'] == 'assigned') echo 'selected'; ?>>Atribuídos</option>
+          <?php foreach ($statuses as $status) { ?>
+            <option value=<?= $status ?> <?php if ($get['ticket-filter-status'] == $status) echo 'selected'; ?>><?= ucfirst($status) ?></option>
+          <?php } ?>
         </select>
 
         <label id="ticket-filter-agent-title" for="ticket-filter-agent">Agent</label>
