@@ -87,13 +87,13 @@
   padding: 10px;
 }
 
-.user-box>#name {
+.user-box>.name {
   grid-area: name;
   font-size: 30px;
   justify-self: center;
 }
 
-.user-box>#email {
+.user-box>.email {
   grid-area: email;
 }
 
