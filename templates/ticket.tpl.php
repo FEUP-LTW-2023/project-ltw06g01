@@ -256,7 +256,7 @@ function drawFilters($get, $departments, $users, $statuses) {
                 <option><?= $tag['name'] ?></option>
             <?php } ?>
         </datalist>
-        <input type="hidden" name="tag-string" id="tag-string" value=<?= $get['ticket-filter-tag'] ?>>
+        <input type="hidden" name="tag-string" id="tag-string" value=<?= $get['tag-string'] ?>>
       </form>
     </div>
 <?php }

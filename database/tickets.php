@@ -50,22 +50,27 @@
 */    
 
     function getTicketsAssignedTo($db, $aid) {
-        $stmt = $db->prepare('SELECT * FROM ticket WHERE aID = ? AND future = NULL');
+        $stmt = $db->prepare('SELECT * FROM ticket WHERE aID = ? AND future is NULL');
         $stmt->execute(array($aid));
 
         return $stmt->fetchAll();
     }
 
     function getTicketsWithTags($db, array $tags) {
-        if (empty($tags)) return;
-        $query = 'SELECT * FROM ticket t JOIN TICKETTAG tt ON t.id = tt.tID WHERE tt.tag = ?';
+        if (empty($tags)) {
+            $stmt = $db->prepare('SELECT * FROM TICKET WHERE future is NULL');
+            $stmt->execute(array());
+
+            return $stmt->fetchAll();
+        }
+        $query = 'SELECT * FROM ticket t JOIN TICKETTAG tt ON t.id = tt.tID WHERE t.future is NULL AND tt.tag = ?';
         for ($i = 0; $i < count($tags) - 1; $i++) {
             $query = $query . ' OR tt.tag = ?';
         }
-        $query = $query . ' GROUP BY t.id HAVING count(tt.tag) = ?';
-        
+        $query = $query . ' GROUP BY t.id HAVING count(tt.tag) = ' . count($tags);
+
         $stmt = $db->prepare($query);
-        $stmt->execute(array_merge($tags, array(count($tags) - 1)));
+        $stmt->execute($tags);
 
         return $stmt->fetchAll();
     }

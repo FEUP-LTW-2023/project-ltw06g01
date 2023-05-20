@@ -20,6 +20,7 @@ if (!$session->isLoggedIn()) {
   $_GET['ticket-filter-status'] = $_GET['ticket-filter-status'] ?? 'all';
   $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? 'default';
   $_GET['ticket-filter-department'] = $_GET['ticket-filter-department'] ?? 'unassigned';
+  $_GET['ticket-filter-tag'] = $_GET['ticket-filter-tag'] ?? "";
 
   if ($_GET['ticket-filter-agent'] == 'default') $_GET['ticket-filter-agent'] = -1;
   $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? -1;
@@ -67,6 +68,8 @@ if (!$session->isLoggedIn()) {
     <?php drawFilters($_GET, $departments, $users, array_map(fn($value) => $value['name'], $statuses)); 
       //$status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
       $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status'], $_GET['ticket-filter-agent'], $_GET['ticket-filter-department']);
+      $tagTickets = Ticket::getTicketsByTags($db, $_GET['ticket-filter-tag'] == "" ? array() : explode(",", $_GET['ticket-filter-tag']));
+      $tickets = array_intersect($tickets, $tagTickets);
       //$ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
       //$departmentTickets = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
       //$finalTickets = Ticket::joinFilters($tickets, $ticketsAgent, $departmentTickets); ?>
