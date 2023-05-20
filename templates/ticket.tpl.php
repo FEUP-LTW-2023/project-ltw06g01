@@ -81,11 +81,11 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                         </ul>
 
 
-                            <input name="tagdata" list="taglist" class="tag-input">
+                            <input name="tagdata" list=<?= "taglist" . $ticket->id?> class="tag-input">
                             <input type="hidden" name="tag-string" class="curr-tags" value=<?php $string = implode(',', array_map(fn($tag) => $tag['tag'], $tags));
                                                                                                             if (empty($string)) echo "\"\"";
                                                                                                             else echo $string; ?>>
-                            <datalist id="taglist">
+                            <datalist id=<?= "taglist" . $ticket->id?>>
                                 <?php foreach ($allTags as $allTag) { ?>
                                     <option><?=$allTag['name']?></option>
                                 <?php } ?>
