@@ -2,7 +2,7 @@
 require_once(__DIR__ . '/../classes/user.class.php');
 require_once(__DIR__ . '/../database/departments.php');
 
-function drawUserBox(PDO $db, User $user, bool $admin)
+function drawUserBox(PDO $db, User $user)
 { ?>
   <div class="backdrop" id="backdrop"></div>
   <div class="user-box" id="userBox-<?= $user->id ?>" onclick="toggleUserBoxPopup(<?= $user->id ?>)">
@@ -31,6 +31,7 @@ function drawUserBox(PDO $db, User $user, bool $admin)
       </select>
       <button type="button" class="toggle-button" >
         <ion-icon name="close-outline" class = "cross" >
+        </ion-icon>
         <ion-icon name="add-outline"  class = "add">
         </ion-icon>
       </button>
