@@ -143,3 +143,12 @@ VALUES (1, 'I''m unable to login. Help!', '2023-05-12', 25, 1),
        (3, 'I need assistance with my order', '2023-05-14', 25, 3);
 
 INSERT INTO AGENTDEPARTMENT VALUES (25, 'Sales'), (25, 'Finances');
+
+INSERT INTO TICKET (id, title, text, dateCreated, priority, status, faqitem, department, aID, uID, history, future)
+VALUES
+    (4, 'Technical Issue', 'Encountering errors during software installation', '2023-05-15', 1, 'open', NULL, 'Operations', NULL, 25, NULL, NULL),
+    (5, 'Marketing Campaign Ideas', 'Seeking input for upcoming marketing campaigns', '2023-05-16', 2, 'open', NULL, 'Research and Development', NULL, 25, NULL, NULL),
+    (6, 'Expense Report Approval', 'Submitting my expense report for approval', '2023-05-17', 2, 'open', NULL, 'Finances', NULL, 25, NULL, NULL),
+    (7, 'Employee Onboarding Assistance', 'Need assistance with new employee onboarding process', '2023-05-18', 1, 'assigned', NULL, 'Human Resources', NULL, 25, NULL, NULL),
+    (8, 'Service Disruption', 'Experiencing service disruption on the website', '2023-05-19', 1, 'open', NULL, 'Operations', NULL, 25, NULL, NULL),
+    (9, 'Product Return Request', 'Requesting a return for a recently purchased product', '2023-05-20', 2, 'open', NULL, 'Customer Service', NULL, 25, NULL, NULL);
