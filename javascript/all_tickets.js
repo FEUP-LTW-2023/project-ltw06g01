@@ -6,7 +6,7 @@ function ajustarLarguraItensMenu() {
   var maxWidth = 0
 
   // Encontra a largura máxima
-  for (var i = 0; i < filtersContainer.length; i++) {
+  for (var i = 0; i < itemMenus.length; i++) {
     var width = itemMenus[i].offsetWidth
     if (width > maxWidth) {
       maxWidth = width
