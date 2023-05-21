@@ -1,8 +1,11 @@
 <?php
+
   require_once(__DIR__ . '/../classes/session.class.php');
+
+  $session = new Session();
+
   require_once(__DIR__ . '/../classes/faq.class.php');
   require_once(__DIR__ . '/../database/faq.php'); 
-  $session = new Session();
   require_once(__DIR__ . '/../database/connection.php');
   require_once(__DIR__ . '/../templates/common.tpl.php');
   include(__DIR__ . '/../templates/faq.tpl.php'); 
@@ -15,8 +18,8 @@
     $animation = 0;
   }
 
-  if (isset($_SESSION['loggedin'])){
-    $loggedin = $_SESSION['loggedin'];
+  if ($session->isLoggedIn()){
+    $loggedin = 1;
   }
   else{
     $loggedin = 0;

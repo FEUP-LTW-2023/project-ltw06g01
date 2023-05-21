@@ -182,7 +182,7 @@ body{
 #not-logged-in > #drawHeader{
   display: grid;
   grid-template-areas:
-  "title";
+  "title home";
   grid-template-columns: 1fr ;
 }
 
@@ -191,114 +191,49 @@ body{
   display: flex;
   justify-content: start;
   align-items: start;
-  color: #55b0c6;
+  color: #cbf2fa;
   padding: 3%;
-  text-shadow: 2px 2px 8px #88d9e9;
-  text-stroke: 1px #408697;
+  text-shadow: 2px 2px 8px #2b5a65;
+  -webkit-text-stroke: 1px #f6f6f6;
   font-size: 40px;
 }
 
-#logged-in > #drawHeader{
-  display: grid;
-  grid-template-areas:
-  "subtitle title profile-or-logout";
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 20px;
-}
-
-#logged-in > #drawHeader > #title{  
-    grid-area: title;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #55b0c6;
-    padding: 3%;
-    text-shadow: 2px 2px 8px #7dc5d5;
-    -webkit-text-stroke: 1px #5cc1da;
-    font-size: 23px;
-}
-
-#logged-in > #drawHeader > #home-or-subtitle{
-  display: grid;
-  grid-area: subtitle;
-  grid-template-areas: "subtitle";
+#not-logged-in > #drawHeader > #home-or-subtitle{
+  grid-area: home;
+  grid-template-areas: "home-icon";
   grid-template-columns: 1fr;
+  align-content: center;
 }
 
-#logged-in > #drawHeader > #home-or-subtitle > #subtitle{
-    grid-area: subtitle;
-    display: flex;
-    justify-content: center;
-    padding-left: 0%;
-    color: #55b0c6;
-    display: grid;
-    text-stroke: 1px #f6f6f6;
-    align-self: center;
-    
+#not-logged-in > #drawHeader > #home-or-subtitle > #subtitle{
+  display: none;
 }
-
-#drawHeader > #profile-or-logout{
-  grid-area: profile-or-logout;
+#not-logged-in > #drawHeader > #home-or-subtitle > #home{
   display: grid;
-  grid-template-areas: "profile logout";
-  grid-template-columns: 1fr auto;
+  padding: 0;
+  margin-right: 5vw;
 }
 
-#profile-or-logout > .profile-box{
-    grid-area: profile;
-    display: flex;
-    align-self: center;
-    color: #55b0c6;
-    font-size: 27px;
-    background-color: transparent;
-    border: none;
-    justify-self: end;
-    margin-right: 8vw;
-}
 
-#profile-button-hover{
-  display: none;
-}
-.profile-box:hover #profile-button-hover{
-  display: flex;
-}
-
-.profile-box #profile-button{
-  display: flex;
-}
-
-.profile-box:hover #profile-button{
+#not-logged-in > #drawHeader > #profile-or-logout{
   display: none;
 }
 
-#profile-or-logout > .logout-box{
-    grid-area: logout;
-    border: none;
-    display: flex;
-    color: #55b0c6;
-    font-size: 27px;
-    background: transparent;
-    align-self: center;
-    margin-right: 70px;
+@media screen and (max-width: 800px) {
 
-  }
-  
-  #profile-or-logout > .logout-box:hover{
-    cursor: pointer;
-  }
-
-.logout-box > #logout-icon-hover{
-  display: none;
-  }
-
- .logout-box:hover > #logout-icon{
-  display: none;
-  }
-
-.logout-box:hover > #logout-icon-hover{
-  display: flex;
-  }
-
-#home {
-  display: none;
+#not-logged-in > #drawHeader > #title{
+  font-size: 6vw;
 }
+#drawHeader > #title{
+  font-size: 2vw;
+}
+}
+
+
+@media screen and (max-width: 435px) {
+
+#drawHeader > #title{
+  font-size: 100%;
+}
+}
+
