@@ -4,7 +4,8 @@ body{
   display: grid;
   grid-template-areas:
    "header"
-   "content";
+   "content"
+   "footer";
    grid-template-columns: 1fr ;
    grid-template-rows: auto 1fr;
    max-width: 100em;
