@@ -167,6 +167,7 @@ body{
     border-radius: 15px;
     background-color: #55b0c654;
     color: #55b0c6;
+    resize: none;
 }
 
 .faq-form button{

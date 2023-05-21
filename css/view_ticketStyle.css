@@ -189,6 +189,11 @@ main{
     padding-right: 5px;
     padding-left: 5px;
     color: #fff;
+    cursor: pointer;
+}
+.tag-delete{
+    cursor: pointer;
+    background-color: #ffffff79;
 }
 
 .tag-input{
@@ -227,6 +232,7 @@ main{
 .delete-button{
     grid-area: delete;
     justify-self: start;
+    cursor: pointer;
 }
 
 button[type="submit"] {
@@ -248,6 +254,7 @@ button[type="submit"] {
 
 .delete-hover{
     display: none;
+    cursor: pointer;
 }
 
 .delete-button:hover .delete-not-hover{

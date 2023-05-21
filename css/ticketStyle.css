@@ -105,7 +105,14 @@
     padding-right: 5px;
     padding-left: 5px;
     color: #fff;
+    cursor: pointer;
 }
+
+.tag-delete:hover {
+    cursor: pointer;
+    color: RED;
+}
+
 
 .tag-input{
     grid-area:lista;
