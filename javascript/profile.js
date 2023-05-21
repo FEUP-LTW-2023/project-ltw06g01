@@ -3,13 +3,13 @@ const backIcon = document.querySelector("#back");
 const profile = document.querySelector("#profile_box");
 const profileEdit = document.querySelector("#profile-edit");
 
-editIcon.addEventListener("click", () => {
+editIcon.onclick = function() {
   rotatePage(profile, profileEdit);
-});
+}
 
-backIcon.addEventListener("click", () => {
+backIcon.onclick = function() {
   rotatePage(profileEdit, profile);
-});
+}
 
 function rotatePage(pageOut, pageIn) {
   pageOut.classList.add("rotate-out");

@@ -8,7 +8,7 @@ allTags.querySelectorAll('option').forEach((option) => {
     tagList.push(option.textContent)
 })
 
-addButton.addEventListener('click', (e) => {
+addButton.onclick = function() {
     const newTag = inputTag.value 
     if (tagList.includes(newTag)) {
         if (tagString.value.includes(newTag)) {
@@ -19,4 +19,4 @@ addButton.addEventListener('click', (e) => {
             tagString.value = tagString.value.replace(/^,/, '')
         }
     }
-})
+}

@@ -6,7 +6,7 @@ statusBoxes.forEach((element) => {
     const csrf = element.querySelector('.csrf').value
     const assignButton = element.querySelector('.status-confirm')
 
-    assignButton.addEventListener('click', async function () {
+    assignButton.onclick = async function() {
         const params = {'status': statusSelect.value, 'id': tID, 'csrf': csrf}
         const response = await fetch('../api/api_change_status.php?' + new URLSearchParams(params).toString())
         const json = await response.json()
@@ -21,5 +21,5 @@ statusBoxes.forEach((element) => {
         setTimeout(() => {
             assignButton.style.backgroundColor = "#bed9e041"
         }, 2000)
-    })
+    }
 })

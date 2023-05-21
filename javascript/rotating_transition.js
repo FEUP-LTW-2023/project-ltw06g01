@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const userBoxPopup = document.getElementById("userBoxPopup-" + userId);
     const backButton = userBoxPopup.querySelector(".back-button");
 
-    userBox.addEventListener("click", () => {
+    userBox.onclick = function() {
       rotatePage(userBox, userBoxPopup);
-    });
+    }
 
-    backButton.addEventListener("click", () => {
+    backButton.onclick = function() {
       rotatePage(userBoxPopup, userBox);
-    });
+    }
   });
 });

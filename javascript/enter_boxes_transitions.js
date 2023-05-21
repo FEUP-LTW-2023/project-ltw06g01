@@ -1,6 +1,6 @@
 // Quando se passa da box de login para a de signup
 
-loginButton.addEventListener('click', () => {
+loginButton.onclick = function() {
     if (loginBox.style.display === 'grid') {return;}
     else{
         signupBox.style.animation = 'slideOutRight 1s ease-in-out';
@@ -14,9 +14,9 @@ loginButton.addEventListener('click', () => {
         loginBox2.style.animation = 'slideInLeft 1s ease-in-out';
         }, 900)
         }
-    });
+    }
 
-signupButton.addEventListener('click', () => {
+signupButton.onclick = function() {
     if (signupBox.style.display === 'grid') {return;}
 
     else{
@@ -31,4 +31,4 @@ signupButton.addEventListener('click', () => {
         signupBox2.style.animation = 'slideInRight 1s ease-in-out';
         }, 900)
         }
-    });
+    }

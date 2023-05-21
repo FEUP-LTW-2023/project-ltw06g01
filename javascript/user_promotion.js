@@ -6,7 +6,7 @@ userBoxes.forEach((element) => {
   const csrf = element.querySelector('.csrf').value
 
   const select = element.querySelector('.user-type-select');
-  select.addEventListener('change', async function(e) {
+  select.onchange = async function(e) {
     const level = e.target.value;
     const params = {'uid': uid, 'level': level, 'csrf': csrf}
     const response = await fetch('../api/api_users.php?' + new URLSearchParams(params).toString());
@@ -25,6 +25,6 @@ userBoxes.forEach((element) => {
         element.style.borderColor = "red";
       }
     }
-  });
+  }
 });
 

@@ -8,7 +8,7 @@ agentBoxes.forEach((element) => {
   const toggleButton = element.querySelector('.toggle-button');
   const aid = element.querySelector('.uid');
 
-  toggleButton.addEventListener('click', async function() {
+  toggleButton.onclick = async function() {
     const department = departmentSelect.value;
     if (department === '') return;
     const params = {'aid': aid.getAttribute('value'), 'department': department, 'csrf': csrf}
@@ -27,5 +27,5 @@ agentBoxes.forEach((element) => {
     const userHasDepartment = departments.some((department) => department.department === departmentSelect.value);
     toggleButton.classList.toggle('add', !userHasDepartment);
     toggleButton.classList.toggle('cross', userHasDepartment);
-  });
+  }
 });
