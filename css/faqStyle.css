@@ -97,6 +97,7 @@ body{
     min-width: 800px;
     margin: 40px auto;
     padding: 20px;
+    width: 80%;
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
@@ -161,13 +162,16 @@ body{
 }
 
 .question,
-.answer,
-.faq-form button {
-  border: 1px solid #55b0c6;
-  border-radius: 15px;
+.answer{
+  border: 1px solid #fff;
+    border-radius: 15px;
+    background-color: #55b0c654;
+    color: #55b0c6;
 }
 
 .faq-form button{
   background-color: #fff;
   color: #55b0c6;
+  border-radius: 15px;
+  border: 1px solid #55b0c6;
 }
