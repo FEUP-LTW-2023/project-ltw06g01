@@ -208,3 +208,69 @@
     padding-bottom: 10vh;
   }
   
+  @media screen and (max-width: 480px) {
+    main{
+      margin: 0;
+   width: 100vw;
+   padding: 0;
+  }
+    #manage_entities {
+        margin: 0;
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #all-users-title{
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+    }
+    #all-users{
+      margin: 0;
+      width: 100vw;
+    }
+    .user-box{
+      width : 100vw;
+      padding: 0;
+      margin: 0;
+    }
+    #manage_entities a{
+      width: 100vw;
+      padding: 0;
+      margin: 0;
+    }
+    .user-box-popup{
+      width: 100vw;
+      padding: 0;
+      margin: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+  main{
+    width: 100%;
+  }
+    #manage_entities {
+      width: 100%;
+  }
+  #all-users-title{
+    width: 100%;
+  }
+  #all-users{
+      width: 100%;
+  }
+  .user-box{
+    width: 100%;
+}
+#manage_entities a{
+  width: 100%;
+  }
+  .user-box-popup{
+    margin: 0;
+      width: 100%;
+  }
+    footer{
+      width: 100%;
+}
+
+}

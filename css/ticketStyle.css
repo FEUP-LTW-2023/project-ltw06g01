@@ -1,6 +1,10 @@
+main{
+    margin-right: 25%;
+    margin-left: 25%;
+}
+
 .ticket-form {   /* o ticket-container é usado várias vezes quando se fala de tickets*/
-    max-width: 800px;
-    margin: 40px auto;
+    max-width: 100%;
     padding: 20px;
     box-sizing: border-box;
     justify-content: center;
@@ -275,3 +279,16 @@ select option{
     cursor: pointer;
     border-color: #55b0c6;
   }
+
+  @media screen and (max-width: 720px) {
+    main {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+  @media screen and (max-width: 530px) {
+    main {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
