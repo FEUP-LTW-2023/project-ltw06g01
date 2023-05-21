@@ -24,7 +24,7 @@ function drawHeader($animationFlag, $nextAnimation, $title){ /* o argumento titl
               <span class="icon-hover"><ion-icon name="home"></ion-icon></span>
             </a>
             <?php if ($title != "") { ?> <h2 id="subtitle" ><?=$title?></h2> <?php } ?>
-        </div>
+        </div>       
         <div id="profile-or-logout">
           <a class="profile-box" href="/../pages/profile.php">
             <ion-icon id="profile-button" name="person-outline"></ion-icon>
@@ -48,21 +48,21 @@ function drawNav($forceLevel = null) {
       <ul>
         <?php $user_type = $_SESSION['level'] ?? -1;
         if (isset($forceLevel)) $user_type = $forceLevel; ?>
-        <?php if (isset($user_type)): ?>
+        <?php if (isset($_SESSION['loggedin']) && isset($user_type)): ?>
           <li class="item-menu">
             <a href = "ticket.php">
               <span class = "icon"><ion-icon name="ticket-outline"></ion-icon></span>
               <span class = "txt-link">Create Ticket</span>
             </a>
           </li>
-        <?php endif; if ($user_type >= 1): ?>
+        <?php endif; if (isset($_SESSION['loggedin']) && $user_type >= 1): ?>
           <li class="item-menu">
             <a href = "all_tickets.php">
               <span class = "icon"><ion-icon name="file-tray-stacked-outline"></ion-icon></span>
               <span class = "txt-link">All Tickets</span>
             </a>
         </li>
-        <?php endif; if ($user_type == 2): ?>
+        <?php endif; if (isset($_SESSION['loggedin']) && $user_type == 2): ?>
         <li class="item-menu">
           <a href = "user_management.php">
             <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
