@@ -9,6 +9,12 @@ statusBoxes.forEach((element) => {
     assignButton.addEventListener('click', async function () {
         const response = await fetch('../api/api_change_status.php?status=' + statusSelect.value + '&id=' + tID + '&csrf=' + csrf)
         const json = await response.json()
-        console.log(json)
+
+        if (json != statusSelect.value) {
+            assignButton.style.backgroundColor = "red"
+        }
+        else {
+            assignButton.style.backgroundColor = "green"
+        }
     })
 })
