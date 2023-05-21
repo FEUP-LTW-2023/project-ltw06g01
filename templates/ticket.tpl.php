@@ -249,7 +249,7 @@ function drawFilters($get, $departments, $users, $statuses) {
         </select>
 
         <label id="ticket-filter-tag-title" for="ticket-filter-tag">Tags</label>
-        <input type="text" name="ticket-filter-tag" list="taglist" id="ticket-filter-tag" placeholder = "Right tag">
+        <input type="text" name="ticket-filter-tag" list="taglist" id="ticket-filter-tag" placeholder = "Write tag">
         <button type="button" id="tag-toggle">Toggle</button>
         <datalist id="taglist">
             <?php foreach ($allTags as $tag) { ?>
