@@ -257,6 +257,7 @@ function drawFilters($get, $departments, $users, $statuses) {
             <?php } ?>
         </datalist>
         <input type="hidden" name="tag-string" id="tag-string" value=<?= $get['tag'] ?? "\"\"" ?>>
+        <button id="done-button"> Done </button>
       </form>
 </div>
 <?php }
