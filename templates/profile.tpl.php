@@ -2,6 +2,17 @@
 require_once(__DIR__ . '/../classes/user.class.php');
 require_once(__DIR__ . '/../database/departments.php');
 
+function getUserType($level)
+{
+  $userTypes = [
+    0 => 'Client',
+    1 => 'Agent',
+    2 => 'Admin'
+  ];
+
+  return isset($userTypes[$level]) ? $userTypes[$level] : 'Desconhecido';
+}
+
 function drawUserBox(PDO $db, User $user)
 { ?>
   <div class="backdrop"></div>
@@ -18,22 +29,24 @@ function drawUserBox(PDO $db, User $user)
   <?php {
     $departments = User::getAgentDepartments($db, $user->id);
     $allDepartments = getDepartments($db); ?>
+    <h3 class="users-department">User's Departments</h3>
     <ul class="user-departments">
       <?php foreach ($departments as $department) { ?>
         <li class="department"><?= $department ?></li>
       <?php } ?>
       </ul>
-    <input name="n" type="number" class="user-promotion" value="<?= $user->level ?>" min="0" max="2" step="1">
+      <select name="user-type" class="user-type-select">
+        <option value="0" <?= ($user->level == 0) ? 'selected' : '' ?>>Client</option>
+        <option value="1" <?= ($user->level == 1) ? 'selected' : '' ?>>Agent</option>
+        <option value="2" <?= ($user->level == 2) ? 'selected' : '' ?>>Admin</option>
+      </select>
       <select name="departments" class="department-select">
         <?php foreach ($allDepartments as $allDepartment) { ?>
           <option value="<?= $allDepartment ?>"><?= $allDepartment ?></option>
         <?php } ?>
       </select>
       <button type="button" class="toggle-button" >
-        <ion-icon name="close-outline" class = "cross" >
-        </ion-icon>
-        <ion-icon name="add-outline"  class = "add">
-        </ion-icon>
+        Toggle
       </button>
     <?php } ?>
 </div>
