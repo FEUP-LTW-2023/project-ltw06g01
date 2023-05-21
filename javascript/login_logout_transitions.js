@@ -49,7 +49,7 @@ if (animationFlag == "3") {
   /*allTicketsDiv.style.animation = 'slideOutButtons 2s ease-in-out';*/ 
   logoutBox.style.animation = 'slideOutLoginToLogout 2s ease-in-out';
   profileBox.style.animation = "slideOutLoginToLogout 2s ease-in-out";
-
+  
   setTimeout(() => {
     loginBox.style.display = "grid";
     loginBox2.style.display = "flex";

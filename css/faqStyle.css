@@ -79,6 +79,8 @@ body{
   margin-bottom: 0;
 }
 
+
+
 @media screen and (min-width: 800px) {
   .faq-item {
     flex-basis: calc(50% - 10px); /* 2 colunas */
@@ -175,4 +177,128 @@ body{
   color: #55b0c6;
   border-radius: 15px;
   border: 1px solid #55b0c6;
+}
+
+#not-logged-in > #drawHeader{
+  display: grid;
+  grid-template-areas:
+  "title";
+  grid-template-columns: 1fr ;
+}
+
+#not-logged-in > #drawHeader > #title{  
+  grid-area: title;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  color: #55b0c6;
+  padding: 3%;
+  text-shadow: 2px 2px 8px #88d9e9;
+  text-stroke: 1px #408697;
+  font-size: 40px;
+}
+
+#logged-in > #drawHeader{
+  display: grid;
+  grid-template-areas:
+  "subtitle title profile-or-logout";
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
+}
+
+#logged-in > #drawHeader > #title{  
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #55b0c6;
+    padding: 3%;
+    text-shadow: 2px 2px 8px #7dc5d5;
+    -webkit-text-stroke: 1px #5cc1da;
+    font-size: 23px;
+}
+
+#logged-in > #drawHeader > #home-or-subtitle{
+  display: grid;
+  grid-area: subtitle;
+  grid-template-areas: "subtitle";
+  grid-template-columns: 1fr;
+}
+
+#logged-in > #drawHeader > #home-or-subtitle > #subtitle{
+    grid-area: subtitle;
+    display: flex;
+    justify-content: center;
+    padding-left: 0%;
+    color: #55b0c6;
+    display: grid;
+    text-stroke: 1px #f6f6f6;
+    align-self: center;
+    
+}
+
+#drawHeader > #profile-or-logout{
+  grid-area: profile-or-logout;
+  display: grid;
+  grid-template-areas: "profile logout";
+  grid-template-columns: 1fr auto;
+}
+
+#profile-or-logout > .profile-box{
+    grid-area: profile;
+    display: flex;
+    align-self: center;
+    color: #55b0c6;
+    font-size: 27px;
+    background-color: transparent;
+    border: none;
+    justify-self: end;
+    margin-right: 8vw;
+}
+
+#profile-button-hover{
+  display: none;
+}
+.profile-box:hover #profile-button-hover{
+  display: flex;
+}
+
+.profile-box #profile-button{
+  display: flex;
+}
+
+.profile-box:hover #profile-button{
+  display: none;
+}
+
+#profile-or-logout > .logout-box{
+    grid-area: logout;
+    border: none;
+    display: flex;
+    color: #55b0c6;
+    font-size: 27px;
+    background: transparent;
+    align-self: center;
+    margin-right: 70px;
+
+  }
+  
+  #profile-or-logout > .logout-box:hover{
+    cursor: pointer;
+  }
+
+.logout-box > #logout-icon-hover{
+  display: none;
+  }
+
+ .logout-box:hover > #logout-icon{
+  display: none;
+  }
+
+.logout-box:hover > #logout-icon-hover{
+  display: flex;
+  }
+
+#home {
+  display: none;
 }

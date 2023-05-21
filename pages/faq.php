@@ -36,12 +36,22 @@
   <script src="/../javascript/login_logout_transitions.js" defer></script>
   <link rel="stylesheet" href="/../css/geralStyle.css">
   <link rel="stylesheet" href="/../css/faqStyle.css">
+  
 </head>
 <body>
-    <header>
-      <?php drawHeader(0, 4,  "FAQs"); 
+    
+    <?php if (!$loggedin) { ?>
+    <header id="not-logged-in">
+      <?php drawHeader($animation, 3,  "FAQs"); 
       drawMessages($session);?>
     </header>
+  <?php } else { ?>
+    <header id="logged-in">
+      <?php drawHeader($animation, 3,  "FAQs"); 
+      drawMessages($session); ?>
+    </header>
+  <?php } ?>
+    
   <main>
       <div id= "faqs_more_button">
 
