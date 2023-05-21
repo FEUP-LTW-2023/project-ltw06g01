@@ -3,6 +3,7 @@
 require_once(__DIR__ . '/../database/client.php');
 require_once(__DIR__ . '/../database/departments.php');
 require_once(__DIR__ . '/../database/tickets.php');
+require_once(__DIR__ . '/../classes/ticket.class.php');
 
 class User
 {
@@ -69,6 +70,9 @@ class User
     function assignToTicket(PDO $db, int $tID): string {
         if ($this->level < 1) return "NOT ALLOWED";
         assignAgent($db, $tID, $this->id);
-        return $this->username;
+        $ticket = Ticket::getTicket($db, $tID);
+        $agent = User::getUser($db, $ticket->aid);
+
+        return $agent->username;
     }
 }
