@@ -60,7 +60,6 @@
 <script src="/../javascript/login_logout_transitions.js" defer></script>
 <script src="/../javascript/ticket_options.js" defer></script>
 <script src="/../javascript/priority_change.js" defer></script>
-<script src="/../javascript/faq.js" defer></script>
   <link rel="stylesheet" href="/../css/pageStyle.css">
   
 </head>
@@ -103,7 +102,9 @@
            </section>
     </main>
     <section class="FAQs">
+      <a href="../pages/faq.php">
       <ion-icon name="help-circle-outline" id="faqs-icon"></ion-icon>
+        </a>
       <h6>FAQ's</h6>
     </section>
   <footer>
