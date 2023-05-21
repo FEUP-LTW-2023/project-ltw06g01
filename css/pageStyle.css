@@ -285,6 +285,7 @@ transform: rotate(360deg);
   overflow: hidden;
   position: relative;
   display: grid;
+  justify-self: center;
   justify-content: center;
   align-content: center;
   border-radius: 15px;
