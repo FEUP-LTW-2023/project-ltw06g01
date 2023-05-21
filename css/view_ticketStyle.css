@@ -4,7 +4,14 @@ a{
     outline: none;
 }
 main{
+    grid-area: content;
+    display: grid;
     margin-top: 0;
+    grid-template-areas:
+    "nav     "
+"ticket  " 
+"message   " 
+"addmessage" ;
 }
 
 .ticket-display{
@@ -489,6 +496,8 @@ select option{
 
 #hist-ticket form{
     display: flex;
+    padding: 20%;
+
 }
 
 #prev-button, #next-button{

@@ -106,10 +106,10 @@ function drawProfileEdit($curr_user)
       <input type="email" required id = "email-text" name="email" value="<?php echo $curr_user['email']; ?>" />
     </div>
     <div id="old-password">
-      <input type="password" id="old-password-text" name="old-password">
+    <input type="password" id="old-password-text" name="old-password" placeholder="Old Password">
     </div>
     <div id="new-password">
-      <input type="password" id="new-password-text" name="new-password">
+      <input type="password" id="new-password-text" name="new-password" placeholder="New Password">
     </div>
     <div id = "save">
       <button type="submit" class="submit-update" formaction="/../actions/updating_profile.php" formmethod="post">Save</button>

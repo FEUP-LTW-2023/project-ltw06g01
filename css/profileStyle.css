@@ -5,14 +5,13 @@
     display: grid;
     grid-template:
     "edit"
-    "name"
     "image"
+    "name"
     "email"
     "type";
-    width: 100%; /* Alterado para largura em porcentagem */
-    max-width: 290px; /* Adicionado limite máximo de largura */
-    height: 100%; /* Alterado para altura automática */
-    max-height:320px;
+    grid-template-rows: auto 1fr auto auto ;
+    width: 290px; 
+    height:470px;
     background: #55b0c6;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
@@ -21,6 +20,7 @@
     justify-self: center;
     align-content: center;
     padding: 17px;
+    padding-bottom: 25px;
 }
 
 .form-box-edit-profile{
@@ -31,13 +31,13 @@
     "image"
     "name"
     "email"
-    "type"
+    "old-pass"
+    "new-pass"    
     "save";
+    grid-template-rows: auto auto auto auto auto auto auto 1fr;
     background-color: rgba(0,0,0,0.5);
-    width: 100%; /* Alterado para largura em porcentagem */
-    max-width: 290px; /* Adicionado limite máximo de largura */
-    height: 100%; /* Alterado para altura automática */
-    max-height:320px;
+    width: 290px; 
+    height:470px;
     background: #55b0c6;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 15px;
@@ -46,6 +46,7 @@
     justify-self: center;
     align-content: center;
     padding: 17px;
+    padding-bottom: 25px;
 }
 
 #save{
@@ -99,9 +100,6 @@
 .form-box-edit-profile .image {
     padding-top: 0;
     padding-bottom: 8%;
-}
-
-.image {
     grid-area: image;
     display: flex;
     justify-content: center;
@@ -109,6 +107,18 @@
     height: fit-content;
     margin: 0%;
     padding: 10%;
+}
+
+.form-box-profile .image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    margin: 0%;
+}
+.form-box-profile .image ion-icon {
+    font-size: 200px;
 }
 
 .image ion-icon{
@@ -231,6 +241,39 @@
     color: #fff;
 }
 
+#old-password-text{
+    grid-area: old-pass;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 23px;
+    text-align: center;
+    background-color: #bed9e041;
+    border: 2px solid #bed9e041;
+    color: #fff; 
+  }
+
+#new-password-text{
+    grid-area: new-pass;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 23px;
+    text-align: center;
+    background-color: #bed9e041;
+    border: 2px solid #bed9e041;
+    color: #fff; 
+  }
+
+  #old-password-text::placeholder, #new-password-text::placeholder {
+    color: #ffffffa2;
+  }
+
+
 
 .rotate-in {
     animation-name: rotateIn;
@@ -266,6 +309,3 @@
       opacity: 0;
     }
   }
-
-
-  
