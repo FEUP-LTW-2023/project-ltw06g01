@@ -13,12 +13,12 @@
         return $stmt->fetch();
     }
 
-    function tryLoginEmail($db, $email) {
+    /*function tryLoginEmail($db, $email) {
         $stmt = $db->prepare('SELECT * FROM CLIENT WHERE email = ?');
         $stmt->execute(array($email));
 
         return $stmt->fetch();
-    }
+    }*/
 
     function createNewUser($db, $username, $email, $password) {
         $stmt = $db->prepare('INSERT INTO CLIENT(username, passHash, email, permissionLevel) VALUES (?, ?, ?, 0)');
