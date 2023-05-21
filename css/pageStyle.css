@@ -1287,6 +1287,15 @@ a{
     text-align: center;
     font-size: 80%;
   }
+
+  #filtro {
+    grid-template-areas:
+"ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title"
+"ticket-filter-status ticket-filter-agent ticket-filter-department"
+"ticket-filter-tag-title ticket-filter-tag-title ticket-filter-tag-title"
+"ticket-filter-tag ticket-filter-tag tag-toggle"
+"done done done";
+  }
 }
 
 
