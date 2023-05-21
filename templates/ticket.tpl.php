@@ -257,7 +257,7 @@ function drawFilters($get, $departments, $users, $statuses) {
             <?php } ?>
         </datalist>
         <input type="hidden" name="tag-string" id="tag-string" value=<?= $get['tag'] ?? "\"\"" ?>>
-        <button type="submit" formmethod="get" formaction="all_tickets.php"  id="done-button"> Done </button>
+        <button type="submit" formmethod="get" formaction=<?= $_SERVER['PHP_SELF']?>  id="done-button"> Done </button>
       </form>
 </div>
 <?php }
