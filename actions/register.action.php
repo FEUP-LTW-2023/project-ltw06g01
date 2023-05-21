@@ -5,6 +5,7 @@
 
     $password = $_POST['password'];
     $confirm = $_POST['confirm-password'];
+    $username = $_POST['username'];
     array_map(fn($value) => preg_replace("/[^a-zA-Z0-9.,!?\s]/", "", $value), $_GET, $_POST);
 
     require_once(__DIR__ . '/../database/connection.php');
@@ -13,7 +14,7 @@
 
     $db = getDatabaseConnection();
 
-    if (($password != $confirm) || !isValidName($_POST['username']) || !isValidEmail($_POST['email'])) {
+    if (($password != $confirm) || !isValidName($username) || !isValidEmail($_POST['email'])) {
         $session->addMessage('error', "Passwords don't match / invalid name and/or email");
         header('Location: ../pages/page.php');
     }
