@@ -16,5 +16,9 @@ assignBoxes.forEach((element) => {
         else {
             assignButton.style.backgroundColor = "red"
         }
+
+        setTimeout(() => {
+            assignButton.style.backgroundColor = "#bed9e041"
+        }, 2000)
     })
 })

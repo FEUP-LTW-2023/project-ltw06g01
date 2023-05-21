@@ -16,5 +16,9 @@ statusBoxes.forEach((element) => {
         else {
             assignButton.style.backgroundColor = "green"
         }
+
+        setTimeout(() => {
+            assignButton.style.backgroundColor = "#bed9e041"
+        }, 2000)
     })
 })
