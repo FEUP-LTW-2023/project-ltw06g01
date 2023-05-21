@@ -11,8 +11,9 @@ let currID = tID.getAttribute('value')
 const initialID = currID
 
 
-prevButton.addEventListener('click', async function() {
-    const response = await fetch('../api/api_ticket.php?id=' + currID)
+prevButton.onclick = async function() {
+    const params = {'id': currID}
+    const response = await fetch('../api/api_ticket.php?' + new URLSearchParams(params).toString())
     const ticket = await response.json()
 
     let prevID = ticket.prev
@@ -27,4 +28,4 @@ prevButton.addEventListener('click', async function() {
     department.setAttribute('value', ticket.department)
     title.setAttribute('value', ticket.title)
     text.textContent = ticket.text
-})
+}
