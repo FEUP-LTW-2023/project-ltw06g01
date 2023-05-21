@@ -935,16 +935,23 @@ select option{
 .FAQs{
   grid-area: faqs;
   display: grid;
+  padding-right: 10%;
+
+}
+
+.FAQs a{
+  display: grid;
   grid-template-areas: 
   "icon" 
   "h6";
   align-items: end;
   justify-content: end;
-  padding-right: 10%;
   color: #e8e9e9;
+  width: fit-content;
+  justify-self: end;
 }
 
-#faqs-icon:hover, #faqs-icon:hover + h6, h6:hover{
+  .FAQs a:hover #faqs-icon, .FAQs a:hover h6{
   color: #fff;
   cursor: pointer;
 }

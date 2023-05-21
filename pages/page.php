@@ -101,11 +101,11 @@
           } ?>
            </section>
     </main>
-    <section class="FAQs">
-      <a href="../pages/faq.php">
-      <ion-icon name="help-circle-outline" id="faqs-icon"></ion-icon>
-        </a>
-      <h6>FAQ's</h6>
+    <section class="FAQs" >
+      <a  href="../pages/faq.php">
+        <ion-icon name="help-circle-outline" id="faqs-icon"></ion-icon>
+        <h6>FAQ's</h6>
+      </a>
     </section>
   <footer>
       <p>Algum footer que queiramos</p>
