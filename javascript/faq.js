@@ -23,4 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
       form.style.display = 'grid';
     }
   });
+
+  const backButton = document.querySelector('.back-button')
+  backButton.addEventListener('click', function () {
+    if (form.style.display === 'grid') {
+      form.style.display = 'none';
+    } else {
+      form.style.display = 'grid';
+    }
+  })
 });
