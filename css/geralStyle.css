@@ -251,30 +251,21 @@ nav {
     height: fit-content; 
   }
 
-.item-menu a span {  /*esta parte não está a funcionar como devido*/
+.item-menu a span {  
     white-space: nowrap;
     padding: 10px;
     color: #fff;
-}
-
-.item-menu{
-   /* margin-bottom: 25px;*/
 }
 
 a{
    text-decoration: none; 
 }
 
-
-/* content */
-
 main{
     grid-area: content;
     display: grid;
     margin-top: 30px;
 }
-
-/*footer*/
 
 footer{
   margin-left: 10%;
@@ -341,87 +332,3 @@ footer p{
     font-size: 100%;
   }
 }
-
-/*
-  @media screen and (max-width: 768px) {
-
-    #drawHeader > #title {
-      font-size: 16px;
-    }
-    
-    header {
-      width: 100vw;
-      overflow-x: hidden;
-    }
-    #drawHeader {
-        grid-template-areas:
-            "title"
-            "home-or-subtitle"
-            "profile-or-logout";
-        grid-template-columns: 1fr;
-        padding: 10px;
-    }
-
-    #home {
-        padding-left: 0%;
-        justify-content: flex-start;
-    }
-
-    #home .icon {
-        font-size: 20px;
-    }
-
-    #home .icon-hover {
-        font-size: 20px;
-    }
-
-    #profile-or-logout > .profile-box {
-        margin-right: 20px;
-        font-size: 15px;
-    }
-
-    #profile-or-logout > .logout-box {
-        margin-right: 20px;
-        font-size: 15px;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-    }
-    
-    .item-menu {
-      display: inline-block;
-      max-width: fit-content;
-      text-align: center;
-    }
-    
-    .item-menu a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-    }
-    
-    .item-menu a span {
-      font-size: 12px;
-    }
-}*/
-
-
-
-
-/*questões para o professor
-    -ao fazer menos zoom é suposto o header contirnuar sempre do mesmo tamanho?
-    -como fazer que o content não se mova com o abrir da lateral
-    -os problemas com o footer
-    -na pagina do loggin como mudo os tamanhos para que o faq e o footer também não se mexam
-    -bug na página dos open_tickets, href está em tudo e não só na caixa.
-    -como colocar os icons logo seguidos do texto?
-
-*/

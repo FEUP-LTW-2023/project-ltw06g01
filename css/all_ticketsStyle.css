@@ -229,7 +229,7 @@ input[type="text"] {
     width: auto;
   }
 
-.subject[readonly]{ /*não percebo pq que isto não fica centrado verticalmente*/
+.subject[readonly]{ 
     grid-area: subject;
     background-color: transparent;
     color: #fff;

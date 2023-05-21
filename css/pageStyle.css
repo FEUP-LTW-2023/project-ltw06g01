@@ -85,7 +85,6 @@ header{
     padding-left: 0%;
     color: #55b0c6;
     display: grid;
-    text-stroke: 1px #f6f6f6;
     align-self: center;
     
 }
@@ -781,7 +780,7 @@ input[type="text"] {
   width: auto;
 }
 
-.subject[readonly]{ /*não percebo pq que isto não fica centrado verticalmente*/
+.subject[readonly]{ 
   grid-area: subject;
   background-color: transparent;
   color: #55b0c6;
@@ -1029,17 +1028,6 @@ display: none;
   border-color: #55b0c6;
 }
 
-/*
-.increment-priority, .decrement-priority{
-  padding: 0px 5px;
-  background: #ffffff96;
-  border: 1px solid #fff;
-  border-radius: 15px;
-  color: #55b0c6;
-  width: auto;
-  font-size: 13px;
-}
-*/
 .status-confirm, .assign-confirm{
   display: block;
   padding: 0px 5px;
@@ -1195,10 +1183,6 @@ nav:hover .item-menu .txt-link{
   white-space: nowrap;
   padding: 10px;
   color: #55b0c6;
-}
-
-.item-menu{
- /* margin-bottom: 25px;*/
 }
 
 a{
