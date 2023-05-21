@@ -22,7 +22,7 @@ userBoxes.forEach((element) => {
         element.style.borderColor = "orange"
       }
       if (level === "2") {
-        element.style.borderColor = "red"
+        element.style.borderColor = "black"
       }
     }
   }
