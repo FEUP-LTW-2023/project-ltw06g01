@@ -180,8 +180,6 @@ header{
   grid-area: content;
   align-content: center; 
   margin-top: 30px;
-      "filtro"
-    "allTickets";
     grid-template-rows: auto 1fr;
     grid-template-areas: 
     "filtro"
