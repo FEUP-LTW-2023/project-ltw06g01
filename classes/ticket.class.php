@@ -54,12 +54,6 @@ class Ticket
         return Ticket::createArray($tickets);
     }
 
-    static function getTicketsFromAgent(PDO $db, int $aid): array {
-        $tickets = getTicketsFromAgent($db, $aid);
-
-        return Ticket::createArray($tickets);
-    }
-
     static function openTicket(PDO $db, int $uid, string $title, string $text, ?string $department): Ticket {
         $id = addTicket($db, $uid, $title, $text, $department);
         
@@ -70,11 +64,6 @@ class Ticket
         $tickets = getTicketsByUser($db, $uid);
 
         return Ticket::createArray($tickets);
-    }
-
-    static function getTicketsFromDepartment(PDO $db, string $department): array {
-        if ($department == "unassigned") return array();
-        else return getTicketsFromDepartment($db, $department);
     }
 
     function updateTicket(PDO $db, int $uid, string $title, string $text, ?string $department, int $id): Ticket {
@@ -120,11 +109,6 @@ class Ticket
         }
 
         return $res;
-    }
-
-    static function joinFilters(array ...$filteredTickets): array {
-        if (count(array_filter($filteredTickets)) == 1) return array_filter($filteredTickets); 
-        return array_intersect(...array_filter($filteredTickets));
     }
 
     function deleteTicket(PDO $db): void {

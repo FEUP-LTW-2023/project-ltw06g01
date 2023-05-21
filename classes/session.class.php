@@ -21,10 +21,6 @@
         return $token === $_SESSION['csrf'];
     }
 
-    public function logout() {
-      session_destroy();
-    }
-
     public function addMessage(string $type, string $text) {
       $_SESSION['messages'][] = array('type' => $type, 'text' => $text);
     }
