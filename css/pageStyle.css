@@ -180,6 +180,13 @@ header{
   grid-area: content;
   align-content: center; 
   margin-top: 30px;
+      "filtro"
+    "allTickets";
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "filtro"
+    "allTickets";
+    grid-template-rows: auto 1fr;
 }
 
 
@@ -541,6 +548,116 @@ a{
 #Register-button:hover, #login-button:hover {
   color: #88d9e9;
   cursor: pointer;
+}
+
+
+#filters-box{
+  grid-area: filtro;
+  padding-bottom: 3%;
+  display: grid;
+}
+
+#filters-button{
+  font-size: 15px;
+  display: grid;
+  justify-self: center;
+  color: #fff;
+  background-color: #55afc699;
+  padding: 0.5% 10px;
+  border: 2px solid rgba(255, 255, 255, 0.671);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+#filters-button:hover{
+  border: 2px solid #fff;
+
+}
+
+#filtro{
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  justify-self: center;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 10px;
+  column-gap: 15px;
+  row-gap: 10px;
+  grid-template-areas:
+      "ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title ticket-filter-tag-title ticket-filter-tag-title"
+      "ticket-filter-status ticket-filter-agent ticket-filter-department ticket-filter-tag tag-toggle";
+  grid-auto-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+#filtro #tag-toggle{
+  grid-area: tag-toggle;
+  border-radius: 15px;
+  background-color:#55afc641;
+  border: 2px solid rgba(255,255,255,0.5);
+  color:#a4a4a5;
+  cursor: pointer;
+}
+#filtro #tag-toggle:hover{
+  border-color: #a4a4a5;
+}
+
+
+
+#filtro #ticket-filter-status-title{
+  grid-area: ticket-filter-status-title;
+  display: flex; /*ver como preferem*/
+  color:#a4a4a5;
+  justify-self: center;
+}
+
+#filtro #ticket-filter-tag-title{
+  grid-area: ticket-filter-tag-title;
+  display: flex; /*ver como preferem*/
+  color:#a4a4a5;
+  justify-self: center;
+}
+#filtro #ticket-filter-tag{
+  grid-area: ticket-filter-tag;
+  border-radius: 15px;
+  background-color:#55afc641;
+  border: 2px solid rgba(255,255,255,0.5);
+  color:#a4a4a5;
+  text-align: center;
+}
+
+#filtro #ticket-filter-tag::placeholder{
+  color:#a4a4a58f;
+}
+
+#filtro #ticket-filter-agent-title{
+  grid-area: ticket-filter-agent-title;
+  display: flex; /*ver como preferem*/
+  color:#a4a4a5;
+  justify-self: center;
+}
+
+#filtro #ticket-filter-department-title{
+  grid-area:ticket-filter-department-title;
+  display: flex; /*ver como preferem*/
+  color:#a4a4a5;
+  justify-self: center;
+}
+
+#filtro select{
+  font-size: 13px;
+  color:#a4a4a5;
+  background-color: #55afc641;
+  padding: 0.5%;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  text-align: center;
 }
 
 #allTickets{

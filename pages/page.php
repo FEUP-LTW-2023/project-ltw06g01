@@ -14,6 +14,18 @@
 
   $db = getDatabaseConnection();
 
+  $_GET['ticket-filter-status'] = $_GET['ticket-filter-status'] ?? 'all';
+  $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? 'default';
+  $_GET['ticket-filter-department'] = $_GET['ticket-filter-department'] ?? 'unassigned';
+  $_GET['ticket-filter-tag'] = $_GET['ticket-filter-tag'] ?? "";
+
+  if ($_GET['ticket-filter-agent'] == 'default') $_GET['ticket-filter-agent'] = -1;
+  $_GET['ticket-filter-agent'] = $_GET['ticket-filter-agent'] ?? -1;
+
+  $users = User::getUsersAdmin($db);
+  $departments = getDepartments($db);
+  $statuses = getAllStatuses($db);
+
   $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
   $oldLevel = isset($_SESSION['oldLevel']) ? $_SESSION['oldLevel'] : null;
   if (isset($oldLevel)) {
@@ -56,11 +68,14 @@
 <title>Ticket System</title>
 <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
 <script src="/../javascript/all_variables.js" defer></script>
+<script src="/../javascript/filters.js" defer></script>
 <script src="/../javascript/page.js" defer></script>
 <script src="/../javascript/login_logout_transitions.js" defer></script>
 <script src="/../javascript/ticket_options.js" defer></script>
 <script src="/../javascript/priority_change.js" defer></script>
-  <link rel="stylesheet" href="/../css/pageStyle.css">
+<script src="/../javascript/tag_filter.js" defer></script>
+ 
+<link rel="stylesheet" href="/../css/pageStyle.css">
   
 </head>
 <body>
@@ -84,6 +99,16 @@
 
           <?php if($loggedin){ 
             if (!empty($tickets)) {?>
+
+          <?php drawFilters($_GET, $departments, $users, array_map(fn($value) => $value['name'], $statuses)); 
+            //$status = isset($_GET['ticket-filter-status']) ? $_GET['ticket-filter-status'] : 'open'; //// esta linha supostamente tem de sair?
+            $tickets = Ticket::getFilteredTickets($db, $_GET['ticket-filter-status'], $_GET['ticket-filter-agent'], $_GET['ticket-filter-department']);
+            $tagTickets = Ticket::getTicketsByTags($db, $_GET['ticket-filter-tag'] == "" ? array() : explode(",", $_GET['ticket-filter-tag']));
+            $tickets = array_intersect($tickets, $tagTickets);
+            //$ticketsAgent = Ticket::getTicketsFromAgent($db, $_GET['ticket-filter-agent']);
+            //$departmentTickets = Ticket::getTicketsFromDepartment($db, $_GET['ticket-filter-department']);
+            //$finalTickets = Ticket::joinFilters($tickets, $ticketsAgent, $departmentTickets); ?>
+
           <section id="allTickets" style="display: none;"> 
               <p>My tickets:</p>
                 <?php foreach ((array)$tickets as $ticket) {

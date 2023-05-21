@@ -48,6 +48,7 @@ if (!$session->isLoggedIn()) {
   <script src="/../javascript/all_variables.js" defer></script>
   <script src="/../javascript/login_logout_transitions.js" defer></script>
   <script src="/../javascript/ticket_options.js" defer></script>
+  <script src="/../javascript/filters.js" defer></script>
   <script src="/../javascript/all_tickets.js" defer></script>
   <script src="/../javascript/agent_assign.js" defer></script>
   <script src="/../javascript/status_change.js" defer></script>

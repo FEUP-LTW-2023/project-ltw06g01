@@ -5,6 +5,7 @@ main{
     "allTickets";
     grid-template-rows: auto 1fr;
 }
+
 #filters-box{
     grid-area: filtro;
     padding-bottom: 3%;
