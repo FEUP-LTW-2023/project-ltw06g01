@@ -88,7 +88,7 @@ if (!$session->isLoggedIn()) {
 
   </main>
     <footer>
-      <p>Algum footer que queiramos</p>
+      <?php drawFooter(); ?>
     </footer>
 </body>
 </html>

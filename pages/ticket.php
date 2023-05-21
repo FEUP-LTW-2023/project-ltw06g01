@@ -50,7 +50,7 @@ if (!$session->isLoggedIn()) {
     <?php drawTicketForm($ticket, true, $tags, true); ?>
   </main>
   <footer>
-    <p>Algum footer que queiramos</p>
+  <?php drawFooter(); ?>
   </footer>
 </body>
 </html>

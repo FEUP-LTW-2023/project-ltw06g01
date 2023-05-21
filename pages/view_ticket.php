@@ -89,7 +89,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
     <?php } ?>
   </main>
   <footer>
-    <p>Algum footer que queiramos</p>
+    <?php drawFooter(); ?>
   </footer>
 </body>
 

@@ -155,3 +155,8 @@ function drawMessages($session) {
   </div>  
   <?php }
 }
+
+function drawFooter(){ ?>
+  <p>Copyright &copy; FEUP | Developed by Afonso Osório (up202108700), Daniel Carneiro (up202108832) and Gonçalo Costa (up202108814)</p>
+<?php
+}

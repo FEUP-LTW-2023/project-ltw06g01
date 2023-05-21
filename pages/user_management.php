@@ -56,6 +56,9 @@ $users = User::getUsersAdmin($db);
           ?>
       </section>
     </main>
+    <footer>
+      <?php drawFooter(); ?>
+  </footer>
   </body>
 </html>
 
