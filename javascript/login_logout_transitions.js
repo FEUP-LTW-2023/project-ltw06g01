@@ -9,6 +9,8 @@ if (animationFlag == "1") {
   menuBox.style.animation = "slideInButtons 2s ease-in-out"
 
   setTimeout(() => {
+    filtersBox.style.display = 'grid'
+    filtersBox.style.animation = "slideInButtons 2s ease-in-out"
   allTicketsDiv.style.display = 'grid'
   allTicketsDiv.style.animation = "slideInButtons 2s ease-in-out"
 }, 500)

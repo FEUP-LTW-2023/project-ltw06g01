@@ -11,6 +11,7 @@ const playAnimation = document.querySelector('#animation')
 const playLogin = document.querySelector('#loggedin')
 
 const allTicketsDiv = document.querySelector('#allTickets')
+const filtersBox = document.querySelector('#filters-box')
 
 
 const animationFlag = playAnimation.getAttribute('value')

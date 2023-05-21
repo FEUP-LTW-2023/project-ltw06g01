@@ -554,7 +554,7 @@ a{
 #filters-box{
   grid-area: filtro;
   padding-bottom: 3%;
-  display: grid;
+  display: none;
 }
 
 #filters-button{

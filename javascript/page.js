@@ -6,6 +6,7 @@ if (loggedinFlag != 0 && animationFlag !=1 ) { ///quando se está com sessão in
   menuBox.style.display = "flex"
   menuBox.style.animation = "slideInButtons 0s ease-in-out" //pode-se alterar isto para chegar um pouco mais suave, tipo apareceer ja a meio da tela e subir somente um pouco
   allTicketsDiv.style.display = 'grid'
+  filtersBox.style.display = 'grid'
 
 }
 
