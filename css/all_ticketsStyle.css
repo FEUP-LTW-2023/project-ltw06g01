@@ -47,6 +47,21 @@ main{
     grid-auto-columns: 1fr 1fr 1fr;
     justify-content: center;
 }
+
+#filtro #tag-toggle{
+    grid-area: tag-toggle;
+    border-radius: 15px;
+    background-color:#55afc641;
+    border: 2px solid rgba(255,255,255,0.5);
+    color:#a4a4a5;
+    cursor: pointer;
+}
+#filtro #tag-toggle:hover{
+    border-color: #a4a4a5;
+}
+
+
+
 #filtro #ticket-filter-status-title{
     grid-area: ticket-filter-status-title;
     display: flex; /*ver como preferem*/
@@ -60,13 +75,24 @@ main{
     color:#a4a4a5;
     justify-self: center;
 }
+#filtro #ticket-filter-tag{
+    grid-area: ticket-filter-tag;
+    border-radius: 15px;
+    background-color:#55afc641;
+    border: 2px solid rgba(255,255,255,0.5);
+    color:#a4a4a5;
+    text-align: center;
+}
+
+#filtro #ticket-filter-tag::placeholder{
+    color:#a4a4a58f;
+}
 
 #filtro #ticket-filter-agent-title{
     grid-area: ticket-filter-agent-title;
     display: flex; /*ver como preferem*/
     color:#a4a4a5;
     justify-self: center;
-
 }
 
 #filtro #ticket-filter-department-title{

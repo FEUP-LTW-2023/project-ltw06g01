@@ -39,7 +39,7 @@
   align-content: center;
   line-break: anywhere;
   color: aliceblue;
-  padding: 2%;
+  padding: 5%;
   grid-gap: 20px;
 }
 
@@ -49,8 +49,8 @@
     "back-button"
     "users-department"
     "department"
-    "department-selection"
     "promotion"
+    "department-selection"
     "toggle";  
   min-width: 300px;
   min-height: 340px;
@@ -68,7 +68,6 @@
   color: aliceblue;
   z-index: 1;
   border-radius: 15px;
-  grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 0.8fr));
   grid-template-rows: auto auto 1fr auto auto;
   padding: 5%;
@@ -82,6 +81,7 @@
 
 .user-box>.email {
   grid-area: email;
+  justify-self: center;
 }
 
 
