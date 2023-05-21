@@ -22,6 +22,11 @@
     }
 
     function toggleDepartment($db, $aid, $department) {
+        $test = $db->prepare('SELECT * FROM CLIENT WHERE uid = ?');
+        $test->execute(array($aid));
+
+        if ($test->fetch()['permissionLevel'] < 1) return array();
+
         $stmt = $db->prepare('SELECT * FROM AGENTDEPARTMENT WHERE aid = ? AND department = ?');
         $stmt->execute(array($aid, $department));
 
