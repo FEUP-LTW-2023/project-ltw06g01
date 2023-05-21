@@ -100,10 +100,10 @@ function drawProfileEdit($curr_user)
       <ion-icon name="person-circle-outline"></ion-icon>
     </div>
     <div class="name">
-      <input type="text"  required id = "username" name="username" value="<?php echo $curr_user['username']; ?>" />
+      <input type="text"  required id = "username" name="username" value="<?php echo $curr_user['username']; ?>" >
     </div>
     <div class="email">
-      <input type="email" required id = "email-text" name="email" value="<?php echo $curr_user['email']; ?>" />
+      <input type="email" required id = "email-text" name="email" value="<?php echo $curr_user['email']; ?>" >
     </div>
     <div id="old-password">
     <input type="password" id="old-password-text" name="old-password" placeholder="Old Password">
