@@ -66,7 +66,7 @@ function drawNav($forceLevel = null) {
         <li class="item-menu">
           <a href = "user_management.php">
             <span class = "icon"><ion-icon name="cog-outline"></ion-icon></span>
-            <span class = "txt-link">Manage Users</span>
+            <span class = "txt-link">Admin Page</span>
           </a>
         </li>
         <?php endif; ?>
