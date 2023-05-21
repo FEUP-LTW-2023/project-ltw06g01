@@ -146,6 +146,7 @@ function drawTicketFAQ($db, $ticket, $edit) {
     if (!isset($ticket->faqitem) && $_SESSION['uid'] == $ticket->aid && $edit) { 
         $faqs = FAQ::getAllFAQ($db); ?>
         <form class="faq-box">
+            <h4> Assign to a FAQ: </h4>
             <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
             <input type="hidden" name="tid" value=<?= $ticket->id ?>>
             <select name="faq-selection" class="faq-list">

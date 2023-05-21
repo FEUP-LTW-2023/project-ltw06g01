@@ -26,6 +26,7 @@ main{
     display: grid;
     grid-template-areas:
     "ticket-form"
+    "faq-box"
     "options";
     grid-template-columns: 1fr;
     border-radius: 15px;
@@ -160,7 +161,7 @@ main{
     gap:6px;
 }
 
-.tagsArea p{
+.tagsArea h4{
     grid-area: titletags;
     padding-bottom: 4px;
 }
@@ -523,6 +524,34 @@ select option{
     color: #fff;
 }
 
+.faq-box{
+    grid-area: faq-box;
+}
+.faq-box .faq-list{
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    width: fit-content;
+    box-sizing: border-box;
+    color: #55b0c6;
+}
+
+.faq-box button{
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    width: fit-content;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+}
+
+.faq-box h4{
+    padding-bottom: 4px;
+    font-size: 0.85em;
+}
 
 /**botões para o colocar o ticket nas faqs, drawTicketFaq/
 
