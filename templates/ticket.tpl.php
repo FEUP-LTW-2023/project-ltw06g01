@@ -68,8 +68,8 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                     <textarea class="tickettext" name="fulltext" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly'; if ($single) echo "id=\"fulltext\"";?>><?= $ticket->text ?></textarea>
                 </div>
 
-                <?php if ($_SESSION['level'] >= 1 && $ticket->id != -1 && $edit) {
-                    ?> <div class="tagsArea"> <?php if( $tags != null || strpos($_SERVER['REQUEST_URI'], 'ticket.php') !== false ) { ?> <h4> Tags: </h4> <?php } ?>
+                <?php if ($_SESSION['level'] >= 1 && $ticket->id != -1 && $single) {
+                    ?> <div class="tagsArea"> <?php if( !empty($tags) && strpos($_SERVER['REQUEST_URI'], 'ticket.php') !== false ) { ?> <h4> Tags: </h4> <?php } ?>
 
                         <ul class="tags">
                         <?php 
@@ -80,7 +80,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                         } ?>
                         </ul>
 
-
+                        <?php if ($edit) { ?>
                             <input name="tagdata" list=<?= $single ? "taglist" : "taglist" . $ticket->id?> class="tag-input">
                             <input type="hidden" name="tag-string" class="curr-tags" value=<?php $string = implode(',', array_map(fn($tag) => $tag['tag'], $tags));
                                                                                                             if (empty($string)) echo "\"\"";
@@ -91,7 +91,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                                 <?php } ?>
                                 </datalist> 
                                 <button type="button" class="tag-add">+</button>
-
+                                    <?php } ?>
                 </div> 
                 <?php } ?>
                 <?php if ($edit) { ?> <button class="enviar" type="submit" formaction=<?= $action ?> formmethod="post"><?= $buttonText ?></button> <?php } ?>
