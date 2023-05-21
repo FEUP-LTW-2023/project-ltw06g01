@@ -20,7 +20,7 @@ function getFAQ(array $faqs){  ?>
 function drawFAQForm() { ?>
     <form class="faq-form">
         <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
-        <ion-icon name="close-outline" class="back-button"></ion-icon>
+        
         <h3 class="faq-questions">Adicionar novo FAQ</h3>
         <label for="question">Pergunta:</label>
         <input type="text" class="question" name="question">

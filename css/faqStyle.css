@@ -91,7 +91,7 @@ body{
   border-color: #55b0c6;
     display: none;
     grid-template-areas: 
-    "back-button" "faq-questions" 
+    "faq-questions" 
     "question"
     "answer"
     "text-answer"
@@ -118,9 +118,6 @@ body{
   grid-area: faq-questions;
 }
 
-.back-button{
-  grid-area: back-button;
-}
 
 #add-faq-btn {
   grid-area: button;

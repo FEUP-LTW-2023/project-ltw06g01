@@ -71,7 +71,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
      if (null === $ticket->hasNext()) drawAddMessage($ticket); ?>
   </main>
   <footer>
-    <p>Algum footer que queiramos</p>
+    <?php drawFooter(); ?>
   </footer>
 </body>
 

@@ -1110,6 +1110,7 @@ h6{
 /*footer*/
 
 footer{
+  margin-top: 2%;
   display: grid;
   justify-self: center;
   grid-area: footer;
@@ -1117,7 +1118,8 @@ footer{
 }
 
 footer p{
-  font-size: 15px;
+  font-size: 80%;
+  text-align: center;
 }
 
 
@@ -1278,6 +1280,14 @@ a{
   }
 }
 
+@media (max-width: 600px) {
+  footer {
+    margin-top: 5%;
+    padding: 20px;
+    text-align: center;
+    font-size: 80%;
+  }
+}
 
 
 

@@ -15,7 +15,8 @@ body{
   grid-template-areas:
    "header "
    "nav "
-   "content ";
+   "content "
+   "footer";
    grid-template-columns: 1fr ;
    grid-template-rows: auto auto 1fr;
    max-width: 100em;
@@ -276,20 +277,30 @@ main{
 /*footer*/
 
 footer{
-    display: grid;
-    justify-self: center;
-    position: relative;
-    color: #55afc66c;
-    grid-column: 1 / span 2;
-
-
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  display: grid;
+  justify-self: center;
+  grid-area: footer;
+  color: #55b0c6;
 }
-footer p{
-    font-size: 15px;
-  }
 
+footer p{
+  font-size: 80%;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px){
+  
+  footer p{
+    font-size: 1vw;
+  }
+}
 
 @media screen and (max-width: 800px) {
+
+  
   .item-menu .txt-link{
     opacity: 1;
     visibility: visible;
