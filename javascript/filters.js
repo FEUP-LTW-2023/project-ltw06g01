@@ -1,9 +1,3 @@
-const ticketFilterSelect = document.querySelector('.ticket-filter')
-ticketFilterSelect.addEventListener('change', () => {
-  ticketFilterSelect.form.submit()
-})
-
-
 const filtersContainer = document.querySelector('.ticket-filter-container')
 const filtersButton = document.getElementById('filters-button')
 
