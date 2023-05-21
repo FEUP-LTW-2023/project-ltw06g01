@@ -31,4 +31,3 @@ $status = deleteDepartment($db, $_POST['department']);
 if ($status) $session->addMessage('success', 'Department deleted');
 else $session->addMessage('error', "Department doesn't exist");
 header('Location: /../pages/manage_entities.php');
-?>

@@ -4,7 +4,7 @@ tickets.forEach((ticket) => {
   const filtersToggle = ticket.querySelector('.filters-toggle')
   const filtersContainer = ticket.querySelector('.filters-container')
 
-  filtersToggle.onclick = function() {
+  filtersToggle.onclick = function () {
     if (filtersContainer.style.display === 'none') {
       filtersContainer.style.display = 'grid'
     } else {

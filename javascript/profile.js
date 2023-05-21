@@ -3,11 +3,11 @@ const backIcon = document.querySelector("#back")
 const profile = document.querySelector("#profile_box")
 const profileEdit = document.querySelector("#profile-edit")
 
-editIcon.onclick = function() {
+editIcon.onclick = function () {
   rotatePage(profile, profileEdit)
 }
 
-backIcon.onclick = function() {
+backIcon.onclick = function () {
   rotatePage(profileEdit, profile)
 }
 

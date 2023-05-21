@@ -40,4 +40,3 @@ if (!$session->isLoggedIn() || !$session->isValidSession($_POST['csrf'])) {
     setTicketTags($db, $status->id, explode(',', htmlentities($_POST['tag-string'])));
     $session->addMessage('success', 'Ticket edited');
     header("Location: ../pages/view_ticket.php?id=$status->id");
-?>    

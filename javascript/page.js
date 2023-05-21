@@ -1,4 +1,4 @@
-if (loggedinFlag != 0 && animationFlag !=1 ) { ///quando se está com sessão iniciada e se dá refresh
+if (loggedinFlag != 0 && animationFlag != 1) { ///quando se está com sessão iniciada e se dá refresh
   loginBox.style.display = "none"
   loginBox2.style.display = "none"
   logoutBox.style.display = "flex"
@@ -18,4 +18,4 @@ if (loggedinFlag == 0 && (animationFlag != 3)) { //quando não se está com a se
   profileBox.style.display = "none"
   menuBox.style.display = "none"
 
-  }
+}

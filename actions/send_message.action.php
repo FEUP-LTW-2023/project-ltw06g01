@@ -30,4 +30,3 @@ if (!$session->isLoggedIn() || !$session->isValidSession($_GET['csrf'])) {
     $session->addMessage('success', 'Message sent');
     $id = $_GET['tID'];
     header("Location: /../pages/view_ticket.php?id=$id");
-?>

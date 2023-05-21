@@ -8,15 +8,15 @@ const statusInput = document.querySelector('#status-input')
 const departmentList = []
 const statusList = []
 
-departmentItems.forEach(function(item) {
+departmentItems.forEach(function (item) {
     departmentList.push(item.value)
 })
 
-statusItem.forEach(function(item) {
+statusItem.forEach(function (item) {
     statusList.push(item.value)
 })
 
-departmentInput.onchange = function() {
+departmentInput.onchange = function () {
     console.log("hello")
     if (departmentList.includes(departmentInput.value)) {
         departmentButton.disabled = true
@@ -28,7 +28,7 @@ departmentInput.onchange = function() {
     }
 }
 
-statusInput.onchange = function() {
+statusInput.onchange = function () {
     if (statusList.includes(statusInput.value)) {
         statusButton.disabled = true
         statusButton.style.backgroundColor = "red"

@@ -35,4 +35,3 @@
 
     $session->addMessage('success', 'Logged in');
     header('Location: ../pages/page.php');
-?>    

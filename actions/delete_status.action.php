@@ -36,6 +36,3 @@ $status = deleteStatus($db, $_POST['status']);
 if ($status) $session->addMessage('success', 'Status deleted');
 else $session->addMessage('error', "Status doesn't exist");
 header('Location: /../pages/manage_entities.php');
-
-?>
-

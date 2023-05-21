@@ -50,4 +50,3 @@
 
     $session->addMessage('success', 'Profile updated');
     //header('Location: ../pages/profile.php');
-?>    

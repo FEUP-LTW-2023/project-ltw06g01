@@ -31,5 +31,3 @@ createFAQItem($db, $_POST['question'], $_POST['answer']);
 $session->addMessage('success', 'FAQ item created');
 
 header('Location: /../pages/faq.php');
-?>
-

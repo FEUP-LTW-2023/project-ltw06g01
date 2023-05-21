@@ -42,67 +42,76 @@ class Ticket
         return new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['priority'], $ticket['aID'], $ticket['history'], $ticket['future']);
     }
 
-    static function getFilteredTickets(PDO $db, string $status, int $agent, string $department) {
+    static function getFilteredTickets(PDO $db, string $status, int $agent, string $department)
+    {
         $tickets = getFilteredTickets($db, $status, $agent, $department);
 
         return Ticket::createArray($tickets);
     }
 
-    static function getTicketsByTags(PDO $db, array $tags): array {
+    static function getTicketsByTags(PDO $db, array $tags): array
+    {
         $tickets = getTicketsWithTags($db, $tags);
 
         return Ticket::createArray($tickets);
     }
 
-    static function openTicket(PDO $db, int $uid, string $title, string $text, ?string $department): Ticket {
+    static function openTicket(PDO $db, int $uid, string $title, string $text, ?string $department): Ticket
+    {
         $id = addTicket($db, $uid, $title, $text, $department);
-        
+
         return Ticket::getTicket($db, $id);
     }
 
-    static function getTicketsFromUser(PDO $db, int $uid): array {
+    static function getTicketsFromUser(PDO $db, int $uid): array
+    {
         $tickets = getTicketsByUser($db, $uid);
 
         return Ticket::createArray($tickets);
     }
 
-    function updateTicket(PDO $db, int $uid, string $title, string $text, ?string $department, int $id): Ticket {
+    function updateTicket(PDO $db, int $uid, string $title, string $text, ?string $department, int $id): Ticket
+    {
         $newTicket = updateTicket($db, $uid, $title, $text, $department, $id, $this->status, $this->priority, $this->faqitem, $this->aid);
 
         return Ticket::getTicket($db, $newTicket);
     }
 
-    function updateDepartment(PDO $db, string $department): Ticket {
+    function updateDepartment(PDO $db, string $department): Ticket
+    {
         $newTicket = $this->updateTicket($db, $this->uid, $this->title, $this->text, $department, $this->id);
 
         return $newTicket;
     }
 
-    function hasNext(): ?int {
+    function hasNext(): ?int
+    {
         return $this->next;
     }
 
-    function hasPrev(): ?int {
+    function hasPrev(): ?int
+    {
         return $this->prev;
     }
 
-    function getPrev(PDO $db): ?Ticket {
+    function getPrev(PDO $db): ?Ticket
+    {
         if (isset($this->prev)) {
             $ticket = Ticket::getTicket($db, $this->prev);
             $ticket->next = $this->id;
             return Ticket::getTicket($db, $this->prev);
-        }
-        else return null;
+        } else return null;
     }
 
-    function getNext(PDO $db): ?Ticket {
+    function getNext(PDO $db): ?Ticket
+    {
         if (isset($this->next)) {
             return Ticket::getTicket($db, $this->next);
-        }
-        else return null;
+        } else return null;
     }
 
-    private static function createArray(array $tickets): array {
+    private static function createArray(array $tickets): array
+    {
         $res = array();
         foreach ($tickets as $ticket) {
             $res[] = new Ticket($ticket['id'], $ticket['title'], $ticket['text'], $ticket['dateCreated'], $ticket['status'], $ticket['department'], $ticket['faqitem'], $ticket['uID'], $ticket['priority'], $ticket['aID'], $ticket['history'], $ticket['future']);
@@ -111,23 +120,27 @@ class Ticket
         return $res;
     }
 
-    function deleteTicket(PDO $db): void {
+    function deleteTicket(PDO $db): void
+    {
         deleteTicket($db, $this->id);
     }
 
-    function changeStatus(PDO $db, string $newStatus): void {
+    function changeStatus(PDO $db, string $newStatus): void
+    {
         if ($this->status == $newStatus) return;
         else changeStatus($db, $newStatus, $this->id);
         $this->status = $newStatus;
-    } 
+    }
 
-    function changePriority(PDO $db, int $newPriority): void {
+    function changePriority(PDO $db, int $newPriority): void
+    {
         if ($this->priority == $newPriority) return;
         else changePriority($db, $newPriority, $this->id);
         $this->priority = $newPriority;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return strval($this->id);
     }
 }

@@ -47,5 +47,3 @@ class FAQ
         return $res;
     }
 }
-
-?>

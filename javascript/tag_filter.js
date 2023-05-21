@@ -8,8 +8,8 @@ allTags.querySelectorAll('option').forEach((option) => {
     tagList.push(option.textContent)
 })
 
-addButton.onclick = function() {
-    const newTag = inputTag.value 
+addButton.onclick = function () {
+    const newTag = inputTag.value
     if (tagList.includes(newTag)) {
         if (tagString.value.includes(newTag)) {
             tagString.value = tagString.value.replace(newTag, '').replace(/^,/, '').replace(/,,/, ',').replace(/,$/, '')

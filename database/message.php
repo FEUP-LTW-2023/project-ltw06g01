@@ -11,4 +11,3 @@
         $date = date('Y-m-d H:i:s');
         $stmt->execute(array($text, $date, $id, $authorID));
     }
-?>

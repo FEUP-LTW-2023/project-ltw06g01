@@ -11,8 +11,8 @@ let currID = tID.getAttribute('value')
 const initialID = currID
 
 
-prevButton.onclick = async function() {
-    const params = {'id': currID}
+prevButton.onclick = async function () {
+    const params = { 'id': currID }
     const response = await fetch('../api/api_ticket.php?' + new URLSearchParams(params).toString())
     const ticket = await response.json()
 

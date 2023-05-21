@@ -21,4 +21,3 @@
     $session->addMessage('success', 'Ticket opened');
     if (!isset($status) == -1) header('Location: ../pages/page.php');
     else header("Location: ../pages/view_ticket.php?id=$status->id");
-?>    

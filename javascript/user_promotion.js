@@ -6,9 +6,9 @@ userBoxes.forEach((element) => {
   const csrf = element.querySelector('.csrf').value
 
   const select = element.querySelector('.user-type-select')
-  select.onchange = async function(e) {
+  select.onchange = async function (e) {
     const level = e.target.value
-    const params = {'uid': uid, 'level': level, 'csrf': csrf}
+    const params = { 'uid': uid, 'level': level, 'csrf': csrf }
     const response = await fetch('../api/api_users.php?' + new URLSearchParams(params).toString())
     const content = await response.json()
 

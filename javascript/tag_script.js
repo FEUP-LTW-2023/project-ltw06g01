@@ -15,11 +15,11 @@ if (tagBox !== null) {
 
     function tagSetup(tag) {
         const x = tag.querySelector('.tag-delete')
-        x.onclick = function() {
+        x.onclick = function () {
             {
                 const tagName = tag.textContent.slice(0, -5)
                 tagString.value = tagString.value.replace(tagName, '').replace(/^,/, '').replace(/,,/, ',').replace(/,$/, '')
-                
+
                 tag.remove()
             }
         }
@@ -27,8 +27,8 @@ if (tagBox !== null) {
 
     tags.forEach((tag) => tagSetup(tag))
 
-    addButton.onclick = function() {
-        const newTag = tagInput.value 
+    addButton.onclick = function () {
+        const newTag = tagInput.value
 
         const currTags = Array.from(tagBox.querySelectorAll('.tag')).map(node => node.textContent.slice(0, -2))
         if (!currTags.includes(newTag)) {
@@ -46,7 +46,7 @@ if (tagBox !== null) {
 
             tagString.value += (',' + newTag)
             tagString.value = tagString.value.replace(/^,/, '')
-            
+
             tagBox.appendChild(tagNode)
         }
         if (!tagList.includes(newTag)) {

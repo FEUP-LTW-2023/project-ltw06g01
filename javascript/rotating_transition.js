@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const userBoxPopup = document.getElementById("userBoxPopup-" + userId)
     const backButton = userBoxPopup.querySelector(".back-button")
 
-    userBox.onclick = function() {
+    userBox.onclick = function () {
       rotatePage(userBox, userBoxPopup)
     }
 
-    backButton.onclick = function() {
+    backButton.onclick = function () {
       rotatePage(userBoxPopup, userBox)
     }
   })

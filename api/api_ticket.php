@@ -14,5 +14,4 @@ $db = getDatabaseConnection();
 
 $ticket = Ticket::getTicket($db, $_GET['id']);
 
-echo json_encode($ticket)
-?>
+echo json_encode($ticket);

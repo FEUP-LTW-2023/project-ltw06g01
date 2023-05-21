@@ -37,4 +37,3 @@
 
     $session->addMessage('success', 'Account created');
     header('Location: ../pages/page.php');
-?>    

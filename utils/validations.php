@@ -39,5 +39,3 @@
         }
         else return true;
     }
-
-?>    

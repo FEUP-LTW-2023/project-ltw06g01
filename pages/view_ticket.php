@@ -4,7 +4,7 @@ require_once(__DIR__ . '/../classes/session.class.php');
 $session = new Session();
 
 if (!$session->isLoggedIn()) {
-    header('Location: page.php');
+  header('Location: page.php');
 }
 
 require_once(__DIR__ . '/../database/connection.php');
@@ -38,7 +38,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
 
 <head>
   <title>Visualizar Ticket</title>
-  <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+  <meta name="viewport" content="width=device-width, initial-scale = 1.0">
   <link rel="stylesheet" href="/../css/geralStyle.css">
   <link rel="stylesheet" href="/../css/view_ticketStyle.css">
   <script src="/../javascript/all_variables.js" defer></script>
@@ -51,24 +51,25 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
+
 <body>
   <header>
-    <?php drawHeader(0, 4, "Ticket history"); 
-    drawMessages($session);?>
+    <?php drawHeader(0, 4, "Ticket history");
+    drawMessages($session); ?>
   </header>
-    <?php drawNav(); ?>
+  <?php drawNav(); ?>
   <main>
     <?php if ($_SESSION['level'] >= 1) drawNavigationButtons($ticket->hasPrev(), $ticket->hasNext()); ?>
 
     <div class="ticket-display">
-    <?php 
-          drawTicketForm($ticket, false, $tags, true); 
-          drawTicketFAQ($db, $ticket, true); 
-          drawOpcions($db, $ticket);
-          ?>
+      <?php
+      drawTicketForm($ticket, false, $tags, true);
+      drawTicketFAQ($db, $ticket, true);
+      drawOpcions($db, $ticket);
+      ?>
     </div>
     <?php drawTicketMessages($messages, $db);
-     if (null === $ticket->hasNext()) drawAddMessage($ticket); ?>
+    if (null === $ticket->hasNext()) drawAddMessage($ticket); ?>
   </main>
   <footer>
     <?php drawFooter(); ?>
