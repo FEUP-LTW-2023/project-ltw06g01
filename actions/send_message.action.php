@@ -14,8 +14,16 @@ if (!$session->isLoggedIn() || !$session->isValidSession($_GET['csrf'])) {
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/message.php');
+    require_once(__DIR__ . '/../classes/ticket.class.php');
 
     $db = getDatabaseConnection();
+    $ticket = Ticket::getTicket($db, $_POST['tID']);
+
+    if (isValidUser($ticket->uid, $ticket->aid, $_SESSION['uid'], $_SESSION['level']) == 0) {
+        $session->addMessage('error', "You can't send messages for this ticket");
+        header('Location: /../pages/page.php');
+    }
+
 
     sendMessageToTicket($db, $_GET['tID'], $_SESSION['uid'], $_GET['text']);
 
