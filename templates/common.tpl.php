@@ -88,12 +88,12 @@ function drawEnterBoxes(){
                     <h2>Login</h2>
                     <div class="inputbox">
                       <ion-icon name="person-outline"></ion-icon>
-                      <input type="text" required class="username" name="username">
+                      <input type="text" required class="username" id="username" name="username">
                       <label for="username">Username:</label>
                     </div>
                     <div class="inputbox">
                       <ion-icon name="lock-closed-outline"></ion-icon>
-                      <input type="password" required class="password" name="password">
+                      <input type="password" required class="password" id="password" name="password">
                       <label for="password">Password:</label>
                     </div>
                     <button type="submit" class="submit-login" formaction="/../actions/login.action.php" formmethod="post">Login</button>
@@ -118,8 +118,8 @@ function drawEnterBoxes(){
                   <h2>Sign Up</h2>
                   <div class="inputbox">
                     <ion-icon name="person-outline"></ion-icon>
-                    <input type="text" required class="username" name="username">
-                    <label for="username">Username:</label>
+                    <input type="text" required class="username" id="username-register" name="username">
+                    <label for="username-register">Username:</label>
                   </div>
                   <div class="inputbox">
                     <ion-icon name="mail-outline"></ion-icon>
@@ -128,8 +128,8 @@ function drawEnterBoxes(){
                   </div>
                   <div class="inputbox">
                     <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" required class="password" name="password">
-                    <label for="password">Password:</label>
+                    <input type="password" required class="password" id="password-register" name="password">
+                    <label for="password-register">Password:</label>
                   </div>
                   <div class="inputbox">
                     <ion-icon name="lock-closed-outline"></ion-icon>
