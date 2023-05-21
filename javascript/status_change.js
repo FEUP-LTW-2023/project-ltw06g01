@@ -7,7 +7,8 @@ statusBoxes.forEach((element) => {
     const assignButton = element.querySelector('.status-confirm')
 
     assignButton.addEventListener('click', async function () {
-        const response = await fetch('../api/api_change_status.php?status=' + statusSelect.value + '&id=' + tID + '&csrf=' + csrf)
+        const params = {'status': statusSelect.value, 'id': tID, 'csrf': csrf}
+        const response = await fetch('../api/api_change_status.php?' + new URLSearchParams(params).toString())
         const json = await response.json()
 
         if (json != statusSelect.value) {

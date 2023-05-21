@@ -9,7 +9,8 @@ priorityBoxes.forEach((element) => {
 
     incrementButton.addEventListener('click', async function () {
         const priority = parseInt(priorityValue.value, 10) + 1;
-        const response = await fetch('../api/api_change_priority.php?priority=' + priority + '&id=' + tID + '&csrf=' + csrf);
+        const params = {'priority': priority, 'id': tID, 'csrf': csrf}
+        const response = await fetch('../api/api_change_priority.php?' + new URLSearchParams(params).toString());
         const json = await response.json();
         priorityValue.value = json;
         updatePriorityColor(this);
@@ -17,7 +18,8 @@ priorityBoxes.forEach((element) => {
 
     decrementButton.addEventListener('click', async function () {
         const priority = parseInt(priorityValue.value, 10) - 1;
-        const response = await fetch('../api/api_change_priority.php?priority=' + priority + '&id=' + tID + '&csrf=' + csrf);
+        const params = {'priority': priority, 'id': tID, 'csrf': csrf}
+        const response = await fetch('../api/api_change_priority.php?' + new URLSearchParams(params).toString());
         const json = await response.json();
         priorityValue.value = json;
         updatePriorityColor(this);

@@ -11,7 +11,8 @@ agentBoxes.forEach((element) => {
   toggleButton.addEventListener('click', async function() {
     const department = departmentSelect.value;
     if (department === '') return;
-    const response = await fetch('../api/api_toggle_department.php?aid=' + aid.getAttribute('value') + '&department=' + department + '&csrf=' + csrf);
+    const params = {'aid': aid.getAttribute('value'), 'department': department, 'csrf': csrf}
+    const response = await fetch('../api/api_toggle_department.php?' + new URLSearchParams(params).toString());
     const departments = await response.json();
 
     userDepartments.innerHTML = '';

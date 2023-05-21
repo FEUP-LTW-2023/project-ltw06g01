@@ -12,7 +12,8 @@ const initialID = currID
 
 
 prevButton.addEventListener('click', async function() {
-    const response = await fetch('../api/api_ticket.php?id=' + currID)
+    const params = {'id': currID}
+    const response = await fetch('../api/api_ticket.php?' + new URLSearchParams(params).toString())
     const ticket = await response.json()
 
     let prevID = ticket.prev
