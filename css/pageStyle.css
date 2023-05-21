@@ -574,7 +574,26 @@ a{
 
 #filters-button:hover{
   border: 2px solid #fff;
+}
 
+#done-button{
+  grid-area: done;
+  font-size: 15px;
+  display: grid;
+  justify-self: center;
+  color: #fff;
+  background-color: #55afc699;
+  padding: 0.5% 10px;
+  border: 2px solid rgba(255, 255, 255, 0.671);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+#done-button:hover{
+  border: 2px solid #fff;
 }
 
 #filtro{
@@ -588,8 +607,9 @@ a{
   column-gap: 15px;
   row-gap: 10px;
   grid-template-areas:
-      "ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title ticket-filter-tag-title ticket-filter-tag-title"
-      "ticket-filter-status ticket-filter-agent ticket-filter-department ticket-filter-tag tag-toggle";
+  "ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title ticket-filter-tag-title ticket-filter-tag-title"
+  "ticket-filter-status ticket-filter-agent ticket-filter-department ticket-filter-tag tag-toggle"
+  "done done done done done";
   grid-auto-columns: 1fr 1fr 1fr;
   justify-content: center;
 }

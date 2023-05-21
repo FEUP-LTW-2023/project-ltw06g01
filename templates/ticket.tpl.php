@@ -224,7 +224,7 @@ function drawFilters($get, $departments, $users, $statuses) {
       <form id="filtro" method="get" class="ticket-filter-container">
 
         <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>
-        <select id="ticket-filter-status" class="ticket-filter" name="ticket-filter-status" onchange="this.form.submit()">
+        <select id="ticket-filter-status" class="ticket-filter" name="ticket-filter-status">
           <option value="all" <?php if ($get['ticket-filter-status'] == 'all') echo 'selected'; ?>>Todos</option>
           <?php foreach ($statuses as $status) { ?>
             <option value=<?= $status ?> <?php if ($get['ticket-filter-status'] == $status) echo 'selected'; ?>><?= ucfirst($status) ?></option>
@@ -232,7 +232,7 @@ function drawFilters($get, $departments, $users, $statuses) {
         </select>
 
         <label id="ticket-filter-agent-title" for="ticket-filter-agent">Agent</label>
-        <select id="ticket-filter-agent" class="ticket-filter" name="ticket-filter-agent" onchange="this.form.submit()">
+        <select id="ticket-filter-agent" class="ticket-filter" name="ticket-filter-agent">
           <option value="default" <?php if ($get['ticket-filter-agent'] == 1) echo 'selected'; ?>>Todos</option>
           <?php foreach ($users as $user) {
             if ($user->level < 1 ) continue; ?>
@@ -241,7 +241,7 @@ function drawFilters($get, $departments, $users, $statuses) {
         </select>
 
         <label id="ticket-filter-department-title" for="ticket-filter-department">Department</label>
-        <select name="ticket-filter-department" class="ticket-filter" id="ticket-filter-department" onchange="this.form.submit()">
+        <select name="ticket-filter-department" class="ticket-filter" id="ticket-filter-department" >
           <option value="unassigned" <?php if ($get['ticket-filter-department'] == 'unassigned') echo 'selected'; ?>>Unassigned</option>
           <?php foreach ($departments as $department) { ?>
             <option value=<?= $department ?> <?php if ($get['ticket-filter-department'] == $department) echo 'selected'; ?>><?= $department ?></option>
@@ -257,7 +257,7 @@ function drawFilters($get, $departments, $users, $statuses) {
             <?php } ?>
         </datalist>
         <input type="hidden" name="tag-string" id="tag-string" value=<?= $get['tag'] ?? "\"\"" ?>>
-        <button id="done-button"> Done </button>
+        <button type="submit" formmethod="get" formaction="all_tickets.php"  id="done-button"> Done </button>
       </form>
 </div>
 <?php }

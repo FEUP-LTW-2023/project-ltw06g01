@@ -47,6 +47,10 @@ main{
     cursor: pointer;
 }
 
+#done-button:hover{
+    border: 2px solid #fff;
+  }
+
 #filtro{
     display: none;
     width: fit-content;
