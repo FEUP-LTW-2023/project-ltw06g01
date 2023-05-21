@@ -117,6 +117,30 @@
   color: #55b0c6;
 }
 
+.rotate-in {
+  animation-name: rotateIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.rotate-out {
+  animation-name: rotateOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+
 @keyframes rotateOut {
   from {
     transform: rotateY(0deg);
