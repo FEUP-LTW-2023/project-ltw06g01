@@ -71,7 +71,6 @@
 <script src="/../javascript/filters.js" defer></script>
 <script src="/../javascript/page.js" defer></script>
 <script src="/../javascript/login_logout_transitions.js" defer></script>
-<script src="/../javascript/ticket_options.js" defer></script>
 <script src="/../javascript/all_tickets.js" defer></script>
 <script src="/../javascript/priority_change.js" defer></script>
 <script src="/../javascript/tag_filter.js" defer></script>
@@ -117,7 +116,7 @@
                         <div class="ticket-display">
                         
                           <?php drawTicketForm($ticket, false, $tags);
-                          drawOpcions($db, $ticket); ?>
+                          drawOpcions($db, $ticket, false); ?>
                           
                         </div>
                 <?php }

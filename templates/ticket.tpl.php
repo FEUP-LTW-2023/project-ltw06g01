@@ -180,15 +180,14 @@ function drawPriorityButtons($ticket) { ?>
     </form>
 <?php }
 
-function drawOpcions($db, $ticket){ ?>
+function drawOpcions($db, $ticket, $filters = true){ ?>
     <div class="options">
 
-        <?php if ($_SESSION['level'] >= 1 ) { ?>
+        <?php if ($_SESSION['level'] >= 1 && $filters) { ?>
             <div class="filters-toggle">
                 <ion-icon class="settings-not-hover" name="settings-outline"></ion-icon>
                 <ion-icon class="settings-hover" name="settings"></ion-icon>
             </div>
-
             <div class="filters-container">
                 <?php drawAssignAgent($db, $ticket);
                         drawChangeStatus($db, $ticket); 
