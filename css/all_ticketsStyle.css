@@ -512,6 +512,15 @@ select option{
       .ticket-form ion-icon {
         font-size: 14px;
       }
+
+        #filtro {
+          grid-template-areas:
+        "ticket-filter-status-title ticket-filter-agent-title ticket-filter-department-title"
+        "ticket-filter-status ticket-filter-agent ticket-filter-department"
+        "ticket-filter-tag-title ticket-filter-tag-title ticket-filter-tag-title"
+        "ticket-filter-tag ticket-filter-tag tag-toggle"
+        "done done done";
+        }
 }
 
 @media screen and (max-width: 480px) {
