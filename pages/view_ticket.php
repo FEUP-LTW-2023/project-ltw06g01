@@ -13,6 +13,7 @@ require_once(__DIR__ . '/../database/message.php');
 require_once(__DIR__ . '/../classes/ticket.class.php');
 require_once(__DIR__ . '/../utils/validations.php');
 require_once(__DIR__ . '/../templates/ticket.tpl.php');
+require_once(__DIR__ . '/../templates/messages.tpl.php');
 require_once(__DIR__ . '/../templates/common.tpl.php');
 require_once(__DIR__ . '/../database/tags.php');
 require_once(__DIR__ . '/../database/status.php');
