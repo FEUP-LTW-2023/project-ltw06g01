@@ -72,6 +72,7 @@
 <script src="/../javascript/page.js" defer></script>
 <script src="/../javascript/login_logout_transitions.js" defer></script>
 <script src="/../javascript/ticket_options.js" defer></script>
+<script src="/../javascript/all_tickets.js" defer></script>
 <script src="/../javascript/priority_change.js" defer></script>
 <script src="/../javascript/tag_filter.js" defer></script>
  
