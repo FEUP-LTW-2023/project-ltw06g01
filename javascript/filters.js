@@ -10,6 +10,6 @@ filtersButton.onclick = function() {
     filtersButton.style.borderRadius = '15px'
   }
 
-  ajustarLarguraElementos()
+  ajustarLarguraItensMenu()
 
 }
