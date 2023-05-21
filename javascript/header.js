@@ -1,7 +1,11 @@
-setTimeout(function() {
-    document.querySelector('.message-category').classList.add('show');
-  }, 100);
-  
+const message = document.querySelector('.message-category')
+
+if (message !== null) {
   setTimeout(function() {
-    document.querySelector('.message-category').classList.add('hide');
-  }, 6100);
+      message.classList.add('show');
+    }, 100);
+    
+    setTimeout(function() {
+      message.classList.add('hide');
+    }, 6100);
+}    
