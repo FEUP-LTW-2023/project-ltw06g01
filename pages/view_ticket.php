@@ -81,7 +81,7 @@ $messages = getMessagesFromTicket($db, $_GET['id']);
           <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
           <input type="hidden" name="tID" value=<?= $ticket->id ?>>
           <input type="hidden" name="tuid" value=<?= $ticket->uid ?>>
-          <input type="hidden" name="auid" value=<?= $ticket->aid ?>>
+          <input type="hidden" name="auid" value=<?= $ticket->aid ?? "\"\"" ?>>
           <input type="text" id="message-text" name="text" placeholder="Write a message">
           <button id="send-message" type="submit" formaction="../actions/send_message.action.php" formmethod="get">Send</button>
         </form>
