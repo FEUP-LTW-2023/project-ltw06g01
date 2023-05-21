@@ -6,3 +6,5 @@ Credentials for admin: onso / bomdia
 Credentials for agent: user2 / Passworddddd
 
 Credentials for client: user3 / Passworddddd
+
+Use in Google Chrome
