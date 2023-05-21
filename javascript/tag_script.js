@@ -1,52 +1,56 @@
 const tagBox = document.querySelector('.tags')
-const tags = tagBox.querySelectorAll('.tag')
-const allTags = document.querySelector('#taglist')
-const addButton = document.querySelector('.tag-add')
-const tagInput = document.querySelector('.tag-input')
-const tagList = []
-const tagString = document.querySelector('.curr-tags')
 
-allTags.querySelectorAll('option').forEach((option) => {
-    tagList.push(option.textContent)
-})
+if (tagBox !== null) {
+    const tags = tagBox.querySelectorAll('.tag')
+    const allTags = document.querySelector('#taglist')
+    const addButton = document.querySelector('.tag-add')
+    const tagInput = document.querySelector('.tag-input')
+    const tagList = []
+    const tagString = document.querySelector('.curr-tags')
 
-function tagSetup(tag) {
-    const x = tag.querySelector('.tag-delete')
-    x.addEventListener('click', (e) => {
-        const tagName = tag.textContent.slice(0, -5)
-        tagString.value = tagString.value.replace(tagName, '').replace(/^,/, '').replace(/,,/, ',').replace(/,$/, '')
-        
-        tag.remove()
+
+    allTags.querySelectorAll('option').forEach((option) => {
+        tagList.push(option.textContent)
     })
-}
 
-tags.forEach((tag) => tagSetup(tag))
-
-addButton.addEventListener('click', (e) => {
-    const newTag = tagInput.value 
-
-    const currTags = Array.from(tagBox.querySelectorAll('.tag')).map(node => node.textContent.slice(0, -2))
-    if (!currTags.includes(newTag)) {
-        const tagNode = document.createElement('div')
-        const newButton = document.createElement('span')
-
-        newButton.classList.add('tag-delete')
-        newButton.textContent = "X"
-
-        tagNode.classList.add('tag')
-        tagNode.textContent = newTag + " "
-
-        tagNode.appendChild(newButton)
-        tagSetup(tagNode)
-
-        tagString.value += (',' + newTag)
-        tagString.value = tagString.value.replace(/^,/, '')
-        
-        tagBox.appendChild(tagNode)
+    function tagSetup(tag) {
+        const x = tag.querySelector('.tag-delete')
+        x.addEventListener('click', (e) => {
+            const tagName = tag.textContent.slice(0, -5)
+            tagString.value = tagString.value.replace(tagName, '').replace(/^,/, '').replace(/,,/, ',').replace(/,$/, '')
+            
+            tag.remove()
+        })
     }
-    if (!tagList.includes(newTag)) {
-        const createdTag = document.createElement('option')
-        createdTag.textContent = newTag
-        allTags.appendChild(createdTag)
-    }
-})
+
+    tags.forEach((tag) => tagSetup(tag))
+
+    addButton.addEventListener('click', (e) => {
+        const newTag = tagInput.value 
+
+        const currTags = Array.from(tagBox.querySelectorAll('.tag')).map(node => node.textContent.slice(0, -2))
+        if (!currTags.includes(newTag)) {
+            const tagNode = document.createElement('div')
+            const newButton = document.createElement('span')
+
+            newButton.classList.add('tag-delete')
+            newButton.textContent = "X"
+
+            tagNode.classList.add('tag')
+            tagNode.textContent = newTag + " "
+
+            tagNode.appendChild(newButton)
+            tagSetup(tagNode)
+
+            tagString.value += (',' + newTag)
+            tagString.value = tagString.value.replace(/^,/, '')
+            
+            tagBox.appendChild(tagNode)
+        }
+        if (!tagList.includes(newTag)) {
+            const createdTag = document.createElement('option')
+            createdTag.textContent = newTag
+            allTags.appendChild(createdTag)
+        }
+    })
+}    
