@@ -34,7 +34,7 @@
             return false;
         }
         else if(!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)) {
-            $session->addMessage('error', 'Password must have at least one lowercase and at least one uppercase characted');
+            $session->addMessage('error', 'Password must have at least one lowercase and at least one uppercase character');
             return false;
         }
         else return true;

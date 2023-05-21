@@ -19,7 +19,6 @@
 
     if (empty($user)) {
         $session->addMessage('error', 'Invalid login');
-        echo "NO USER";
     }
     else {
         if (password_verify($_POST['password'], $user['passHash'])) {
@@ -27,6 +26,10 @@
             $_SESSION['level'] = $user['permissionLevel'];
             $_SESSION['animation'] = 1;
             $_SESSION['loggedin'] = 1;
+        }
+        else {
+            $session->addMessage('error', 'Wrong password');
+            header('Location: ../pages/page.php');
         }
     }
 
