@@ -1210,6 +1210,13 @@ a{
 
 /*resposive design*/
 
+@media screen and (max-width: 1200px){
+  
+  footer p{
+    font-size: 1vw;
+  }
+}
+
   @media screen and (max-width: 800px) {
     .item-menu .txt-link{
     opacity: 1;

@@ -98,7 +98,7 @@ INSERT INTO CLIENT (uid, username, passHash, email, permissionLevel)
 VALUES (25, 'onso', '$2y$10$elfuu1AexoMbccFQaG28Pu9GdtfHhH2bGfchrSVOn6OiYWg6.Pw/y', 'afonso.vo@gmail.com', 2);
 
 -- Inserting data into DEPARTMENT table
-INSERT INTO DEPARTMENT (name) VALUES ('Vendas'), ('Suporte'), ('Financeiro');
+INSERT INTO DEPARTMENT (name) VALUES ('Sales'), ('Support'), ('Finances');
 
 -- Inserting data into TAG table
 /*INSERT INTO TAG (name) VALUES ('potato'), ('tomato'), ('banana'), ('apple');*/
@@ -108,9 +108,9 @@ INSERT INTO STATUS (name) VALUES ('open'), ('assigned'), ('closed');
 
 -- Inserting data into TICKET table
 INSERT INTO TICKET (id, title, text, dateCreated, priority, status, faqitem, department, aID, uID, history, future)
-VALUES (1, 'Urgent Issue', 'Having trouble accessing the system', '2023-05-12', 1, 'open', NULL, 'Suporte', NULL, 25, NULL, NULL),
-       (2, 'Payment Inquiry', 'Need information about my recent payment', '2023-05-13', 2, 'open', NULL, 'Financeiro', NULL, 25, NULL, NULL),
-       (3, 'Product Recommendation', 'Looking for suggestions on new products', '2023-05-14', 1, 'assigned', NULL, 'Vendas', NULL, 25, NULL, NULL);
+VALUES (1, 'Urgent Issue', 'Having trouble accessing the system', '2023-05-12', 1, 'open', NULL, 'Support', NULL, 25, NULL, NULL),
+       (2, 'Payment Inquiry', 'Need information about my recent payment', '2023-05-13', 2, 'open', NULL, 'Finances', NULL, 25, NULL, NULL),
+       (3, 'Product Recommendation', 'Looking for suggestions on new products', '2023-05-14', 1, 'assigned', NULL, 'Sales', NULL, 25, NULL, NULL);
 
 -- Inserting data into FAQITEM table
 INSERT INTO FAQITEM (id, question, answer, dateCreated)
@@ -124,4 +124,4 @@ VALUES (1, 'I''m unable to login. Help!', '2023-05-12', 25, 1),
        (2, 'Can you provide a refund?', '2023-05-13', 25, 2),
        (3, 'I need assistance with my order', '2023-05-14', 25, 3);
 
-INSERT INTO AGENTDEPARTMENT VALUES (25, 'Vendas'), (25, 'Financeiro');
+INSERT INTO AGENTDEPARTMENT VALUES (25, 'Sales'), (25, 'Finances');

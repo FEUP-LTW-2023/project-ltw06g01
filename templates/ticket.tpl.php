@@ -15,10 +15,10 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
     }
 
     if (isset($ticket)) {
-        $buttonText = "Editado";
+        $buttonText = "Edited";
         $action = "../actions/edit_ticket.action.php";
     } else {
-        $buttonText = "Enviar";
+        $buttonText = "Send";
         $action = "../actions/open_ticket.action.php";
         $ticket = new Ticket(-1, "", "", "", "", 0, 0, 0, 0, 0, 0);
     }
@@ -29,8 +29,8 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
 
 
                 <input type="hidden" name="csrf" value=<?= $_SESSION['csrf'] ?>>
-                    <?php if ($ticket->id == -1) { ?> <h2 class="title_box">Novo Ticket</h2> <?php } 
-                    else if ($edit) { ?> <h2 class="title_box">Editar:</h2> <?php } ?> 
+                    <?php if ($ticket->id == -1) { ?> <h2 class="title_box">New Ticket</h2> <?php } 
+                    else if ($edit) { ?> <h2 class="title_box">Edit:</h2> <?php } ?> 
                 
                      <?php
                         if (($ticket->hasNext() == null) && strpos($_SERVER['PHP_SELF'], 'view_ticket.php') !== false) { ?>
@@ -42,7 +42,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
 
                 <input type="hidden" name="id" class="tid" value=<?= $ticket->id ?>>
                 <div class="departamento">
-                    <?php if ($single) { ?><label for="department">Departamento:</label> <?php } ?>
+                    <?php if ($single) { ?><label for="department">Departament:</label> <?php } ?>
                     <select class="department" name="department" <?php if (!$edit && $validity != 2) echo 'disabled '; if ($single) echo "id=\"department\"";?>>
                         <?php if ($edit) {
                             foreach (getDepartments(getDatabaseConnection()) as $department) { ?>
@@ -56,7 +56,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                 </div>
 
                 <div class="assunto">
-                    <?php if ($single) { ?><label for="ticket-title">Assunto:</label> <?php } ?>
+                    <?php if ($single) { ?><label for="ticket-title">Subject:</label> <?php } ?>
                     <?php if (strpos($_SERVER['REQUEST_URI'], 'open_page') !== false || strpos($_SERVER['REQUEST_URI'], 'page.php') !== false) { ?>
                         <ion-icon name="file-tray-full"></ion-icon>
                     <?php } ?>
@@ -64,7 +64,7 @@ function drawTicketForm(?Ticket $ticket, bool $edit, array $tags = array(), bool
                 </div>
 
                 <div class="textArea">
-                    <?php if ($single) { ?><label for="fulltext">Mensagem:</label><?php } ?>
+                    <?php if ($single) { ?><label for="fulltext">Message:</label><?php } ?>
                     <textarea class="tickettext" name="fulltext" <?php if (!$edit || ($validity != 3 && $validity != 1 && $ticket->id != -1)) echo 'readonly '; if ($single) echo "id=\"fulltext\"";?>><?= $ticket->text ?></textarea>
                 </div>
 
@@ -226,7 +226,7 @@ function drawFilters($get, $departments, $users, $statuses) {
 
         <label id="ticket-filter-status-title" for="ticket-filter-status">Status</label>
         <select id="ticket-filter-status" class="ticket-filter" name="ticket-filter-status">
-          <option value="all" <?php if ($get['ticket-filter-status'] == 'all') echo 'selected'; ?>>Todos</option>
+          <option value="all" <?php if ($get['ticket-filter-status'] == 'all') echo 'selected'; ?>>All</option>
           <?php foreach ($statuses as $status) { ?>
             <option value=<?= $status ?> <?php if ($get['ticket-filter-status'] == $status) echo 'selected'; ?>><?= ucfirst($status) ?></option>
           <?php } ?>
@@ -234,7 +234,7 @@ function drawFilters($get, $departments, $users, $statuses) {
 
         <label id="ticket-filter-agent-title" for="ticket-filter-agent">Agent</label>
         <select id="ticket-filter-agent" class="ticket-filter" name="ticket-filter-agent">
-          <option value="default" <?php if ($get['ticket-filter-agent'] == 1) echo 'selected'; ?>>Todos</option>
+          <option value="default" <?php if ($get['ticket-filter-agent'] == 1) echo 'selected'; ?>>All</option>
           <?php foreach ($users as $user) {
             if ($user->level < 1 ) continue; ?>
             <option value=<?= $user->id ?> <?php if ($get['ticket-filter-agent'] == $user->id) echo 'selected'; ?>><?= $user->username ?></option>
